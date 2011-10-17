@@ -3,17 +3,17 @@
 <fieldset id=sponsorbox>
 <legend>
 Platinum Sponsors</legend>
-                      <table width="100%" border="0" cellspacing="0" cellpadding="8">
-                        <tr>
-                          <?php
-						$pcount = 0; do { $pcount++; ?>
-                          <td class="sponsorsurround"><a href="sponsordetail.php?ID=<?php echo $row_platinumsponsors['ID']; ?>"><img src="sponsorlogos/<?php echo $row_platinumsponsors['logo']; ?>thumb" width="100" alt="" /></a>&nbsp;</td> <?php if($pcount == 2) { echo "</tr>"; $pcount = 0; } ?>
-                          <?php } while ($row_platinumsponsors = mysql_fetch_assoc($platinumsponsors)); ?>
-                          </tr>
-                        </table>
-                   </fieldset>
-                   <fieldset id=sponsorbox><legend>
-                   Gold Sponsors</legend>
+<table width="100%" border="0" cellspacing="0" cellpadding="8">
+    <tr>
+        <?php
+        $pcount = 0; do { $pcount++; ?>
+            <td class="sponsorsurround"><a href="sponsordetail.php?ID=<?php echo $row_platinumsponsors['ID']; ?>"><img src="sponsorlogos/<?php echo $row_platinumsponsors['logo']; ?>thumb" width="100" alt="" /></a>&nbsp;</td> <?php if($pcount == 2) { echo "</tr>"; $pcount = 0; } ?>
+        <?php } while ($row_platinumsponsors = mysql_fetch_assoc($platinumsponsors)); ?>
+    </tr>
+</table>
+</fieldset>
+<fieldset id=sponsorbox><legend>
+Gold Sponsors</legend>
 
 
 <table width="100%" border="0" cellspacing="0" cellpadding="8">
