@@ -1,0 +1,49 @@
+h1 {
+	font-size: 24px;
+}
+.box {
+	vertical-align: top;
+	border: 4px solid #eeeeee;
+	padding-top: 2px;
+	padding-right: 10px;
+	padding-bottom: 10px;
+	padding-left: 10px;
+}
+
+body {
+	font-family: Tahoma, Geneva, sans-serif;
+	margin-top: 10px;
+}
+h2 {
+	font-size: 18px;
+}
+h3 {
+	font-size: 16px;
+}
+td {
+	vertical-align: top;
+}
+.notice {
+	font-size: 12px;
+	color: #F00;
+}
+p {
+	font-size: 12px;
+}
+li {
+	background-color: #222222;
+	text-align: right;
+	display: block;
+	list-style-type: none;
+	margin: 5px;
+	color: #FFF;
+	width: 100%;
+	padding-top: 7px;
+	padding-right: 7px;
+	padding-bottom: 7px;
+	padding-left: 0px;
+}
+li a {
+	text-decoration: none;
+	color:#FFF;
+}

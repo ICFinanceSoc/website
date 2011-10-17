@@ -1,0 +1,23 @@
+
+
+.theme-default #slider {
+    margin:10px auto 0 auto;
+    width:1000px; /* Make sure your images are the same size */
+    height:556px; /* Make sure your images are the same size */
+}
+
+.shadow {
+width: 950px;
+margin-left: auto;
+margin-right: auto;
+margin: 0px auto 0 auto;
+height: 20px;
+background:url(images/bg-slider.png) no-repeat;
+}
+
+/*====================*/
+/*=== Other Styles ===*/
+/*====================*/
+.clear {
+	clear:both;
+}
