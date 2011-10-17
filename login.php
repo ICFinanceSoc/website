@@ -1,32 +1,31 @@
 <?
 
 function confirmUser($username, $password){
-   global $connect;
-    if(!get_magic_quotes_gpc()) {
-	$username = addslashes($username);
-   }
+    global $connect;
+        if(!get_magic_quotes_gpc()) {
+        $username = addslashes($username);
+    }
 
-   $q = "select * from 2011_Members where Username = '$username'";
-   $result = mysql_query($q,$connect);
-   if(!$result || (mysql_numrows($result) < 1)){
+    $q = "select * from 2011_Members where Username = '$username'";
+    $result = mysql_query($q,$connect);
+    if(!$result || (mysql_numrows($result) < 1)){
       return 1; //Indicates username failure
-   }
+    }
+    $password = stripslashes($password);
 
-  $password = stripslashes($password);
-
- $checck = pam_auth($username,$password);
-   if($checck == 1){
-      return 0; 
-   }
-   else{
-      return 2; //Indicates password failure
-   }
+    $checck = pam_auth($username,$password);
+    if($checck == 1){
+        return 0; 
+    }
+    else{
+        return 2; //Indicates password failure
+    }
 }
 
 
 
 function confirmUser2($username){
-   global $connect;
+    global $connect;
        if(!get_magic_quotes_gpc()) {
                $username = addslashes($username);
                   }
@@ -36,7 +35,6 @@ function confirmUser2($username){
                            if(!$result || (mysql_numrows($result) == 1)){
                                  return 0;
                 }
-                                 
 }                          
                                                                
 
