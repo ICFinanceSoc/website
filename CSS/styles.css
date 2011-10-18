@@ -7,30 +7,27 @@ body {
 	background-position: top center;
 	color: #555555;
 	font-size: 12px;
-
 }
 .widthbox {
-	
 	width: 1000px;
 	height: auto;
 	margin-left: auto;
 	margin-right: auto;
-	
 }
 
 .contentcolumn {
-position: relative;
+    position: relative;
 	float: left;
 	width: 725px;
 	margin-right: 15px;
 }
 .line {
-height:1px;
-width: 1000px;
-background-color: black;
-margin-left: auto;
-margin-right: auto;
-margin-bottom: 5px;
+    height:1px;
+    width: 1000px;
+    background-color: black;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5px;
 }
 
 
@@ -237,7 +234,7 @@ img {
 	font-size: 12px;
 }
 .topbar a {
-	color: #222222;
+    color: #222222;
 }
 .mainbanner {
 	background-image: url(../images/logo.png);
@@ -262,52 +259,51 @@ img {
 
 
 #menu {
-   float:left;
-   width:100%;
-   background:#dddddd;
-   border-bottom:1px solid #000;
-   overflow:hidden;
-   position:relative;
-   font-size:15px;
+    float:left;
+    width:100%;
+    background:#dddddd;
+    border-bottom:1px solid #000;
+    overflow:hidden;
+    position:relative;
+    font-size:15px;
 }
 #menu ul {
-   clear:left;
-   float:left;
-   list-style:none;
-   margin:0;
-   padding:0;
-   position:relative;
-   left:50%;
-   text-align:center;
-   font-family:Verdana,Helvetica,Arial,sans-serif;
-font-size:.8em;
+    clear:left;
+    float:left;
+    list-style:none;
+    margin:0;
+    padding:0;
+    position:relative;
+    left:50%;
+    text-align:center;
+    font-family:Verdana,Helvetica,Arial,sans-serif;
+    font-size:.8em;
 }
 #menu ul li {
-   display:block;
-   float:left;
-   list-style:none;
-   margin:0;
-   padding:0;
-   position:relative;
-   right:50%;
+    display:block;
+    float:left;
+    list-style:none;
+    margin:0;
+    padding:0;
+    position:relative;
+    right:50%;
 }
 #menu ul li a {
-   display:block;
-   margin:0 0 0 1px;
-   padding:3px 10px;
-   background:#ddd;
-   color:#1e3074;
-   text-decoration:none;
-   line-height:1.3em;
+    display:block;
+    margin:0 0 0 1px;
+    padding:3px 10px;
+    background:#ddd;
+    color:#1e3074;
+    text-decoration:none;
+    line-height:1.3em;
 }
 #menu ul li a:hover {
-   background:#000;
-   color:#fff;
+    background:#000;
+    color:#fff;
 }
 #menu ul li a.active,
 #menu ul li a.active:hover {
-   color:#fff;
-   background:#000;
- 
+    color:#fff;
+    background:#000;
 }
 

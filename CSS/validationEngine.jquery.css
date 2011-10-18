@@ -78,9 +78,9 @@
 }
 
 .formError .formErrorArrowBottom div {
-  box-shadow: none;
-  -moz-box-shadow: none;
-  -webkit-box-shadow: none;
+    box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
 }
 
 .greenPopup .formErrorArrow div {
