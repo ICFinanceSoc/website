@@ -30,8 +30,6 @@ body {
     margin-bottom: 5px;
 }
 
-
-
 .logobox {
 
 	background-image: url(../images/logo.png);
@@ -60,8 +58,6 @@ body {
 	right: 5px;
 
 }
-
-
 
 .imagebox {
 	background-color: #EEE;
@@ -116,7 +112,6 @@ h4 {
 	float: right;
 	width: 250px;
 }
-
 
 .maincolumn {
 	vertical-align: top;
