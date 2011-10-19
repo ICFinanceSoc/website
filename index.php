@@ -9,7 +9,7 @@
 ?>
 
 <h1><?php echo urldecode($row_homeregion['title']); ?></h1>
-<img src="images/welcome.jpg" width="100%">
+<!-- <img src="images/welcome.jpg" width="100%"> -->
 <div class="displaytext">
     <?php echo stripslashes(urldecode($row_homeregion['body'])); ?>
 </div>
