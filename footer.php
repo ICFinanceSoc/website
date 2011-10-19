@@ -44,7 +44,7 @@
         </div>
     </div>
 
-    <div class=footer>
+    <div class="footer container_12">
         <a href="index.php" title="">Home</a> | 
         <a href="about.php" title="">About Us</a> | 
         <a href="events.php" title="">Events</a> | 
