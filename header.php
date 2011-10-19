@@ -85,6 +85,9 @@ if (!function_exists("GetSQLValueString")) {
     <link rel="stylesheet/less" type="text/css" href="CSS/style.less" />
     <script src="js/less-1.1.4.min.js" type="text/javascript"></script>
 
+    <!-- Google fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Questrial|Droid+Sans:400,700|Josefin+Sans:400,600,700|Muli|Varela|Open+Sans:400,700' rel='stylesheet' type='text/css'>
+
     <? if($currentpage == 'index'){ // Nivo slider themes ?>
         <link rel="stylesheet" href="themes/default/default.css" type="text/css" media="screen" />
         <link rel="stylesheet" href="nivo-slider.css" type="text/css" media="screen" />
@@ -93,31 +96,33 @@ if (!function_exists("GetSQLValueString")) {
 </head>
 
 <body>
-    <div class="topbg">
-        <!-- <div class=logobox></div> -->
-        <div class=loginbox>
-            <?php displayLogin2(); ?>
+    <header>
+        <div class="topbg wrapper clearfix">
+            <!-- <div class=logobox></div> -->
+            <div class="loginbox">
+                <?php displayLogin2(); ?>
+            </div>
         </div>
-    </div>
 
-    <div id=menu>
-        <ul>
-            <li><a href="index.php" <?php if($currentpage == 'index'){ echo 'class="active"'; } ?> title="">Home</a></li>
-            <li><a href="about.php" <?php if($currentpage == 'about'){ echo 'class="active"'; } ?> title="">About Us</a></li>
-            <li><a href="events.php" <?php if($currentpage == 'events'){ echo 'class="active"'; } ?> title="">Events</a></li>
-            <li><a href="publications.php" <?php if($currentpage == 'publications'){ echo 'class="active"'; } ?> title="">Publications</a></li>
-            <li><a href="subsidiaries.php" <?php if($currentpage == 'subsidiaries'){ echo 'class="active"'; } ?> title="">Subsidiaries</a></li>
-            <li><a href="learning.php" <?php if($currentpage == 'learning'){ echo 'class="active"'; } ?> title="">Learning</a></li>
-            <li><a href="sponsors.php" <?php if($currentpage == 'sponsors'){ echo 'class="active"'; } ?> title="">Sponsors</a></li>
-            <li><a href="management.php" <?php if($currentpage == 'management'){ echo 'class="active"'; } ?> title="">Management</a></li>
-            <? if(isset($_SESSION[username])){ }else { ?>
-            <li><a href="register.php" <?php if($currentpage == 'register'){ echo 'class="active"'; } ?> title="">Register</a></li>
-            <? } ?>
-        </ul>
-    </div>
+        <a href="" title="Homepage"><h1>Imperial College Finance Society</h1></a>
+        <div id="menu" class="wrapper clearfix">
+            <ul class="clearfix">
+                <li><a href="index.php" <?php if($currentpage == 'index'){ echo 'class="active"'; } ?> title="">Home</a></li>
+                <li><a href="about.php" <?php if($currentpage == 'about'){ echo 'class="active"'; } ?> title="">About Us</a></li>
+                <li><a href="events.php" <?php if($currentpage == 'events'){ echo 'class="active"'; } ?> title="">Events</a></li>
+                <li><a href="publications.php" <?php if($currentpage == 'publications'){ echo 'class="active"'; } ?> title="">Publications</a></li>
+                <li><a href="subsidiaries.php" <?php if($currentpage == 'subsidiaries'){ echo 'class="active"'; } ?> title="">Subsidiaries</a></li>
+                <li><a href="learning.php" <?php if($currentpage == 'learning'){ echo 'class="active"'; } ?> title="">Learning</a></li>
+                <li><a href="sponsors.php" <?php if($currentpage == 'sponsors'){ echo 'class="active"'; } ?> title="">Sponsors</a></li>
+                <li><a href="management.php" <?php if($currentpage == 'management'){ echo 'class="active"'; } ?> title="">Management</a></li>
+                <? if(isset($_SESSION[username])){ }else { ?>
+                <li><a href="register.php" <?php if($currentpage == 'register'){ echo 'class="active"'; } ?> title="">Register</a></li>
+                <? } ?>
+            </ul>
+        </div>
+    </header>
 
 <? if($currentpage == 'index'){ ?> 
-    <BR><BR>  
     <div id="wrapper">
         <div class="slider-wrapper theme-default">
             <div class="ribbon"></div>
@@ -158,13 +163,15 @@ if (!function_exists("GetSQLValueString")) {
                 </div>
                 <div id="htmlcaption1" class="nivo-html-caption">
                     <? if($totalRows_Recordset1 > 0) {  ?>
-                    <h4> <?php echo urldecode(mysql_result($Recordset1,0,"title")); ?>&nbsp;
-                    <?php echo date("d F Y",strtotime(mysql_result($Recordset1,0,"date"))); ?>, <?php echo substr(mysql_result($Recordset1,0,"start"),0,-3); ?></h4>
-                    <? if(isset($_SESSION[username])){ ?>
-                    <? $name = ldap_get_names($_SESSION[username]); echo $name[0]; ?>, click the image for more information, or <a href="registereventscript.php?ID=<?php echo mysql_result($Recordset1,0,"ID"); ?>">here to register to the event in one-click</a>.
-                    <? } else { ?>
-                    Click the logo for more information. To attend the event, please sign in and register your interest.
-                    <? } ?>
+                        <h4> 
+                            <?php echo urldecode(mysql_result($Recordset1,0,"title")); ?>&nbsp;
+                            <span id="date"><?php echo date("d F Y",strtotime(mysql_result($Recordset1,0,"date"))); ?>, <?php echo substr(mysql_result($Recordset1,0,"start"),0,-3); ?></span>
+                        </h4>
+                        <? if(isset($_SESSION[username])){ ?>
+                        <? $name = ldap_get_names($_SESSION[username]); echo $name[0]; ?>, click the image for more information, or <a href="registereventscript.php?ID=<?php echo mysql_result($Recordset1,0,"ID"); ?>">here to register to the event in one-click</a>.
+                        <? } else { ?>
+                        Click the logo for more information. To attend the event, please sign in and register your interest.
+                        <? } ?>
                     <?php } else { ?>
                     <h4>What have we acheived?</h4>
                     Take a look at some of the events we've held this year.
@@ -173,16 +180,18 @@ if (!function_exists("GetSQLValueString")) {
 
                 <div id="htmlcaption2" class="nivo-html-caption">
                     <? if($totalRows_Recordset1 > 1) {  ?>
-                    <h4> <?php echo urldecode(mysql_result($Recordset1,1,"title")); ?>&nbsp;
-                    <?php echo date("d F Y",strtotime(mysql_result($Recordset1,1,"date"))); ?>, <?php echo substr(mysql_result($Recordset1,1,"start"),0,-3); ?></h4>
-                    <? if(isset($_SESSION[username])){ ?>
-                    <? $name = ldap_get_names($_SESSION[username]); echo $name[0]; ?>, click the image for more information, or <a href="registereventscript.php?ID=<?php echo mysql_result($Recordset1,1,"ID"); ?>">here to register to the event in one click</a>.
-                    <? } else { ?>
-                    Click for more information. To attend the event, please sign in.
-                    <? } ?> 
+                        <h4> 
+                            <?php echo urldecode(mysql_result($Recordset1,1,"title")); ?>&nbsp;
+                            <span id="date"><?php echo date("d F Y",strtotime(mysql_result($Recordset1,1,"date"))); ?>, <?php echo substr(mysql_result($Recordset1,1,"start"),0,-3); ?></span>
+                        </h4>
+                        <? if(isset($_SESSION[username])){ ?>
+                            <? $name = ldap_get_names($_SESSION[username]); echo $name[0]; ?>, click the image for more information, or <a href="registereventscript.php?ID=<?php echo mysql_result($Recordset1,1,"ID"); ?>">here to register to the event in one click</a>.
+                        <? } else { ?>
+                        Click for more information. To attend the event, please sign in.
+                        <? } ?> 
                     <?php } else { ?>
-                    <h4>Read up on Finance</h4>
-                    Have a read through some of our publications to help you get to grips with the world of Finance.
+                        <h4>Read up on Finance</h4>
+                        <p>Have a read through some of our publications to help you get to grips with the world of Finance.</p>
                     <?php }   ?>
                 </div>
                 <div id="htmlcaption3" class="nivo-html-caption">
@@ -226,8 +235,8 @@ if (!function_exists("GetSQLValueString")) {
                     ICFS has three subsidiary clubs that specialise in Trading and Entrepreneurial skills.<?php }   ?>
                 </div>
             </div>
+            <div class=shadow></div>
         </div>	
-        <div class=shadow></div>
     </div>
 
     <!-- Javascript -->
@@ -240,9 +249,8 @@ if (!function_exists("GetSQLValueString")) {
         });
     </script>
 
-    <BR><BR>
     <div class=line></div>
 <? } ?>  
 
-<div class=widthbox>
+<div class="widthbox wrapper">
     <div class=contentcolumn>
