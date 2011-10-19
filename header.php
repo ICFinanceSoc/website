@@ -104,7 +104,7 @@ if (!function_exists("GetSQLValueString")) {
             </div>
         </div>
 
-        <a href="" title="Homepage"><h1>Imperial College Finance Society</h1></a>
+        <a href="<?php echo HOME_PAGE; ?>" title="Homepage"><h1>Imperial College Finance Society</h1></a>
         <div id="menu" class="container_12 clearfix">
             <ul class="clearfix">
                 <li><a href="index.php" <?php if($currentpage == 'index'){ echo 'class="active"'; } ?> title="">Home</a></li>
