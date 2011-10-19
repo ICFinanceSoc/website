@@ -54,6 +54,8 @@
             <li><a href="http://www.imperialcollegeunion.org/" target="_blank"><img src="images/Imperial-logo.png" height="50" alt="Imperial college union" /></a></li>
             <li><a href="http://www.facebook.com/group.php?gid=20171188344&amp;ref=ts" target="_blank"><img src="images/followfacebook.png" width="50" height="50" alt="Follow us on facebook" style="padding-left:20px;"/></a></li>
         </ul>
+        <div class="clear"></div>
+        <p class="grid_2 push_5">&#169; Finance Society 2011</p>
     </div>
 </body>
 <!-- InstanceEnd --></html>
