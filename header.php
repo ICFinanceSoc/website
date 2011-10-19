@@ -163,13 +163,15 @@ if (!function_exists("GetSQLValueString")) {
                 </div>
                 <div id="htmlcaption1" class="nivo-html-caption">
                     <? if($totalRows_Recordset1 > 0) {  ?>
-                    <h4> <?php echo urldecode(mysql_result($Recordset1,0,"title")); ?>&nbsp;
-                    <?php echo date("d F Y",strtotime(mysql_result($Recordset1,0,"date"))); ?>, <?php echo substr(mysql_result($Recordset1,0,"start"),0,-3); ?></h4>
-                    <? if(isset($_SESSION[username])){ ?>
-                    <? $name = ldap_get_names($_SESSION[username]); echo $name[0]; ?>, click the image for more information, or <a href="registereventscript.php?ID=<?php echo mysql_result($Recordset1,0,"ID"); ?>">here to register to the event in one-click</a>.
-                    <? } else { ?>
-                    Click the logo for more information. To attend the event, please sign in and register your interest.
-                    <? } ?>
+                        <h4> 
+                            <?php echo urldecode(mysql_result($Recordset1,0,"title")); ?>&nbsp;
+                            <span id="date"><?php echo date("d F Y",strtotime(mysql_result($Recordset1,0,"date"))); ?>, <?php echo substr(mysql_result($Recordset1,0,"start"),0,-3); ?></span>
+                        </h4>
+                        <? if(isset($_SESSION[username])){ ?>
+                        <? $name = ldap_get_names($_SESSION[username]); echo $name[0]; ?>, click the image for more information, or <a href="registereventscript.php?ID=<?php echo mysql_result($Recordset1,0,"ID"); ?>">here to register to the event in one-click</a>.
+                        <? } else { ?>
+                        Click the logo for more information. To attend the event, please sign in and register your interest.
+                        <? } ?>
                     <?php } else { ?>
                     <h4>What have we acheived?</h4>
                     Take a look at some of the events we've held this year.
@@ -178,16 +180,18 @@ if (!function_exists("GetSQLValueString")) {
 
                 <div id="htmlcaption2" class="nivo-html-caption">
                     <? if($totalRows_Recordset1 > 1) {  ?>
-                    <h4> <?php echo urldecode(mysql_result($Recordset1,1,"title")); ?>&nbsp;
-                    <?php echo date("d F Y",strtotime(mysql_result($Recordset1,1,"date"))); ?>, <?php echo substr(mysql_result($Recordset1,1,"start"),0,-3); ?></h4>
-                    <? if(isset($_SESSION[username])){ ?>
-                    <? $name = ldap_get_names($_SESSION[username]); echo $name[0]; ?>, click the image for more information, or <a href="registereventscript.php?ID=<?php echo mysql_result($Recordset1,1,"ID"); ?>">here to register to the event in one click</a>.
-                    <? } else { ?>
-                    Click for more information. To attend the event, please sign in.
-                    <? } ?> 
+                        <h4> 
+                            <?php echo urldecode(mysql_result($Recordset1,1,"title")); ?>&nbsp;
+                            <span id="date"><?php echo date("d F Y",strtotime(mysql_result($Recordset1,1,"date"))); ?>, <?php echo substr(mysql_result($Recordset1,1,"start"),0,-3); ?></span>
+                        </h4>
+                        <? if(isset($_SESSION[username])){ ?>
+                            <? $name = ldap_get_names($_SESSION[username]); echo $name[0]; ?>, click the image for more information, or <a href="registereventscript.php?ID=<?php echo mysql_result($Recordset1,1,"ID"); ?>">here to register to the event in one click</a>.
+                        <? } else { ?>
+                        Click for more information. To attend the event, please sign in.
+                        <? } ?> 
                     <?php } else { ?>
-                    <h4>Read up on Finance</h4>
-                    Have a read through some of our publications to help you get to grips with the world of Finance.
+                        <h4>Read up on Finance</h4>
+                        <p>Have a read through some of our publications to help you get to grips with the world of Finance.</p>
                     <?php }   ?>
                 </div>
                 <div id="htmlcaption3" class="nivo-html-caption">
