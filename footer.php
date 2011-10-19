@@ -1,5 +1,16 @@
         </div>
-        <div class=sponsorscolumn>
+    </div>
+
+    <div class=sponsors>
+        <div class="container_12">
+            <div class="sponsorbox grid_6">
+                <h4>Platinum Sponsors</h4>
+                <ul class="clearfix">
+                    <?php $pcount = 0; do { $pcount++; ?>
+                        <li><a href="sponsordetail.php?ID=<?php echo $row_platinumsponsors['ID']; ?>"><img src="sponsorlogos/<?php echo $row_platinumsponsors['logo']; ?>thumb" width="100" alt="" /></a></li><?php if($pcount == 2) { $pcount = 0; } ?>
+                    <?php } while ($row_platinumsponsors = mysql_fetch_assoc($platinumsponsors)); ?>
+                </ul>
+            </div>
             <fieldset id=sponsorbox>
                 <legend>Platinum Sponsors</legend>
                 <table width="100%" border="0" cellspacing="0" cellpadding="8">
@@ -54,9 +65,6 @@
             </fieldset> 
         </div>
     </div>
-     
-    <div style="clear: both;"></div>
-    <div class="line"></div>
 
     <div class=footer>
         <a href="index.php" title="">Home</a> | 

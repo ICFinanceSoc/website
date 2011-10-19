@@ -75,7 +75,7 @@ Author URI: http://dev7studios.com
 .theme-default .nivo-caption h4 span {
 }
 .theme-default .nivo-caption p {
-    padding-bottom: 10px;
+    padding: 5px 10px 10px 10px;
 }
 .theme-default .nivo-caption a {
     color:#fff;
