@@ -1,6 +1,7 @@
         </div>
     </div>
-
+    
+    <?php if($currentpage != 'sponsors') { ?>
     <div class=sponsors>
         <div class="container_12">
             <div class="sponsorbox grid_12">
@@ -43,17 +44,11 @@
             </div>
         </div>
     </div>
+    <?php } ?>
+
+    <div class="line"></div>
 
     <div class="footer container_12">
-        <a href="index.php" title="">Home</a> | 
-        <a href="about.php" title="">About Us</a> | 
-        <a href="events.php" title="">Events</a> | 
-        <a href="publications.php" title="">Publications</a> | 
-        <a href="subsidiaries.php" title="">Subsidiaries</a> | 
-        <a href="learning.php" title="">Learning</a> | 
-        <a href="sponsors.php" title="">Sponsors</a> | 
-        <a href="management.php" title="">Management</a>
-        <BR><BR>
         <a href="http://twitter.com/ICFS100" target="_blank"><img src="../images/followtwitter.png" width="50" height="50" alt="Follow us on Twitter" style="padding-right:20px;"/></a>
         <a href="http://www.imperialcollegeunion.org/" target="_blank"><img src="../images/Imperial-logo.png" height="50" alt="Imperial college union" /></a>
         <a href="http://www.facebook.com/group.php?gid=20171188344&amp;ref=ts" target="_blank"><img src="../images/followfacebook.png" width="50" height="50" alt="Follow us on facebook" style="padding-left:20px;"/></a>

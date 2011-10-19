@@ -249,8 +249,8 @@ if (!function_exists("GetSQLValueString")) {
         });
     </script>
 
-    <div class=line></div>
 <? } ?>  
 
+<div class="line"></div>
 <div class="widthbox container_12">
     <div class="contentcolumn grid_12">
