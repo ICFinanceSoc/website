@@ -14,7 +14,7 @@
     <?php echo stripslashes(urldecode($row_homeregion['body'])); ?>
 </div>
         
-<div class=amplifytradingbox>
+<div class="amplifytradingbox grid_8">
     <img src="images/pdf_icon.png" width="32" height="32" alt="Download Amplify Trading" />
     <a href="downloadlatest.php">Download the latest Amplify Trading report </a><?php if(!isset($_SESSION['username'])) { ?>(you must be logged in to do so) <?php } ?>
     | <a href="amplifytrading.php">View all reports</a>

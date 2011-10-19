@@ -264,17 +264,47 @@ header {
 
 .contentcolumn {
     min-height: 500px;
+    font-family: 'Open Sans', sans-serif;
+    h1 {
+        font-size: 40px;
+    }
+    h3 {
+        font-size: 25px;
+    }
+    .amplifytradingbox {
+        margin-top: 10px;
+        padding: 15px 10px;
+        border: 1px solid #BEBEBE;
+        border-radius: 2px;
+        a {
+            text-decoration: none;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
 }
 
 .sponsors {
-    /*background: #171717 url('../images/black_denim.png');*/
-    margin-top: 10px;
+    background: #171717 url('../images/black_denim.png');
+    margin-top: 30px;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    /*border-top: 1px solid #BEBEBE;*/
     .sponsorbox {
         background: #fff;
         padding: 10px;
+        border: 1px solid #BEBEBE;
         border-radius: 3px;
+        margin-bottom: 10px;
         h4 {
             margin: 0px;
+            font-family: 'Droid Sans', sans-serif;
+            font-weight: normal;
+            font-size: 18px;
+            border-bottom: 1px solid #BEBEBE;
+            line-height: 25px;
+            margin-bottom: 10px;
         }
         ul {
             list-style-type: none;
@@ -283,7 +313,7 @@ header {
             li {
                 float: left;
                 margin-right: 10px;
-                padding: 10px;
+                padding: 10px 5px;
             }
         }
     }

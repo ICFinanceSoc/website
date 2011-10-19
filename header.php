@@ -105,7 +105,7 @@ if (!function_exists("GetSQLValueString")) {
         </div>
 
         <a href="" title="Homepage"><h1>Imperial College Finance Society</h1></a>
-        <div id="menu" class="wrapper clearfix">
+        <div id="menu" class="container_12 clearfix">
             <ul class="clearfix">
                 <li><a href="index.php" <?php if($currentpage == 'index'){ echo 'class="active"'; } ?> title="">Home</a></li>
                 <li><a href="about.php" <?php if($currentpage == 'about'){ echo 'class="active"'; } ?> title="">About Us</a></li>
@@ -252,5 +252,5 @@ if (!function_exists("GetSQLValueString")) {
     <div class=line></div>
 <? } ?>  
 
-<div class="widthbox wrapper">
-    <div class=contentcolumn>
+<div class="widthbox container_12">
+    <div class="contentcolumn grid_12">
