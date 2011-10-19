@@ -209,9 +209,8 @@ td { vertical-align: top; }
    Author: J.Kim
    ========================================================================== */
 
-.wrapper {
-    width: 960px;
-    margin: 0 auto;
+body {
+    margin-bottom: 20px;
 }
 
 header {
@@ -270,6 +269,10 @@ header {
     min-height: 500px;
     font-family: 'Open Sans', sans-serif;
     padding-bottom: 20px;
+    p, li {
+        font-size: 14px;
+        line-height: 18px;
+    }
     h1 {
         font-size: 40px;
         margin-top: 20px;
@@ -324,7 +327,18 @@ header {
     }
 }
 
-
+.footer {
+    padding-top: 20px;
+    ul {
+        list-style-type: none;
+        margin: 0px;
+        padding: 0px;
+        li {
+            float: left;
+            margin-right: 10px;
+        }
+    }
+}
 
 /* ==|== media queries ======================================================
    PLACEHOLDER Media Queries for Responsive Design.

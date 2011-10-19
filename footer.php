@@ -49,9 +49,11 @@
     <div class="line"></div>
 
     <div class="footer container_12">
-        <a href="http://twitter.com/ICFS100" target="_blank"><img src="../images/followtwitter.png" width="50" height="50" alt="Follow us on Twitter" style="padding-right:20px;"/></a>
-        <a href="http://www.imperialcollegeunion.org/" target="_blank"><img src="../images/Imperial-logo.png" height="50" alt="Imperial college union" /></a>
-        <a href="http://www.facebook.com/group.php?gid=20171188344&amp;ref=ts" target="_blank"><img src="../images/followfacebook.png" width="50" height="50" alt="Follow us on facebook" style="padding-left:20px;"/></a>
+        <ul class="grid_4 push_4">
+            <li><a href="http://twitter.com/ICFS100" target="_blank"><img src="images/followtwitter.png" width="50" height="50" alt="Follow us on Twitter" style="padding-right:20px;"/></a></li>
+            <li><a href="http://www.imperialcollegeunion.org/" target="_blank"><img src="images/Imperial-logo.png" height="50" alt="Imperial college union" /></a></li>
+            <li><a href="http://www.facebook.com/group.php?gid=20171188344&amp;ref=ts" target="_blank"><img src="images/followfacebook.png" width="50" height="50" alt="Follow us on facebook" style="padding-left:20px;"/></a></li>
+        </ul>
     </div>
 </body>
 <!-- InstanceEnd --></html>
