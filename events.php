@@ -11,7 +11,7 @@
                 if($initial != $new) { ?>
                     </table>
                     <h3><?php echo date("F Y",strtotime($row_Recordset1['date'])); ?></h3> 
-                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="zebra-striped">
                 <?php } 
                 $initial = $new;
         ?>
