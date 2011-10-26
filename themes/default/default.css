@@ -46,7 +46,10 @@ Author URI: http://dev7studios.com
     border-radius: 2px;
 }
 .theme-default .nivo-controlNav a:hover {
-    background: #CCC;
+    background: #DDD;
+    -webkit-transition: all 0.2s ease-out;
+    -moz-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
 }
 .theme-default .nivo-controlNav a.active {
     /*background-position:0 -22px;*/
