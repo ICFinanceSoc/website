@@ -57,13 +57,13 @@ Author URI: http://dev7studios.com
 	border:0;
 }
 .theme-default a.nivo-nextNav {
-    background: url(slider-arrow-right.png) no-repeat;
-    background-position: 0px -50px;                                                 ;
+    background: url(slider-arrow-right-white.png) no-repeat;
+    background-position: 0px 0px;
 	right:-50px;
 }
 .theme-default a.nivo-prevNav {
-    background: url(slider-arrow-left.png) no-repeat;
-    background-position: 0px -50px;                                                 ;
+    background: url(slider-arrow-left-white.png) no-repeat;
+    background-position: 0px 0px; 
 	left:-50px;
 }
 
