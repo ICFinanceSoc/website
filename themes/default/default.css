@@ -29,23 +29,29 @@ Author URI: http://dev7studios.com
 .theme-default .nivo-controlNav {
 	position:absolute;
 	right: 10px;
-	bottom: 15px;
+	bottom: 22px;
     margin-left:-40px; /* Tweak this to center bullets */
 }
 .theme-default .nivo-controlNav a {
 	display:block;
-	width:22px;
-	height:22px;
-    background: url(slider-bg.png) no-repeat;
+	width:15px;
+	height:15px;
+    /*background: url(slider-bg.png) no-repeat;*/
     /*background: url(bullets2.png) no-repeat;*/
 	text-indent:-9999px;
 	border:0;
-	margin-right:3px;
+	margin-right:10px;
 	float:left;
+    background: #666;
+    border-radius: 2px;
+}
+.theme-default .nivo-controlNav a:hover {
+    background: #CCC;
 }
 .theme-default .nivo-controlNav a.active {
     /*background-position:0 -22px;*/
-    background: url(slider-bg-active.png) no-repeat;
+    /*background: url(slider-bg-active.png) no-repeat;*/
+    background: #07c3f4;
 }
 
 .theme-default .nivo-directionNav a {
@@ -61,10 +67,17 @@ Author URI: http://dev7studios.com
     background-position: 0px 0px;
 	right:-50px;
 }
+.theme-default a.nivo-nextNav:hover {
+    background: url(slider-arrow-right-blue.png) no-repeat;
+}
 .theme-default a.nivo-prevNav {
     background: url(slider-arrow-left-white.png) no-repeat;
     background-position: 0px 0px; 
 	left:-50px;
+}
+.theme-default a.nivo-prevNav:hover {
+    background: url(slider-arrow-left-blue.png) no-repeat;
+    background-position: 0px 1px; 
 }
 
 .theme-default .nivo-caption {
