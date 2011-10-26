@@ -20,4 +20,27 @@
     | <a href="amplifytrading.php">View all reports</a>
 </div>
 
+<div class="clear"></div>
+
+<div id="eventsbox" class="grid_6">
+    <h4>Upcoming Events</h4>
+    <ul>
+        <?php 
+        if($totalRows_Recordset1 > 0) {
+            do {
+        ?>
+            <li class="clearfix">
+                <div class="date">
+                    <span class="day"><?php echo date("d",strtotime($row_Recordset1['date'])); ?></span> 
+                    <span class="month"><?php echo date("M",strtotime($row_Recordset1['date'])); ?></span>
+                </div>
+                <div class="title"><?php echo urldecode($row_Recordset1['title']); ?></div>
+            </li>
+            <?php } while ($row_Recordset1 = mysql_fetch_assoc($Recordset1)); ?>
+        <?php } else { ?>
+            <p>No upcoming events.</p>
+        <?php } ?>
+    </ul>
+</div>
+
 <?php require_once('footer.php');  ?>
