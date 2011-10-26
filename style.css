@@ -2,7 +2,7 @@
 .theme-default #slider {
     margin:10px auto 0 auto;
     width: 960px; /* Make sure your images are the same size */
-    height: 450px; /* Make sure your images are the same size */
+    height: 400px; /* Make sure your images are the same size */
 }
 
 .shadow {

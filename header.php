@@ -104,21 +104,22 @@ if (!function_exists("GetSQLValueString")) {
             </div>
         </div>
 
-        <a href="<?php echo HOME_PAGE; ?>" title="Homepage"><h1>Imperial College Finance Society</h1></a>
-        <div id="menu" class="container_12 clearfix">
-            <ul class="clearfix">
-                <li><a href="index.php" <?php if($currentpage == 'index'){ echo 'class="active"'; } ?> title="">Home</a></li>
-                <li><a href="about.php" <?php if($currentpage == 'about'){ echo 'class="active"'; } ?> title="">About Us</a></li>
-                <li><a href="events.php" <?php if($currentpage == 'events'){ echo 'class="active"'; } ?> title="">Events</a></li>
-                <li><a href="publications.php" <?php if($currentpage == 'publications'){ echo 'class="active"'; } ?> title="">Publications</a></li>
-                <li><a href="subsidiaries.php" <?php if($currentpage == 'subsidiaries'){ echo 'class="active"'; } ?> title="">Subsidiaries</a></li>
-                <li><a href="learning.php" <?php if($currentpage == 'learning'){ echo 'class="active"'; } ?> title="">Learning</a></li>
-                <li><a href="sponsors.php" <?php if($currentpage == 'sponsors'){ echo 'class="active"'; } ?> title="">Sponsors</a></li>
-                <li><a href="management.php" <?php if($currentpage == 'management'){ echo 'class="active"'; } ?> title="">Management</a></li>
-                <? if(isset($_SESSION[username])){ }else { ?>
-                <li><a href="register.php" <?php if($currentpage == 'register'){ echo 'class="active"'; } ?> title="">Register</a></li>
-                <? } ?>
-            </ul>
+        <div class="container_12 clearfix">
+            <a href="<?php echo HOME_PAGE; ?>" title="Homepage"><h1>Imperial College Finance Society</h1></a>
+            <div id="menu" class="container_12 clearfix">
+                <ul class="clearfix">
+                    <li><a href="about.php" <?php if($currentpage == 'about'){ echo 'class="active"'; } ?> title="">About Us</a></li>
+                    <li><a href="events.php" <?php if($currentpage == 'events'){ echo 'class="active"'; } ?> title="">Events</a></li>
+                    <li><a href="publications.php" <?php if($currentpage == 'publications'){ echo 'class="active"'; } ?> title="">Publications</a></li>
+                    <li><a href="subsidiaries.php" <?php if($currentpage == 'subsidiaries'){ echo 'class="active"'; } ?> title="">Subsidiaries</a></li>
+                    <li><a href="learning.php" <?php if($currentpage == 'learning'){ echo 'class="active"'; } ?> title="">Learning</a></li>
+                    <li><a href="sponsors.php" <?php if($currentpage == 'sponsors'){ echo 'class="active"'; } ?> title="">Sponsors</a></li>
+                    <li><a href="management.php" <?php if($currentpage == 'management'){ echo 'class="active"'; } ?> title="">Management</a></li>
+                    <? if(isset($_SESSION[username])){ }else { ?>
+                    <li><a href="register.php" <?php if($currentpage == 'register'){ echo 'class="active"'; } ?> title="">Register</a></li>
+                    <? } ?>
+                </ul>
+            </div>
         </div>
     </header>
 
@@ -245,7 +246,9 @@ if (!function_exists("GetSQLValueString")) {
 
     <script type="text/javascript">
         $(window).load(function() {
-            $('#slider').nivoSlider();
+            $('#slider').nivoSlider( {
+                directionNavHide: false
+            });
         });
     </script>
 
