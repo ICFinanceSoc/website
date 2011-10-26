@@ -1024,8 +1024,8 @@ header {
         }
         a:hover {
             li {
-                background: #DDD;
-                .transition();
+                background: #DEDEDE;
+                .transition(0.3s);
             }
         }
     }
@@ -1074,6 +1074,33 @@ header {
                 &:hover {
                     background-position: 0px -34px;
                 }
+            }
+        }
+    }
+}
+
+.boxthumb {
+    margin-top: 10px;
+    a:hover {
+        text-decoration: none;
+    }
+    position: relative;
+    width: 270px;
+    .imageholder {
+        display: block;
+        position: relative;
+        .caption {
+            position: absolute;
+            bottom: 5px;
+            padding: 5px 10px;
+            display: none;
+            .title {
+                font-family: 'EurostileRegular', sans-serif;
+                font-size: 18px;
+                margin-bottom: 5px;
+            }
+            .desc {
+                color: #444;
             }
         }
     }

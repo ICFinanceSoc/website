@@ -83,4 +83,46 @@
     </div>
 </div>
 
+<div id="thumbs" class="grid_12">
+    <div class="boxthumb grid_4 alpha">
+        <a href="#">
+            <div class="imageholder">
+                <img src="http://placehold.it/270x150" alt="" />
+                <div class="caption">
+                    <div class="title">Fancy event</div>
+                    <div class="desc">
+                         Lorem ipsum dolor sit amet, consectetur adipisicing elit.                 
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="boxthumb grid_4 alpha">
+        <a href="#">
+            <div class="imageholder">
+                <img src="http://placehold.it/270x150" alt="" />
+                <div class="caption">
+                    <div class="title">Fancy event</div>
+                    <div class="desc">
+                         Lorem ipsum dolor sit amet, consectetur adipisicing elit.                 
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="boxthumb grid_4 alpha">
+        <a href="#">
+            <div class="imageholder">
+                <img src="http://placehold.it/270x150" alt="" />
+                <div class="caption">
+                    <div class="title">Fancy event</div>
+                    <div class="desc">
+                         Lorem ipsum dolor sit amet, consectetur adipisicing elit.                 
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>
+
 <?php require_once('footer.php');  ?>
