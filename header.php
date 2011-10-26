@@ -240,18 +240,6 @@ $totalRows_learningsponsors = mysql_num_rows($learningsponsors);
         </div>	
     </div>
 
-    <!-- Javascript -->
-    <script type="text/javascript" src="scripts/jquery-1.6.1.min.js"></script>
-    <script type="text/javascript" src="jquery.nivo.slider.pack.js"></script>
-
-    <script type="text/javascript">
-        $(window).load(function() {
-            $('#slider').nivoSlider( {
-                directionNavHide: false
-            });
-        });
-    </script>
-
 <? } ?>  
 
 <div class="line"></div>

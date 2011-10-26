@@ -57,6 +57,28 @@
         <div class="clear"></div>
         <p class="grid_2 push_5">&#169; Finance Society 2011</p>
     </div>
+
+    <!-- Javascript -->
+    <script type="text/javascript" src="scripts/jquery-1.6.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery.cycle.all.js"></script>
+    <script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+
+<? if($currentpage == 'index'){ ?> 
+
+    <script type="text/javascript" src="jquery.nivo.slider.pack.js"></script>
+
+    <script type="text/javascript">
+        $(window).load(function() {
+            $('#slider').nivoSlider( {
+                directionNavHide: false
+            });
+        });
+    </script>
+
+<?php } ?>
+
+    <script type="text/javascript" src="js/script.js"></script>
+
 </body>
 <!-- InstanceEnd --></html>
 <?php

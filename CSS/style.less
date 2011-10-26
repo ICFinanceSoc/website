@@ -1031,6 +1031,54 @@ header {
     }
 }
 
+#featbox {
+    margin-top: 20px;
+    position: relative;
+    h4 {
+        font-family: 'EurostileRegular', sans-serif;
+        margin-top: 10px;
+        font-weight: normal;
+    }
+    .featitem {
+        margin-bottom: 20px;
+        height: 160px;
+        .image {
+            float: left;
+            margin-right: 10px;
+        }
+        p {
+        }
+    }
+    #nav {
+        position: absolute;
+        right: 5px;
+        top: 0px;
+        a {
+            display:block;
+            width:30px;
+            height:17px;
+            text-indent:-9999px;
+            border:0;
+            &#prev {
+                background: url(../images/twitter-arrow-up-30.png) no-repeat;
+                background-position: 0px -17px;
+                float: left;
+                &:hover {
+                    background-position: 0px -34px;
+                }
+            }
+            &#next {
+                background: url(../images/twitter-arrow-down-30.png) no-repeat;
+                background-position: 0px -17px;
+                float:right;
+                &:hover {
+                    background-position: 0px -34px;
+                }
+            }
+        }
+    }
+}
+
 #events {
     h1 {
         span {

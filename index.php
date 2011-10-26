@@ -18,7 +18,7 @@
 </div>
 <div class="clear"></div>
 
-<div id="eventsbox" class="grid_5">
+<div id="eventsbox" class="grid_5 alpha">
     <h4>Upcoming Events</h4>
     <ul>
         <?php 
@@ -47,6 +47,40 @@
             <p><em>No upcoming events.</em></p>
         <?php } ?>
     </ul>
+</div>
+
+<div id="featbox" class="grid_7 omega">
+    <h4>Featured things</h4>
+    <div id="items">
+        <div class="featitem clearfix">
+            <div class="image">
+                <img src="http://placehold.it/250x150/DDDDDD/07C3F4"/>
+            </div>
+            <p>1 Pariatur synth esse, butcher non quis placeat sunt eiusmod. Elit cardigan aliquip american apparel, skateboard brunch ea dolor butcher fanny pack freegan 3 wolf moon fixie.</p> 
+        </div>
+        <div class="featitem clearfix">
+            <div class="image">
+                <img src="http://placehold.it/250x150/DDDDDD/07C3F4"/>
+            </div>
+            <p>2 Pariatur synth esse, butcher non quis placeat sunt eiusmod. Elit cardigan aliquip american apparel, skateboard brunch ea dolor butcher fanny pack freegan 3 wolf moon fixie.</p> 
+        </div>
+        <div class="featitem clearfix">
+            <div class="image">
+                <img src="http://placehold.it/250x150/DDDDDD/07C3F4"/>
+            </div>
+            <p>3 Pariatur synth esse, butcher non quis placeat sunt eiusmod. Elit cardigan aliquip american apparel, skateboard brunch ea dolor butcher fanny pack freegan 3 wolf moon fixie.</p> 
+        </div>
+        <div class="featitem clearfix">
+            <div class="image">
+                <img src="http://placehold.it/250x150/DDDDDD/07C3F4"/>
+            </div>
+            <p>4 Pariatur synth esse, butcher non quis placeat sunt eiusmod. Elit cardigan aliquip american apparel, skateboard brunch ea dolor butcher fanny pack freegan 3 wolf moon fixie.</p> 
+        </div>
+    </div>
+    <div id="nav">
+        <a href="#" id="prev" title="Previous"></a>
+        <a href="#" id="next" title="Next"></a>
+    </div>
 </div>
 
 <?php require_once('footer.php');  ?>
