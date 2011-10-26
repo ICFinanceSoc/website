@@ -42,36 +42,36 @@ if (!function_exists("GetSQLValueString")) {
     }
 }
 
-    mysql_select_db($database_sql, $sql);
-    $query_platinumsponsors = "SELECT * FROM sponsors WHERE type = 'platinum' ORDER BY name ASC";
-    $platinumsponsors = mysql_query($query_platinumsponsors, $sql) or die(mysql_error());
-    $row_platinumsponsors = mysql_fetch_assoc($platinumsponsors);
-    $totalRows_platinumsponsors = mysql_num_rows($platinumsponsors);
+mysql_select_db($database_sql, $sql);
+$query_platinumsponsors = "SELECT * FROM sponsors WHERE type = 'platinum' ORDER BY name ASC";
+$platinumsponsors = mysql_query($query_platinumsponsors, $sql) or die(mysql_error());
+$row_platinumsponsors = mysql_fetch_assoc($platinumsponsors);
+$totalRows_platinumsponsors = mysql_num_rows($platinumsponsors);
 
-    mysql_select_db($database_sql, $sql);
-    $query_goldsponsors = "SELECT * FROM sponsors WHERE type = 'gold' ORDER BY name ASC";
-    $goldsponsors = mysql_query($query_goldsponsors, $sql) or die(mysql_error());
-    $row_goldsponsors = mysql_fetch_assoc($goldsponsors);
-    $totalRows_goldsponsors = mysql_num_rows($goldsponsors);
+mysql_select_db($database_sql, $sql);
+$query_goldsponsors = "SELECT * FROM sponsors WHERE type = 'gold' ORDER BY name ASC";
+$goldsponsors = mysql_query($query_goldsponsors, $sql) or die(mysql_error());
+$row_goldsponsors = mysql_fetch_assoc($goldsponsors);
+$totalRows_goldsponsors = mysql_num_rows($goldsponsors);
 
-    mysql_select_db($database_sql, $sql);
-    $query_silversponsors = "SELECT * FROM sponsors WHERE type = 'silver' ORDER BY name ASC";
-    $silversponsors = mysql_query($query_silversponsors, $sql) or die(mysql_error());
-    $row_silversponsors = mysql_fetch_assoc($silversponsors);
-    $totalRows_silversponsors = mysql_num_rows($silversponsors);
+mysql_select_db($database_sql, $sql);
+$query_silversponsors = "SELECT * FROM sponsors WHERE type = 'silver' ORDER BY name ASC";
+$silversponsors = mysql_query($query_silversponsors, $sql) or die(mysql_error());
+$row_silversponsors = mysql_fetch_assoc($silversponsors);
+$totalRows_silversponsors = mysql_num_rows($silversponsors);
 
-    mysql_select_db($database_sql, $sql);
-    $query_learningsponsors = "SELECT * FROM sponsors WHERE type = 'learning' ORDER BY name ASC";
-    $learningsponsors = mysql_query($query_learningsponsors, $sql) or die(mysql_error());
-    $row_learningsponsors = mysql_fetch_assoc($learningsponsors);
-    $totalRows_learningsponsors = mysql_num_rows($learningsponsors);
+mysql_select_db($database_sql, $sql);
+$query_learningsponsors = "SELECT * FROM sponsors WHERE type = 'learning' ORDER BY name ASC";
+$learningsponsors = mysql_query($query_learningsponsors, $sql) or die(mysql_error());
+$row_learningsponsors = mysql_fetch_assoc($learningsponsors);
+$totalRows_learningsponsors = mysql_num_rows($learningsponsors);
 
-    $currentdate = gmdate("Y-m-d");
-    mysql_select_db($database_sql, $sql);
-    $query_Recordset1 = "SELECT * FROM events WHERE `date` >= '$currentdate' ORDER BY `date`";
-    $Recordset1 = mysql_query($query_Recordset1, $sql) or die(mysql_error());
-    $row_Recordset1 = mysql_fetch_assoc($Recordset1);
-    $totalRows_Recordset1 = mysql_num_rows($Recordset1);
+//$currentdate = gmdate("Y-m-d");
+//mysql_select_db($database_sql, $sql);
+//$query_Recordset1 = "SELECT * FROM events WHERE `date` >= '$currentdate' ORDER BY `date`";
+//$Recordset1 = mysql_query($query_Recordset1, $sql) or die(mysql_error());
+//$row_Recordset1 = mysql_fetch_assoc($Recordset1);
+//$totalRows_Recordset1 = mysql_num_rows($Recordset1);
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -105,7 +105,7 @@ if (!function_exists("GetSQLValueString")) {
         </div>
 
         <div class="container_12 clearfix">
-            <a href="<?php echo HOME_PAGE; ?>" title="Homepage"><h1>Imperial College Finance Society</h1></a>
+            <a href="<?php echo HOME_PAGE; ?>" title="Home"><h1>Imperial College Finance Society</h1></a>
             <div id="menu" class="container_12 clearfix">
                 <ul class="clearfix">
                     <li><a href="about.php" <?php if($currentpage == 'about'){ echo 'class="active"'; } ?> title="">About Us</a></li>

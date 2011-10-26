@@ -977,14 +977,28 @@ header {
 }
 
 #eventsbox {
+    a:hover {
+        text-decoration: none;
+    }
+    /*border: 1px solid #BEBEBE;*/
+    /*.rounded();*/
+    /*padding: 0px 10px 0px 10px;*/
+    margin-top: 20px;
+    h4 {
+        font-family: 'EurostileRegular', sans-serif;
+        margin-top: 10px;
+        font-weight: normal;
+    }
     ul {
         list-style-type: none;
         margin: 0;
         padding: 0;
         li {
-            margin-bottom: 10px;
             border-bottom: 1px solid #BEBEBE;
-            padding-bottom: 10px;
+            padding: 10px;
+            &.last {
+                border: none;
+            }
             .date {
                 float: left;
                 width: 30px;
@@ -1006,6 +1020,12 @@ header {
             }
             .title {
 
+            }
+        }
+        a:hover {
+            li {
+                background: #DDD;
+                .transition();
             }
         }
     }
