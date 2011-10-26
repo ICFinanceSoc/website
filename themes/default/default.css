@@ -43,6 +43,8 @@ Author URI: http://dev7studios.com
 	margin-right:10px;
 	float:left;
     background: #666;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
     border-radius: 2px;
 }
 .theme-default .nivo-controlNav a:hover {
@@ -88,9 +90,10 @@ Author URI: http://dev7studios.com
 }
 .theme-default .nivo-caption h4 {
     margin: 5px 0px;
-    font-family: 'Droid Sans', sans-serif;
+    font-family: 'EurostileRegular', sans-serif;
     font-weight: normal;
-    font-size: 22px;
+    font-size: 25px;
+    text-shadow: #eee 0px 1px;
 }
 .theme-default .nivo-caption h4 span {
 }
