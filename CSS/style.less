@@ -866,6 +866,28 @@ table .header:hover:after {
     -moz-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.25), 0 1px 2px rgba(0, 0, 0, 0.05);
     box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.25), 0 1px 2px rgba(0, 0, 0, 0.05);
 }
+@black:             #000;
+@grayDark:          lighten(@black, 25%);
+@gray:              lighten(@black, 50%);
+@grayLight:         lighten(@black, 75%);
+@grayLighter:       lighten(@black, 90%);
+@white:             #fff;
+.btn.dark {
+    color: #ffffff;
+    background-color: @black;
+    background-repeat: repeat-x;
+    background-image: -khtml-gradient(linear, left top, left bottom, from(@grayDark), to(@black));
+    background-image: -moz-linear-gradient(top, @grayDark, @black);
+    background-image: -ms-linear-gradient(top, @grayDark, @black);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, @grayDark), color-stop(100%, @black));
+    background-image: -webkit-linear-gradient(top, @grayDark, @black);
+    background-image: -o-linear-gradient(top, @grayDark, @black);
+    background-image: linear-gradient(top, @grayDark, @black);
+    filter: ~"progid:DXImageTransform.Microsoft.gradient(startColorstr='#049cdb', endColorstr='#0064cd', GradientType=0)";
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+    border-color: @black @black @grayDark;
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+}
 /* ==|== primary styles =====================================================
    Author: J.Kim
    ========================================================================== */
@@ -1047,6 +1069,7 @@ header {
             margin-right: 10px;
         }
         p {
+            margin-top: 0px;
         }
     }
     #nav {
