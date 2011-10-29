@@ -1,61 +1,97 @@
         </div>
     </div>
-    
-    <?php if($currentpage != 'sponsors') { ?>
-    <div class=sponsors>
-        <div class="container_12">
-            <div class="sponsorbox grid_12">
-                <h4>Platinum Sponsors</h4>
-                <ul class="clearfix">
-                    <?php $pcount = 0; do { $pcount++; ?>
-                        <li><a href="sponsordetail.php?ID=<?php echo $row_platinumsponsors['ID']; ?>"><img src="sponsorlogos/<?php echo $row_platinumsponsors['logo']; ?>thumb" width="100" alt="" /></a></li><?php if($pcount == 2) { $pcount = 0; } ?>
-                    <?php } while ($row_platinumsponsors = mysql_fetch_assoc($platinumsponsors)); ?>
-                </ul>
-            </div>
-            <div class="sponsorbox grid_12">
-                <h4>Gold Sponsors</h4>
-                <ul class="clearfix">
-                    <?php do { ?>
-                        <li><a href="sponsordetail.php?ID=<?php echo $row_goldsponsors['ID']; ?>"><img src="sponsorlogos/<?php echo $row_goldsponsors['logo']; ?>thumb" width="100" alt="" /></a></li>
-                    <?php } while ($row_goldsponsors = mysql_fetch_assoc($goldsponsors)); ?>
-                </ul>
-            </div>
-            <div class="sponsorbox grid_12">
-                <h4>Silver Sponsors</h4>
-                <ul class="clearfix">
-                    <?php
-                        mysql_select_db($database_sql, $sql);
-                        $query_silversponsors = "SELECT * FROM sponsors WHERE type = 'silver' ORDER BY name ASC";
-                        $silversponsors = mysql_query($query_silversponsors, $sql) or die(mysql_error());
-                        $row_silversponsors = mysql_fetch_assoc($silversponsors);
-                        $totalRows_silversponsors = mysql_num_rows($silversponsors);
-                        do { ?>
-                            <li><a href="sponsordetail.php?ID=<?php echo $row_silversponsors['ID']; ?>"><img src="sponsorlogos/<?php echo $row_silversponsors['logo']; ?>thumb" width="100" alt="" /></a></li>
-                    <?php } while ($row_silversponsors = mysql_fetch_assoc($silversponsors)); ?>
-                </ul>
-            </div>
-            <div class="sponsorbox grid_12">
-                <h4>Partners</h4>
-                <ul class="clearfix">
-                    <?php do { ?>
-                            <li><a href="sponsordetail.php?ID=<?php echo $row_learningsponsors['ID']; ?>"><img src="sponsorlogos/<?php echo $row_learningsponsors['logo']; ?>thumb" width="100" alt="" /></a></li>
-                    <?php } while ($row_learningsponsors = mysql_fetch_assoc($learningsponsors)); ?>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <?php } ?>
 
     <div class="line"></div>
 
-    <div class="footer container_12">
-        <ul class="grid_4 push_4">
-            <li><a href="http://twitter.com/ICFS100" target="_blank"><img src="images/followtwitter.png" width="50" height="50" alt="Follow us on Twitter" style="padding-right:20px;"/></a></li>
-            <li><a href="http://www.imperialcollegeunion.org/" target="_blank"><img src="images/Imperial-logo.png" height="50" alt="Imperial college union" /></a></li>
-            <li><a href="http://www.facebook.com/group.php?gid=20171188344&amp;ref=ts" target="_blank"><img src="images/followfacebook.png" width="50" height="50" alt="Follow us on facebook" style="padding-left:20px;"/></a></li>
-        </ul>
-        <div class="clear"></div>
-        <p class="grid_2 push_5">&#169; Finance Society 2011</p>
+    <div class="footer">
+        <div class="container_12">
+            <div id="contactus" class="grid_5">
+                <form class="form-stacked">
+                    <fieldset>
+                        <legend>Contact Us</legend> 
+                        <div class="clearfix">
+                            <label for="contactemail">Name</label>
+                            <div class="input">
+                                <input type="text" name="contactemail" placeholder="Joe Bloggs" class="large" />
+                            </div>
+                        </div>
+                        <div class="clearfix">
+                            <label for="contactemail">Email</label>
+                            <div class="input">
+                                <input type="text" name="contactemail" placeholder="example@example.com" class="large" />
+                            </div>
+                        </div>
+                        <div class="clearfix">
+                            <label for="contactmessage">Message</label>
+                            <div class="input">
+                                <textarea id="contactmessage" name="contactmessage" placeholder="Hello!" class="large"></textarea>
+                            </div>
+                        </div>
+                        <div class="clearfix">
+                            <input type="submit" name="submit" value="Send" class="btn" />
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+            <div id="registernow" class="grid_7">
+                <form class="form-stacked"> 
+                    <fieldset>
+                        <legend>Register Now</legend>
+                        <div class="grid_3 alpha">
+                            <div class="clearfix">
+                                <label for="registeruser">College Username</label>
+                                <div class="input">
+                                    <input name="registeruser" id="registerpass" type="text"/>
+                                </div>
+                            </div>
+                            <div class="clearfix">
+                                <label for="registerpass">College Password</label>
+                                <div class="input">
+                                    <input name="registerpass" id="registerpass" type="text"/>
+                                </div>
+                            </div>
+                            <div class="clearfix">
+                                <label for="registermobile">Mobile Number</label>
+                                <div class="input">
+                                    <input name="registermobile" id="registermobile" type="text"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grid_3 omega">
+                            <div class="clearfix">
+                                <label for="Interests">Interests</label>
+                                <div class="input">
+                                    <select name="Interests[]" multiple="multiple">
+                                    <?
+                                        $LookupInterests = mysql_query("SELECT * FROM 2011_Interests");
+                                        $num=mysql_numrows($LookupInterests);
+                                        $i=0;
+                                        while ($i < $num) {
+                                            $field1=mysql_result($LookupInterests,$i,"Interest_ID");
+                                            $field2=mysql_result($LookupInterests,$i,"InterestName");
+                                            echo "<option value=\"$field1\" name=\"Interests[]\">$field2</option>";
+                                            $i++;
+                                        }
+                                    ?>
+                                    </select>
+                                    <span class="help-block">Feel free to select multiple options - hold down Ctrl/Cmd</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clearfix">
+                            <input type="submit" name="submit" value="Register" class="btn" />
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+            <ul class="grid_4 push_4">
+                <!-- <li><a href="http://twitter.com/ICFS100" target="_blank"><img src="images/followtwitter.png" width="50" height="50" alt="Follow us on Twitter" style="padding-right:20px;"/></a></li> -->
+                <!-- <li><a href="http://www.imperialcollegeunion.org/" target="_blank"><img src="images/Imperial-logo.png" height="50" alt="Imperial college union" /></a></li> -->
+                <!-- <li><a href="http://www.facebook.com/group.php?gid=20171188344&amp;ref=ts" target="_blank"><img src="images/followfacebook.png" width="50" height="50" alt="Follow us on facebook" style="padding-left:20px;"/></a></li> -->
+            </ul>
+            <div class="clear"></div>
+            <p class="grid_2 push_5">&#169; Finance Society 2011</p>
+        </div>
     </div>
 
     <!-- Javascript -->
