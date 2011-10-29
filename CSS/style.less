@@ -240,7 +240,19 @@ input:invalid, textarea:invalid { background-color: #f0dddd; }
     font-style: normal;
 }
 
-body {
+/* Full height */
+html, body {
+    height: 100%;
+}
+
+#container {
+    min-height: 100%;
+    background: #171717 url('../images/black_denim.png');
+}
+
+/* For IE 6 */
+* html #container {
+    height: 100%;
 }
 
 h1, h2, h3, h4, h5 {
@@ -304,6 +316,10 @@ header {
 
 .line {
     border-top: 1px solid #BEBEBE;
+}
+
+.widthbox {
+    background: #fff;
 }
 
 .contentcolumn {
@@ -374,7 +390,6 @@ header {
                 font-family: 'EurostileRegular', sans-serif;
                 .rounded(3px);
                 .day {
-                    font-weight:bold;
                     line-height: 16px;
                 }
                 .month {
@@ -589,6 +604,17 @@ header {
             margin-right: 10px;
         }
     }
+    p {
+        color: #666;
+    }
+}
+
+footer {
+    background: #171717 url('../images/black_denim.png');
+    border: none;
+    margin-top: 0px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     p {
         color: #666;
     }

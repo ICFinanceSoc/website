@@ -1,5 +1,6 @@
         </div>
     </div>
+    </div>
 
     <div class="line"></div>
 
@@ -106,9 +107,14 @@
                 <!-- <li><a href="http://www.facebook.com/group.php?gid=20171188344&amp;ref=ts" target="_blank"><img src="images/followfacebook.png" width="50" height="50" alt="Follow us on facebook" style="padding-left:20px;"/></a></li> -->
             </ul>
             <div class="clear"></div>
-            <p class="grid_2 push_5">&#169; Finance Society 2011</p>
         </div>
     </div>
+
+    <footer>
+            <div class="container_12">
+                <p class="grid_2 push_5">&#169; Finance Society 2011</p>
+            </div>
+    </footer>
 
     <!-- Javascript -->
     <script type="text/javascript" src="scripts/jquery-1.6.1.min.js"></script>
@@ -132,6 +138,7 @@
 
     <script type="text/javascript" src="js/script.js"></script>
 
+    </div>
 </body>
 <!-- InstanceEnd --></html>
 <?php
