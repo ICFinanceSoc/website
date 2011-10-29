@@ -29,4 +29,11 @@ $(document).ready(function() {
             });
         });
     }
+    
+    if($('#registermodal').length) {
+        $('#registermodal').modal({
+            keyboard: true, 
+            backdrop: true
+        });
+    }
 });

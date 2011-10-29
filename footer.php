@@ -80,9 +80,25 @@
                         </div>
                         <div class="clearfix">
                             <input type="submit" name="submit" value="Register" class="btn" />
+                            <a id="info" data-controls-modal="registermodal">Info</a>
                         </div>
                     </fieldset>
                 </form>
+                <div id="registermodal" class="modal hide fade">
+                    <div class="modal-header">
+                        <a href="#" class="close">×</a>
+                        <h5>Why do we need your username and password?</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>The ICFS website now runs on the College SSO authentication system. We never see or store your password. We require it now to confirm your identity.</p>
+                    </div>
+                    <div class="modal-header">
+                        <h5>Does this make me a society member?</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>Not exactly. We encourage you to 'buy' free membership of the ICFS on the union website, in order to register officially with the union as a member of the society. This will allow you to vote in ICFS elections. This registration system is our communications system: registering on this website will ensure you receive updates on events we run and publications we release.</p>
+                    </div>
+                </div>
             </div>
             <ul class="grid_4 push_4">
                 <!-- <li><a href="http://twitter.com/ICFS100" target="_blank"><img src="images/followtwitter.png" width="50" height="50" alt="Follow us on Twitter" style="padding-right:20px;"/></a></li> -->
@@ -98,6 +114,7 @@
     <script type="text/javascript" src="scripts/jquery-1.6.1.min.js"></script>
     <script type="text/javascript" src="js/jquery.cycle.all.js"></script>
     <script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="js/bootstrap-modal.js"></script>
 
 <? if($currentpage == 'index'){ ?> 
 
