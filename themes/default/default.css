@@ -96,6 +96,8 @@ Author URI: http://dev7studios.com
     color: #fff;
 }
 .theme-default .nivo-caption h4 span {
+    display: block;
+    font-size: 20px;
 }
 .theme-default .nivo-caption p {
     padding: 5px 10px 10px 10px;

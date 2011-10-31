@@ -66,12 +66,12 @@ $learningsponsors = mysql_query($query_learningsponsors, $sql) or die(mysql_erro
 $row_learningsponsors = mysql_fetch_assoc($learningsponsors);
 $totalRows_learningsponsors = mysql_num_rows($learningsponsors);
 
-//$currentdate = gmdate("Y-m-d");
-//mysql_select_db($database_sql, $sql);
-//$query_Recordset1 = "SELECT * FROM events WHERE `date` >= '$currentdate' ORDER BY `date`";
-//$Recordset1 = mysql_query($query_Recordset1, $sql) or die(mysql_error());
-//$row_Recordset1 = mysql_fetch_assoc($Recordset1);
-//$totalRows_Recordset1 = mysql_num_rows($Recordset1);
+$currentdate = gmdate("Y-m-d");
+mysql_select_db($database_sql, $sql);
+$query_Recordset1 = "SELECT * FROM events WHERE `date` >= '$currentdate' ORDER BY `date`";
+$Recordset1 = mysql_query($query_Recordset1, $sql) or die(mysql_error());
+$row_Recordset1 = mysql_fetch_assoc($Recordset1);
+$totalRows_Recordset1 = mysql_num_rows($Recordset1);
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -124,125 +124,130 @@ $totalRows_learningsponsors = mysql_num_rows($learningsponsors);
         </div>
     </header>
 
-<? if($currentpage == 'index'){ ?> 
-    <div id="wrapper">
-        <div class="slider-wrapper theme-default">
-            <div class="ribbon"></div>
-            <div id="slider" class="nivoSlider">
-                <? if($totalRows_Recordset1 > 0) {   ?>
-                    <a href="eventinformation.php?ID=<?php echo mysql_result($Recordset1,0,"ID"); ?>">
-                <? } else { ?>
-                    <a href=pastevents.php>
-                <? } ?>
-                <img src="images/slider1.jpg" alt="" title="#htmlcaption1"/>
-                </a>
-                <? if($totalRows_Recordset1 > 1) {   ?>
-                    <a href="eventinformation.php?ID=<?php echo mysql_result($Recordset1,1,"ID"); ?>">
-                <? } else { ?>
-                    <a href=publications.php>
-                <? } ?>
-                <img src="images/slider2.jpg" alt="" title="#htmlcaption2"/>
-                </a>
-                <? if($totalRows_Recordset1 > 2) {   ?>
-                    <a href="eventinformation.php?ID=<?php echo mysql_result($Recordset1,2,"ID"); ?>">
-                <? } else { ?>
-                    <a href=sponsors.php>
-                <? } ?>
-                <img src="images/slider3.jpg" alt="" title="#htmlcaption4"/>
-                </a>
-                <? if($totalRows_Recordset1 > 3) {   ?>
-                    <a href="eventinformation.php?ID=<?php echo mysql_result($Recordset1,3,"ID"); ?>">
-                <? } else { ?>
-                    <a href=subsidiaries.php>
-                <? } ?>
-                <img src="images/slider4.jpg" alt="" title="#htmlcaption5"/>
-                </a>
-                <? if(isset($_SESSION[username])){ } else {?>
-                    <a href="requirelogin.php">
-                <? } ?>
-                    <img src="images/slider5.jpg" alt="" title="#htmlcaption3"/>
-                </a>
-            </div>
-            <div id="htmlcaption1" class="nivo-html-caption">
-                <? if($totalRows_Recordset1 > 0) {  ?>
-                    <h4> 
-                        <?php echo urldecode(mysql_result($Recordset1,0,"title")); ?>&nbsp;
-                        <span id="date"><?php echo date("d F Y",strtotime(mysql_result($Recordset1,0,"date"))); ?>, <?php echo substr(mysql_result($Recordset1,0,"start"),0,-3); ?></span>
-                    </h4>
-                    <? if(isset($_SESSION[username])){ ?>
-                    <? $name = ldap_get_names($_SESSION[username]); echo $name[0]; ?>, click the image for more information, or <a href="registereventscript.php?ID=<?php echo mysql_result($Recordset1,0,"ID"); ?>">here to register to the event in one-click</a>.
+    <? if($currentpage == 'index'){ ?> 
+        <div id="wrapper">
+            <div class="slider-wrapper theme-default">
+                <div class="ribbon"></div>
+                <div id="slider" class="nivoSlider">
+                    <? if($totalRows_Recordset1 > 0) {   ?>
+                        <a href="eventinformation.php?ID=<?php echo mysql_result($Recordset1,0,"ID"); ?>">
                     <? } else { ?>
-                    Click the logo for more information. To attend the event, please sign in and register your interest.
+                        <a href=pastevents.php>
                     <? } ?>
-                <?php } else { ?>
-                <h4>What have we acheived?</h4>
-                Take a look at some of the events we've held this year.
-                <?php }   ?>
-            </div>
+                    <img src="images/slider1.jpg" alt="" title="#htmlcaption1"/>
+                    </a>
+                    <? if($totalRows_Recordset1 > 1) {   ?>
+                        <a href="eventinformation.php?ID=<?php echo mysql_result($Recordset1,1,"ID"); ?>">
+                    <? } else { ?>
+                        <a href=publications.php>
+                    <? } ?>
+                    <img src="images/slider2.jpg" alt="" title="#htmlcaption2"/>
+                    </a>
+                    <? if($totalRows_Recordset1 > 2) {   ?>
+                        <a href="eventinformation.php?ID=<?php echo mysql_result($Recordset1,2,"ID"); ?>">
+                    <? } else { ?>
+                        <a href=sponsors.php>
+                    <? } ?>
+                    <img src="images/slider3.jpg" alt="" title="#htmlcaption4"/>
+                    </a>
+                    <? if($totalRows_Recordset1 > 3) {   ?>
+                        <a href="eventinformation.php?ID=<?php echo mysql_result($Recordset1,3,"ID"); ?>">
+                    <? } else { ?>
+                        <a href=subsidiaries.php>
+                    <? } ?>
+                    <img src="images/slider4.jpg" alt="" title="#htmlcaption5"/>
+                    </a>
+                    <? if(isset($_SESSION[username])){ } else {?>
+                        <a href="requirelogin.php">
+                    <? } ?>
+                        <img src="images/slider5.jpg" alt="" title="#htmlcaption3"/>
+                    </a>
+                </div>
 
-            <div id="htmlcaption2" class="nivo-html-caption">
-                <? if($totalRows_Recordset1 > 1) {  ?>
-                    <h4> 
-                        <?php echo urldecode(mysql_result($Recordset1,1,"title")); ?>&nbsp;
-                        <span id="date"><?php echo date("d F Y",strtotime(mysql_result($Recordset1,1,"date"))); ?>, <?php echo substr(mysql_result($Recordset1,1,"start"),0,-3); ?></span>
+                <div id="htmlcaption1" class="nivo-html-caption">
+                    <? if($totalRows_Recordset1 > 0) {  ?>
+                        <h4> 
+                            <?php echo urldecode(mysql_result($Recordset1,0,"title")); ?>&nbsp;
+                            <span id="date"><?php echo date("d F Y",strtotime(mysql_result($Recordset1,0,"date"))); ?>, <?php echo substr(mysql_result($Recordset1,0,"start"),0,-3); ?></span>
+                        </h4>
+                        <? if(isset($_SESSION[username])){ ?>
+                        <? $name = ldap_get_names($_SESSION[username]); echo $name[0]; ?>, click the image for more information, or <a href="registereventscript.php?ID=<?php echo mysql_result($Recordset1,0,"ID"); ?>">here to register to the event in one-click</a>.
+                        <? } else { ?>
+                        Click the logo for more information. To attend the event, please sign in and register your interest.
+                        <? } ?>
+                    <?php } else { ?>
+                    <h4>What have we acheived?</h4>
+                    Take a look at some of the events we've held this year.
+                    <?php }   ?>
+                </div>
+
+                <div id="htmlcaption2" class="nivo-html-caption">
+                    <? if($totalRows_Recordset1 > 1) {  ?>
+                        <h4> 
+                            <?php echo urldecode(mysql_result($Recordset1,1,"title")); ?>&nbsp;
+                            <span id="date"><?php echo date("d F Y",strtotime(mysql_result($Recordset1,1,"date"))); ?>, <?php echo substr(mysql_result($Recordset1,1,"start"),0,-3); ?></span>
+                        </h4>
+                        <? if(isset($_SESSION[username])){ ?>
+                            <? $name = ldap_get_names($_SESSION[username]); echo $name[0]; ?>, click the image for more information, or <a href="registereventscript.php?ID=<?php echo mysql_result($Recordset1,1,"ID"); ?>">here to register to the event in one click</a>.
+                        <? } else { ?>
+                        Click for more information. To attend the event, please sign in.
+                        <? } ?> 
+                    <?php } else { ?>
+                        <h4>Read up on Finance</h4>
+                        <p>Have a read through some of our publications to help you get to grips with the world of Finance.</p>
+                    <?php }   ?>
+                </div>
+
+                <div id="htmlcaption3" class="nivo-html-caption">
+                    <? if(isset($_SESSION[username])){ ?>
+                    <h4>Thank you for being a member</h4>
+                    Did you know that you can sign up to our next events in one click from both your emails and our homepage? Try it out!
+                    <? } else {  ?>
+                    <h4>Don't be a stranger</h4>
+                    Are you not yet a member of the ICFS, or have you just not logged in? By signing in you can attend events in one click and access learning resources. If this is your personal computer, you can
+                    sign in forever by checking 'Remember Me'.
+                    <? } ?>
+                </div>
+
+                <div id="htmlcaption4" class="nivo-html-caption">
+                    <? if($totalRows_Recordset1 > 2) {  ?>
+                    <h4>
+                        <?php echo urldecode(mysql_result($Recordset1,2,"title")); ?>&nbsp;
+                        <span id="date"><?php echo date("d F Y",strtotime(mysql_result($Recordset1,2,"date"))); ?>, <?php echo substr(mysql_result($Recordset1,2,"start"),0,-3); ?></span>
                     </h4>
                     <? if(isset($_SESSION[username])){ ?>
-                        <? $name = ldap_get_names($_SESSION[username]); echo $name[0]; ?>, click the image for more information, or <a href="registereventscript.php?ID=<?php echo mysql_result($Recordset1,1,"ID"); ?>">here to register to the event in one click</a>.
+                    <? $name = ldap_get_names($_SESSION[username]); echo $name[0]; ?>, click the image for more information, or <a href="registereventscript.php?ID=<?php echo mysql_result($Recordset1,2,"ID"); ?>">here to register for the event in one click.</a>
                     <? } else { ?>
                     Click for more information. To attend the event, please sign in.
-                    <? } ?> 
-                <?php } else { ?>
-                    <h4>Read up on Finance</h4>
-                    <p>Have a read through some of our publications to help you get to grips with the world of Finance.</p>
-                <?php }   ?>
-            </div>
-            <div id="htmlcaption3" class="nivo-html-caption">
-                <? if(isset($_SESSION[username])){ ?>
-                <h4>Thank you for being a member</h4>
-                Did you know that you can sign up to our next events in one click from both your emails and our homepage? Try it out!
-                <? } else {  ?>
-                <h4>Don't be a stranger</h4>
-                Are you not yet a member of the ICFS, or have you just not logged in? By signing in you can attend events in one click and access learning resources. If this is your personal computer, you can
-                sign in forever by checking 'Remember Me'.
-                <? } ?>
-            </div>
+                    <? } ?>
+                    <?php } else { ?>
+                    <h4>Company Profiles</h4>
+                    Get all the information on companies you could apply to for internships, placements or even jobs. Our Sponsors post helpful information
+                    to help you with your career.
+                    <?php }   ?>
+                </div>
 
-            <div id="htmlcaption4" class="nivo-html-caption">
-                <? if($totalRows_Recordset1 > 2) {  ?>
-                <h4> <?php echo urldecode(mysql_result($Recordset1,2,"title")); ?>&nbsp;
-                <?php echo date("d F Y",strtotime(mysql_result($Recordset1,2,"date"))); ?>, <?php echo substr(mysql_result($Recordset1,2,"start"),0,-3); ?></h4>
-                <? if(isset($_SESSION[username])){ ?>
-                <? $name = ldap_get_names($_SESSION[username]); echo $name[0]; ?>, click the image for more information, or <a href="registereventscript.php?ID=<?php echo mysql_result($Recordset1,2,"ID"); ?>">here to register for the event in one click.</a>
-                <? } else { ?>
-                Click for more information. To attend the event, please sign in.
-                <? } ?>
-                <?php } else { ?>
-                <h4>Company Profiles</h4>
-                Get all the information on companies you could apply to for internships, placements or even jobs. Our Sponsors post helpful information
-                to help you with your career.
-                <?php }   ?>
-            </div>
+                <div id="htmlcaption5" class="nivo-html-caption">
+                    <? if($totalRows_Recordset1 > 3) {  ?>
+                    <h4>
+                        <?php echo urldecode(mysql_result($Recordset1,3,"title")); ?>&nbsp;
+                        <span id="date"><?php echo date("d F Y",strtotime(mysql_result($Recordset1,3,"date"))); ?>, <?php echo substr(mysql_result($Recordset1,3,"start"),0,-3); ?></span>
+                    </h4>
+                    <? if(isset($_SESSION[username])){ ?>
+                    <? $name = ldap_get_names($_SESSION[username]); echo $name[0]; ?>, click the image for more information, or <a href="registereventscript.php?ID=<?php echo mysql_result($Recordset1,3,"ID"); ?>">here to register in one click.</a>
+                    <? } else { ?>
+                    Click for more information. To attend the event, please sign in.
+                    <? } ?>
+                    <?php } else { ?>
+                    <h4>More to us than meets the eye</h4>
+                    ICFS has three subsidiary clubs that specialise in Trading and Entrepreneurial skills.<?php }   ?>
+                </div>
+                <div class=shadow></div>
+            </div>	
+        </div>
+    <? } ?>  
 
-            <div id="htmlcaption5" class="nivo-html-caption">
-                <? if($totalRows_Recordset1 > 3) {  ?>
-                <h4> <?php echo urldecode(mysql_result($Recordset1,3,"title")); ?>&nbsp;
-                <?php echo date("d F Y",strtotime(mysql_result($Recordset1,3,"date"))); ?>, <?php echo substr(mysql_result($Recordset1,3,"start"),0,-3); ?></h4>
-                <? if(isset($_SESSION[username])){ ?>
-                <? $name = ldap_get_names($_SESSION[username]); echo $name[0]; ?>, click the image for more information, or <a href="registereventscript.php?ID=<?php echo mysql_result($Recordset1,3,"ID"); ?>">here to register in one click.</a>
-                <? } else { ?>
-                Click for more information. To attend the event, please sign in.
-                <? } ?>
-                <?php } else { ?>
-                <h4>More to us than meets the eye</h4>
-                ICFS has three subsidiary clubs that specialise in Trading and Entrepreneurial skills.<?php }   ?>
-            </div>
-            <div class=shadow></div>
-        </div>	
-    </div>
-
-<? } ?>  
-
-<div class="line"></div>
+<!-- <div class="line"></div> -->
 <div class="widthbox">
     <div class="container_12">
     <div class="contentcolumn grid_12">

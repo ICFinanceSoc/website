@@ -283,24 +283,28 @@ header {
         margin-top: 35px;
         float: right;
         width: 630px;
-        /*padding-top: 5px;*/
-        /*border-top: 1px solid #BEBEBE;*/
         ul {
             list-style-type: none;
             margin: 0;
             padding: 0;
             li {
                 float: left;
-                /*margin-right: 10px;*/
                 a {
                     text-decoration: none;
                     padding: 5px 10px;
                     color: #444;
                     font-size: 15px;
                     font-family: 'EurostileRegular', sans-serif;
+                    border-width: 0px;
+                    border-color: rgba(190, 190, 190, 0);
+                    border-style: solid;
                     &:hover {
                         color: #DDD;
+                        border-bottom: 1px solid rgba(190, 190, 190, 1);
                         .transition(all 0.2s ease-out);
+                    }
+                    &.active {
+                        border-bottom: 1px solid #BEBEBE;
                     }
                 }
             }
@@ -495,6 +499,62 @@ header {
             margin-right: 20px;
         }
     }
+    .eventbox {
+        position: relative;
+        #rollover {
+            display: block;
+            height: 130px;
+            width: 286px;
+            background: url('../images/hover-opacity.png') center center no-repeat;
+            position: absolute;
+            top: 0px;
+            display: none;
+        }
+        #shadow {
+            background: url('../images/shadow-pf3.png') 0px 0px no-repeat; 
+            display: block;
+            height: 10px;
+            margin-top: 1px;
+        }
+        a {
+            &:hover {
+                text-decoration: none;
+            }
+        }
+        h4 {
+            margin-top: 10px;
+            line-height: 24px;
+            margin-bottom: 10px;
+            width: 160px;
+            float: left;
+        }
+        #date {
+            float: right;
+            width: 80px;
+            text-align: center;
+            margin-top: 10px;
+            margin-right: 14px;
+            font-family: 'EurostileRegular', sans-serif;
+            color: #07C3F4;
+            #day {
+                float: left;
+                font-size: 24px;
+                border-right: 1px solid #BEBEBE;
+                padding-right: 8px;
+            }
+            #time {
+                clear: both;
+                text-align: center;
+                font-size: 14px;
+                margin-top: 2px;
+            }
+        }
+        #signup {
+            /*float: right;*/
+            /*margin-right: 50px;*/
+            margin-top: 10px;
+        }
+    }
 }
 
 .sponsors {
@@ -544,6 +604,46 @@ header {
                 font-weight: bold;
                 font-size: 16px;
                 color: #222;
+            }
+        }
+    }
+}
+
+/* Management Page */
+#management {
+    .person {
+        margin-bottom: 20px;
+        position: relative;
+        .image {
+            width: 200px;
+            float: left;
+            margin-right: 20px;
+        }
+        .personinfo {
+            padding: 5px 10px;
+            border: 1px solid #E7E7E7;
+            .info {
+                #position {
+                    margin-top: 5px;
+                    p {
+                        font-weight: bold; 
+                    }
+                }
+            }
+        }
+        &.imageactive {
+            .leftpointer {
+                position: absolute;
+                top: 50px;
+                left: 216px;
+                background: url('../images/leftpointer.png') 0px 0px no-repeat;
+                width: 13px;
+                height: 23px;
+                z-index: 200;
+            }
+            .personinfo {
+                float: right;
+                width: 690px;
             }
         }
     }

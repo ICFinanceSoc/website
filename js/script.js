@@ -1,5 +1,6 @@
 $(document).ready(function() {
 
+    // Feat box
     if($('#featbox').length) {
         $('#featbox #items').cycle( {
             fx: 'scrollDown',
@@ -9,6 +10,7 @@ $(document).ready(function() {
         });
     }
 
+    // Box thumbs
     if($('.boxthumb').length) {
         $('.boxthumb').hover(function() {
             var boxthumb = $(this);
@@ -30,10 +32,33 @@ $(document).ready(function() {
         });
     }
     
+    // Register modal box
     if($('#registermodal').length) {
         $('#registermodal').modal({
             keyboard: true, 
             backdrop: true
         });
+    }
+
+    // Event boxes
+    if($('.eventbox').length) {
+        $('.eventbox #imgcont').hover(function() {
+            var eventbox = $(this);
+            var image = eventbox.find('img');
+            var rollover = eventbox.find('#rollover');
+            if (!eventbox.hasClass('animated')) {
+                image.dequeue().stop().fadeTo('300', 0.2);
+                rollover.dequeue().stop().fadeTo('300', 0.8);
+            }
+       }, function() {
+            var eventbox = $(this);
+            var image = eventbox.find('img');
+            var rollover = eventbox.find('#rollover');
+            eventbox.addClass('animated');
+            rollover.fadeOut('300');
+            image.fadeTo('300', 1, function() {
+                eventbox.removeClass('animated').dequeue();
+            });
+       });
     }
 });
