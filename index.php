@@ -54,28 +54,28 @@
     <div id="items">
         <div class="featitem clearfix">
             <div class="image">
-                <img src="http://placehold.it/250x150/DDDDDD/07C3F4"/>
+                <a href="#"><img src="http://placehold.it/250x150/DDDDDD/07C3F4"/></a>
             </div>
             <p>1 Pariatur synth esse, butcher non quis placeat sunt eiusmod. Elit cardigan aliquip american apparel, skateboard brunch ea dolor butcher fanny pack freegan 3 wolf moon fixie.</p> 
             <a href="#" title="Read More" class="btn dark">Read More</a>
         </div>
         <div class="featitem clearfix">
             <div class="image">
-                <img src="http://placehold.it/250x150/DDDDDD/07C3F4"/>
+                <a href="#"><img src="http://placehold.it/250x150/DDDDDD/07C3F4"/></a>
             </div>
             <p>2 Pariatur synth esse, butcher non quis placeat sunt eiusmod. Elit cardigan aliquip american apparel, skateboard brunch ea dolor butcher fanny pack freegan 3 wolf moon fixie.</p> 
             <a href="#" title="Read More" class="btn dark">Read More</a>
         </div>
         <div class="featitem clearfix">
             <div class="image">
-                <img src="http://placehold.it/250x150/DDDDDD/07C3F4"/>
+                <a href="#"><img src="http://placehold.it/250x150/DDDDDD/07C3F4"/></a>
             </div>
             <p>3 Pariatur synth esse, butcher non quis placeat sunt eiusmod. Elit cardigan aliquip american apparel, skateboard brunch ea dolor butcher fanny pack freegan 3 wolf moon fixie.</p> 
             <a href="#" title="Read More" class="btn dark">Read More</a>
         </div>
         <div class="featitem clearfix">
             <div class="image">
-                <img src="http://placehold.it/250x150/DDDDDD/07C3F4"/>
+                <a href="#"><img src="http://placehold.it/250x150/DDDDDD/07C3F4"/></a>
             </div>
             <p>4 Pariatur synth esse, butcher non quis placeat sunt eiusmod. Elit cardigan aliquip american apparel, skateboard brunch ea dolor butcher fanny pack freegan 3 wolf moon fixie.</p> 
             <a href="#" title="Read More" class="btn dark">Read More</a>

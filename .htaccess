@@ -1,0 +1,19 @@
+# ----------------------------------------------------------------------
+# Start rewrite engine
+# ----------------------------------------------------------------------
+
+# Turning on the rewrite engine is necessary for the following rules and features.
+# FollowSymLinks must be enabled for this to work.
+
+<IfModule mod_rewrite.c>
+    Options +FollowSymlinks
+    RewriteEngine On
+
+    # If requested resource exists as a file or directory, skip next rule
+    #RewriteCond %{DOCUMENT_ROOT}/$1 -f [OR]
+    #RewriteCond %{DOCUMENT_ROOT}/$1 -d [OR]
+    #RewriteRule (.*) - [S=2]
+    #
+    #RewriteRule ^([a-zA-Z0-9_-]+)$ $1.php [NC] 
+
+</IfModule>
