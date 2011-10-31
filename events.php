@@ -9,7 +9,8 @@
             do {
                 $new = date("F Y",strtotime($row_Recordset1['date']));
                 if($initial != $new) { ?>
-                    <h3 class="clearfix"><?php echo date("F Y",strtotime($row_Recordset1['date'])); ?></h3> 
+                    <div class="clear"></div>
+                    <h3><?php echo date("F Y",strtotime($row_Recordset1['date'])); ?></h3> 
                 <?php } 
                 $initial = $new;
             ?>
