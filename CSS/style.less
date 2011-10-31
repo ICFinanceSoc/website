@@ -609,6 +609,46 @@ header {
     }
 }
 
+/* Management Page */
+#management {
+    .person {
+        margin-bottom: 20px;
+        position: relative;
+        .image {
+            width: 200px;
+            float: left;
+            margin-right: 20px;
+        }
+        .personinfo {
+            padding: 5px 10px;
+            border: 1px solid #E7E7E7;
+            .info {
+                #position {
+                    margin-top: 5px;
+                    p {
+                        font-weight: bold; 
+                    }
+                }
+            }
+        }
+        &.imageactive {
+            .leftpointer {
+                position: absolute;
+                top: 50px;
+                left: 216px;
+                background: url('../images/leftpointer.png') 0px 0px no-repeat;
+                width: 13px;
+                height: 23px;
+                z-index: 200;
+            }
+            .personinfo {
+                float: right;
+                width: 690px;
+            }
+        }
+    }
+}
+
 #contactus {
     form {
         legend {

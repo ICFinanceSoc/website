@@ -48,7 +48,7 @@ $(document).ready(function() {
             var rollover = eventbox.find('#rollover');
             if (!eventbox.hasClass('animated')) {
                 image.dequeue().stop().fadeTo('300', 0.2);
-                rollover.dequeue().stop().fadeIn('300');
+                rollover.dequeue().stop().fadeTo('300', 0.8);
             }
        }, function() {
             var eventbox = $(this);

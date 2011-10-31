@@ -9,34 +9,30 @@ $row_Recordset1 = mysql_fetch_assoc($Recordset1);
 $totalRows_Recordset1 = mysql_num_rows($Recordset1);
 ?>
 
-
-     <h1>ICFS Management</h1>
-    
-                        <?php do { ?>
-                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                          <tr>
-                          <?php
-						  $currentimage = $row_Recordset1['image']; if(file_exists("managementpictures/$currentimage")) { ?>
-                            <td width="19%" class="padding5"><table width="200" border="0" cellspacing="0" cellpadding="0">
-                              <tr>
-                                <td class="imagebox"><img src="managementpictures/<?php echo $row_Recordset1['image']; ?>" alt="" width="200" /></td>
-                              </tr>
-                            </table></td>
-							<?php } ?>
-                            <td width="81%" class="padding5"><table width="100%" border="0" cellspacing="0" cellpadding="0">
-                              <tr>
-                                <td class="boxtitle"><h2><?php echo urldecode($row_Recordset1['name']); ?></h2></td>
-                              </tr>
-                              <tr>
-                                <td class="writingnopadding"><strong><?php echo urldecode($row_Recordset1['position']); ?> - <?php echo urldecode($row_Recordset1['degree']); ?><br />
-                                </strong><?php echo urldecode($row_Recordset1['blurb']); ?></td>
-                              </tr>
-                            </table></td>
-                          </tr>
-                        </table>
-                        <br />
-
-                        <?php } while ($row_Recordset1 = mysql_fetch_assoc($Recordset1)); ?>
-                        
+<div id="<?php echo $currentpage; ?>">
+<?php do { ?>
+    <?php $currentimage = $row_Recordset1['image']; ?>
+    <div class="person clearfix <?php if(file_exists("managementpictures/$currentimage")) echo 'imageactive'; ?>">
+        <div class="image">
+        <?php
+            if(file_exists("managementpictures/$currentimage")) { ?>
+                <img src="managementpictures/<?php echo $row_Recordset1['image']; ?>" alt="" width="200" />
+        <?php } ?>
+        </div>
+        <div class="leftpointer"></div>
+        <div class="personinfo">
+            <div class="name">
+                <h2><?php echo urldecode($row_Recordset1['name']); ?></h2>
+            </div>
+            <div class="info">
+                <div id="position">
+                    <p><?php echo urldecode($row_Recordset1['position']); ?> - <?php echo urldecode($row_Recordset1['degree']); ?></p>
+                </div>
+                <p><?php echo urldecode($row_Recordset1['blurb']); ?></p>
+            </div>
+        </div>
+    </div>
+<?php } while ($row_Recordset1 = mysql_fetch_assoc($Recordset1)); ?>
+</div>
                        
-             <?php require_once('footer.php');  ?>
+<?php require_once('footer.php');  ?>
