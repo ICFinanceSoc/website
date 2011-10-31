@@ -15,8 +15,10 @@
             ?>
                     <div class="eventbox grid_4 alpha">
                             <div id="cont" class="clearfix">
-                                <a href="eventinformation.php?ID=<?php echo $row_Recordset1['ID']; ?>" title="Find out more about the event">
-                                    <img src="http://placehold.it/250x130" alt="" />
+                                <a href="eventinformation.php?ID=<?php echo $row_Recordset1['ID']; ?>" title="Find out more about the event" id="imgcont">
+                                    <span id="rollover"></span>
+                                    <img src="http://placehold.it/286x130" alt="" />
+                                    <span id="shadow"></span>
                                 </a>
                                 <h4><?php echo urldecode($row_Recordset1['title']); ?></h4>
                                 <div id="date">

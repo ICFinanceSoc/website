@@ -283,23 +283,24 @@ header {
         margin-top: 35px;
         float: right;
         width: 630px;
-        /*padding-top: 5px;*/
-        /*border-top: 1px solid #BEBEBE;*/
         ul {
             list-style-type: none;
             margin: 0;
             padding: 0;
             li {
                 float: left;
-                /*margin-right: 10px;*/
                 a {
                     text-decoration: none;
                     padding: 5px 10px;
                     color: #444;
                     font-size: 15px;
                     font-family: 'EurostileRegular', sans-serif;
+                    border-width: 0px;
+                    border-color: rgba(190, 190, 190, 0);
+                    border-style: solid;
                     &:hover {
                         color: #DDD;
+                        border-bottom: 1px solid rgba(190, 190, 190, 1);
                         .transition(all 0.2s ease-out);
                     }
                     &.active {
@@ -499,6 +500,22 @@ header {
         }
     }
     .eventbox {
+        position: relative;
+        #rollover {
+            display: block;
+            height: 130px;
+            width: 286px;
+            background: url('../images/hover-opacity.png') center center no-repeat;
+            position: absolute;
+            top: 0px;
+            display: none;
+        }
+        #shadow {
+            background: url('../images/shadow-pf3.png') 0px 0px no-repeat; 
+            display: block;
+            height: 10px;
+            margin-top: 1px;
+        }
         a {
             &:hover {
                 text-decoration: none;
@@ -516,7 +533,7 @@ header {
             width: 80px;
             text-align: center;
             margin-top: 10px;
-            margin-right: 50px;
+            margin-right: 14px;
             font-family: 'EurostileRegular', sans-serif;
             color: #07C3F4;
             #day {
