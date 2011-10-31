@@ -14,13 +14,17 @@
                 $initial = $new;
             ?>
                     <div class="eventbox grid_4 alpha">
-                        <a href="eventinformation.php?ID=<?php echo $row_Recordset1['ID']; ?>" title="Find out more about the event">
                             <div id="cont" class="clearfix">
-                                <img src="http://placehold.it/250x130" alt="" />
+                                <a href="eventinformation.php?ID=<?php echo $row_Recordset1['ID']; ?>" title="Find out more about the event">
+                                    <img src="http://placehold.it/250x130" alt="" />
+                                </a>
                                 <h4><?php echo urldecode($row_Recordset1['title']); ?></h4>
                                 <div id="date">
                                     <div id="day">
                                         <?php echo date("d", strtotime($row_Recordset1['date'])); ?>
+                                    </div>
+                                    <div id="daylong">
+                                        <?php echo date("D", strtotime($row_Recordset1['date'])); ?>
                                     </div>
                                     <div id="month"> 
                                         <?php echo date("M", strtotime($row_Recordset1['date'])); ?>
@@ -30,10 +34,10 @@
                                             <?php echo date("ga", strtotime(substr($row_Recordset1['start'],0,-3))); ?> - <?php echo date("ga", strtotime(substr($row_Recordset1['end'],0,-3))); ?>
                                         <?php } ?>
                                     </div>
+                                    <a href="#" title="Sign Up" class="btn dark" id="signup">Sign Up</a>
                                 </div>
+                                <!-- <p><?php echo urldecode($row_Recordset1['information']); ?></p> -->
                             </div>
-                        </a>
-                        <a href="#" title="Sign Up" class="btn dark" id="signup">Sign Up</a>
                     </div>
             <?php } while ($row_Recordset1 = mysql_fetch_assoc($Recordset1)); ?>
         <?php } else { ?>
