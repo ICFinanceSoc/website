@@ -302,6 +302,9 @@ header {
                         color: #DDD;
                         .transition(all 0.2s ease-out);
                     }
+                    &.active {
+                        border-bottom: 1px solid #BEBEBE;
+                    }
                 }
             }
         }
@@ -493,6 +496,50 @@ header {
             float: right;
             margin-top: 20px;
             margin-right: 20px;
+        }
+    }
+    .eventbox {
+        a {
+            &:hover {
+                text-decoration: none;
+            }
+        }
+        h4 {
+            margin-top: 10px;
+            line-height: 24px;
+            margin-bottom: 10px;
+            width: 170px;
+            float: left;
+        }
+        #date {
+            float: right;
+            width: 70px;
+            text-align: center;
+            margin-top: 10px;
+            margin-right: 50px;
+            font-family: 'EurostileRegular', sans-serif;
+            color: #07C3F4;
+            #day {
+                float: left;
+                font-size: 20px;
+                border-right: 1px solid #BEBEBE;
+                padding-right: 3px;
+            }
+            #month {
+                float: right;
+                font-size: 18px;
+                padding-right: 4px;
+                padding-top: 1px;
+            }
+            #time {
+                float: left;
+                text-align: left;
+            }
+        }
+        #signup {
+            float: right;
+            margin-right: 50px;
+            margin-top: 10px;
         }
     }
 }
