@@ -33,7 +33,7 @@
                         $i++;
                 ?>
                     <a href="eventinformation.php?ID=<?php echo $row_Recordset1['ID']; ?>">
-                        <li class="clearfix <?php if($i == $max) echo 'last'; ?>">
+                        <li class="clearfix <?php if($i == $totalRows_Recordset1) echo 'last'; ?>">
                             <div class="date">
                                 <span class="day"><?php echo date("d",strtotime($row_Recordset1['date'])); ?></span> 
                                 <span class="month"><?php echo date("M",strtotime($row_Recordset1['date'])); ?></span>
@@ -47,7 +47,7 @@
                 <?php } ?>
             </ul>
         </div>
-
+    
         <div id="featbox">
             <h4>Featured things</h4>
             <div id="items">
@@ -84,6 +84,11 @@
                 <a href="#" id="prev" title="Previous"></a>
                 <a href="#" id="next" title="Next"></a>
             </div>
+        </div>
+
+        <div id="loginbox">
+            <h4>Login Now</h4>
+            <?php displayLogin3(); ?>
         </div>
     </div>
 

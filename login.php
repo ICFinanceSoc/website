@@ -116,6 +116,39 @@ Remember me</font>
    }
 }
 
+/**
+ * Determines whether or not to display the login
+ * form or to show the user that he is logged in
+ * based on if the session variables are set.
+ */
+function displayLogin3(){
+   global $logged_in;
+    if($logged_in){
+      echo "";
+      echo "<b>$_SESSION[username]</b> | <a href=\"update.php\">Update details</a> | <a href=\"myevents.php\">Event Attendance</a> |<a href=\"logout.php\">Logout</a>";
+   }
+   else{
+?>
+
+<form action="" method="post">
+    <fieldset>
+        <div class="clearfix">
+            <div class="input">
+                <input type="text" name="user" placeholder='College username' maxlength="20">
+                <input type="password" name="pass" placeholder="Password" maxlength="20">
+                <input type="submit" name="sublogin" value="Login" class="btn dark">
+            </div>
+        </div>
+        <div class="clearfix" id="rememberme">
+            <input type="checkbox" name="remember" id="remember">
+            <label for="remember">Remember me</label>
+        </div>
+    </fieldset>
+</form>
+
+<?
+   }
+}
 
 /**
  * Checks to see if the user has submitted his
