@@ -5,7 +5,7 @@
         <?php $pcount = 0; do { $pcount++; ?>
                 <td style="vertical-align:middle">
                     <a href="sponsordetail.php?ID=<?php echo $row_platinumsponsors['ID']; ?>" title="<?php echo urldecode($row_platinumsponsors['name']);?>">
-                        <img src="sponsorlogos/<?php echo $row_platinumsponsors['logo']; ?>thumb" width="120" alt="" />
+                    <img src="sponsorlogos/<?php echo $row_platinumsponsors['logo']; ?>thumb" width="<?php if($currentpage == 'index') echo '100'; else echo '120';?>" alt="" />
                     </a>
                 </td>
                 <?php if($pcount == 3) { ?>
@@ -24,7 +24,7 @@
         <?php $pcount = 0; do { $pcount++; ?>
             <td style="vertical-align:middle">
                 <a href="sponsordetail.php?ID=<?php echo $row_goldsponsors['ID']; ?>" title="<?php echo urldecode($row_goldsponsors['name']);?>">
-                    <img src="sponsorlogos/<?php echo $row_goldsponsors['logo']; ?>thumb" width="120" alt="" />
+                    <img src="sponsorlogos/<?php echo $row_goldsponsors['logo']; ?>thumb" width="<?php if($currentpage == 'index') echo '100'; else echo '120';?>" alt="" />
                 </a>
             </td>
         <?php if($pcount == 3) { ?>
@@ -51,7 +51,7 @@
         ?>
             <td style="vertical-align:middle">
                 <a href="sponsordetail.php?ID=<?php echo $row_silversponsors['ID']; ?>" title="<?php echo urldecode($row_silversponsors['name']);?>">
-                    <img src="sponsorlogos/<?php echo $row_silversponsors['logo']; ?>thumb" width="120" alt="" />
+                    <img src="sponsorlogos/<?php echo $row_silversponsors['logo']; ?>thumb" width="<?php if($currentpage == 'index') echo '100'; else echo '120';?>" alt="" />
                 </a>
             </td>
         <?php if($pcount == 3) { ?>
@@ -71,7 +71,7 @@
         <?php $pcount = 0; do { $pcount++; ?>
             <td style="vertical-align:middle">
                 <a href="sponsordetail.php?ID=<?php echo $row_learningsponsors['ID']; ?>" title="<?php echo urldecode($row_learningsponsors['name']);?>">
-                    <img src="sponsorlogos/<?php echo $row_learningsponsors['logo']; ?>thumb" width="120" alt="" />
+                    <img src="sponsorlogos/<?php echo $row_learningsponsors['logo']; ?>thumb" width="<?php if($currentpage == 'index') echo '100'; else echo '120';?>" alt="" />
                 </a>
             </td>
         <?php if($pcount == 3) { ?>
