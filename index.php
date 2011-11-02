@@ -129,7 +129,7 @@
     </div>
 </div>
 
-<div class="sponsors">
+<div class="sponsors grid_4">
     <?php include_once('sponsorlist.php'); ?>
 </div>
 

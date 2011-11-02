@@ -28,12 +28,11 @@
 ?>
 
 <div id="<?php echo $currentpage; ?>">
-    <div class="grid_12">
-        <h1>Sponsors</h1>
-        <p>Please click on our sponsors' logo to find out more.</p>
-    </div>
-    <div class=sponsors>
+    <div class="sponsors grid_6 alpha">
         <?php include_once('sponsorlist.php'); ?>
+    </div>
+    <div class="sponsorinfo grid_6 omega">
+        <p id="helper"><em>Please click on one of our sponsors' logo to find out more.</em></p>
     </div>
 </div>
                  
