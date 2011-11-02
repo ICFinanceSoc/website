@@ -9,10 +9,7 @@ $row_publication_sections = mysql_fetch_assoc($publication_sections);
 $totalRows_publication_sections = mysql_num_rows($publication_sections);
 ?>
 
-    <h1>Learning</h1>
-    
     <?php if(!isset($_SESSION['username'])) { ?>
-                    <br />
 				    <div class="message">You must be logged in to view protected files.<BR>
 				    <? displayLogin2();?></div>
 

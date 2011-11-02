@@ -66,17 +66,17 @@ $(document).ready(function() {
     if($('#sponsors').length) {
         $('.sponsorbox td a').click(function() {
             // remove any active sponsors
-            $('.sponsorbox td a').each(function(index) {
+            $('.sponsorbox td').each(function(index) {
                 $(this).removeClass('active');
             });
             // add active class to current sponsor
-            $(this).addClass('active');
+            $(this).parent().addClass('active');
             // remove sponsor page helper and add loading spinner
             $('.sponsorinfo').html('').addClass('loading');
             // get id of current sponsor
             var id = getUrlParams($(this).attr('href'), 'ID');
             // load sponsor info
-            $('.sponsorinfo').load('sponsorsingle.php?ID='+id+' #sponsorbox').hide().removeClass('loading').fadeIn(300);
+            $('.sponsorinfo').load('sponsorsingle.php?ID='+id+' #sponsorbox').hide().removeClass('loading').fadeIn(500);
             // return false to cancel click action
             return false;
         });

@@ -1,4 +1,3 @@
-
 <?php
 $currentpage = 'subsidiaries';
 require_once('header.php');
@@ -9,9 +8,8 @@ $row_homeregion = mysql_fetch_assoc($homeregion);
 $totalRows_homeregion = mysql_num_rows($homeregion);
 ?>
 
-    <h1><?php echo urldecode($row_homeregion['title']); ?></h1>
 <div class="displaytext">
-                      <?php echo stripslashes(urldecode($row_homeregion['body'])); ?>
+    <?php echo stripslashes(urldecode($row_homeregion['body'])); ?>
 </div>                      
 
 <? require_once('footer.php');?>

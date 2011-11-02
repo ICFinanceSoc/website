@@ -8,7 +8,6 @@
     $totalRows_publication_sections = mysql_num_rows($publication_sections);
 ?>
 
-<h1>Publications</h1>
 <?php if(!isset($_SESSION['username'])) { ?>
     <div class="message">You must be logged in to view protected files.</div>
 <?php } ?>
