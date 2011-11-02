@@ -98,13 +98,6 @@ $totalRows_Recordset1 = mysql_num_rows($Recordset1);
 <body>
     <div id="container">
     <header>
-        <div class="topbg wrapper clearfix">
-            <!-- <div class=logobox></div> -->
-            <div class="loginbox">
-                <?php displayLogin2(); ?>
-            </div>
-        </div>
-
         <div class="container_12 clearfix">
             <a href="<?php echo HOME_PAGE; ?>" title="Home"><h1>Imperial College Finance Society</h1></a>
             <div id="menu" class="container_12 clearfix">
