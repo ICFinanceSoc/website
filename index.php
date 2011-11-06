@@ -7,14 +7,10 @@
 <div id="<?php echo $currentpage; ?>" class="clearfix">
     <div class="mainsection grid_7 alpha">
         <h1>Welcome</h1>
-        <div class="displaytext">
-            This website is currently under construction, however will be finished shortly,... it is fully functional but please forgive any aesthetic mishaps!
-        </div>
 
-        <div class="amplifytradingbox">
-            <img src="images/pdf_icon.png" width="32" height="32" alt="Download Amplify Trading" />
-            <a href="downloadlatest.php">Download the latest Amplify Trading report </a><?php if(!isset($_SESSION['username'])) { ?>(you must be logged in to do so) <?php } ?>
-            | <a href="amplifytrading.php">View all reports</a>
+        <div id="loginbox">
+            <h4>Login Now</h4>
+            <?php displayLogin3(); ?>
         </div>
 
         <div id="eventsbox">
@@ -86,10 +82,6 @@
             </div>
         </div>
 
-        <div id="loginbox">
-            <h4>Login Now</h4>
-            <?php displayLogin3(); ?>
-        </div>
     </div>
 
     <div class="sponsors grid_5 omega">

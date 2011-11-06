@@ -21,7 +21,7 @@
     <h4>Gold Sponsors</h4>
     <table cellspacing="0">
         <tr>
-        <?php $pcount = 0; do { $pcount++; ?>
+        <?php $pcount = 0; $ccount = 0; do { $pcount++; $ccount++; ?>
             <td style="vertical-align:middle">
                 <a href="sponsordetail.php?ID=<?php echo $row_goldsponsors['ID']; ?>" title="<?php echo urldecode($row_goldsponsors['name']);?>">
                     <img src="sponsorlogos/<?php echo $row_goldsponsors['logo']; ?>thumb" width="<?php if($currentpage == 'index') echo '100'; else echo '120';?>" alt="" />
@@ -33,6 +33,15 @@
             $pcount = 0; 
         } ?>
         <?php } while ($row_goldsponsors = mysql_fetch_assoc($goldsponsors)); ?>
+        <?php 
+            /*
+             * If cell count is not divisible by 3 then output empty cells until it is 
+             */
+            do { 
+                $ccount++; 
+        ?>
+            <td></td>
+        <?php } while(!is_int($ccount/3)); ?>
         </tr>
     </table>
 </div>
