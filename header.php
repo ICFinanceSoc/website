@@ -85,9 +85,6 @@ $totalRows_Recordset1 = mysql_num_rows($Recordset1);
     <link rel="stylesheet/less" type="text/css" href="CSS/style.less" />
     <script src="js/less-1.1.4.min.js" type="text/javascript"></script>
 
-    <!-- Google fonts -->
-    <link href='http://fonts.googleapis.com/css?family=Questrial|Droid+Sans:400,700|Josefin+Sans:400,600,700|Muli|Varela|Open+Sans:400,700' rel='stylesheet' type='text/css'>
-
     <? if($currentpage == 'index'){ // Nivo slider themes ?>
         <link rel="stylesheet" href="themes/default/default.css" type="text/css" media="screen" />
         <link rel="stylesheet" href="nivo-slider.css" type="text/css" media="screen" />
