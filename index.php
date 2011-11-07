@@ -45,7 +45,7 @@
         </div>
     
         <div id="featbox">
-            <h4>Featured things</h4>
+            <h4>We Recommend</h4>
             <div id="items">
                 <div class="featitem clearfix">
                     <div class="image">
