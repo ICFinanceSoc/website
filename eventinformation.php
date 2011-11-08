@@ -1,6 +1,6 @@
 <?
 $currentpage = urldecode($row_Recordset1['title']); 
-$currentpage = 'eventsinformation';
+$currentpage = 'eventinformation';
 include_once('header.php');
 $colname_Recordset1 = "-1";
 if (isset($_GET['ID'])) {
