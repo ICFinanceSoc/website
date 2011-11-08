@@ -88,7 +88,7 @@
         <?php include_once('sponsorlist.php'); ?>
     </div>
 
-    <div id="thumbs" class="grid_12 clearfix">
+    <div id="thumbs" class="grid_12 clearfix alpha">
         <div class="boxthumb grid_4 alpha">
             <a href="#">
                 <div class="imageholder">

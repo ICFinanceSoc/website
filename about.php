@@ -8,9 +8,13 @@
     $totalRows_homeregion = mysql_num_rows($homeregion);
 ?>
 
-<img src="images/welcome.jpg" width="100%">
-<div class="displaytext">
-    <?php echo stripslashes(urldecode($row_homeregion['body'])); ?>
-</div>                      
+<div id="<?php echo $currentpage; ?>">
+    <div class="clearfix" id="welcomeimage">
+        <img src="images/welcome.jpg" width="100%">
+    </div>
+    <div class="displaytext grid_7">
+        <?php echo stripslashes(urldecode($row_homeregion['body'])); ?>
+    </div>                      
+</div>
 
 <? require_once('footer.php');?>

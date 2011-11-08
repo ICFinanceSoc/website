@@ -331,7 +331,7 @@ header {
     padding-bottom: 20px;
     p, li {
         font-size: 14px;
-        line-height: 20px;
+        line-height: 22px;
         color: #444;
     }
     h1 {
@@ -610,6 +610,42 @@ header {
                 border: 1px solid #BEBEBE;
                 border-radius: 3px;
             }
+        }
+    }
+}
+
+/* About page */
+#about {
+    h3 {
+        margin-top: 15px;
+        padding-top: 10px;
+        border-top: 1px solid #BEBEBE;
+        &.top {
+            border: none;
+        }
+    }
+    p {
+        line-height: 24px;
+    }
+    .displaytext {
+        position: relative;
+        blockquote {
+           position: absolute;
+           margin: 0;
+           padding: 0;
+           border: none;
+           right: -390px;
+           width: 320px;
+           font-family: georgia, serif;
+           font-size: 20px;
+           line-height: 28px;
+           border-top: 1px solid #BEBEBE;
+           border-bottom: 1px solid #BEBEBE;
+           padding-top: 10px;
+           padding-bottom: 10px;
+           color: #666;
+           background: url('../images/quote-30.png') 0 8px no-repeat;
+           text-indent: 40px;
         }
     }
 }
