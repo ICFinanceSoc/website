@@ -104,7 +104,7 @@ $totalRows_Recordset1 = mysql_num_rows($Recordset1);
         <meta property="og:title" content="<?php echo urldecode($row_Recordset1['title']); ?>"/>
         <meta property="og:image" content="http://union.ic.ac.uk/scc/finance/new-design/images/logo-250.png"/>
         <meta property="og:site_name" content="Imperial College Finance Society"/>
-        <meta property="og:description" content="<?php echo urldecode($row_Recordset1['information']); ?>"/>
+        <meta property="og:description" content="<?php echo strip_tags(urldecode($row_Recordset1['information'])); ?>"/>
     <?php } ?>
 </head>
 
