@@ -18,14 +18,6 @@ $totalRows_Recordset1 = mysql_num_rows($Recordset1);
     <?php if(isset($_GET['message'])) { ?>
         <?php echo $_GET['message']; ?>
     <?php } ?>
-    <div class="eventinfo clearfix">
-        <div class="grid_3 alpha">
-            <h3>About: </h3>
-        </div>
-        <div class="grid_9 omega">
-            <?php echo urldecode($row_Recordset1['information']); ?>
-        </div>
-    </div>
     <div class="informationbox clearfix">
         <div class="grid_3 alpha">
             <h3>Information: </h3>
@@ -37,6 +29,14 @@ $totalRows_Recordset1 = mysql_num_rows($Recordset1);
                 <li><span class="title">Venue:</span> <?php echo urldecode($row_Recordset1['location']); ?></li>
                 <li><span class="title">Organisers:</span> <?php echo urldecode($row_Recordset1['organisers']); ?></li>
             </ul>
+        </div>
+    </div>
+    <div class="eventinfo clearfix">
+        <div class="grid_3 alpha">
+            <h3>About: </h3>
+        </div>
+        <div class="grid_9 omega">
+            <?php echo urldecode($row_Recordset1['information']); ?>
         </div>
     </div>
     <div class="registerbox">
