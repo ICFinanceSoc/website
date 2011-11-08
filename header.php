@@ -85,14 +85,27 @@ $totalRows_Recordset1 = mysql_num_rows($Recordset1);
     <link rel="stylesheet/less" type="text/css" href="CSS/style.less" />
     <script src="js/less-1.1.4.min.js" type="text/javascript"></script>
 
-    <!-- Google fonts -->
-    <link href='http://fonts.googleapis.com/css?family=Questrial|Droid+Sans:400,700|Josefin+Sans:400,600,700|Muli|Varela|Open+Sans:400,700' rel='stylesheet' type='text/css'>
-
     <? if($currentpage == 'index'){ // Nivo slider themes ?>
         <link rel="stylesheet" href="themes/default/default.css" type="text/css" media="screen" />
         <link rel="stylesheet" href="nivo-slider.css" type="text/css" media="screen" />
         <link rel="stylesheet" href="style.css" type="text/css" media="screen" />
     <? } ?>
+
+    <?php if($currentpage == 'eventinformation'){ 
+        $colname_Recordset1 = "-1";
+        if (isset($_GET['ID'])) {
+            $colname_Recordset1 = $_GET['ID'];
+        }
+        mysql_select_db($database_sql, $sql);
+        $query_Recordset1 = sprintf("SELECT * FROM events WHERE ID = %s", GetSQLValueString($colname_Recordset1, "int"));
+        $Recordset1 = mysql_query($query_Recordset1, $sql) or die(mysql_error());
+        $row_Recordset1 = mysql_fetch_assoc($Recordset1);
+    ?>
+        <meta property="og:title" content="<?php echo urldecode($row_Recordset1['title']); ?>"/>
+        <meta property="og:image" content="http://union.ic.ac.uk/scc/finance/new-design/images/logo-250.png"/>
+        <meta property="og:site_name" content="Imperial College Finance Society"/>
+        <meta property="og:description" content="<?php echo strip_tags(urldecode($row_Recordset1['information'])); ?>"/>
+    <?php } ?>
 </head>
 
 <body>

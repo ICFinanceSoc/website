@@ -117,13 +117,12 @@
     </footer>
 
     <!-- Javascript -->
-    <script type="text/javascript" src="scripts/jquery-1.6.1.min.js"></script>
-    <script type="text/javascript" src="js/jquery.cycle.all.js"></script>
-    <script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
-    <script type="text/javascript" src="js/bootstrap-modal.js"></script>
+    <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery-1.6.4.min.js"><\/script>')</script>
+    <script type="text/javascript" src="js/plugin.js"></script>
 
 <? if($currentpage == 'index'){ ?> 
-
     <script type="text/javascript" src="jquery.nivo.slider.pack.js"></script>
 
     <script type="text/javascript">
@@ -133,11 +132,8 @@
             });
         });
     </script>
-
 <?php } ?>
-
     <script type="text/javascript" src="js/script.js"></script>
-
     </div>
 </body>
 <!-- InstanceEnd --></html>
