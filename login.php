@@ -124,9 +124,12 @@ Remember me</font>
  */
 function displayLogin3(){
     global $logged_in;
-    if($logged_in){
-        echo "<b>$_SESSION[username]</b> | <a href=\"update.php\">Update details</a> | <a href=\"myevents.php\">Event Attendance</a> |<a href=\"logout.php\">Logout</a>";
-    } else {
+    if($logged_in){ ?>
+        <!-- <b><?php echo $_SESSION[username]; ?></b>  -->
+        <a href=\"update.php\">Update details</a> 
+        | <a href=\"myevents.php\">Event Attendance</a> 
+        | <a href=\"logout.php\">Logout</a>
+<?php } else {
 ?>
 
 <h4>Login Now</h4>
