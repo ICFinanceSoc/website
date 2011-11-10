@@ -6,10 +6,14 @@
 
 <div id="<?php echo $currentpage; ?>" class="clearfix">
     <div class="mainsection grid_7 alpha">
-        <h1>Welcome</h1>
+        <h1>
+            Welcome 
+            <? if(isset($_SESSION[username])){ ?>
+            <? $name = ldap_get_names($_SESSION[username]); echo $name[0]; ?>!
+            <?php } ?>
+        </h1>
 
         <div id="loginbox">
-            <h4>Login Now</h4>
             <?php displayLogin3(); ?>
         </div>
 

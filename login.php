@@ -39,23 +39,22 @@ function confirmUser2($username){
                                                                
 
 function checkLogin(){
-   /* Check if user has been remembered */
-   if(isset($_COOKIE['cookname'])){
-      $_SESSION['username'] = $_COOKIE['cookname'];
+    /* Check if user has been remembered */
+    if(isset($_COOKIE['cookname'])){
+        $_SESSION['username'] = $_COOKIE['cookname'];
     }
-
- if(isset($_SESSION['username'])){
-   if(confirmUser2($_SESSION['username']) != 0){
-         /* Variables are incorrect, user not logged in */
-         unset($_SESSION['username']);
-         return false;
-      }
-      return true;
-   }
-   /* User not logged in */
-   else{
-      return false;
-   }
+    if(isset($_SESSION['username'])){
+        if(confirmUser2($_SESSION['username']) != 0){
+            /* Variables are incorrect, user not logged in */
+            unset($_SESSION['username']);
+            return false;
+        }
+        return true;
+    }
+    /* User not logged in */
+    else{
+        return false;
+    }
 }
 
 /**
@@ -64,12 +63,12 @@ function checkLogin(){
  * based on if the session variables are set.
  */
 function displayLogin(){
-   global $logged_in;
-   if($logged_in){
-      echo "<h1>Logged In!</h1>";
-      echo "Welcome <b>$_SESSION[username]</b>, you are logged in. <a href=\"logout.php\">Logout</a>";
-   }
-   else{
+    global $logged_in;
+    if($logged_in){
+        echo "<h1>Logged In!</h1>";
+        echo "Welcome <b>$_SESSION[username]</b>, you are logged in. <a href=\"logout.php\">Logout</a>";
+    }
+    else{
 ?>
 
 <h1>Login</h1>
@@ -122,14 +121,13 @@ Remember me</font>
  * based on if the session variables are set.
  */
 function displayLogin3(){
-   global $logged_in;
+    global $logged_in;
     if($logged_in){
-      echo "";
-      echo "<b>$_SESSION[username]</b> | <a href=\"update.php\">Update details</a> | <a href=\"myevents.php\">Event Attendance</a> |<a href=\"logout.php\">Logout</a>";
-   }
-   else{
+        echo "<b>$_SESSION[username]</b> | <a href=\"update.php\">Update details</a> | <a href=\"myevents.php\">Event Attendance</a> |<a href=\"logout.php\">Logout</a>";
+    } else {
 ?>
 
+<h4>Login Now</h4>
 <form action="" method="post">
     <fieldset>
         <div class="clearfix">

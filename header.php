@@ -177,7 +177,7 @@ $totalRows_Recordset1 = mysql_num_rows($Recordset1);
                             <span id="date"><?php echo date("d F Y",strtotime(mysql_result($Recordset1,0,"date"))); ?>, <?php echo substr(mysql_result($Recordset1,0,"start"),0,-3); ?></span>
                         </h4>
                         <? if(isset($_SESSION[username])){ ?>
-                        <? $name = ldap_get_names($_SESSION[username]); echo $name[0]; ?>, click the image for more information, or <a href="registereventscript.php?ID=<?php echo mysql_result($Recordset1,0,"ID"); ?>">here to register to the event in one-click</a>.
+                            <? $name = ldap_get_names($_SESSION[username]); echo $name[0]; ?>, click the image for more information, or <a href="registereventscript.php?ID=<?php echo mysql_result($Recordset1,0,"ID"); ?>">here to register to the event in one-click</a>.
                         <? } else { ?>
                         Click the logo for more information. To attend the event, please sign in and register your interest.
                         <? } ?>
