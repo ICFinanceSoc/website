@@ -48,7 +48,7 @@
                             <div class="clearfix">
                                 <label for="registerpass">College Password</label>
                                 <div class="input">
-                                    <input name="registerpass" id="registerpass" type="text"/>
+                                    <input name="registerpass" id="registerpass" type="password"/>
                                 </div>
                             </div>
                             <div class="clearfix">

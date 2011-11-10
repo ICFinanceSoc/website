@@ -21,4 +21,5 @@ error_reporting(0);
 
 
 if(!defined('HOME_PAGE')) define('HOME_PAGE', 'http://union.ic.ac.uk/scc/finance/new/');
+if(!defined('LOCAL')) define('LOCAL', false);
 ?> 

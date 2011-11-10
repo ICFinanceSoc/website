@@ -8,9 +8,12 @@
     <div class="mainsection grid_7 alpha">
         <h1>
             Welcome 
-            <? if(isset($_SESSION[username])){ ?>
-            <? $name = ldap_get_names($_SESSION[username]); echo $name[0]; ?>!
-            <?php } ?>
+            <? if(isset($_SESSION[username]) && !LOCAL){
+                $name = ldap_get_names($_SESSION[username]); 
+                echo $name[0].'!';
+            } else {
+                echo $_SESSION[username];
+            } ?>
         </h1>
 
         <div id="loginbox">

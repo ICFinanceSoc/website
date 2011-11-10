@@ -13,16 +13,18 @@ function confirmUser($username, $password){
     }
     $password = stripslashes($password);
 
-    $checck = pam_auth($username,$password);
+    if(LOCAL == true) { // if on a local machine (doesn't have pam_auth)
+        $checck = 1; // bypass authentication
+    } else {
+        $checck = pam_auth($username,$password);
+    }
     if($checck == 1){
-        return 0; 
+        return 0; // Indicates success
     }
     else{
         return 2; //Indicates password failure
     }
 }
-
-
 
 function confirmUser2($username){
     global $connect;
@@ -155,50 +157,46 @@ function displayLogin3(){
  * creates session.
  */
 if(isset($_POST['sublogin'])){
-   /* Check that all fields were typed in */
-   if(!$_POST['user'] || !$_POST['pass']){
-         echo '<center><div align=center style="position: absolute; top:300px; font-face:Arial;"><img src=images/logo.png><br>';
-      echo 'You didnt fill in all the fields.';
-     
-      die();
-   }
-   /* Spruce up username, check length */
-   $_POST['user'] = trim($_POST['user']);
-   if(strlen($_POST['user']) > 30){
-         echo '<center><div align=center style="position: absolute; top:300px; font-face:Arial;"><img src=images/logo.png><br>';
-      echo 'That username doesn\'t exist in our database.';
-    
-      die();
-   }
-
-   /* Checks that username is in database and password is correct */
-   $result = confirmUser($_POST['user'], $_POST['pass']);
-
-   /* Check error codes */
-   if($result == 1){
-         echo '<center><div align=center style="position: absolute; top:300px; font-face:Arial;"><img src=images/logo.png><br>';
-      echo 'That username doesn\'t exist in our database.';
- 
-      die();
-   }
-   else if($result == 2){
-         echo '<center><div align=center style="position: absolute; top:300px; font-face:Arial;"><img src=images/logo.png><br>';
-      echo 'Incorrect password, please try again.';
-
-      die();
-   }
-
-   /* Username and password correct, register session variables */
-   $_POST['user'] = stripslashes($_POST['user']);
-   $_SESSION['username'] = $_POST['user'];
-  
-   if(isset($_POST['remember'])){
-      setcookie("cookname", $_SESSION['username'], time()+60*60*24*100, "/");
+    /* Check that all fields were typed in */
+    if(!$_POST['user'] || !$_POST['pass']){
+        echo '<center><div align=center style="position: absolute; top:300px; font-face:Arial;"><img src=images/logo.png><br>';
+        echo 'You didnt fill in all the fields.';
+        die();
+    }
+    /* Spruce up username, check length */
+    $_POST['user'] = trim($_POST['user']);
+    if(strlen($_POST['user']) > 30){
+        echo '<center><div align=center style="position: absolute; top:300px; font-face:Arial;"><img src=images/logo.png><br>';
+        echo 'That username doesn\'t exist in our database.';
+        die();
     }
 
-   /* Quick self-redirect to avoid resending data on refresh */
-   echo "<meta http-equiv=\"Refresh\" content=\"0;url=$HTTP_SERVER_VARS[PHP_SELF]\">";
-   return;
+    /* Checks that username is in database and password is correct */
+    $result = confirmUser($_POST['user'], $_POST['pass']);
+
+    /* Check error codes */
+    if($result == 1){
+        echo '<center><div align=center style="position: absolute; top:300px; font-face:Arial;"><img src=images/logo.png><br>';
+        echo 'That username doesn\'t exist in our database.';
+        die();
+    }
+    else if($result == 2){
+        echo '<center><div align=center style="position: absolute; top:300px; font-face:Arial;"><img src=images/logo.png><br>';
+        echo 'Incorrect password, please try again.';
+        die();
+    }
+
+    /* Username and password correct, register session variables */
+    $_POST['user'] = stripslashes($_POST['user']);
+    $_SESSION['username'] = $_POST['user'];
+  
+    if(isset($_POST['remember'])){
+        setcookie("cookname", $_SESSION['username'], time()+60*60*24*100, "/");
+    }
+
+    /* Quick self-redirect to avoid resending data on refresh */
+    echo "<meta http-equiv=\"Refresh\" content=\"0;url=$HTTP_SERVER_VARS[PHP_SELF]\">";
+    return;
 }
 
 /* Sets the value of the logged_in variable, which can be used in your code */

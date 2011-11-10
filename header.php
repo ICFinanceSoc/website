@@ -176,7 +176,7 @@ $totalRows_Recordset1 = mysql_num_rows($Recordset1);
                             <?php echo urldecode(mysql_result($Recordset1,0,"title")); ?>&nbsp;
                             <span id="date"><?php echo date("d F Y",strtotime(mysql_result($Recordset1,0,"date"))); ?>, <?php echo substr(mysql_result($Recordset1,0,"start"),0,-3); ?></span>
                         </h4>
-                        <? if(isset($_SESSION[username])){ ?>
+                        <? if(isset($_SESSION[username]) && !LOCAL){ ?>
                             <? $name = ldap_get_names($_SESSION[username]); echo $name[0]; ?>, click the image for more information, or <a href="registereventscript.php?ID=<?php echo mysql_result($Recordset1,0,"ID"); ?>">here to register to the event in one-click</a>.
                         <? } else { ?>
                         Click the logo for more information. To attend the event, please sign in and register your interest.
@@ -193,7 +193,7 @@ $totalRows_Recordset1 = mysql_num_rows($Recordset1);
                             <?php echo urldecode(mysql_result($Recordset1,1,"title")); ?>&nbsp;
                             <span id="date"><?php echo date("d F Y",strtotime(mysql_result($Recordset1,1,"date"))); ?>, <?php echo substr(mysql_result($Recordset1,1,"start"),0,-3); ?></span>
                         </h4>
-                        <? if(isset($_SESSION[username])){ ?>
+                        <? if(isset($_SESSION[username]) && !LOCAL){ ?>
                             <? $name = ldap_get_names($_SESSION[username]); echo $name[0]; ?>, click the image for more information, or <a href="registereventscript.php?ID=<?php echo mysql_result($Recordset1,1,"ID"); ?>">here to register to the event in one click</a>.
                         <? } else { ?>
                         Click for more information. To attend the event, please sign in.
@@ -221,7 +221,7 @@ $totalRows_Recordset1 = mysql_num_rows($Recordset1);
                         <?php echo urldecode(mysql_result($Recordset1,2,"title")); ?>&nbsp;
                         <span id="date"><?php echo date("d F Y",strtotime(mysql_result($Recordset1,2,"date"))); ?>, <?php echo substr(mysql_result($Recordset1,2,"start"),0,-3); ?></span>
                     </h4>
-                    <? if(isset($_SESSION[username])){ ?>
+                    <? if(isset($_SESSION[username]) && !LOCAL){ ?>
                     <? $name = ldap_get_names($_SESSION[username]); echo $name[0]; ?>, click the image for more information, or <a href="registereventscript.php?ID=<?php echo mysql_result($Recordset1,2,"ID"); ?>">here to register for the event in one click.</a>
                     <? } else { ?>
                     Click for more information. To attend the event, please sign in.
@@ -239,7 +239,7 @@ $totalRows_Recordset1 = mysql_num_rows($Recordset1);
                         <?php echo urldecode(mysql_result($Recordset1,3,"title")); ?>&nbsp;
                         <span id="date"><?php echo date("d F Y",strtotime(mysql_result($Recordset1,3,"date"))); ?>, <?php echo substr(mysql_result($Recordset1,3,"start"),0,-3); ?></span>
                     </h4>
-                    <? if(isset($_SESSION[username])){ ?>
+                    <? if(isset($_SESSION[username]) && !LOCAL){ ?>
                     <? $name = ldap_get_names($_SESSION[username]); echo $name[0]; ?>, click the image for more information, or <a href="registereventscript.php?ID=<?php echo mysql_result($Recordset1,3,"ID"); ?>">here to register in one click.</a>
                     <? } else { ?>
                     Click for more information. To attend the event, please sign in.
