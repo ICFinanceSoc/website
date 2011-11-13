@@ -126,9 +126,9 @@ function displayLogin3(){
     global $logged_in;
     if($logged_in){ ?>
         <!-- <b><?php echo $_SESSION[username]; ?></b>  -->
-        <a href=\"update.php\">Update details</a> 
-        | <a href=\"myevents.php\">Event Attendance</a> 
-        | <a href=\"logout.php\">Logout</a>
+        <a href="update.php">Update details</a> 
+        | <a href="myevents.php">Event Attendance</a> 
+        | <a href="logout.php">Logout</a>
 <?php } else {
 ?>
 
@@ -186,24 +186,27 @@ if(isset($_POST['sublogin'])){
  
       die();
    }
-   else if($result == 2){
-         echo '<center><div align=center style="position: absolute; top:300px; font-face:Arial;"><img src=images/logo.png><br>';
-      echo 'Incorrect password, please try again.';
-
-      die();
-   }
-
-   /* Username and password correct, register session variables */
-   $_POST['user'] = stripslashes($_POST['user']);
-   $_SESSION['username'] = $_POST['user'];
-  
-   if(isset($_POST['remember'])){
-      setcookie("cookname", $_SESSION['username'], time()+60*60*24*100, "/");
+    else if($result == 2){
+        echo '<center><div align=center style="position: absolute; top:300px; font-face:Arial;"><img src=images/logo.png><br>';
+        echo 'Incorrect password, please try again.';
+        die();
     }
 
-   /* Quick self-redirect to avoid resending data on refresh */
-   echo "<meta http-equiv=\"Refresh\" content=\"0;url=$HTTP_SERVER_VARS[PHP_SELF]\">";
-   return;
+    /* Username and password correct, register session variables */
+    $_POST['user'] = stripslashes($_POST['user']);
+    $_SESSION['username'] = $_POST['user'];
+  
+    if(isset($_POST['remember'])){
+        setcookie("cookname", $_SESSION['username'], time()+60*60*24*100, "/");
+    }
+
+    if(isset($_GET['revert'])){
+        echo '<meta http-equiv="Refresh" content="0;url='.$HOME_PAGE.$_GET['revert'].'">';
+    } else {
+        /* Quick self-redirect to avoid resending data on refresh */
+        echo "<meta http-equiv=\"Refresh\" content=\"0;url=$HTTP_SERVER_VARS[PHP_SELF]\">";
+    }
+    return;
 }
 
 /* Sets the value of the logged_in variable, which can be used in your code */

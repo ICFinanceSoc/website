@@ -1,7 +1,6 @@
 <?php require_once('header.php'); 
 if(isset($_SESSION['username'])) {
 	
-
 $colname_Recordset1 = "-1";
 if (isset($_GET['ID'])) {
   $colname_Recordset1 = $_GET['ID'];
@@ -22,13 +21,12 @@ if(isset($_GET['ID']))
 	$name = $row_Recordset1['filename'];
 	$content = $row_Recordset1['content'];
 
+    header("Content-length: $size");
+    header("Content-type: $type");
+    header("Content-Disposition: attachment; filename=$name");
+    echo $content;
 
-header("Content-length: $size");
-header("Content-type: $type");
-header("Content-Disposition: attachment; filename=$name");
-echo $content;
-
-exit;
+    exit;
 }
 
 
