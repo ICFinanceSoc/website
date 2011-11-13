@@ -26,9 +26,9 @@
                                         $sponlogoadd = mysql_result($sponlogo,0,logo);
                                         echo '<img src="images/timthumb.php?src=sponsorlogos/';
                                         echo $sponlogoadd;
-                                        echo '&w=286" width="286" alt="" />';
+                                        echo '&h=130" width="286" alt="" />';
                                     } else {
-                                        echo '<img src="images/timthumb.php?src=logo-250.png&w=286" width="286" alt="" />';
+                                        echo '<img src="images/timthumb.php?src=logo-250.png&h=130" width="286" alt="" />';
                                     }
                                 ?>
                                 <span id="shadow"></span>
