@@ -17,7 +17,7 @@
             <?php }
                 $section = $row_publication_sections['ID'];
                 mysql_select_db($database_sql, $sql);
-                $query_currentsection = "SELECT * FROM publications WHERE `section` = '$section' ORDER BY title ASC";
+                $query_currentsection = "SELECT * FROM publications WHERE `section` = '$section' ORDER BY id ASC";
                 $currentsection = mysql_query($query_currentsection, $sql) or die(mysql_error());
                 $row_currentsection = mysql_fetch_assoc($currentsection);
                 $totalRows_currentsection = mysql_num_rows($currentsection);
