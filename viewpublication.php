@@ -33,7 +33,7 @@ if(isset($_GET['ID']))
 mysql_free_result($Recordset1);
 
 } else {
-	$revert = urlencode("/publications");
+	$revert = urlencode("publications.php");
 	print "<meta http-equiv=\"refresh\" content=\"0;URL=requirelogin.php?reg=You must be logged in to view protected files&revert=$revert\">";
 }
 ?>

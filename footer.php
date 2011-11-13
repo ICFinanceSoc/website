@@ -10,46 +10,45 @@
                 <form class="form-stacked">
                     <fieldset>
                         <legend>Contact Us</legend> 
+                        <!-- <div class="clearfix"> -->
+                        <!--     <label for="contactemail">Name</label> -->
+                        <!--     <div class="input"> -->
+                        <!--         <input type="text" name="contactemail" placeholder="Joe Bloggs" class="large" /> -->
+                        <!--     </div> -->
+                        <!-- </div> -->
+                        <!-- <div class="clearfix"> -->
+                        <!--     <label for="contactemail">Email</label> -->
+                        <!--     <div class="input"> -->
+                        <!--         <input type="text" name="contactemail" placeholder="example@example.com" class="large" /> -->
+                        <!--     </div> -->
+                        <!-- </div> -->
+                        <!-- <div class="clearfix"> -->
+                        <!--     <label for="contactmessage">Message</label> -->
+                        <!--     <div class="input"> -->
+                        <!--         <textarea id="contactmessage" name="contactmessage" placeholder="Hello!" class="large"></textarea> -->
+                        <!--     </div> -->
+                        <!-- </div> -->
+                        <!-- <div class="clearfix"> -->
+                        <!--     <input type="submit" name="submit" value="Send" class="btn" /> -->
+                        <!-- </div> -->
                         <div class="clearfix">
-                            <label for="contactemail">Name</label>
-                            <div class="input">
-                                <input type="text" name="contactemail" placeholder="Joe Bloggs" class="large" />
-                            </div>
-                        </div>
-                        <div class="clearfix">
-                            <label for="contactemail">Email</label>
-                            <div class="input">
-                                <input type="text" name="contactemail" placeholder="example@example.com" class="large" />
-                            </div>
-                        </div>
-                        <div class="clearfix">
-                            <label for="contactmessage">Message</label>
-                            <div class="input">
-                                <textarea id="contactmessage" name="contactmessage" placeholder="Hello!" class="large"></textarea>
-                            </div>
-                        </div>
-                        <div class="clearfix">
-                            <input type="submit" name="submit" value="Send" class="btn" />
-                            <label for="contactemail">Imperial College Finance Society
-                           <BR><BR>
-                           Beit Quad<BR>
-                           Imperial College London<BR>
-                           Prince Consort Road<BR>
-                           South Kensington<BR>
-                           SW7 2BB
+                            <label>
+                                Imperial College Finance Society
+                                <BR><BR>
+                                Beit Quad<BR>
+                                Imperial College London<BR>
+                                Prince Consort Road<BR>
+                                South Kensington<BR>
+                                SW7 2BB
                             
-<BR><BR>www.financesociety.co.uk                            
-                            
-                            
-                            
-                            
+                                <BR><BR>www.financesociety.co.uk                            
                             </label>
                         </div>
                     </fieldset>
                 </form>
             </div>
             <div id="registernow" class="grid_7">
-                <form class="form-stacked"> 
+                <form class="form-stacked" action="register.php?submit=1" method="POST"> 
                     <fieldset>
                         <legend>Register Now</legend>
                         <div class="grid_3 alpha">
