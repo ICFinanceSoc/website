@@ -133,7 +133,7 @@ function displayLogin3(){
 ?>
 
 <h4>Login Now</h4>
-<form action="<?php if(isset($_GET['revert'])) echo HOME_PAGE.$_GET['revert'];?>" method="post" id="loginbox">
+<form action="<?php if(isset($_GET['revert'])) echo HOME_PAGE.'?revert='.urlencode($_GET['revert']);?>" method="post" id="loginbox">
     <fieldset>
         <div class="clearfix">
             <div class="input">
