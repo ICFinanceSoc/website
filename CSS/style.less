@@ -473,22 +473,20 @@ header {
     }
 }
 
-#loginbox {
-    form {
-        .clearfix {
-            margin-bottom: 5px;
+form#loginbox {
+    .clearfix {
+        margin-bottom: 5px;
+    }
+    .input {
+        margin-left: 0px;
+        input {
+            margin-right: 5px;
         }
-        .input {
-            margin-left: 0px;
-            input {
-                margin-right: 5px;
-            }
-        }
-        #rememberme {
-            label {
-                float:none;
-                margin-left: 10px;
-            }
+    }
+    #rememberme {
+        label {
+            float:none;
+            margin-left: 10px;
         }
     }
 }
@@ -770,6 +768,8 @@ header {
             padding: 5px 10px;
             border: 1px solid #E7E7E7;
             .info {
+                background: none;
+                padding: 0px;
                 #position {
                     margin-top: 5px;
                     p {
@@ -876,6 +876,30 @@ footer {
 
 .loading {
     background: url('../images/ajax-loader.gif') center center no-repeat;
+}
+
+.success {
+    background: url('../images/success.png') 0 3px no-repeat;
+    padding-left: 20px;
+    font-style: italic;
+    font-size: 13px !important;
+    color: #666;
+}
+
+.info {
+    background: url('../images/information.png') 0 3px no-repeat;
+    padding-left: 20px;
+    font-style: italic;
+    font-size: 13px !important;
+    color: #666;
+}
+
+.error {
+    background: url('../images/error.png') 0 3px no-repeat;
+    padding-left: 20px;
+    font-style: italic;
+    font-size: 13px !important;
+    color: #666;
 }
 
 /* ==|== media queries ======================================================

@@ -133,7 +133,7 @@ function displayLogin3(){
 ?>
 
 <h4>Login Now</h4>
-<form action="" method="post">
+<form action="" method="post" id="loginbox">
     <fieldset>
         <div class="clearfix">
             <div class="input">

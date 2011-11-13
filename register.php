@@ -3,8 +3,7 @@ $currentpage = register;
 include_once('header.php');
 ?>
 
-<h1>Website, Event and Mailing list Registration</h1>
-
+<h3>Website, Event and Mailing list Registration</h3>
 <?
     $show = 0;
     $message = 0;
@@ -49,19 +48,19 @@ include_once('header.php');
     }
 
     if($message == 0){ ?>
-    Please enter your details in order to sign up to our society.
+    <p class="info">Please enter your details in order to sign up to our society.</p>
     <? }
 
     if($message == 1){ ?>
-    Thank you. You have succesfully confirmed your identity and are now on the Finance Society mailing list. Please <a href="requirelogin.php">now log in</a>.
+    <p class="success">Thank you. You have succesfully confirmed your identity and are now on the Finance Society mailing list. Please <a href="requirelogin.php">now log in</a>.</p>
     <? }
 
     if($message == 2){ ?>
-    Something went wrong. It would appear that you are already a member of the society.
+    <p class="error">Something went wrong. It would appear that you are already a member of the society.</p>
     <? }
 
     if($message == 3){ ?>
-    Your password was incorrect. Please try again.
+    <p class="error">Your password was incorrect. Please try again.</p>
     <? }
 
     if($show == 0){ ?>
