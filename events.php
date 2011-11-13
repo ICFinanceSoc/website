@@ -18,7 +18,22 @@
                         <div id="cont" class="clearfix">
                             <a href="eventinformation.php?ID=<?php echo $row_Recordset1['ID']; ?>" title="Find out more about the event" id="imgcont">
                                 <span id="rollover"></span>
-                                <img src="http://placehold.it/286x130" alt="" />
+                                <? 
+                                $spon = $row_Recordset1['Sponsor'];
+                                if($spon != '0'){
+                                $sponlogo = mysql_query("SELECT * FROM sponsors WHERE ID='$spon'");
+                                $sponlogoadd = mysql_result($sponlogo,0,logo);
+                                echo '<img src="sponsorlogos/';
+                                echo $sponlogoadd;                                
+                                echo '" width="286" height="130" alt="" />';
+                                } else {
+                                echo '<img src="images/logo-250.png" width="286" height="130" alt="" />';
+                                                                }
+                                                          
+                                ?>
+                                                         
+                              
+                                
                                 <span id="shadow"></span>
                             </a>
                             <h4><?php echo urldecode($row_Recordset1['title']); ?></h4>
@@ -61,7 +76,21 @@
                 <div id="cont" class="clearfix">
                     <a href="eventinformation.php?ID=<?php echo $row_Recordset2['ID']; ?>" title="Find out more about the event" id="imgcont">
                         <span id="rollover"></span>
-                        <img src="http://placehold.it/286x130" alt="" />
+                         <?
+                         $spon = $row_Recordset2['Sponsor'];
+                               if($spon != '0'){
+                                                     $sponlogo = mysql_query("SELECT * FROM sponsors WHERE ID='$spon'");
+                                                                       $sponlogoadd = mysql_result($sponlogo,0,logo);
+                                                                                                                                  echo '<img src="sponsorlogos/';
+                                                                                                                                                                                                                         echo $sponlogoadd;
+                                                                                                                                                                                                                                                         echo '" width="286" height="130" alt="" />';
+                                                                                                                                                                                                                                                                                         } else {
+                                                                                                                                                                                                                                                                                                                         echo '<img src="images/logo-250.png" width="286" height="130" alt="" />';
+                                                                                                                                                                                                                                                                                                                                                                                         }
+                                                                                                                                                                                                                                                                                                                                                                                         
+                                                                                                                                                                                                                                                                                                                                                                                                                         ?>
+                                                                                                                                                                                                                                                                                                                                                                                                                         
+                        
                         <span id="shadow"></span>
                     </a>
                     <h4><?php echo urldecode($row_Recordset2['title']); ?></h4>

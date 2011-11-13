@@ -30,6 +30,20 @@
                         </div>
                         <div class="clearfix">
                             <input type="submit" name="submit" value="Send" class="btn" />
+                            <label for="contactemail">Imperial College Finance Society
+                           <BR><BR>
+                           Beit Quad<BR>
+                           Imperial College London<BR>
+                           Prince Consort Road<BR>
+                           South Kensington<BR>
+                           SW7 2BB
+                            
+<BR><BR>www.financesociety.co.uk                            
+                            
+                            
+                            
+                            
+                            </label>
                         </div>
                     </fieldset>
                 </form>

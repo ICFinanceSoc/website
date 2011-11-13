@@ -1,2 +1,17 @@
-# db connect file
+# new
+new/
+
+# admin
+admin/
+
+# icfinancialconfernce
+icfinancialconference/
+
+#email
+email/
+
+#old
+old/
+
+# db.local.php
 db.local.php

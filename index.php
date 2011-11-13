@@ -56,31 +56,31 @@
             <div id="items">
                 <div class="featitem clearfix">
                     <div class="image">
-                        <a href="#"><img src="http://placehold.it/250x150/DDDDDD/07C3F4"/></a>
+                        <a href="events.php"><img src="images/s1.jpg"/></a>
                     </div>
-                    <p>1 Pariatur synth esse, butcher non quis placeat sunt eiusmod. Elit cardigan aliquip american apparel, skateboard brunch ea dolor butcher fanny pack freegan 3 wolf moon fixie.</p> 
-                    <a href="#" title="Read More" class="btn dark">Read More</a>
+                    <p>Looking for a job? Look through our list of events to find yourself the perfect company to work for.</p>
+                    <a href="events.php" title="Read More" class="btn dark">Read More</a>
                 </div>
                 <div class="featitem clearfix">
                     <div class="image">
-                        <a href="#"><img src="http://placehold.it/250x150/DDDDDD/07C3F4"/></a>
+                        <a href="learning.php"><img src="images/s2.jpg"/></a>
                     </div>
-                    <p>2 Pariatur synth esse, butcher non quis placeat sunt eiusmod. Elit cardigan aliquip american apparel, skateboard brunch ea dolor butcher fanny pack freegan 3 wolf moon fixie.</p> 
-                    <a href="#" title="Read More" class="btn dark">Read More</a>
+                    <p>Get all the inside information on how to get an internship, what to do in interviews and learn more about the industry in general</p>
+                    <a href="learning.php" title="Read More" class="btn dark">Read More</a>
                 </div>
                 <div class="featitem clearfix">
                     <div class="image">
-                        <a href="#"><img src="http://placehold.it/250x150/DDDDDD/07C3F4"/></a>
+                        <a href="subsidiaries.php"><img src="images/s3.jpg"/></a>
                     </div>
-                    <p>3 Pariatur synth esse, butcher non quis placeat sunt eiusmod. Elit cardigan aliquip american apparel, skateboard brunch ea dolor butcher fanny pack freegan 3 wolf moon fixie.</p> 
-                    <a href="#" title="Read More" class="btn dark">Read More</a>
+                    <p>Try trading for yourself with one of our subsidiaries - we trade live on the markets each week.</p>
+                    <a href="subsidiaries.php" title="Read More" class="btn dark">Read More</a>
                 </div>
                 <div class="featitem clearfix">
                     <div class="image">
-                        <a href="#"><img src="http://placehold.it/250x150/DDDDDD/07C3F4"/></a>
+                        <a href="about.php"><img src="images/s4.jpg"/></a>
                     </div>
-                    <p>4 Pariatur synth esse, butcher non quis placeat sunt eiusmod. Elit cardigan aliquip american apparel, skateboard brunch ea dolor butcher fanny pack freegan 3 wolf moon fixie.</p> 
-                    <a href="#" title="Read More" class="btn dark">Read More</a>
+                    <p>Learn more about the Financial World's Conference we run each year, and how to get involved.</p>
+                    <a href="about.php" title="Read More" class="btn dark">Read More</a>
                 </div>
             </div>
             <div id="nav">
@@ -95,47 +95,6 @@
         <?php include_once('sponsorlist.php'); ?>
     </div>
 
-    <div id="thumbs" class="grid_12 clearfix alpha">
-        <div class="boxthumb grid_4 alpha">
-            <a href="#">
-                <div class="imageholder">
-                    <img src="http://placehold.it/270x150" alt="" />
-                    <div class="caption">
-                        <div class="title">Fancy event</div>
-                        <div class="desc">
-                             Lorem ipsum dolor sit amet, consectetur adipisicing elit.                 
-                        </div>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <div class="boxthumb grid_4 alpha">
-            <a href="#">
-                <div class="imageholder">
-                    <img src="http://placehold.it/270x150" alt="" />
-                    <div class="caption">
-                        <div class="title">Fancy event</div>
-                        <div class="desc">
-                             Lorem ipsum dolor sit amet, consectetur adipisicing elit.                 
-                        </div>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <div class="boxthumb grid_4 alpha">
-            <a href="#">
-                <div class="imageholder">
-                    <img src="http://placehold.it/270x150" alt="" />
-                    <div class="caption">
-                        <div class="title">Fancy event</div>
-                        <div class="desc">
-                             Lorem ipsum dolor sit amet, consectetur adipisicing elit.                 
-                        </div>
-                    </div>
-                </div>
-            </a>
-        </div>
-    </div>
 </div>
 
 <?php require_once('footer.php');  ?>
