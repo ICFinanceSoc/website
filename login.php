@@ -133,7 +133,7 @@ function displayLogin3(){
 ?>
 
 <h4>Login Now</h4>
-<form action="" method="post" id="loginbox">
+<form action="<?php if(isset($_GET['revert'])) echo HOME_PAGE.$_GET['revert'];?>" method="post" id="loginbox">
     <fieldset>
         <div class="clearfix">
             <div class="input">
@@ -201,7 +201,7 @@ if(isset($_POST['sublogin'])){
     }
 
     if(isset($_GET['revert'])){
-        echo '<meta http-equiv="Refresh" content="0;url='.$HOME_PAGE.$_GET['revert'].'">';
+        echo '<meta http-equiv="Refresh" content="0;url='.HOME_PAGE.$_GET['revert'].'">';
     } else {
         /* Quick self-redirect to avoid resending data on refresh */
         echo "<meta http-equiv=\"Refresh\" content=\"0;url=$HTTP_SERVER_VARS[PHP_SELF]\">";
