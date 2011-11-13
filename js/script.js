@@ -17,7 +17,7 @@ $(document).ready(function() {
             var image = boxthumb.find('img');
             var caption = boxthumb.find('.caption');
             if (!boxthumb.hasClass('animated')) {
-                image.dequeue().stop().fadeTo('300', 0.2);
+                image.dequeue().stop().fadeTo('300', 0.1);
                 caption.dequeue().stop().fadeIn('300');
             }
         }, function() {
