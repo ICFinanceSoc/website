@@ -13,3 +13,5 @@ email/
 #old
 old/
 
+# db.local.php
+db.local.php
