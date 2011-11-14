@@ -77,6 +77,7 @@ $totalRows_Recordset1 = mysql_num_rows($Recordset1);
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8" />
     <title>Imperial College Finance Society</title>
 
     <!-- Main stylesheet -->
