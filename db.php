@@ -19,6 +19,6 @@ error_reporting(0);
 /* to turn on error reporting uncomment line: */
 //error_reporting(E_ERROR | E_WARNING | E_PARSE);
 
-if(!defined('HOME_PAGE')) define('HOME_PAGE', 'http://union.ic.ac.uk/scc/finance/new/');
+if(!defined('HOME_PAGE')) define('HOME_PAGE', 'https://www.union.ic.ac.uk/scc/finance/');
 if(!defined('LOCAL')) define('LOCAL', false);
 ?> 

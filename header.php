@@ -6,8 +6,8 @@ include("db.php");
 include("login.php");
 /*************************************/
 
-if($_SERVER["HTTPS"] != "on" && !IS_LOCAL) {
-    $pageURL = "Location: https://union.ic.ac.uk/scc/finance/new";
+if($_SERVER["HTTPS"] != "on" || !IS_LOCAL) {
+    $pageURL = "Location: https://www.union.ic.ac.uk/scc/finance";
     header($pageURL);
 }
 
