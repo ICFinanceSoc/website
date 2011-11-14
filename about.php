@@ -12,7 +12,7 @@
     <div class="clearfix" id="welcomeimage">
         <img src="images/welcome.jpg" width="100%">
     </div>
-    <div class="displaytext grid_7">
+    <div class="displaytext">
         <?php echo stripslashes(urldecode($row_homeregion['body'])); ?>
     </div>                      
 </div>
