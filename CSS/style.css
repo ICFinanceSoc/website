@@ -554,7 +554,8 @@ form#loginbox #rememberme label{float:none;margin-left:10px;}
 .sponsors{}.sponsors .sponsorbox h4{margin:0px;margin-bottom:5px;color:#444;}
 .sponsors .sponsorbox ul{list-style-type:none;margin:0px;padding:0px;}.sponsors .sponsorbox ul li{float:left;margin-right:10px;padding:10px 5px;background:#fff;border:1px solid #BEBEBE;border-radius:3px;}
 #about h3{margin-top:15px;padding-top:10px;border-top:1px solid #BEBEBE;}#about h3.top{border:none;}
-#about p{line-height:24px;position:relative;}#about p blockquote{float:right;margin:0;padding:0;border:none;right:-390px;width:320px;font-family:georgia, serif;font-size:20px;line-height:28px;border-top:1px solid #BEBEBE;border-bottom:1px solid #BEBEBE;padding-top:10px;padding-bottom:10px;color:#666;background:url('../images/quote-30.png') 0 8px no-repeat;text-indent:40px;margin-left:20px;}
+#about p{line-height:24px;}
+#about .displaytext{position:relative;}#about .displaytext blockquote{float:right;margin:0;padding:0;border:none;right:-390px;width:320px;font-family:georgia, serif;font-size:20px;line-height:28px;border-top:1px solid #BEBEBE;border-bottom:1px solid #BEBEBE;padding-top:10px;padding-bottom:10px;color:#666;background:url('../images/quote-30.png') 0 8px no-repeat;text-indent:40px;margin-left:20px;}
 #publications .publication .intro{font-style:italic;}
 #publications .message{margin-top:20px;font-style:italic;background:url('../images/information.png') 0 0 no-repeat;padding-left:20px;}
 #sponsors .sponsors{background:#fff;}#sponsors .sponsors .sponsorbox{padding:0px;padding-bottom:10px;margin-bottom:10px;}#sponsors .sponsors .sponsorbox table td.active{opacity:0.2;}
