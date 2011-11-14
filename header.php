@@ -80,9 +80,9 @@ $totalRows_Recordset1 = mysql_num_rows($Recordset1);
     <title>Imperial College Finance Society</title>
 
     <!-- Main stylesheet -->
-    <link rel="stylesheet" type="text/css" href="CSS/style.css" />
-    <!-- <link rel="stylesheet/less" type="text/css" href="CSS/style.less" /> -->
-    <!-- <script src="js/less-1.1.4.min.js" type="text/javascript"></script> -->
+    <!-- <link rel="stylesheet" type="text/css" href="CSS/style.css" /> -->
+    <link rel="stylesheet/less" type="text/css" href="CSS/style.less" />
+    <script src="js/less-1.1.4.min.js" type="text/javascript"></script>
 
     <? if($currentpage == 'index'){ // Nivo slider themes ?>
         <link rel="stylesheet" href="themes/default/default.css" type="text/css" media="screen" />
@@ -109,7 +109,7 @@ $totalRows_Recordset1 = mysql_num_rows($Recordset1);
 
 <body>
     <div id="container">
-    <header>
+    <div id="header">
         <div class="container_12 clearfix">
             <a href="<?php echo HOME_PAGE; ?>" title="Home"><h1>Imperial College Finance Society</h1></a>
             <div id="menu" class="container_12 clearfix">
@@ -127,7 +127,7 @@ $totalRows_Recordset1 = mysql_num_rows($Recordset1);
                 </ul>
             </div>
         </div>
-    </header>
+    </div>
 
     <? if($currentpage == 'index'){ ?> 
         <div id="wrapper">

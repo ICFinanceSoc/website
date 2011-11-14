@@ -123,11 +123,11 @@
         </div>
     </div>
 
-    <footer>
-            <div class="container_12">
-                <p class="grid_4 push_4">&#169; Imperial College Finance Society 2011</p>
-            </div>
-    </footer>
+    <div id="footer">
+        <div class="container_12">
+            <p class="grid_4 push_4">&#169; Imperial College Finance Society 2011</p>
+        </div>
+    </div>
 
     <!-- Javascript -->
     <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
