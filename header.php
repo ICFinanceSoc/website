@@ -79,11 +79,10 @@ $totalRows_Recordset1 = mysql_num_rows($Recordset1);
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Imperial College Finance Society</title>
 
-    <!--<link href="CSS/styles.css" rel="stylesheet" type="text/css" />-->
-
     <!-- Main stylesheet -->
-    <link rel="stylesheet/less" type="text/css" href="CSS/style.less" />
-    <script src="js/less-1.1.4.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="CSS/style.css" />
+    <!-- <link rel="stylesheet/less" type="text/css" href="CSS/style.less" /> -->
+    <!-- <script src="js/less-1.1.4.min.js" type="text/javascript"></script> -->
 
     <? if($currentpage == 'index'){ // Nivo slider themes ?>
         <link rel="stylesheet" href="themes/default/default.css" type="text/css" media="screen" />
