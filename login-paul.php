@@ -1,33 +1,32 @@
 <?
 
 function confirmUser($username, $password){
-    global $connect;
-        if(!get_magic_quotes_gpc()) {
-        $username = addslashes($username);
-    }
+   global $connect;
+    if(!get_magic_quotes_gpc()) {
+	$username = addslashes($username);
+   }
 
-    $q = "select * from 2011_Members where Username = '$username'";
-    $result = mysql_query($q,$connect);
-    if(!$result || (mysql_numrows($result) < 1)){
+   $q = "select * from 2011_Members where Username = '$username'";
+   $result = mysql_query($q,$connect);
+   if(!$result || (mysql_numrows($result) < 1)){
       return 1; //Indicates username failure
-    }
-    $password = stripslashes($password);
+   }
 
-    if(LOCAL == true) { // if on a local machine (doesn't have pam_auth)
-        $checck = 1; // bypass authentication
-    } else {
-        $checck = pam_auth($username,$password);
-    }
-    if($checck == 1){
-        return 0; // Indicates success
-    }
-    else{
-        return 2; //Indicates password failure
-    }
+  $password = stripslashes($password);
+
+ $checck = pam_auth($username,$password);
+   if($checck == 1){
+      return 0; 
+   }
+   else{
+      return 2; //Indicates password failure
+   }
 }
 
+
+
 function confirmUser2($username){
-    global $connect;
+   global $connect;
        if(!get_magic_quotes_gpc()) {
                $username = addslashes($username);
                   }
@@ -37,26 +36,28 @@ function confirmUser2($username){
                            if(!$result || (mysql_numrows($result) == 1)){
                                  return 0;
                 }
+                                 
 }                          
                                                                
 
 function checkLogin(){
-    /* Check if user has been remembered */
-    if(isset($_COOKIE['cookname'])){
-        $_SESSION['username'] = $_COOKIE['cookname'];
+   /* Check if user has been remembered */
+   if(isset($_COOKIE['cookname'])){
+      $_SESSION['username'] = $_COOKIE['cookname'];
     }
-    if(isset($_SESSION['username'])){
-        if(confirmUser2($_SESSION['username']) != 0){
-            /* Variables are incorrect, user not logged in */
-            unset($_SESSION['username']);
-            return false;
-        }
-        return true;
-    }
-    /* User not logged in */
-    else{
-        return false;
-    }
+
+ if(isset($_SESSION['username'])){
+   if(confirmUser2($_SESSION['username']) != 0){
+         /* Variables are incorrect, user not logged in */
+         unset($_SESSION['username']);
+         return false;
+      }
+      return true;
+   }
+   /* User not logged in */
+   else{
+      return false;
+   }
 }
 
 /**
@@ -65,12 +66,12 @@ function checkLogin(){
  * based on if the session variables are set.
  */
 function displayLogin(){
-    global $logged_in;
-    if($logged_in){
-        echo "<h1>Logged In!</h1>";
-        echo "Welcome <b>$_SESSION[username]</b>, you are logged in. <a href=\"logout.php\">Logout</a>";
-    }
-    else{
+   global $logged_in;
+   if($logged_in){
+      echo "<h1>Logged In!</h1>";
+      echo "Welcome <b>$_SESSION[username]</b>, you are logged in. <a href=\"logout.php\">Logout</a>";
+   }
+   else{
 ?>
 
 <h1>Login</h1>
@@ -117,43 +118,6 @@ Remember me</font>
    }
 }
 
-/**
- * Determines whether or not to display the login
- * form or to show the user that he is logged in
- * based on if the session variables are set.
- */
-function displayLogin3(){
-    global $logged_in;
-    if($logged_in){ ?>
-        <!-- <b><?php echo $_SESSION[username]; ?></b>  -->
-        <a href="update.php">Update details</a> 
-        | <a href="myevents.php">Event Attendance</a> 
-        | <a href="logout.php">Logout</a>
-<?php } else {
-?>
-
-<h4>Login Now</h4>
-<form action="" method="post" id="loginbox">
-
-
-    <fieldset>
-        <div class="clearfix">
-            <div class="input">
-                <input type="text" name="user" placeholder='College username' maxlength="20">
-                <input type="password" name="pass" placeholder="Password" maxlength="20">
-                <input type="submit" name="sublogin" value="Login" class="btn dark">
-            </div>
-        </div>
-        <div class="clearfix" id="rememberme">
-            <input type="checkbox" name="remember" id="remember">
-            <label for="remember">Remember me</label>
-        </div>
-    </fieldset>
-</form>
-
-<?
-   }
-}
 
 /**
  * Checks to see if the user has submitted his
@@ -188,27 +152,24 @@ if(isset($_POST['sublogin'])){
  
       die();
    }
-    else if($result == 2){
-        echo '<center><div align=center style="position: absolute; top:300px; font-face:Arial;"><img src=images/logo.png><br>';
-        echo 'Incorrect password, please try again.';
-        die();
-    }
+   else if($result == 2){
+         echo '<center><div align=center style="position: absolute; top:300px; font-face:Arial;"><img src=images/logo.png><br>';
+      echo 'Incorrect password, please try again.';
 
-    /* Username and password correct, register session variables */
-    $_POST['user'] = stripslashes($_POST['user']);
-    $_SESSION['username'] = $_POST['user'];
+      die();
+   }
+
+   /* Username and password correct, register session variables */
+   $_POST['user'] = stripslashes($_POST['user']);
+   $_SESSION['username'] = $_POST['user'];
   
-    if(isset($_POST['remember'])){
-        setcookie("cookname", $_SESSION['username'], time()+60*60*24*100, "/");
+   if(isset($_POST['remember'])){
+      setcookie("cookname", $_SESSION['username'], time()+60*60*24*100, "/");
     }
 
-    if(isset($_GET['revert'])){
-        echo '<meta http-equiv="Refresh" content="0;url='.HOME_PAGE.$_GET['revert'].'">';
-    } else {
-        /* Quick self-redirect to avoid resending data on refresh */
-        echo "<meta http-equiv=\"Refresh\" content=\"0;url=$HTTP_SERVER_VARS[PHP_SELF]\">";
-    }
-    return;
+   /* Quick self-redirect to avoid resending data on refresh */
+   echo "<meta http-equiv=\"Refresh\" content=\"0;url=$HTTP_SERVER_VARS[PHP_SELF]\">";
+   return;
 }
 
 /* Sets the value of the logged_in variable, which can be used in your code */
