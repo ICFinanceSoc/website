@@ -89,12 +89,15 @@ $i++;
       
       </td>
     </tr>
+
+
    <tr>
       <td>&nbsp;</td>
       <td bgcolor="#eeeeee"><input type="submit" name="submit" /></td>
     </tr>
   </table>
-
+<BR><BR>
+If you would like to stop being a member of the society, please click <a href=deletemember.php>here</a>. This will unsubscribe you from our mailing list; however you will also not be able to register for any of our events.
 
 </form>
 <?

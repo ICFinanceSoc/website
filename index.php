@@ -20,36 +20,17 @@
             <?php displayLogin3(); ?>
         </div>
 
-        <div id="eventsbox">
-            <h4>Upcoming Events</h4>
-            <ul>
-                <?php 
-                $currentdate = gmdate("Y-m-d");
-                mysql_select_db($database_sql, $sql);
-                $max = 5;
-                $query_Recordset1 = "SELECT * FROM events WHERE `date` >= '$currentdate' ORDER BY `date` LIMIT 0,".$max;
-                $Recordset1 = mysql_query($query_Recordset1, $sql) or die(mysql_error());
-                $totalRows_Recordset1 = mysql_num_rows($Recordset1);
-                if($totalRows_Recordset1 > 0) {
-                    $i = 0;
-                    while($row_Recordset1 = mysql_fetch_array($Recordset1)) {
-                        $i++;
-                ?>
-                    <a href="eventinformation.php?ID=<?php echo $row_Recordset1['ID']; ?>">
-                        <li class="clearfix <?php if($i == $totalRows_Recordset1) echo 'last'; ?>">
-                            <div class="date">
-                                <span class="day"><?php echo date("d",strtotime($row_Recordset1['date'])); ?></span> 
-                                <span class="month"><?php echo date("M",strtotime($row_Recordset1['date'])); ?></span>
-                            </div>
-                            <div class="title"><?php echo urldecode($row_Recordset1['title']); ?></div>
-                        </li>
-                    </a>
-                    <?php } ?>
-                <?php } else { ?>
-                    <p><em>No upcoming events.</em></p>
-                <?php } ?>
-            </ul>
-        </div>
+	<div id="nfw_advert" class="clearfix">
+		<h4>New Financial Worlds Conference</h4>
+		<div id="image_box">
+			<a href="http://nfwconference.com" title="New Financial Worlds Conference">
+				<img src="images/nfw_advert.jpg" width="250px"/>
+			</a>
+		</div>
+			<p>The New Financial Worlds Derivatives Conference is devoted to credit derivatives where students and professionals have the unique opportunity to be a part of a number of cutting edge presentations given by top level industries experts. Delegates will also have the chance to network and share their thoughts on a range of topical financial issues surrounding the globe.</p>
+			<p>We aim to invite speakers from the trading floors, the regulators and the buy-side, to get as much diversity and interesting perspectives as possible.</p>
+		</a>
+	</div>
     
         <div id="featbox">
             <h4>We Recommend</h4>
@@ -89,6 +70,36 @@
             </div>
         </div>
 
+        <div id="eventsbox">
+            <h4>Upcoming Events</h4>
+            <ul>
+                <?php 
+                $currentdate = gmdate("Y-m-d");
+                mysql_select_db($database_sql, $sql);
+                $max = 5;
+                $query_Recordset1 = "SELECT * FROM events WHERE `date` >= '$currentdate' ORDER BY `date` LIMIT 0,".$max;
+                $Recordset1 = mysql_query($query_Recordset1, $sql) or die(mysql_error());
+                $totalRows_Recordset1 = mysql_num_rows($Recordset1);
+                if($totalRows_Recordset1 > 0) {
+                    $i = 0;
+                    while($row_Recordset1 = mysql_fetch_array($Recordset1)) {
+                        $i++;
+                ?>
+                    <a href="eventinformation.php?ID=<?php echo $row_Recordset1['ID']; ?>">
+                        <li class="clearfix <?php if($i == $totalRows_Recordset1) echo 'last'; ?>">
+                            <div class="date">
+                                <span class="day"><?php echo date("d",strtotime($row_Recordset1['date'])); ?></span> 
+                                <span class="month"><?php echo date("M",strtotime($row_Recordset1['date'])); ?></span>
+                            </div>
+                            <div class="title"><?php echo urldecode($row_Recordset1['title']); ?></div>
+                        </li>
+                    </a>
+                    <?php } ?>
+                <?php } else { ?>
+                    <p><em>No upcoming events.</em></p>
+                <?php } ?>
+            </ul>
+        </div>
     </div>
 
     <div class="sponsors grid_5 omega">

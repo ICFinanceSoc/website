@@ -15,3 +15,6 @@ old/
 
 # db.local.php
 db.local.php
+
+#formtools for nfw website
+formtools/
