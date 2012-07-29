@@ -29,3 +29,6 @@ sestest/
 
 #DB searcher
 search/
+
+#Dev site
+dev/
