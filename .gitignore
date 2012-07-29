@@ -15,3 +15,17 @@ db.local.php
 
 #formtools for nfw website
 formtools/
+
+#MantisBT Database for Issue tracking system
+mantis/
+
+#phpxref
+phpxref/
+phpxrefcreator/
+
+#Random test things
+test/
+sestest/
+
+#DB searcher
+search/
