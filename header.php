@@ -6,7 +6,7 @@ include("db.php");
 include("login.php");
 /*************************************/
 
-if($_SERVER["HTTPS"] != "on" || !IS_LOCAL) {
+if($_SERVER["HTTPS"] != "on" && !'LOCAL') {
     $pageURL = "Location: https://www.union.ic.ac.uk/scc/finance";
     header($pageURL);
 }
