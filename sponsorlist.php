@@ -74,6 +74,34 @@
     </ul>
 </div>
 <div class="sponsorbox ">
+    <h4>Bronze Sponsors</h4>
+    <table cellspacing="0">
+        <tr>
+        <?php
+            mysql_select_db($database_sql, $sql);
+            $query_bronzesponsors = "SELECT * FROM sponsors WHERE type = 'bronze' ORDER BY name ASC";
+            $bronzesponsors = mysql_query($query_bronzesponsors, $sql) or die(mysql_error());
+            $row_bronzesponsors = mysql_fetch_assoc($bronzesponsors);
+            $totalRows_bronzesponsors = mysql_num_rows($bronzesponsors);
+            $pcount = 0; 
+            do { $pcount++; 
+        ?>
+            <td style="vertical-align:middle">
+                <a href="sponsordetail.php?ID=<?php echo $row_bronzesponsors['ID']; ?>" title="<?php echo urldecode($row_bronzesponsors['name']);?>">
+                    <img src="sponsorlogos/<?php echo $row_bronzesponsors['logo']; ?>thumb" width="<?php if($currentpage == 'index') echo '100'; else echo '120';?>" alt="" />
+                </a>
+            </td>
+        <?php if($pcount == 3) { ?>
+            </tr><tr> 
+        <?php
+            $pcount = 0; 
+        } ?>
+        <?php } while ($row_bronzesponsors = mysql_fetch_assoc($bronzesponsors)); ?>
+        </tr>
+    </table>
+    </ul>
+</div>
+<div class="sponsorbox ">
     <h4>Partners</h4>
     <table cellspacing="0">
         <tr>
@@ -92,3 +120,4 @@
         </tr>
     </table>
 </div>
+

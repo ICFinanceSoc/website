@@ -20,6 +20,12 @@
     $totalRows_silversponsorsmain = mysql_num_rows($silversponsorsmain);
 
     mysql_select_db($database_sql, $sql);
+    $query_bronzesponsorsmain = "SELECT * FROM sponsors WHERE type = 'silver' ORDER BY name ASC";
+    $bronzesponsorsmain = mysql_query($query_bronzesponsorsmain, $sql) or die(mysql_error());
+    $row_bronzesponsorsmain = mysql_fetch_assoc($bronzesponsorsmain);
+    $totalRows_silversponsorsmain = mysql_num_rows($bronzesponsorsmain);
+
+    mysql_select_db($database_sql, $sql);
     $query_learningsponsorsmain = "SELECT * FROM sponsors WHERE type = 'learning' ORDER BY name ASC";
     $learningsponsorsmain = mysql_query($query_learningsponsorsmain, $sql) or die(mysql_error());
     $row_learningsponsorsmain = mysql_fetch_assoc($learningsponsorsmain);
