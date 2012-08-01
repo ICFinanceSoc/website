@@ -4,8 +4,7 @@ $cwdlength = strlen($cwd);
 if (substr($cwd, -5) === 'admin') {
 	$wroot = substr_replace($cwd, '', -5);
 }
-
-if(file_exists($wroot.'/db.local.php')) {
+if(file_exists($cwd.'/db.local.php')) {
     require_once('db.local.php');
 } else {
     $dbname = 'scc_finance';
