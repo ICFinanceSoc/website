@@ -63,6 +63,7 @@
           <option value="platinum">platinum</option>
           <option value="gold">gold</option>
           <option value="silver">silver</option>
+          <option value="silver">bronze</option>
           <option value="learning">learning</option>
       </select></td>
     </tr>
