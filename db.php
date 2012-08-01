@@ -1,6 +1,12 @@
 <?
-if(file_exists(getcwd().'/db.local.php')) {
-    require_once('db.local.php'); 
+$cwd = getcwd();
+$cwdlength = strlen($cwd);
+if (substr($cwd, -5) === 'admin') {
+	$wroot = substr_replace($cwd, '', -5);
+}
+
+if(file_exists($wroot.'/db.local.php')) {
+    require_once('db.local.php');
 } else {
     $dbname = 'scc_finance';
     $user = 'scc_finance';
