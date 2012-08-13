@@ -2,9 +2,13 @@
 $cwd = getcwd();
 $cwdlength = strlen($cwd);
 if (substr($cwd, -5) === 'admin') {
-	$wroot = substr_replace($cwd, '', -5);
+	$wroot = substr_replace($cwd, '', -6);
 }
-if(file_exists($cwd.'/db.local.php')) {
+else{
+	$wroot = $cwd;
+}
+
+if(file_exists($wroot.'/db.local.php')) {
     require_once('db.local.php');
 } else {
     $dbname = 'scc_finance';
@@ -26,4 +30,4 @@ error_reporting(0);
 
 if(!defined('HOME_PAGE')) define('HOME_PAGE', 'https://www.union.ic.ac.uk/scc/finance/');
 if(!defined('LOCAL')) define('LOCAL', false);
-?> 
+?>
