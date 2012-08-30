@@ -20,7 +20,7 @@ require_once('../db.php');
     $submit = $_GET['submit'];
     $Interests = ',';
     if($submit == 1){
-        echo 'submitted';
+
         $Username = mysql_real_escape_string($_POST['Username']);
         $Mobile = mysql_real_escape_string($_POST['Mobile']);
         $Interests1 = $_POST['Interests'];
@@ -44,7 +44,8 @@ require_once('../db.php');
         //$validpassword = pam_auth($Username, $Password);
         $names = ldap_get_names($Username);
         $name = $names[0];
-        if($name){
+        //var_dump($names);
+        if($names){
             if(mysql_num_rows(mysql_query("SELECT * FROM 2012_Business_school WHERE Username = '$Username'"))==0) {
                 mysql_query("INSERT INTO 2012_Business_school (Username, Mobile, Interests,Dept)
                 VALUES ('$Username', '$Mobile', '$Interests', '$Dept')");
@@ -63,7 +64,7 @@ require_once('../db.php');
     <? }
 
     if($message == 1){ ?>
-    <p class="success">Thank you. You have succesfully confirmed your identity and are now on the Finance Society mailing list. Please <a href="requirelogin.php">now log in</a>.</p>
+    <p class="success">Thank you, <?php echo $name; ?>! You are now on the Finance Society mailing list.</p>
     <? }
 
     if($message == 2){ ?>
@@ -115,7 +116,7 @@ require_once('../db.php');
             </fieldset>
         </form>
         <h4>Why do we need your username?</h4>
-        <p>The ICFS website now runs on the College SSO authentication system. We require it now to confirm your identity.</p>
+        <p>The ICFS website now uses the College Single Sign On System. We email you based on your college username.</p>
         <h4>Does this make me a society member?</h4>
         <p>Not exactly. We encourage you to 'buy' free membership of the ICFS on the union website, in order to register officially with the union as a member of the society. This will allow you to vote in ICFS elections. This registration system is our communications system: registering on this website will ensure you receive updates on events we run and publications we release.</p>
     <? //} ?>
