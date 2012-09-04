@@ -16,12 +16,12 @@ define('location', 'dev');
 if(location == 'dev'){
     $dbname = 'scc_finance_dev';
     $user = 'scc_finance';
-    $pass = 'phqxNcL6BLSfLBjr';
+    $pass = 'DfxVaJvZEGdYW4jv';
     define('HOME_PAGE', 'https://www.union.ic.ac.uk/scc/finance/dev/');
 } elseif(location == 'live'){
     $dbname = 'scc_finance';
     $user = 'scc_finance';
-    $pass = 'phqxNcL6BLSfLBjr';
+    $pass = 'DfxVaJvZEGdYW4jv';
     define('HOME_PAGE', 'https://www.union.ic.ac.uk/scc/finance/');
 } elseif(location == 'local'){
 	$dbname = 'scc_finance_dev';
