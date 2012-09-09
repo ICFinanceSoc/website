@@ -79,7 +79,8 @@ $totalRows_Recordset1 = mysql_num_rows($Recordset1);
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8" />
     <title>Imperial College Finance Society</title>
-
+    <link rel="SHORTCUT ICON" href="favicon.ico" />
+    
     <!-- Main stylesheet -->
     <!-- <link rel="stylesheet" type="text/css" href="CSS/style.css" /> -->
     <link rel="stylesheet/less" type="text/css" href="CSS/style.less" />

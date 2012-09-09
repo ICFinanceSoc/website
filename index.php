@@ -18,17 +18,17 @@
 
         <div id="loginbox">
             <?php displayLogin3(); ?>
-        </div>
-
-	<div id="nfw_advert" class="clearfix">
-		<h4>New Financial Worlds Conference</h4>
+ 
+ </div>
+	<div id="nfw_advert" class="clearfix"> <?php //TXSL hack here too. CSS/LESS needs upating ?>
+		<h4>Welcome Autumn 2012</h4>
 		<div id="image_box">
-			<a href="http://nfwconference.com" title="New Financial Worlds Conference">
-				<img src="images/nfw_advert.jpg" width="250px"/>
-			</a>
+			<img src="images/banner.png" width="525px"/>
 		</div>
-			<p>The New Financial Worlds Derivatives Conference is devoted to credit derivatives where students and professionals have the unique opportunity to be a part of a number of cutting edge presentations given by top level industries experts. Delegates will also have the chance to network and share their thoughts on a range of topical financial issues surrounding the globe.</p>
-			<p>We aim to invite speakers from the trading floors, the regulators and the buy-side, to get as much diversity and interesting perspectives as possible.</p>
+			<p>Hello everyone! Welcome to Imperial & welcome to the Imperial College Finance Society for 2012-2013. We have a lot lined up over the course of the year in order to help you learn more about careers in finance & investment banking - and of course to help with your applications!</p>
+			<p>With over 30 events from top firms, company visits, international trips, an education portal, YouTube channel, news feeds and a finance course, ICFS has expanded significantly this year and we encourage you to get involved in all of our exciting activities and initiatives. Have a great year!</p>
+			<p style="font-weight:bold">ICFS Committee 2012/2013</p>
+			<p>Giri Kesavan, Deepka Rana, Christine Kan, Avtar Rekhi, Thomas Lim, </br> Grahame Harris, Jia Cheong, Tracy Lin</p>
 		</a>
 	</div>
     
