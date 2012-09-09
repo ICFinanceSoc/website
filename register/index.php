@@ -4,13 +4,16 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8" />
     <title>Imperial College Finance Society</title>
-
+    <link rel="SHORTCUT ICON" href="../favicon.ico" />
     <!-- Main stylesheet -->
     <!-- <link rel="stylesheet" type="text/css" href="CSS/style.css" /> -->
     <link rel="stylesheet/less" type="text/css" href="../CSS/style.less" />
     <script src="../js/less-1.1.4.min.js" type="text/javascript"></script>
 </head>
-
+<body>
+<div style="width:500px">
+<div style="margin-left:auto;margin-right:auto">
+<img src="../images/logo.png" width="300px"/>
 <h3>Website, Event and Mailing list Registration</h3>
 <?
 require_once('../db.php');
@@ -115,8 +118,11 @@ require_once('../db.php');
                 </div>
             </fieldset>
         </form>
+</div>
         <h4>Why do we need your username?</h4>
         <p>The ICFS website now uses the College Single Sign On System. We email you based on your college username.</p>
         <h4>Does this make me a society member?</h4>
         <p>Not exactly. We encourage you to 'buy' free membership of the ICFS on the union website, in order to register officially with the union as a member of the society. This will allow you to vote in ICFS elections. This registration system is our communications system: registering on this website will ensure you receive updates on events we run and publications we release.</p>
-    <? //} ?>
+</div>
+</body>
+<? //} ?>
