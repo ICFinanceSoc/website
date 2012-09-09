@@ -122,7 +122,8 @@ $totalRows_Recordset1 = mysql_num_rows($Recordset1);
                     <li><a href="learning.php" <?php if($currentpage == 'learning'){ echo 'class="active"'; } ?> title="">Learning</a></li>
                     <li><a href="sponsors.php" <?php if($currentpage == 'sponsors'){ echo 'class="active"'; } ?> title="">Sponsors</a></li>
                     <li><a href="management.php" <?php if($currentpage == 'management'){ echo 'class="active"'; } ?> title="">Management</a></li>
-                    <!--<? if(isset($_SESSION[username])){ }else { ?>
+                    <li><a href="media.php" <?php if($currentpage == 'media'){ echo 'class="active"'; } ?> title="">Media</a></li>
+		  <!--<? if(isset($_SESSION[username])){ }else { ?>
                     <li><a href="register.php" <?php if($currentpage == 'register'){ echo 'class="active"'; } ?> title="">Register</a></li>
                     <? } ?>-->
                 </ul>
