@@ -3,19 +3,19 @@
 
 
 
-$dbname = 'scc_finance_dev';
-$user = 'scc_finance';
-$pass = 'DfxVaJvZEGdYW4jv';
+$dbname = 'db_name';
+$user = 'user';
+$pass = 'pword';
 
 
 // Define your homepage here. The PHP will likely push all traffic through this address
-define('HOME_PAGE', 'https://www.union.ic.ac.uk/scc/finance/dev');
+define('HOME_PAGE', 'https://www.union.ic.ac.uk/scc/finance/');
 
 // Useful for skipping union login etc, but only on a local version, not any hosted one (obvs)
 define('LOCAL', false);
 
 // Comment out this line to turn off error reporting (do this for the production site)
-error_reporting(E_ERROR | E_WARNING | E_PARSE);
+//error_reporting(E_ERROR | E_WARNING | E_PARSE);
 
 
 
