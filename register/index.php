@@ -3,6 +3,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
     <title>Imperial College Finance Society</title>
     <link rel="SHORTCUT ICON" href="../favicon.ico" />
     <!-- Main stylesheet -->
@@ -11,10 +12,12 @@
     <script src="../js/less-1.1.4.min.js" type="text/javascript"></script>
 </head>
 <body>
-<div style="width:500px">
+<div style="width:500px;border-style:transparent;border-width:25px;padding:10px">
 <div style="margin-left:auto;margin-right:auto">
+<div style="text-align:center">
 <img src="../images/logo.png" width="300px"/>
 <h3>Website, Event and Mailing list Registration</h3>
+
 <?
 require_once('../db.php');
     $show = 0;
@@ -63,23 +66,27 @@ require_once('../db.php');
     }
 
     if($message == 0){ ?>
-    <p class="info">Please enter your details in order to sign up to our society.</p>
+    <p style="font-size:13px;font-weight:normal;line-height:18px;margin-bottom:9px;font-style:italic;padding-left:20px;color:#666666;"><img src="../images/information.png">Please enter your details in order to sign up to our society.</p>
+</div>
     <? }
 
     if($message == 1){ ?>
     <p class="success">Thank you, <?php echo $name; ?>! You are now on the Finance Society mailing list.</p>
+</div>
     <? }
 
     if($message == 2){ ?>
     <p class="error">Something went wrong. It would appear that you are already a member of the society.</p>
+</div>
     <? }
 
     if($message == 3){ ?>
     <p class="error">The username supplied does not exist.</p>
+	</div>
     <? }
 
 //if($show == 0){ ?>
-        <form action="?submit=1" method="POST">
+        <form action="?submit=1" method="POST" style="padding-left:50px">
             <fieldset>
                 <div class="clearfix">
                     <label for="Username">College Username</label>
@@ -110,7 +117,7 @@ require_once('../db.php');
                             }
                         ?>
                         </select>
-                        <span class="help-block">Feel free to select multiple options - hold down Ctrl/Cmd</span>
+                        <span class="help-block">Feel free to select multiple options</span>
                     </div>
                 </div>
                 <div class="actions">
