@@ -11,7 +11,7 @@ email/
 old/
 
 # db.local.php
-db.local.php
+db.php
 
 #formtools for nfw website
 formtools/
