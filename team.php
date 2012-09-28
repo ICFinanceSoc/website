@@ -2,14 +2,26 @@
 $currentpage = 'management'; 
 require_once('header.php');
 
+if (isset($_GET[year])){
+    $year = $_GET[year];
+}
+else{
+    $year = 2012;   
+}
+
 mysql_select_db($database_sql, $sql);
-$query_Recordset1 = "SELECT * FROM management ORDER BY `order` ASC";
+$query_Recordset1 = "SELECT * FROM ". $year ."_management ORDER BY `order` ASC";
 $Recordset1 = mysql_query($query_Recordset1, $sql) or die(mysql_error());
 $row_Recordset1 = mysql_fetch_assoc($Recordset1);
 $totalRows_Recordset1 = mysql_num_rows($Recordset1);
 ?>
 
 <div id="<?php echo $currentpage; ?>">
+    <div style="text-align:center;font-size:1.4em">
+        <a href="team.php?year=2012">2012</a>
+        <a href="team.php?year=2011">2011</a>
+    </div>
+</br>
 <?php do { ?>
     <?php $currentimage = $row_Recordset1['image']; ?>
     <div class="person clearfix <?php if(file_exists("managementpictures/$currentimage")) echo 'imageactive'; ?>">
