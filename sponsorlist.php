@@ -8,12 +8,18 @@
                     <img src="sponsorlogos/<?php echo $row_platinumsponsors['logo']; ?>thumb" width="<?php if($currentpage == 'index') echo '100'; else echo '120';?>" alt="" />
                     </a>
                 </td>
-                <?php if($pcount == 3) { ?>
-                </tr><tr> 
                 <?php
-                    $pcount = 0; 
-                } ?>
-        <?php } while ($row_platinumsponsors = mysql_fetch_assoc($platinumsponsors)); ?>
+                if ($end_middle_img){
+                    echo '<td></td>';
+                    }
+                 if($pcount % 3 == 0) { ?>
+                </tr><tr>
+                <?php } 
+                        if (($totalRows_platinumsponsors % 3 == 1) && (($totalRows_platinumsponsors - $pcount) == 1)){
+                            $end_middle_img = 1;
+                            echo '<td></td>';
+                        }
+        } while ($row_platinumsponsors = mysql_fetch_assoc($platinumsponsors)); ?>
             </tr>
     </table>
 </div>
@@ -21,30 +27,27 @@
     <h4>Gold Sponsors</h4>
     <table cellspacing="0">
         <tr>
-        <?php $pcount = 0; $ccount = 0; do { $pcount++; $ccount++; ?>
+        <?php $end_middle_img = 0; $pcount = 0; $ccount = 0; do { $pcount++; $ccount++; ?>
             <td style="vertical-align:middle">
                 <a href="sponsordetail.php?ID=<?php echo $row_goldsponsors['ID']; ?>" title="<?php echo urldecode($row_goldsponsors['name']);?>">
                     <img src="sponsorlogos/<?php echo $row_goldsponsors['logo']; ?>thumb" width="<?php if($currentpage == 'index') echo '100'; else echo '120';?>" alt="" />
                 </a>
             </td>
-        <?php if($pcount == 3) { ?>
+        <?php   if ($end_middle_img){
+                    echo '<td></td>';
+                    }
+        if($pcount % 3 == 0) { ?>
             </tr><tr> 
-        <?php
-            $pcount = 0; 
-        } ?>
+        <?php }
+        if (($totalRows_goldsponsors % 3 == 1) && (($totalRows_goldsponsors - $pcount) == 1)){
+               $end_middle_img = 1;
+               echo '<td></td>';
+                        } ?>
         <?php } while ($row_goldsponsors = mysql_fetch_assoc($goldsponsors)); ?>
-        <?php 
-            /*
-             * If cell count is not divisible by 3 then output empty cells until it is 
-             */
-            do { 
-                $ccount++; 
-        ?>
-            <td></td>
-        <?php } while(!is_int($ccount/3)); ?>
         </tr>
     </table>
 </div>
+
 <div class="sponsorbox ">
     <h4>Silver Sponsors</h4>
     <table cellspacing="0">
@@ -55,7 +58,8 @@
             $silversponsors = mysql_query($query_silversponsors, $sql) or die(mysql_error());
             $row_silversponsors = mysql_fetch_assoc($silversponsors);
             $totalRows_silversponsors = mysql_num_rows($silversponsors);
-            $pcount = 0; 
+            $pcount = 0;
+            $end_middle_img = 0;
             do { $pcount++; 
         ?>
             <td style="vertical-align:middle">
@@ -63,16 +67,22 @@
                     <img src="sponsorlogos/<?php echo $row_silversponsors['logo']; ?>thumb" width="<?php if($currentpage == 'index') echo '100'; else echo '120';?>" alt="" />
                 </a>
             </td>
-        <?php if($pcount == 3) { ?>
-            </tr><tr> 
-        <?php
-            $pcount = 0; 
-        } ?>
-        <?php } while ($row_silversponsors = mysql_fetch_assoc($silversponsors)); ?>
+        <?php   if ($end_middle_img){
+                    echo '<td></td>';
+                    }
+                if($pcount % 3 == 0) {
+            echo '</tr><tr>';
+        }
+        if (($totalRows_silversponsors % 3 == 1) && (($totalRows_silversponsors - $pcount) == 1)){
+                $end_middle_img = 1;
+                echo '<td></td>';
+            } 
+        } while ($row_silversponsors = mysql_fetch_assoc($silversponsors)); ?>
         </tr>
     </table>
     </ul>
 </div>
+
 <div class="sponsorbox ">
     <h4>Bronze Sponsors</h4>
     <table cellspacing="0">
