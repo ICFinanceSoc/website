@@ -113,6 +113,7 @@ $(document).ready(function(){
           <option value="platinum" <?php if (!(strcmp("platinum", $row_Recordset1['type']))) {echo "selected=\"selected\"";} ?>>platinum</option>
           <option value="gold" <?php if (!(strcmp("gold", $row_Recordset1['type']))) {echo "selected=\"selected\"";} ?>>gold</option>
           <option value="silver" <?php if (!(strcmp("silver", $row_Recordset1['type']))) {echo "selected=\"selected\"";} ?>>silver</option>
+          <option value="bronze" <?php if (!(strcmp("bronze", $row_Recordset1['type']))) {echo "selected=\"selected\"";} ?>>bronze</option>
           <option value="learning" <?php if (!(strcmp("learning", $row_Recordset1['type']))) {echo "selected=\"selected\"";} ?>>learning</option>
         </select></td>
     </tr>

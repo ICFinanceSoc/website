@@ -6,7 +6,7 @@ include("db.php");
 include("login.php");
 /*************************************/
 
-if($_SERVER["HTTPS"] != "on" || !IS_LOCAL) {
+if(!empty($_SERVER["HTTPS"]) && !('LOCAL' == true)) {
     $pageURL = "Location: https://www.union.ic.ac.uk/scc/finance";
     header($pageURL);
 }
@@ -79,7 +79,8 @@ $totalRows_Recordset1 = mysql_num_rows($Recordset1);
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8" />
     <title>Imperial College Finance Society</title>
-
+    <link rel="SHORTCUT ICON" href="favicon.ico" />
+    
     <!-- Main stylesheet -->
     <!-- <link rel="stylesheet" type="text/css" href="CSS/style.css" /> -->
     <link rel="stylesheet/less" type="text/css" href="CSS/style.less" />
@@ -118,11 +119,12 @@ $totalRows_Recordset1 = mysql_num_rows($Recordset1);
                     <li><a href="about.php" <?php if($currentpage == 'about'){ echo 'class="active"'; } ?> title="">About Us</a></li>
                     <li><a href="events.php" <?php if($currentpage == 'events'){ echo 'class="active"'; } ?> title="">Events</a></li>
                     <li><a href="publications.php" <?php if($currentpage == 'publications'){ echo 'class="active"'; } ?> title="">Publications</a></li>
-                    <li><a href="subsidiaries.php" <?php if($currentpage == 'subsidiaries'){ echo 'class="active"'; } ?> title="">Subsidiaries</a></li>
+                    <li><a href="http://iciclub.co.uk" <?php if($currentpage == 'subsidiaries'){ echo 'class="active"'; } ?> target="_blank" title="Imperial College Investment Club">ICIC</a></li>
                     <li><a href="learning.php" <?php if($currentpage == 'learning'){ echo 'class="active"'; } ?> title="">Learning</a></li>
                     <li><a href="sponsors.php" <?php if($currentpage == 'sponsors'){ echo 'class="active"'; } ?> title="">Sponsors</a></li>
-                    <li><a href="management.php" <?php if($currentpage == 'management'){ echo 'class="active"'; } ?> title="">Management</a></li>
-                    <!--<? if(isset($_SESSION[username])){ }else { ?>
+                    <li><a href="team.php" <?php if($currentpage == 'management'){ echo 'class="active"'; } ?> title="">Team</a></li>
+                    <li><a href="media.php" <?php if($currentpage == 'media'){ echo 'class="active"'; } ?> title="">Media</a></li>
+		  <!--<? if(isset($_SESSION[username])){ }else { ?>
                     <li><a href="register.php" <?php if($currentpage == 'register'){ echo 'class="active"'; } ?> title="">Register</a></li>
                     <? } ?>-->
                 </ul>

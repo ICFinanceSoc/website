@@ -9,14 +9,20 @@
 <p>
   <?php
 require_once("header.php");
-mysql_select_db($database_sql, $sql);
-  $query_users = "SELECT * FROM 2011_Members";
+var_dump ($database_sql);
+echo '<br/>';
+var_dump ($sql);
+
+//$suc =  mysql_select_db($database_sql, $sql);
+
+
+$query_users = "SELECT * FROM 2011_Members";
 $users = mysql_query($query_users, $sql) or die(mysql_error());
 $row_users = mysql_fetch_assoc($users);
 $totalRows_users = mysql_num_rows($users);
 ?>
 </p>
-<p><a href="createexcel.php" target="_blank">DOWNLOAD AS EXCEL FILE</a></p>
+<p>Currently <?php echo $totalRows_users; ?> members registered. <a href="createexcel.php" target="_blank">DOWNLOAD AS EXCEL FILE</a></p>
 <link href="../CSS/adminstyles.css" rel="stylesheet" type="text/css">
 <table width="100%" border="1" cellpadding="5" cellspacing="0">
   <tr>

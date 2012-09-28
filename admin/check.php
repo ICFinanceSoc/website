@@ -6,6 +6,7 @@ $password = stripslashes($pass);
 
 
 function confirmUser($username, $password){
+   if('LOCAL' === true ) return 3;
    global $connect;
        if(!get_magic_quotes_gpc()) {
                $username = addslashes($username);
