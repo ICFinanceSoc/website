@@ -36,3 +36,15 @@ function createuser($username, $mobile, $interests){
         );
     }
 }
+
+function createuser_auth($username, $password, $mobile, $interests){
+    if (pam_auth($username, $password)){
+        return createuser($username, $mobile, $interests);
+    }
+    else{
+        return array(
+            "status" => false,
+            "msg" => "Incorrect username and password combination",
+        );
+    }
+}
