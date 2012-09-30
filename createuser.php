@@ -19,20 +19,20 @@ function createuser($username, $mobile, $interests){
             VALUES('$username', '$mobile', '$interests', '$names[0]', '$names[1]', '$info[2]', '$email')");
             return [
                 "status" => true,
-                "msg" => "Thank you, $names[0]! You are now on the Finance Society mailing list."
+                "msg" => "Thank you, $names[0]! You are now on the Finance Society mailing list.",
             ];
         }
         else{
             return [
                 "status" => false,
-                "msg" => "You appear be a member registered with us already."
+                "msg" => "You appear be a member registered with us already.",
             ];
         }
     }
     else{
         return [
             "status" => false,
-            "msg" => "Sorry, that username does not exist."
+            "msg" => "Sorry, that username does not exist.",
         ];
     }
 }

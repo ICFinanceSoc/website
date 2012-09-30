@@ -20,7 +20,7 @@
 
 <?
 require_once('../db.php');
-require_once('../createuser.php')
+require_once('../createuser.php');
     $show = 0;
     $message = 0;
 
@@ -73,11 +73,11 @@ require_once('../createuser.php')
     <? }
 
     if($result["status"]){ ?>
-        <p class="success"><? echo result["msg"]; ?></p>
+        <p class="success"><? echo $result["msg"]; ?></p>
         </div>
     <? }
     else{ ?>
-        <p class="error"><? echo result["msg"]; ?></p>
+        <p class="error"><? echo $result["msg"]; ?></p>
         </div>
     <? }
 
