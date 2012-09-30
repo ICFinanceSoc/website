@@ -89,7 +89,7 @@ require_once('../createuser.php');
     if($message == 3){ ?>
     <p class="error">The username supplied does not exist.</p>
 	</div>
-    <?*/ }
+    <? } */
 
 //if($show == 0){ ?>
         <form action="?submit=1" method="POST" style="padding-left:50px">
