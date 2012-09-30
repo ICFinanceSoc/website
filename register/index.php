@@ -20,6 +20,7 @@
 
 <?
 require_once('../db.php');
+require_once('../createuser.php')
     $show = 0;
     $message = 0;
 
@@ -36,7 +37,8 @@ require_once('../db.php');
                 $Interests = $Interests.$I.',';
             }
         }
-        $filter= '(uid=';
+        $result = createuser($Username, $Mobile, $Interests);
+        /*$filter= '(uid=';
         $filter .= $Username;
         $filter .= ')';
         $conn = ldap_connect("addressbook.ic.ac.uk") or die("Could not connect to server");
@@ -62,20 +64,24 @@ require_once('../db.php');
             }
         } else {
             $message = 3;
-        }
+        }*/
     }
 
-    if($message == 0){ ?>
+    if(!isset($result)){ ?>
     <p style="font-size:13px;font-weight:normal;line-height:18px;margin-bottom:9px;font-style:italic;padding-left:20px;color:#666666;"><img src="../images/information.png">Please enter your details in order to sign up to our society.</p>
 </div>
     <? }
 
-    if($message == 1){ ?>
-    <p class="success">Thank you, <?php echo $name; ?>! You are now on the Finance Society mailing list.</p>
-</div>
+    if($result["status"]){ ?>
+        <p class="success"><? echo result["msg"]; ?></p>
+        </div>
+    <? }
+    else{ ?>
+        <p class="error"><? echo result["msg"]; ?></p>
+        </div>
     <? }
 
-    if($message == 2){ ?>
+/*    if($message == 2){ ?>
     <p class="error">Something went wrong. It would appear that you are already a member of the society.</p>
 </div>
     <? }
@@ -83,7 +89,7 @@ require_once('../db.php');
     if($message == 3){ ?>
     <p class="error">The username supplied does not exist.</p>
 	</div>
-    <? }
+    <?*/ }
 
 //if($show == 0){ ?>
         <form action="?submit=1" method="POST" style="padding-left:50px">
