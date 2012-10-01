@@ -15,7 +15,7 @@ include_once('header.php');
         $safe_username = mysql_real_escape_string($_POST['Username']);
         $safe_mobile = mysql_real_escape_string($_POST['Mobile']);
         $safe_password = mysql_real_escape_string($_POST['Password']);
-        $result = createuser_auth($safe_username, $safe_mobile, $safe_password, $Interests);
+        $result = createuser_auth($safe_username, $safe_password, $safe_mobile, $Interests);
         if ($result['status']){
             echo '<p class="success">' . $result['msg'] . '</p>';
         }
@@ -23,7 +23,7 @@ include_once('header.php');
             echo '<p class="error">' . $result['msg'] . '</p>';
         }
     }
-?>
+
 
     if($show == 0){ ?>
         <form action="register.php?submit=1" method="POST">

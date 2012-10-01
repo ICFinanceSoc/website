@@ -55,19 +55,19 @@
                             <div class="clearfix">
                                 <label for="registeruser">College Username</label>
                                 <div class="input">
-                                    <input name="registeruser" id="registerpass" type="text"/>
+                                    <input name="Username" id="registerpass" type="text"/>
                                 </div>
                             </div>
                             <div class="clearfix">
                                 <label for="registerpass">College Password</label>
                                 <div class="input">
-                                    <input name="registerpass" id="registerpass" type="password"/>
+                                    <input name="Password" id="registerpass" type="password"/>
                                 </div>
                             </div>
                             <div class="clearfix">
                                 <label for="registermobile">Mobile Number</label>
                                 <div class="input">
-                                    <input name="registermobile" id="registermobile" type="text"/>
+                                    <input name="Mobile" id="registermobile" type="text"/>
                                 </div>
                             </div>
                         </div>
