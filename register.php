@@ -8,7 +8,7 @@ include_once('header.php');
     $show = 0;
     $message = 0;
 
-    $submit = $_GET['submit'];
+    $submit = $_POST['submit'];
     $Interests = ',';
     if($submit == 1){
         require_once('createuser.php');
@@ -26,7 +26,7 @@ include_once('header.php');
 
 
     if($show == 0){ ?>
-        <form action="register.php?submit=1" method="POST">
+        <form action="register.php" method="POST">
             <fieldset>
                 <div class="clearfix">
                     <label for="Username">College Username</label>
@@ -44,6 +44,7 @@ include_once('header.php');
                     <label for="Mobile">Mobile Number</label>
                     <div class="input">
                         <input type="text" name="Mobile" id="Mobile" />
+                        <input type="hidden" name="submit" value="1" />
                     </div>
                 </div>
                 <div class="clearfix">
@@ -69,6 +70,7 @@ include_once('header.php');
                     <input type="submit" name="submit" class="btn primary" />
                 </div>
             </fieldset>
+            <input type="hidden" name="submit" value="1" />
         </form>
         <h4>Why do we need your username and password?</h4>
         <p>The ICFS website now runs on the College SSO authentication system. We never see or store your password. We require it now to confirm your identity.</p>

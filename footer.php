@@ -48,7 +48,7 @@
                 </form>
             </div>
             <div id="registernow" class="grid_7">
-                <form class="form-stacked" action="register.php?submit=1" method="POST"> 
+                <form class="form-stacked" action="register.php" method="POST"> 
                     <fieldset>
                         <legend>Register Now</legend>
                         <div class="grid_3 alpha">
@@ -97,6 +97,7 @@
                             <a id="info" data-controls-modal="registermodal">Info</a>
                         </div>
                     </fieldset>
+                    <input type="hidden" name="submit" value="1" />
                 </form>
                 <div id="registermodal" class="modal hide fade">
                     <div class="modal-header">

@@ -24,7 +24,7 @@ require_once('../createuser.php');
     $show = 0;
     $message = 0;
 
-    $submit = $_GET['submit'];
+    $submit = $_POST['submit'];
     $Interests = ',';
     if($submit == 1){
 
@@ -92,7 +92,7 @@ require_once('../createuser.php');
     <? } */
 
 //if($show == 0){ ?>
-        <form action="?submit=1" method="POST" style="padding-left:50px">
+        <form action="" method="POST" style="padding-left:50px">
             <fieldset>
                 <div class="clearfix">
                     <label for="Username">College Username</label>
@@ -130,6 +130,7 @@ require_once('../createuser.php');
                     <input type="submit" name="submit" class="btn primary" />
                 </div>
             </fieldset>
+            <input type="hidden" name="submit" value="1" />
         </form>
 </div>
         <h4>Why do we need your username?</h4>
