@@ -15,7 +15,7 @@ include_once('header.php');
         $safe_username = mysql_real_escape_string($_POST['Username']);
         $safe_mobile = mysql_real_escape_string($_POST['Mobile']);
         $safe_password = mysql_real_escape_string($_POST['Password']);
-        $result = createuser_auth($safe_username, $safe_password, $safe_mobile, $Interests);
+        $result = createuser_auth($safe_username, $safe_password, $safe_mobile, $Interests, 'ICFSSITE');
         if ($result['status']){
             echo '<p class="success">' . $result['msg'] . '</p>';
         }

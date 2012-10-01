@@ -37,7 +37,7 @@ require_once('../createuser.php');
                 $Interests = $Interests.$I.',';
             }
         }
-        $result = createuser($Username, $Mobile, $Interests);
+        $result = createuser($Username, $Mobile, $Interests, 'FF2012');
         /*$filter= '(uid=';
         $filter .= $Username;
         $filter .= ')';

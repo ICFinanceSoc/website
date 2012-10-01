@@ -9,15 +9,15 @@
 
 require_once('/usr/local/share/union-php/_auto_pre.php');
 
-function createuser($username, $mobile, $interests){
+function createuser($username, $mobile, $interests, $regmethod){
     $names = ldap_get_names($username);
     if ($names){
         if(mysql_num_rows(mysql_query("SELECT * FROM 2011_Members WHERE Username = '$username'"))==0){
             $email = ldap_get_mail($username);
             $info = ldap_get_info($username);
             $time = time();
-            mysql_query("INSERT INTO 2011_Members (Username, Mobile, Interests, Forename, Surname, Department, Email, Reg_time)
-            VALUES('$username', '$mobile', '$interests', '$names[0]', '$names[1]', '$info[2]', '$email', NOW())");
+            mysql_query("INSERT INTO 2011_Members (Username, Mobile, Interests, Forename, Surname, Department, Email, Reg_time, Reg_method)
+            VALUES('$username', '$mobile', '$interests', '$names[0]', '$names[1]', '$info[2]', '$email', NOW(), '$regmethod')");
             return array(
                 "status" => true,
                 "msg" => "Thank you, $names[0]! You are now on the Finance Society mailing list.",
@@ -38,9 +38,9 @@ function createuser($username, $mobile, $interests){
     }
 }
 
-function createuser_auth($username, $password, $mobile, $interests){
+function createuser_auth($username, $password, $mobile, $interests, $regmethod){
     if (pam_auth($username, $password)){
-        return createuser($username, $mobile, $interests);
+        return createuser($username, $mobile, $interests, $regmethod);
     }
     else{
         return array(
