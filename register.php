@@ -11,57 +11,19 @@ include_once('header.php');
     $submit = $_GET['submit'];
     $Interests = ',';
     if($submit == 1){
-        $Username = mysql_real_escape_string($_POST['Username']);
-        $Password = mysql_real_escape_string($_POST['Password']);
-        $Mobile = mysql_real_escape_string($_POST['Mobile']);
-        $Interests1 = $_POST['Interests'];
-        if ($Interests1){
-            foreach ($Interests1 as $I){
-                $Interests = $Interests.$I.',';
-            }
+        require_once('createuser.php');
+        $safe_username = mysql_real_escape_string($_POST['Username']);
+        $safe_mobile = mysql_real_escape_string($_POST['Mobile']);
+        $safe_password = mysql_real_escape_string($_POST['Password']);
+        $result = createuser_auth($safe_username, $safe_mobile, $safe_password, $Interests);
+        if ($result['status']){
+            echo '<p class="success">' . $result['msg'] . '</p>';
         }
-        $filter= '(uid=';
-        $filter .= $Username;
-        $filter .= ')';
-        $conn = ldap_connect("addressbook.ic.ac.uk") or die("Could not connect to server");
-        $r = ldap_bind($conn) or die("Could not bind to server");
-        $dn = "o=Imperial College,c=GB";
-        $justthese = array("ou");
-        $sr=ldap_search($conn, $dn, $filter, $justthese);
-        $info = ldap_get_entries($conn, $sr);
-        $Dept = $info[0]["ou"][0];
-        ldap_close($conn);
-        $validpassword = pam_auth($Username, $Password);
-
-        if($validpassword == 1){
-            if(mysql_num_rows(mysql_query("SELECT * FROM 2011_Members WHERE Username = '$Username'"))==0) {
-                mysql_query("INSERT INTO 2011_Members (Username, Mobile, Interests,Dept)
-                VALUES ('$Username', '$Mobile', '$Interests', '$Dept')");
-                $message = 1;
-                $show = 1;
-            } else {
-                $message = 2;
-            }
-        } else {
-            $message = 3;
+        else{
+            echo '<p class="error">' . $result['msg'] . '</p>';
         }
     }
-
-    if($message == 0){ ?>
-    <p class="info">Please enter your details in order to sign up to our society.</p>
-    <? }
-
-    if($message == 1){ ?>
-    <p class="success">Thank you. You have succesfully confirmed your identity and are now on the Finance Society mailing list. Please <a href="requirelogin.php">now log in</a>.</p>
-    <? }
-
-    if($message == 2){ ?>
-    <p class="error">Something went wrong. It would appear that you are already a member of the society.</p>
-    <? }
-
-    if($message == 3){ ?>
-    <p class="error">Your password was incorrect. Please try again.</p>
-    <? }
+?>
 
     if($show == 0){ ?>
         <form action="register.php?submit=1" method="POST">
