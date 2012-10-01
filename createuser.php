@@ -15,8 +15,9 @@ function createuser($username, $mobile, $interests){
         if(mysql_num_rows(mysql_query("SELECT * FROM 2011_Members WHERE Username = '$username'"))==0){
             $email = ldap_get_mail($username);
             $info = ldap_get_info($username);
-            mysql_query("INSERT INTO 2011_Members (Username, Mobile, Interests, Forename, Surname, Department, Email)
-            VALUES('$username', '$mobile', '$interests', '$names[0]', '$names[1]', '$info[2]', '$email')");
+            $time = time();
+            mysql_query("INSERT INTO 2011_Members (Username, Mobile, Interests, Forename, Surname, Department, Email, Reg_time)
+            VALUES('$username', '$mobile', '$interests', '$names[0]', '$names[1]', '$info[2]', '$email', NOW())");
             return array(
                 "status" => true,
                 "msg" => "Thank you, $names[0]! You are now on the Finance Society mailing list.",
