@@ -18,6 +18,7 @@ include_once('header.php');
         $result = createuser_auth($safe_username, $safe_password, $safe_mobile, $Interests, 'ICFSSITE');
         if ($result['status']){
             echo '<p class="success">' . $result['msg'] . '</p>';
+            $show = 1;
         }
         else{
             echo '<p class="error">' . $result['msg'] . '</p>';
