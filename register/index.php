@@ -12,7 +12,13 @@
     <script src="../js/less-1.1.4.min.js" type="text/javascript"></script>
 </head>
 <body>
-<div style="width:500px;border-style:transparent;border-width:25px;padding:10px">
+<? $isiPad = (bool) strpos($_SERVER['HTTP_USER_AGENT'],'iPad'); 
+/* if(!$isiPad){
+//    echo '<div style="margin-left:auto;margin-right:auto;width:600px;border-style:transparent;border-width:25px;padding:10px>"';
+}
+else{ */
+    echo '<div style="width:600px;border-style:transparent;border-width:25px;padding:10px">';
+//} ?>
 <div style="margin-left:auto;margin-right:auto">
 <div style="text-align:center">
 <img src="../images/logo.png" width="300px"/>
@@ -22,7 +28,6 @@
 require_once('../db.php');
 require_once('../createuser.php');
     $show = 0;
-    $message = 0;
 
     $submit = $_POST['submit'];
     $Interests = ',';
@@ -37,61 +42,23 @@ require_once('../createuser.php');
                 $Interests = $Interests.$I.',';
             }
         }
-        $result = createuser($Username, $Mobile, $Interests, 'FF2012');
-        /*$filter= '(uid=';
-        $filter .= $Username;
-        $filter .= ')';
-        $conn = ldap_connect("addressbook.ic.ac.uk") or die("Could not connect to server");
-        $r = ldap_bind($conn) or die("Could not bind to server");
-        $dn = "o=Imperial College,c=GB";
-        $justthese = array("ou");
-        $sr=ldap_search($conn, $dn, $filter, $justthese);
-        $info = ldap_get_entries($conn, $sr);
-        $Dept = $info[0]["ou"][0];
-        ldap_close($conn);
-        //$validpassword = pam_auth($Username, $Password);
-        $names = ldap_get_names($Username);
-        $name = $names[0];
-        //var_dump($names);
-        if($names){
-            if(mysql_num_rows(mysql_query("SELECT * FROM 2012_Business_school WHERE Username = '$Username'"))==0) {
-                mysql_query("INSERT INTO 2012_Business_school (Username, Mobile, Interests,Dept)
-                VALUES ('$Username', '$Mobile', '$Interests', '$Dept')");
-                $message = 1;
-                $show = 1;
-            } else {
-                $message = 2;
-            }
-        } else {
-            $message = 3;
-        }*/
+        $result = freshers_createuser($Username, $Mobile, $Interests);
     }
 
     if(!isset($result)){ ?>
-    <p style="font-size:13px;font-weight:normal;line-height:18px;margin-bottom:9px;font-style:italic;padding-left:20px;color:#666666;"><img src="../images/information.png">Please enter your details in order to sign up to our society.</p>
+    <p style="font-size:13px;font-weight:normal;line-height:18px;margin-bottom:4px;font-style:italic;padding-left:20px;color:#666666;"><img src="../images/information.png"> Please enter your details in order to sign up to our society.</p>
 </div>
     <? }
+    else{
 
-    if($result["status"]){ ?>
-        <p class="success"><? echo $result["msg"]; ?></p>
-        </div>
-    <? }
-    else{ ?>
-        <p class="error"><? echo $result["msg"]; ?></p>
-        </div>
-    <? }
+        if($result["status"]){ ?>
+            <p class="success"><? echo $result["msg"]; ?></p>
 
-/*    if($message == 2){ ?>
-    <p class="error">Something went wrong. It would appear that you are already a member of the society.</p>
-</div>
-    <? }
-
-    if($message == 3){ ?>
-    <p class="error">The username supplied does not exist.</p>
-	</div>
-    <? } */
-
-//if($show == 0){ ?>
+        <? }
+        else{ ?>
+            <p style="font-size:13px;font-weight:normal;line-height:18px;margin-bottom:9px;font-style:italic;padding-left:20px;color:#666666;"><img src="../images/error.png"><? echo $result["msg"]; ?></p>
+        <? }
+    } ?>
         <form action="" method="POST" style="padding-left:50px">
             <fieldset>
                 <div class="clearfix">
@@ -126,17 +93,19 @@ require_once('../createuser.php');
                         <span class="help-block">Feel free to select multiple options</span>
                     </div>
                 </div>
-                <div class="actions">
-                    <input type="submit" name="submit" class="btn primary" />
-                </div>
+</div>
+        <div class="actions" style="padding-left:200px">
+            <button type="submit" name="submit" class="btn primary" />Register</button>
+        </div>
             </fieldset>
             <input type="hidden" name="submit" value="1" />
         </form>
-</div>
+
         <h4>Why do we need your username?</h4>
         <p>The ICFS website now uses the College Single Sign On System. We email you based on your college username.</p>
         <h4>Does this make me a society member?</h4>
         <p>Not exactly. We encourage you to 'buy' free membership of the ICFS on the union website, in order to register officially with the union as a member of the society. This will allow you to vote in ICFS elections. This registration system is our communications system: registering on this website will ensure you receive updates on events we run and publications we release.</p>
+</div>
 </div>
 </body>
 <? //} ?>

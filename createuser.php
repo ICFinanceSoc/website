@@ -49,3 +49,13 @@ function createuser_auth($username, $password, $mobile, $interests, $regmethod){
         );
     }
 }
+
+function freshers_createuser($username, $mobile, $interests){
+    $regmethod = 'FF2012';
+    $result = createuser($username, $mobile, $interests, $regmethod);
+    if ($result['msg']){
+        mysql_query("INSERT INTO 2012_Freshers (Username, Mobile, Interests, Forename, Surname, Department, Email, Reg_time, Reg_method)
+            VALUES('$username', '$mobile', '$interests', '$names[0]', '$names[1]', '$info[2]', '$email', NOW(), '$regmethod')");
+    }
+    return $result;
+}
