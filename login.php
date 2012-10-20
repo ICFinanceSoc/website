@@ -140,7 +140,7 @@ function displayLogin3(){
         <div class="clearfix">
             <div class="input">
                 <input type="text" name="user" placeholder='College username' maxlength="20">
-                <input type="password" name="pass" placeholder="Password" maxlength="20">
+                <input type="password" name="pass" placeholder="Password" maxlength="40">
                 <input type="submit" name="sublogin" value="Login" class="btn dark">
             </div>
         </div>
