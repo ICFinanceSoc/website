@@ -9,39 +9,13 @@
 ?>
 
 <div id="<?php echo $currentpage; ?>">
-    <?php if($totalRows_publication_sections > 0) { do { ?>
-        <div class="publication clearfix">
-            <h3><?php echo urldecode($row_publication_sections['title']); ?></h3>
-            <?php if($row_publication_sections['intro']) { ?>
-                <p class="intro"><?php echo stripslashes(urldecode($row_publication_sections['intro'])); ?></p>
-            <?php }
-                $section = $row_publication_sections['ID'];
-                mysql_select_db($database_sql, $sql);
-                $query_currentsection = "SELECT * FROM publications WHERE `section` = '$section' ORDER BY id ASC";
-                $currentsection = mysql_query($query_currentsection, $sql) or die(mysql_error());
-                $row_currentsection = mysql_fetch_assoc($currentsection);
-                $totalRows_currentsection = mysql_num_rows($currentsection);
-                if($totalRows_currentsection > 0) { ?>
-                    <?php do { ?> 
-                        <div class="boxthumb grid_4 alpha">
-                            <a href="viewpublication.php?ID=<?php echo $row_currentsection['ID']; ?>">
-                                <div class="imageholder">
-                                <img src="<?php if($row_currentsection['image_name']) echo 'images/timthumb.php?src=publications/'.$row_currentsection['image_name'].'&w=270'; else echo 'http://placehold.it/270x350';?>" alt="" />
-                                    <div class="caption">
-                                        <div class="title"><?php echo urldecode($row_currentsection['Title']); ?></div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    <?php } while ($row_currentsection = mysql_fetch_assoc($currentsection));  ?>
-            <?php } else { ?>  
-                <strong>There are currently no articles in this section.</strong>
-            <?php } ?>
-        </div>
-    <?php } while ($row_publication_sections = mysql_fetch_assoc($publication_sections)); } ?> 
-    <?php if(!isset($_SESSION['username'])) { ?>
-        <div class="message">You must be logged in to view protected files.</div>
-    <?php } ?>
+    <div class="publication clearfix">
+    <h3>Capital Magazine</h3>
+                            <p class="intro">Capital is the editorial arm of ICFS. The flagship publication, Capital Magazine, will provide you with insights and in-depth analysis of current markets. Our current 2012 edition will be available at our stall in Freshers Fair and at other select ICFS events. 
+
+</p>
+              
+                <strong><a href="/scc/finance/content/Capital2012.pdf">Read Capital 2012</a></strong>
 </div>
-                      
+</div>                  
 <?php require_once('footer.php');  ?>
