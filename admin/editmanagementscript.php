@@ -38,7 +38,7 @@ include('SimpleImage.php');
 
 
 // insert image into db
-mysql_query("UPDATE management SET `name` = '$name', `position` = '$position', `degree` = '$degree', `blurb` = '$blurb', `image` = '$fileinput' WHERE `ID` = '$ID'");
+mysql_query("UPDATE 2012_management SET `name` = '$name', `position` = '$position', `degree` = '$degree', `blurb` = '$blurb', `image` = '$fileinput' WHERE `ID` = '$ID'");
   
   // rever back to upload page
  print "<meta http-equiv=\"refresh\" content=\"0;URL=management.php?message=Management updated\">";
