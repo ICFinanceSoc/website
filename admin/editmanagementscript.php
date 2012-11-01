@@ -2,7 +2,7 @@
 require_once("header.php");
 $ID = $_POST['ID'];
 mysql_select_db($database_sql, $sql);
-$query_Recordset1 = "SELECT * FROM management WHERE ID = '$ID'";
+$query_Recordset1 = "SELECT * FROM management_2012 WHERE ID = '$ID'";
 $Recordset1 = mysql_query($query_Recordset1, $sql) or die(mysql_error());
 $row_Recordset1 = mysql_fetch_assoc($Recordset1);
 $totalRows_Recordset1 = mysql_num_rows($Recordset1);
