@@ -12,7 +12,7 @@
     <script src="../js/less-1.1.4.min.js" type="text/javascript"></script>
 </head>
 <body>
-<? $isiPad = (bool) strpos($_SERVER['HTTP_USER_AGENT'],'iPad'); 
+<?php $isiPad = (bool) strpos($_SERVER['HTTP_USER_AGENT'],'iPad');
 /* if(!$isiPad){
 //    echo '<div style="margin-left:auto;margin-right:auto;width:600px;border-style:transparent;border-width:25px;padding:10px>"';
 }
@@ -24,7 +24,7 @@ else{ */
 <img src="../images/logo.png" width="300px"/>
 <h3>Website, Event and Mailing list Registration</h3>
 
-<?
+<?php
 require_once('../db.php');
 require_once('../createuser.php');
     $show = 0;
@@ -48,16 +48,16 @@ require_once('../createuser.php');
     if(!isset($result)){ ?>
     <p style="font-size:13px;font-weight:normal;line-height:18px;margin-bottom:4px;font-style:italic;padding-left:20px;color:#666666;"><img src="../images/information.png"> Please enter your details in order to sign up to our society.</p>
 </div>
-    <? }
+    <?php }
     else{
 
         if($result["status"]){ ?>
-            <p class="success"><? echo $result["msg"]; ?></p>
+            <p class="success"><?php echo $result["msg"]; ?></p>
 
-        <? }
+        <?php }
         else{ ?>
-            <p style="font-size:13px;font-weight:normal;line-height:18px;margin-bottom:9px;font-style:italic;padding-left:20px;color:#666666;"><img src="../images/error.png"><? echo $result["msg"]; ?></p>
-        <? }
+            <p style="font-size:13px;font-weight:normal;line-height:18px;margin-bottom:9px;font-style:italic;padding-left:20px;color:#666666;"><img src="../images/error.png"><?php echo $result["msg"]; ?></p>
+        <?php }
     } ?>
         <form action="" method="POST" style="padding-left:50px">
             <fieldset>
@@ -78,7 +78,7 @@ require_once('../createuser.php');
                     <label for="Interests">Interests</label>
                     <div class="input">
                         <select name="Interests[]" multiple="multiple">
-                        <?
+                        <?php
                             $LookupInterests = mysql_query("SELECT * FROM 2011_Interests");
                             $num=mysql_numrows($LookupInterests);
                             $i=0;
@@ -108,4 +108,4 @@ require_once('../createuser.php');
 </div>
 </div>
 </body>
-<? //} ?>
+<?php //} ?>

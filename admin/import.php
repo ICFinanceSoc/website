@@ -1,4 +1,4 @@
-<?
+<?php
 error_reporting(E_ALL);
 $dbname = 'scc_finance';
 $user = 'scc_finance';

@@ -18,7 +18,7 @@ $totalRows_users = mysql_num_rows($users);
     <td width="14%" bgcolor="#dddddd">Mobile</td>
     <td width="13%" bgcolor="#dddddd">Interests</td>
   </tr>
-  <?php do { 
+  <?php do {
   
   ?>
   <tr>
@@ -27,7 +27,7 @@ $totalRows_users = mysql_num_rows($users);
     <td bgcolor="#eeeeee"><?php echo ldap_get_mail(urldecode($row_users['Username'])); ?></td>
     <td bgcolor="#eeeeee"><?php echo urldecode($row_users['Mobile']); ?></td>
     <td bgcolor="#eeeeee">
-    	<?php 
+    	<?php
     	$Interests = substr(urldecode($row_users['Interests']), 1, -1);
     	$Interests = explode(",", $Interests);
     	$Num = count($Interests);

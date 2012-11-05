@@ -1,6 +1,6 @@
 <?php $currentpage = 'sponsors'; ?>
 <?php require_once('header.php'); ?>
-<?
+<?php
 $colname_currentsponsor = "-1";
 if (isset($_GET['ID'])) {
     $colname_currentsponsor = $_GET['ID'];

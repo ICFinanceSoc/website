@@ -34,7 +34,7 @@ $totalRows_users = mysql_num_rows($users);
 <td width="3% bgcolor=#dddddd">X</td>
   </tr>
 
-  <?php do { 
+  <?php do {
   
   ?>
   <tr>
@@ -43,7 +43,7 @@ $totalRows_users = mysql_num_rows($users);
     <td bgcolor="#eeeeee"><?php echo ldap_get_mail(urldecode($row_users['Username'])); ?></td>
     <td bgcolor="#eeeeee"><?php echo urldecode($row_users['Mobile']); ?></td>
     <td bgcolor="#eeeeee">
-    	<?php 
+    	<?php
     	if($row_users['Interests'] <> ','){
     	$Interests = substr(urldecode($row_users['Interests']), 1, -1);
     	$Interests = explode(",", $Interests);

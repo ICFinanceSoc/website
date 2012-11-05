@@ -1,4 +1,4 @@
-<?
+<?php
 set_time_limit(2400);
 include_once('mailer.php');
 include_once('header.php');
@@ -122,7 +122,7 @@ $event = $_GET['event'];
 
 
 
-<?
+<?php
 }
 ?>
 

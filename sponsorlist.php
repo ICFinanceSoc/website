@@ -14,7 +14,7 @@
                     }
                  if($pcount % 3 == 0) { ?>
                 </tr><tr>
-                <?php } 
+                <?php }
                         if (($totalRows_platinumsponsors % 3 == 1) && (($totalRows_platinumsponsors - $pcount) == 1)){
                             $end_middle_img = 1;
                             echo '<td></td>';

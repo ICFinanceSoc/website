@@ -37,18 +37,18 @@ $id = $_GET['id'];
 
 																		     <form method="post" action="<?php echo $PHP_SELF ?>">
 
-																		     <input type="hidden" name="ID" value="<? echo $myrow['Interest_ID']?>">
+																		     <input type="hidden" name="ID" value="<?php echo $myrow['Interest_ID']?>">
 
 																		      
 
-																		      Label: <input name="Interest" size="40" maxlength="255" value="<? echo $title; ?>">
+																		      Label: <input name="Interest" size="40" maxlength="255" value="<?php echo $title; ?>">
 
 																		     
 																		      <input type="submit" name="submit" value="Update">
 
 																		      </form>
 
-																		      <?
+																		      <?php
 
 																		                    }//end of while loop
 

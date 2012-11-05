@@ -30,7 +30,7 @@ if(isset($_SESSION[username])) {
                                 </table></td>
                               </tr>
                             </table>
-                          <?php } while ($row_Recordset2 = mysql_fetch_assoc($Recordset2)); 
+                          <?php } while ($row_Recordset2 = mysql_fetch_assoc($Recordset2));
                           }
 	$i++;
 	}

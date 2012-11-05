@@ -3314,9 +3314,9 @@ tinymce.html.Writer = function(settings) {
 
 		pi: function(name, text) {
 			if (text)
-				html.push('<?', name, ' ', text, '?>');
+				html.push('<?php', name, ' ', text, '?>');
 			else
-				html.push('<?', name, '?>');
+				html.push('<?php', name, '?>');
 
 			if (indent)
 				html.push('\n');

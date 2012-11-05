@@ -1,4 +1,4 @@
-<? require_once('header.php');?>
+<?php require_once('header.php');?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -112,12 +112,12 @@ HH:MM</td>
         <td bgcolor="#eeeeee"><label for="startm"></label>
             <select name="sponsor">
                 <option value="NULL">None</option>
-                <?php 
+                <?php
                     $sql = "SELECT * FROM sponsors";
                     $rsc = mysql_query($sql);
                     while($row = mysql_fetch_array($rsc)) { ?>
                     <option value="<?php echo $row['ID']; ?>">
-                        <?php echo urldecode($row['name']); ?> 
+                        <?php echo urldecode($row['name']); ?>
                     </option>
                 <?php } ?>
             </select>
@@ -133,7 +133,7 @@ HH:MM</td>
       <td bgcolor="#dddddd">Interests:</td>
       <td bgcolor="#eeeeee"><label for="information"></label>
       <select name="Interests[]" multiple="multiple">
-<?
+<?php
 $LookupInterests = mysql_query("SELECT * FROM 2011_Interests");
 $num=mysql_numrows($LookupInterests);
 

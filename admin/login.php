@@ -1,4 +1,4 @@
-<?
+<?php
 //echo 'Pauls working on the site, no admin access, sorry...';
 //die();
 ?>

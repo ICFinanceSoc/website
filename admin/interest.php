@@ -1,10 +1,10 @@
-<?
+<?php
 include_once('header.php');
 ?>
 
 
 <h1>Interests</h1>
-<?
+<?php
 
     $result = mysql_query("SELECT * FROM 2011_Interests");
          while($myrow = mysql_fetch_assoc($result))

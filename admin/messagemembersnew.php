@@ -1,4 +1,4 @@
-<?
+<?php
 include_once('header.php');
 
 $submit = 0;
@@ -95,7 +95,7 @@ if($submit == 0){
       <td width="90" bgcolor="#DDDDDD">Only email these interests</td>
       <td width="*" bgcolor="#EEEEEE"><label for="title"></label>
       <select name="category">
-<?
+<?php
 $currentdate = gmdate("Y-m-d");
 mysql_select_db($database_sql, $sql);
 $query_Recordset1 = "SELECT * FROM events WHERE `date` >= '$currentdate' ORDER BY `date`";
@@ -177,7 +177,7 @@ echo '<option name="upcomingevents[]" value="'.urldecode($row_Recordset1['ID']).
                                                    } else {
     ?>                                               
 No upcoming events - never mind!
-<?
+<?php
 }
 
 ?>
@@ -202,7 +202,7 @@ No upcoming events - never mind!
 
 
 
-<?
+<?php
 }
 ?>
 

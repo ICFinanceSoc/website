@@ -1,4 +1,4 @@
-<?php 
+<?php
 $currentpage = 'management'; 
 require_once('header.php');
 

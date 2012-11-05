@@ -3,15 +3,15 @@
 
 <div id="<?php echo $currentpage; ?>">
     <div class="clearfix">
-        <?php 
+        <?php
             if($totalRows_Recordset1 > 0) {
                 $initial = '';
                 do {
                     $new = date("F Y",strtotime($row_Recordset1['date']));
                     if($initial != $new) { ?>
                         <div class="clear"></div>
-                        <h3><?php echo date("F Y",strtotime($row_Recordset1['date'])); ?></h3> 
-                    <?php } 
+                        <h3><?php echo date("F Y",strtotime($row_Recordset1['date'])); ?></h3>
+                    <?php }
                     $initial = $new;
                 ?>
                     <div class="eventbox grid_4 alpha">
@@ -19,7 +19,7 @@
                             <a href="eventinformation.php?ID=<?php echo $row_Recordset1['ID']; ?>" title="Find out more about the event" id="imgcont">
                             <div id="imagecont">
                                 <span id="rollover"></span>
-                                <? 
+                                <?php
                                     $spon = $row_Recordset1['Sponsor'];
                                     if($spon != '0'){
                                         $sponlogo = mysql_query("SELECT * FROM sponsors WHERE ID='$spon'");
@@ -46,7 +46,7 @@
                                     <?php echo date("M", strtotime($row_Recordset1['date'])); ?>
                                 </div>
                                 <div id="time">
-                                    <?php if(substr($row_Recordset1['start'],0,-6) != 0) { ?> 
+                                    <?php if(substr($row_Recordset1['start'],0,-6) != 0) { ?>
                                         <?php echo date("ga", strtotime(substr($row_Recordset1['start'],0,-3))); ?> - <?php echo date("ga", strtotime(substr($row_Recordset1['end'],0,-3))); ?>
                                     <?php } ?>
                                 </div>
@@ -75,7 +75,7 @@
                     <a href="eventinformation.php?ID=<?php echo $row_Recordset2['ID']; ?>" title="Find out more about the event" id="imgcont">
                         <div id="imagecont">
                             <span id="rollover"></span>
-                            <?
+                            <?php
                                 $spon = $row_Recordset2['Sponsor'];
                                 if($spon != '0'){
                                     $sponlogo = mysql_query("SELECT * FROM sponsors WHERE ID='$spon'");
@@ -102,7 +102,7 @@
                             <?php echo date("M", strtotime($row_Recordset2['date'])); ?>
                         </div>
                         <div id="time">
-                            <?php if(substr($row_Recordset2['start'],0,-6) != 0) { ?> 
+                            <?php if(substr($row_Recordset2['start'],0,-6) != 0) { ?>
                                 <?php echo date("ga", strtotime(substr($row_Recordset2['start'],0,-3))); ?> - <?php echo date("ga", strtotime(substr($row_Recordset1['end'],0,-3))); ?>
                             <?php } ?>
                         </div>

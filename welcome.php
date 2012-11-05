@@ -1,4 +1,4 @@
-<?
+<?php
 if(isset($_POST['submit'])){
     require_once('db.php');
     function mailer($to){

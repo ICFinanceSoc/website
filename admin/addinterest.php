@@ -19,7 +19,7 @@ Interest Name: <input name="Interest" size="40" maxlength="255">
 
 																		      </form>
 
-																		    <?
+																		    <?php
 
 																				       }//end else
 

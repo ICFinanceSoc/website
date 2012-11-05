@@ -133,7 +133,7 @@ HH:MM</td>
         
         <input name="endh" type="text" value="<?php echo substr($row_Recordset1['end'],0,-6); ?>" id="start" size="4" maxlength="2" />
       <label for="endm"></label>
-      <input name="endm" type="text" value="<?php echo substr($row_Recordset1['end'],3,-3); ?>" id="endm" size="4" maxlength="2" /> 
+      <input name="endm" type="text" value="<?php echo substr($row_Recordset1['end'],3,-3); ?>" id="endm" size="4" maxlength="2" />
       HH:MM</td>
     </tr>
     <tr>
@@ -151,7 +151,7 @@ HH:MM</td>
         <td bgcolor="#eeeeee"><label for="startm"></label>
             <select name="sponsor">
                 <option value="NULL">None</option>
-                <?php 
+                <?php
                     $sql = "SELECT * FROM sponsors";
                     $rsc = mysql_query($sql);
                     while($row = mysql_fetch_array($rsc)) { ?>
@@ -160,7 +160,7 @@ HH:MM</td>
                             echo 'selected="selected"'; 
                         } ?>
                     >
-                        <?php echo urldecode($row['name']); ?> 
+                        <?php echo urldecode($row['name']); ?>
                     </option>
                 <?php } ?>
             </select>
@@ -174,10 +174,10 @@ HH:MM</td>
     <tr>
         <td bgcolor="#dddddd">Interests</td>
       <td bgcolor="#eeeeee">
-   <?php $int = urldecode($row_Recordset1['Interests']); ?> 
+   <?php $int = urldecode($row_Recordset1['Interests']); ?>
     
     <select name="Interests[]" multiple="multiple">
-<?
+<?php
 $int = substr($int, 1, -1);
 $int = explode(",", $int);
 $nint = count($int);

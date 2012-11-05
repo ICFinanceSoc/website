@@ -1,5 +1,5 @@
 <?php require_once('header.php'); ?>
-<?
+<?php
 function mailer($to, $body, $subject){
 $from = "ICFS <no-reply@financesociety.co.uk>";
 if($subject == ''){

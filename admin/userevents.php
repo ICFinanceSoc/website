@@ -31,7 +31,7 @@ $i++;
 ?>
 </table>
 
-<?
+<?php
 
 echo '<BR><BR>Attended events:';
 
@@ -65,7 +65,7 @@ echo '<BR><BR>Attended events:';
                                 </table></td>
                               </tr>
                             </table>
-                          <?php } while ($row_Recordset2 = mysql_fetch_assoc($Recordset2)); 
+                          <?php } while ($row_Recordset2 = mysql_fetch_assoc($Recordset2));
                           }
 	$i++;
 	}

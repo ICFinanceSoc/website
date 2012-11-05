@@ -2,7 +2,7 @@
 require_once('header.php');
 ?>
 <h1>Update Profile</h1>
-<?
+<?php
 if(isset($_SESSION['username'])) {
 $u = $_SESSION['username'];
 
@@ -29,13 +29,13 @@ mysql_query("UPDATE 2011_Members SET Mobile='$Mobile', Interests='$Interests' WH
 if($message == 0){
 ?>
 Please make modifications to your profile here.
-<?
+<?php
 }
 
 if($message == 1){
 ?>
 Thank you. You have succesfully updated your profile.
-<?
+<?php
 }
 
 $getcurrentvalues = mysql_query("SELECT * FROM 2011_Members WHERE Username = '$u'");
@@ -58,7 +58,7 @@ $int=mysql_result($getcurrentvalues,0,"Interests");
       <td bgcolor="#eeeeee">
       
 <select name="Interests[]" multiple="multiple">
-<?
+<?php
 $int = substr($int, 1, -1);
 $int = explode(",", $int);
 $nint = count($int);
@@ -100,7 +100,7 @@ $i++;
 If you would like to stop being a member of the society, please click <a href=deletemember.php>here</a>. This will unsubscribe you from our mailing list; however you will also not be able to register for any of our events.
 
 </form>
-<?
+<?php
 
 } else {
 echo 'You need to be logged on to actually have something to update!';

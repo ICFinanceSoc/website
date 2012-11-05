@@ -76,7 +76,7 @@
                                 <label for="Interests">Interests</label>
                                 <div class="input">
                                     <select name="Interests[]" multiple="multiple">
-                                    <?
+                                    <?php
                                         $LookupInterests = mysql_query("SELECT * FROM 2011_Interests");
                                         $num=mysql_numrows($LookupInterests);
                                         $i=0;
@@ -136,7 +136,7 @@
     <script>window.jQuery || document.write('<script src="js/jquery-1.6.4.min.js"><\/script>')</script>
     <script type="text/javascript" src="js/plugin.js"></script>
 
-<? if($currentpage == 'index'){ ?> 
+<?php if($currentpage == 'index'){ ?>
     <script type="text/javascript" src="jquery.nivo.slider.pack.js"></script>
 
     <script type="text/javascript">

@@ -1,7 +1,7 @@
 <?php
 session_name('ICFSAdmin');
 session_start();
-if(!session_is_registered(user)){
+if(!isset($_SESSION['user'])){
 header("location:login.php");
 }
 ?>

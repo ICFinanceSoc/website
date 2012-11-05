@@ -1,4 +1,4 @@
-<?
+<?php
     $currentpage = 'events';
     include_once('header.php');
 
@@ -18,9 +18,9 @@
                 $new = date("F Y",strtotime($row_Recordset2['date']));
                 if($initial != $new) { ?>
                     </table>
-                    <h3><?php echo date("F Y",strtotime($row_Recordset2['date'])); ?></h3> 
+                    <h3><?php echo date("F Y",strtotime($row_Recordset2['date'])); ?></h3>
                     <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                <?php } 
+                <?php }
                 $initial = $new;
             ?>
                     <tr>

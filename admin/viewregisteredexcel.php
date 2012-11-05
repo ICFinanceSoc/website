@@ -18,7 +18,7 @@ header("Content-Disposition: attachment; filename=$file");
     <td width="24%"><strong>Name</td>
     <td width="14%"><strong>Email</strong></td>
   </tr>
-  <?php do { 
+  <?php do {
   $currentemail = $row_events['Username'];
   $query_users = "SELECT * FROM 2011_Members WHERE `Username` = '$currentemail'";
 $users = mysql_query($query_users, $sql) or die(mysql_error());

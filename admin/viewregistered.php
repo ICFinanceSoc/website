@@ -26,7 +26,7 @@ $totalRows_events = mysql_num_rows($events);
     <td width="24%" bgcolor="#DDDDDD">Mobile</span></td>
 
   </tr>
-  <?php do { 
+  <?php do {
   $currentemail = $row_events['Username'];
   $query_users = "SELECT * FROM 2011_Members WHERE `Username` = '$currentemail'";
 $users = mysql_query($query_users, $sql) or die(mysql_error());

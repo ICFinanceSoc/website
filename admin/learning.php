@@ -49,7 +49,7 @@ $totalRows_Recordset1 = mysql_num_rows($Recordset1);
 <h1>Learning - <a href="addlearning.php">Add learning article</a> - <a href="addlearningsection.php">Add section</a></h1>
 <?php do { ?>
 <div class="box">
-  <?php 
+  <?php
 $section = $row_Recordset1['ID'];
 mysql_select_db($database_sql, $sql);
 $query_Recordset2 = "SELECT * FROM learning WHERE `section` = '$section' ORDER BY title ASC";

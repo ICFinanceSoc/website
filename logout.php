@@ -1,4 +1,4 @@
-<?
+<?php
 session_name('ICFS2011');
 session_start(); 
 include("db.php");

@@ -4,7 +4,7 @@ include_once('header.php');
 ?>
 
 <h3>Website, Event and Mailing list Registration</h3>
-<?
+<?php
     $show = 0;
     $message = 0;
 
@@ -52,7 +52,7 @@ include_once('header.php');
                     <label for="Interests">Interests</label>
                     <div class="input">
                         <select name="Interests[]" multiple="multiple">
-                        <?
+                        <?php
                             $LookupInterests = mysql_query("SELECT * FROM 2011_Interests");
                             $num=mysql_numrows($LookupInterests);
                             $i=0;
@@ -77,6 +77,6 @@ include_once('header.php');
         <p>The ICFS website now runs on the College SSO authentication system. We never see or store your password. We require it now to confirm your identity.</p>
         <h4>Does this make me a society member?</h4>
         <p>Not exactly. We encourage you to 'buy' free membership of the ICFS on the union website, in order to register officially with the union as a member of the society. This will allow you to vote in ICFS elections. This registration system is our communications system: registering on this website will ensure you receive updates on events we run and publications we release.</p>
-    <? } ?>
+    <?php } ?>
 
-<? require_once('footer.php'); ?>
+<?php require_once('footer.php'); ?>

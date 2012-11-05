@@ -8,7 +8,7 @@
     <div class="mainsection grid_7 alpha">
         <h1>
             Welcome 
-            <? if(isset($_SESSION[username]) && !LOCAL){
+            <?php if(isset($_SESSION[username]) && !LOCAL){
                 $name = ldap_get_names($_SESSION[username]); 
                 echo $name[0].'!';
             } else {
@@ -73,7 +73,7 @@
         <div id="eventsbox">
             <h4>Upcoming Events</h4>
             <ul>
-                <?php 
+                <?php
                 $currentdate = gmdate("Y-m-d");
                 mysql_select_db($database_sql, $sql);
                 $max = 5;
@@ -88,7 +88,7 @@
                     <a href="eventinformation.php?ID=<?php echo $row_Recordset1['ID']; ?>">
                         <li class="clearfix <?php if($i == $totalRows_Recordset1) echo 'last'; ?>">
                             <div class="date">
-                                <span class="day"><?php echo date("d",strtotime($row_Recordset1['date'])); ?></span> 
+                                <span class="day"><?php echo date("d",strtotime($row_Recordset1['date'])); ?></span>
                                 <span class="month"><?php echo date("M",strtotime($row_Recordset1['date'])); ?></span>
                             </div>
                             <div class="title"><?php echo urldecode($row_Recordset1['title']); ?></div>

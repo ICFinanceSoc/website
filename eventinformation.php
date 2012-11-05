@@ -1,4 +1,4 @@
-<?
+<?php
 $currentpage = urldecode($row_Recordset1['title']); 
 $currentpage = 'eventinformation';
 include_once('header.php');
@@ -24,7 +24,7 @@ $totalRows_Recordset1 = mysql_num_rows($Recordset1);
         </div>
         <div class="grid_9 omega">
             <ul>
-                <li><span class="title">Date:</span> <?php echo date("d M Y",strtotime($row_Recordset1['date'])); ?></li> 
+                <li><span class="title">Date:</span> <?php echo date("d M Y",strtotime($row_Recordset1['date'])); ?></li>
                 <li><span class="title">Time:</span> <?php echo substr($row_Recordset1['start'],0,-3); ?> - <?php echo substr($row_Recordset1['end'],0,-3); ?></li>
                 <li><span class="title">Venue:</span> <?php echo urldecode($row_Recordset1['location']); ?></li>
                 <li><span class="title">Organisers:</span> <?php echo urldecode($row_Recordset1['organisers']); ?></li>
@@ -56,9 +56,9 @@ $totalRows_Recordset1 = mysql_num_rows($Recordset1);
                 if($row_Recordset1['Open'] == 'on'){ ?>
                     <h3>» <a href="registereventscript.php?ID=<?php echo $row_Recordset1['ID']; ?>" id="registerevent">Register to  event </a></h3>
                     <p>Once registered to this event you will receive email updates if the event is altered and a reminder.</p>
-                <? } else { ?>
+                <?php } else { ?>
                     <h3>» Registration is currently disabled.</h3>
-                <? }
+                <?php }
             } ?>
         <?php } else { ?>
             <h3>» Your must be logged in to register for an event.</h3>

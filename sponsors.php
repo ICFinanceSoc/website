@@ -1,5 +1,5 @@
 <?php $currentpage = 'sponsors'; ?>
-<?php 
+<?php
     require_once('header.php'); 
     mysql_select_db($database_sql, $sql);
     $query_platinumsponsorsmain = "SELECT * FROM sponsors WHERE type = 'platinum' ORDER BY name ASC";

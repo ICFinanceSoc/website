@@ -1,4 +1,4 @@
-<?php 
+<?php
 $title = urlencode($_POST['title']);
 $section = $_POST['section'];
 $fileName = $_FILES['file']['name'];

@@ -71,7 +71,7 @@ isset($_POST['submit']))
 
 																																	       </form>
 
-																																	             <?
+																																	             <?php
 
 																																		       }//end of else
 

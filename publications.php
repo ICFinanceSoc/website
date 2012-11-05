@@ -1,5 +1,5 @@
 <?php $currentpage = 'publications'; ?>
-<?php 
+<?php
     require_once('header.php'); 
     mysql_select_db($database_sql, $sql);
     $query_publication_sections = "SELECT * FROM publication_sections";

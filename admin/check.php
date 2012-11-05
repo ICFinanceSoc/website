@@ -6,9 +6,9 @@ $password = stripslashes($pass);
 
 
 function confirmUser($username, $password){
-   if('LOCAL' === true ) return 3;
+   if(LOCAL === true ) return 3;
    global $connect;
-       if(!get_magic_quotes_gpc()) {
+             if(!get_magic_quotes_gpc()) {
                $username = addslashes($username);
                   }
       
@@ -24,13 +24,15 @@ function confirmUser($username, $password){
           }
                    else{
         return 2; //Indicates password failure
-           }
-           }
+          }
+}
 
 $chek = confirmUser($username,$password);                                                             
 if($chek == 3){
 session_name('ICFSAdmin');
-session_register("user");
+session_start();
+//session_register("user");
+$_SESSION['user']=$username;
 header("location:index.php");
 }else{
 header("location:login.php");

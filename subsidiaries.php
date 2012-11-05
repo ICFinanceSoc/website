@@ -12,4 +12,4 @@ $totalRows_homeregion = mysql_num_rows($homeregion);
     <?php echo stripslashes(urldecode($row_homeregion['body'])); ?>
 </div>                      
 
-<? require_once('footer.php');?>
+<?php require_once('footer.php');?>

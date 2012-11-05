@@ -1,4 +1,4 @@
-<?
+<?php
 $currentpage = 'events';
 include_once('header.php');
 

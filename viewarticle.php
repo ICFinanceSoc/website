@@ -1,4 +1,4 @@
-<?php require_once('header.php'); 
+<?php require_once('header.php');
 
 $colname_Recordset1 = "-1";
 if (isset($_GET['ID'])) {

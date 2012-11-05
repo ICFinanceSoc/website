@@ -1,4 +1,4 @@
-<?
+<?php
 
 function confirmUser($username, $password){
    global $connect;
@@ -86,7 +86,7 @@ function displayLogin(){
 </table>
 </form>
 
-<?
+<?php
    }
 }
 
@@ -114,7 +114,7 @@ Remember me</font>
 <input type="submit" name="sublogin" value="Login">
 </form>
 
-<?
+<?php
    }
 }
 

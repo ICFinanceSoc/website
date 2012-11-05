@@ -1,4 +1,4 @@
-<?
+<?php
 include_once('db.php');
 $user = $_GET['user'];
 $event = $_GET['event'];
