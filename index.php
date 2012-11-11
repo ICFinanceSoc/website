@@ -21,13 +21,13 @@
  
  </div>
 	<div id="nfw_advert" class="clearfix"> <?php //TXSL hack here too. CSS/LESS needs upating ?>
-		<h4>Welcome Autumn 2012</h4>
+		<h4>The ICFS & BAML Winter Festival</h4>
 		<div id="image_box">
-			<img src="images/banner.png" width="525px"/>
+			<img src="images/baml_banner.jpg" width="550px"/>
 		</div>
-			<p>Hello everyone! Welcome to Imperial & welcome to the Imperial College Finance Society for 2012-2013. We have a lot lined up over the course of the year in order to help you learn more about careers in finance & investment banking - and of course to help with your applications!</p>
-			<p>With over 30 events from top firms, company visits, international trips, an education portal, YouTube channel, news feeds and a finance course, ICFS has expanded significantly this year and we encourage you to get involved in all of our exciting activities and initiatives. Have a great year!</p>
-			<p style="font-weight:bold">ICFS Committee 2012/2013</p>
+            <p>Welcome to the flagship ICFS Autumn event on campus. A cross divisional, Christmas themed presentation, dinner & networking event with BAML! Learn about your opportunities with one of the biggest names in finance through the exclusive presentation, panel discussion, and cross-divisional networking event, hosted in the festive surroundings of the QTR, complete with snow, festive foods, and an ice sculpture! From first years to final years, this is your opportunity to discover your career in finance in a relaxed, informal setting.</p>
+			<p>Check out the <a href="http://bit.ly/VJyTsR">video</a> and <a href="http://bit.ly/PHIYnq">register</a>. It’s going be an unforgettable occasion so don’t miss out – register early to reserve your place. Christmas comes early on 29th November – only with ICFS & BAML.</p>
+            <p style="font-weight:bold">ICFS Committee 2012/2013</p>
 			<p>Giri Kesavan, Deepka Rana, Christine Kan, Avtar Rekhi, Thomas Lim, </br> Grahame Harris, Jia Cheong, Tracy Lin</p>
 		</a>
 	</div>
@@ -39,29 +39,29 @@
                     <div class="image">
                         <a href="events.php"><img src="images/s1.jpg"/></a>
                     </div>
-                    <p>Looking for a job? Look through our list of events to find yourself the perfect company to work for.</p>
+                    <p> Find out more about all the latest ICFS events for the upcoming week and register.</p>
                     <a href="events.php" title="Read More" class="btn dark">Read More</a>
                 </div>
                 <div class="featitem clearfix">
                     <div class="image">
-                        <a href="learning.php"><img src="images/s2.jpg"/></a>
+                        <a href="asia.php"><img src="images/s2.jpg"/></a>
                     </div>
-                    <p>Get all the inside information on how to get an internship, what to do in interviews and learn more about the industry in general</p>
-                    <a href="learning.php" title="Read More" class="btn dark">Read More</a>
+                    <p>We’re off to Hong Kong! Learn more about our international trips and Asia Pacific opportunities.</p>
+                    <a href="asia.php" title="Read More" class="btn dark">Read More</a>
                 </div>
                 <div class="featitem clearfix">
                     <div class="image">
-                        <a href="subsidiaries.php"><img src="images/s3.jpg"/></a>
+                        <a href="team.php"><img src="images/s3.jpg"/></a>
                     </div>
-                    <p>Try trading for yourself with one of our subsidiaries - we trade live on the markets each week.</p>
-                    <a href="subsidiaries.php" title="Read More" class="btn dark">Read More</a>
+                    <p>Who runs the ICFS? Meet the people behind the society and find out how to get involved.</p>
+                    <a href="team.php" title="Read More" class="btn dark">Read More</a>
                 </div>
                 <div class="featitem clearfix">
                     <div class="image">
-                        <a href="about.php"><img src="images/s4.jpg"/></a>
+                        <a href="media.php"><img src="images/s4.jpg"/></a>
                     </div>
-                    <p>Learn more about the Financial World's Conference we run each year, and how to get involved.</p>
-                    <a href="about.php" title="Read More" class="btn dark">Read More</a>
+                    <p>We really love cool videos, pictures and other media ! Check out what kind of things we’ve been up to in our Media section.</p>
+                    <a href="media.php" title="Read More" class="btn dark">Read More</a>
                 </div>
             </div>
             <div id="nav">
