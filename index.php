@@ -21,12 +21,12 @@
  
  </div>
 	<div id="nfw_advert" class="clearfix"> <?php //TXSL hack here too. CSS/LESS needs upating ?>
-		<h4>The ICFS & BAML Winter Festival</h4>
+		<h4>Merry Christmas & A Happy New Year</h4>
 		<div id="image_box">
-			<img src="images/baml_banner.jpg" width="550px"/>
+			<img src="images/xmas2012_banner.jpg" width="550px"/>
 		</div>
-            <p>Welcome to the flagship ICFS Autumn event on campus. A cross divisional, Christmas themed presentation, dinner & networking event with BAML! Learn about your opportunities with one of the biggest names in finance through the exclusive presentation, panel discussion, and cross-divisional networking event, hosted in the festive surroundings of the QTR, complete with snow, festive foods, and an ice sculpture! From first years to final years, this is your opportunity to discover your career in finance in a relaxed, informal setting.</p>
-			<p>Check out the <a href="http://bit.ly/VJyTsR">video</a> and <a href="http://bit.ly/PHIYnq">register</a>. It’s going be an unforgettable occasion so don’t miss out – register early to reserve your place. Christmas comes early on 29th November – only with ICFS & BAML.</p>
+            <p>Many thanks for attending all of our events this term. With over 40 on-campus events, a conference, numerous off-site trips, dinners and the Winter Festival, it's certainly been a busy term for the ICFS ! We've had over 1500 members attending events this term and we hope they have all been useful in educating, inspiring and motivating careers in finance & applications. <a href="http://bit.ly/Uv7l8J" target="_blank">Recap all our events with our Autumn Highlights video.</a></p>
+			<p>If you enjoyed our events this term - just wait till you see what we have in store for 2013 ! From more off-site visits, a finance course, mutiple international trips, a summer festival, AGM and Annual Dinner, ICFS is going to be even busier. Have a look at what you can expect from the ICFS next term and how to get involved in our new <a href="http://bit.ly/SxjqcP" target="_blank">Spring Term Preview Video</a></p>
             <p style="font-weight:bold">ICFS Committee 2012/2013</p>
 			<p>Giri Kesavan, Deepka Rana, Christine Kan, Avtar Rekhi, Thomas Lim, </br> Grahame Harris, Jia Cheong, Tracy Lin</p>
 		</a>
