@@ -21,12 +21,15 @@ function createuser($username, $mobile, $interests, $regmethod){
             return array(
                 "status" => true,
                 "msg" => "Thank you, $names[0]! You are now on the Finance Society mailing list.",
-            );
+                "already_mem" => false,
+	    );
         }
         else{
             return array(
                 "status" => false,
                 "msg" => "You appear be a member registered with us already.",
+		"already_mem" => true,
+		"first_name" => $names[0],
             );
         }
     }
@@ -34,7 +37,9 @@ function createuser($username, $mobile, $interests, $regmethod){
         return array(
             "status" => false,
             "msg" => "Sorry, that username does not exist.",
-        );
+       	    "first_name" => $names[0],
+	    "already_mem" => false,
+	);
     }
 }
 
@@ -58,4 +63,34 @@ function freshers_createuser($username, $mobile, $interests){
             VALUES('$username', '$mobile', '$interests', '$names[0]', '$names[1]', '$info[2]', '$email', NOW(), '$regmethod')");
     }
     return $result;
+}
+
+function hkreg($username){
+    $names = ldap_get_names($username);
+    if ($names){
+        if(mysql_num_rows(mysql_query("SELECT * FROM 2011_Members WHERE Username = '$username'"))==0){
+//	    mysql_query("INSERT INTO 2011_Members (Username, Mobile, Interests, Forename, Surname, Department, Email, Reg_time, Reg_method)
+  //          VALUES('$username', '$mobile', '$interests', '$names[0]', '$names[1]', '$info[2]', '$email', NOW(), '$regmethod')");
+            return array(
+                "msg" => "You do not appear to be a member of the Finance Society.",
+                "already_mem" => false,
+	    );
+        }
+        else{
+		mysql_query("INSERT INTO hk (Username, Reg_time) VALUES('$username', NOW())");
+            return array(
+                "msg" => "Thank you, $names[0]. Your attendance has been registered.",
+		"already_mem" => true,
+		"first_name" => $names[0],
+            );
+        }
+    }
+    else{
+        return array(
+            "status" => false,
+            "msg" => "Sorry, that username does not exist.",
+       	    "first_name" => $names[0],
+	    "already_mem" => false,
+	   );
+    }
 }
