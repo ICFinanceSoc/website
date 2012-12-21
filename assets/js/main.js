@@ -13,7 +13,7 @@ navbar = {
 			this.hidden = true;
 			this.onecol();
 			$('.nav1').animate({"left":'0%'}, 200);
-			$('.nav2').animate({"left":'100%'}, 200);
+			$('.nav2').animate({"left":'0%'}, 200);
 			$('.nav1').unbind('hover');	
 		}
 	},
@@ -71,6 +71,12 @@ $(function() {
 				$(this).parent().addClass('active');
 			})
 			navbar.show2();
+			if (parentli.hasClass('user'))
+			{
+				$('.navbar').mouseleave(function(){
+					navbar.hide2();
+				});
+			}
 		}
 		else
 		{
