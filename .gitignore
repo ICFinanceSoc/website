@@ -38,3 +38,5 @@ gitlist/
 
 #Silex Vendor
 framework/vendor
+framework/composer.lock
+framework/composer.phar
