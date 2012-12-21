@@ -35,3 +35,6 @@ gitlist/
 
 #MacOSX Fies
 *.DS_Store
+
+#Silex Vendor
+framework/vendor
