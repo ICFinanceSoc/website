@@ -25,19 +25,19 @@
         <div class="container">
 
             <!-- Main hero unit for a primary marketing message or call to action -->
-			<div class="hero-unit">
-			    <h1>NGAP Login</h1>
-			    {% if error != '' %}<div class="alert alert-error">{{error}}</div>{% else %}<div class="alert alert-success">Please Login</div>{% endif %}
-			    <p><form data-persist="garlic" method="POST">
-			    	<input type='text' name='username' class='error' placeholder='Username' {% if username is defined %}value="{{username}}"{% endif %}><br />
-			    	<input type='password' name='password' data-storage='false' placeholder='Password'><br />
-			    	<input type='submit' class='btn btn-inverse btn-large' value="Enter &raquo;">
-			    </form>
-			</div>
+            <div class="hero-unit">
+                <h1>NGAP Login</h1>
+                {% if error != '' %}<div class="alert alert-error">{{error}}</div>{% else %}<div class="alert alert-success">Please Login</div>{% endif %}
+                <p><form data-persist="garlic" method="POST">
+                    <input type='text' name='username' class='error' placeholder='Username' {% if username is defined %}value="{{username}}"{% endif %}><br />
+                    <input type='password' name='password' data-storage='false' placeholder='Password'><br />
+                    <input type='submit' class='btn btn-inverse btn-large' value="Enter &raquo;">
+                </form></p>
+            </div>
 
-	        <footer>
-	            &copy; 2012 Dario Magliocchetti & Thomas Lim
-	        </footer>
+            <footer>
+                &copy; 2012 Dario Magliocchetti & Thomas Lim
+            </footer>
 
         </div> <!-- /container -->
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
@@ -48,13 +48,13 @@
         <script src="{{path('homepage')}}assets/js/vendor/garlic.js"></script>
 
         <script>
-        	$(function(){
-        		$('form').garlic();
-        		if ($('input[name=username]').val() == '')
-		        	$('input[name=username]').select();
-		       	else
-		       		$('input[name=password]').focus();
-        	})
+            $(function(){
+                $('form').garlic();
+                if ($('input[name=username]').val() == '')
+                    $('input[name=username]').select();
+                else
+                    $('input[name=password]').focus();
+            })
         </script>
     </body>
 </html>

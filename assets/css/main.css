@@ -93,7 +93,7 @@ ul.nav > li > p {
 	overflow: scroll;
 }
 .nav2 {
-	left: 100%;
+	left: 0%;
 	background: #f00;
 	overflow: scroll;
 }
