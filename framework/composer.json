@@ -1,4 +1,6 @@
 {
+    "name" : "icfs/icfs",
+    "description" : "The Imperial College Finance Society backend",
     "require": {
         "silex/silex": "1.0.*@dev",
         "symfony/browser-kit": "2.1.*",
