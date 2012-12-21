@@ -35,7 +35,7 @@ class Admin
     }
     
     public function login()
-    {}
+    {
         if (($this->app['request']->get('username') == 'dm1911' && $this->app['request']->get('password') == 'sexy') || ($this->app['request']->get('username') == 'txl11' && $this->app['request']->get('password') == 'sexy'))
         {
             $this->auth == true;

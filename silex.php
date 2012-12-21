@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__.'/vendor/autoload.php';
+require_once __DIR__.'/framework/vendor/autoload.php';
 require_once __DIR__.'/src/controllers/AdminController.php';
 require_once __DIR__.'/src/models/admin/AdminServiceProvider.php';
 
