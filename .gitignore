@@ -32,3 +32,6 @@ dev/
 
 #gitlist
 gitlist/
+
+#MacOSX Fies
+*.DS_Store

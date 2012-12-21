@@ -1,0 +1,133 @@
+
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+body {
+	margin: 0;
+	padding: 0;
+}
+
+/* ==========================================================================
+   Login
+   ========================================================================== */
+
+.login .container {
+	margin: 0 0;
+}
+.login .container .hero-unit {
+	width: 400px;
+	padding: 50px 20px;
+	margin: 100px auto 0;
+	text-align: center;
+	box-shadow: 0 0 10px 2px #666;
+}
+.login .container .hero-unit .alert {
+	margin-top: 40px;
+}
+.login footer {
+	left: 0;
+}
+
+/* ==========================================================================
+   Navigation Bar custom styles
+   ========================================================================== */
+
+.navbar {
+	background: #000;
+	position: fixed;
+	float: left;
+	width: 20%;
+	left: -10%;
+	min-width: 300px;
+	height: 100%;
+	border-right: thin solid #000;
+	overflow: hidden;
+	border-bottom: thick solid red;
+}
+ul.nav {
+	list-style: none;
+	float: none;
+	width: 100%;
+	text-align: right;
+	box-shadow: 0 0 8px 1px #000;
+}
+ul.nav > li {
+	display: block;
+	float: none !important;
+	background: #222;
+	border-bottom: thin solid #111;
+}
+ul.nav > li > p {
+	padding: 10px 15px 10px;
+	margin: 0;
+}
+.navbar-inverse .nav .user > a, .navbar-inverse .nav .user > a:hover {
+	background: #050364;
+	color: #fff;
+	font-weight: 200;
+}
+.navbar-inverse .nav .logout > a, .navbar-inverse .nav .logout > a:hover {
+	background: #3f0311;
+	color: #fff;
+	font-weight: 200;
+}
+.navbar-inverse .nav .navli-green > a, .navbar-inverse .nav .navli-green > a:hover {
+	background: #0d3f06;
+}
+
+
+.navbar-inverse .navbar-inner {
+	background: none;
+	background: #ccc; /* Old browsers */
+	box-shadow: 0 0 8px 1px #000;
+	width: 100%;
+	height: 100%;
+	border-right: thin solid #000;
+	position: absolute;
+}
+.nav1 {
+	left: 0;
+	z-index: 5;
+	overflow: scroll;
+}
+.nav2 {
+	left: 100%;
+	background: #f00;
+	overflow: scroll;
+}
+
+/* ==========================================================================
+   NGAP Main
+   ========================================================================== */
+
+.container {
+	margin-left: 10%;
+	width: auto;
+	padding: 1em;
+}
+
+.hero-unit {
+	margin-top: 50px;
+}
+.hero-unit p{
+	margin-top: 10px;
+}
+
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+
+footer {
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	background: #fff;
+	border-top: thin solid #ddd;
+	padding: .5em;
+	font-size: 0.95em;
+	text-align: center;
+}

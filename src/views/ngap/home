@@ -1,0 +1,7 @@
+<!-- Main hero unit for a primary marketing message or call to action -->
+<div class="hero-unit">
+    <h1>IC Finance Society NGAP</h1>
+    <p>Welcome to the Finance Society's Next Generation Admin Panel (NGAP). Please find appropriate functions on the left navigation bar.<br />
+    <strong>Please logout after use!</strong></p>
+    <p><a class="btn btn-warning btn-large">Report a Problem &raquo;</a></p>
+</div>
