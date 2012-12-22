@@ -1,14 +1,12 @@
 <?php
 
 require_once __DIR__.'/framework/vendor/autoload.php';
-require_once __DIR__.'/src/controllers/AdminController.php';
-require_once __DIR__.'/src/models/admin/AdminServiceProvider.php';
 
 
 $app = new Silex\Application();
 $app['debug'] = true;
 
-$app->register(new ICFS\AdminServiceProvider());
+$app->register(new ICFS\Model\AdminUser());
 
 $app->register(new Silex\Provider\UrlGeneratorServiceProvider());
 $app->register(new Silex\Provider\SessionServiceProvider());
@@ -19,7 +17,7 @@ $app->register(new Silex\Provider\TwigServiceProvider(), array(
 
 
 
-$app->mount('/ngap', new ICFS\AdminController());
+$app->mount('/ngap', new ICFS\Controller\AdminController());
 
 
 

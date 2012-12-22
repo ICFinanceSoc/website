@@ -1,6 +1,6 @@
 <?php
 
-namespace ICFS;
+namespace ICFS\Controller;
 
 use Silex\Application;
 use Symfony\Component\HttpFoundation\Request;

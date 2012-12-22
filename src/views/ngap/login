@@ -26,8 +26,8 @@
 
             <!-- Main hero unit for a primary marketing message or call to action -->
             <div class="hero-unit">
-                <h1>NGAP Login</h1>
-                {% if error != '' %}<div class="alert alert-error">{{error}}</div>{% else %}<div class="alert alert-success">Please Login</div>{% endif %}
+                <h1><img src="https://www.union.ic.ac.uk/scc/finance/images/logo.png" /></h1>
+                {% if error != '' %}<div class="alert alert-error">{{error}}</div>{% else %}<div class="alert alert-success">Please Login to use NGAP</div>{% endif %}
                 <p><form data-persist="garlic" method="POST">
                     <input type='text' name='username' class='error' placeholder='Username' value="{{username}}"><br />
                     <input type='password' name='password' data-storage='false' placeholder='Password'><br />

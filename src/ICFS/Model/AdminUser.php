@@ -4,12 +4,12 @@
  * Login, Logout and logging is handled by this
 */
 
-namespace ICFS;
+namespace ICFS\Model;
 
 use Silex\Application;
 use Silex\ServiceProviderInterface;
 
-class AdminServiceProvider implements ServiceProviderInterface
+class AdminUser implements ServiceProviderInterface
 {
     public function register(Application $app)
     {
