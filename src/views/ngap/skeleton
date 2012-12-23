@@ -26,35 +26,15 @@
             <div class="navbar-inner nav1">
                 <div class="nav-collapse collapse">
                     <ul class="nav">
-                        <li class="user dropdown"><a href="#">Hello, {{app['ngap.admin'].username}}</a>
-                        	<ul class="dropdown-menu">
-                                <li><p>Put some user info here</p></li>
-                                <li class="logout"><a href="{{path('ngap')}}logout">Logout</a></li>
-                            </ul>
-                        </li>
-                        <li class="active"><a href="#">Home</a></li>
-                        <li class="dropdown"><a href="#about">Page Manager &raquo;</a>
-                        	<ul class="dropdown-menu">
-                                <li><a href="#">About Us</a></li>
-                                <li><a href="#">Subsidary</a></li>
-                                <li><a href="#">Media</a></li>
-                                <li><a href="#">Asia</a></li>
-                                <li class="navli-green"><a href="#">Add Page</a></li>
-                            </ul>
-                       	</li>
-                        <li class="dropdown"><a href="#contact">Members &raquo;</a>
+{% for name,data in ngap_nav %}{# I know this is mega messy, but it makes pretty html! #}
+                        <li class="{% if data.subpages %}dropdown{% endif %}{% if data.class %} {{data.class}}{% endif %}">{% if data.type == 'link' %}<a href="{{path('ngap')}}{{name}}">{{data.name}}</a>{%elseif data.type == 'holder' %}<a href="#{{name}}">{{data.name}}</a>{% else %}<p>{{data.name}}</p>{%endif%}{% if data.subpages %} 
                             <ul class="dropdown-menu">
-                                <li><a href="#">Member List</a></li>
-                                <li><a href="#">E-Mail Members</a></li>
-                                <li><a href="#">Interest List</a></li>
+{% for subname,subdata in data.subpages %}
+                                <li{% if subdata.class %} class="{{subdata.class}}"{% endif %}>{% if subdata.type == 'link' %}<a href="{{path('ngap')}}{{name}}/{{subname}}">{{subdata.name}}</a>{% else %}<p>{{subdata.name}}</p>{%endif%}</li>
+{% endfor %}
                             </ul>
-                        </li>
-                        <li class="dropdown"><a href="#">Management &raquo;</a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Management Page</a></li>
-                                <li><a href="#">NGAP Access</a></li>
-                            </ul>
-                        </li></li>
+                        {% endif %}</li>
+{% endfor %}
                     </ul>
                 </div><!--/.nav-collapse -->
             </div>
@@ -69,10 +49,10 @@
             </div>
         </div>
 
-        <div class="container">
-
+        <div class="container{% block contentclass %}{% endblock %}">
+{% block content %}
             {{ content|raw }}
-
+{% endblock %}
             <footer>
                 &copy; 2012 Dario Magliocchetti & Thomas Lim
             </footer>
@@ -83,6 +63,9 @@
 
         <script src="{{path('homepage')}}assets/js/vendor/bootstrap.min.js"></script>
 
+        <script src="{{path('homepage')}}assets/js/vendor/tiny_mce/jquery.tinymce.js"></script>
+
         <script src="{{path('homepage')}}assets/js/main.js"></script>
+        {% block pagejs %}{% endblock %} 
     </body>
 </html>

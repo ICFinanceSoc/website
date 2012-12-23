@@ -63,6 +63,12 @@ $(function() {
 	$('.nav1 ul.nav a').click(function(){
 		parentli = $(this).parent();
 
+
+		if (parentli.hasClass('dropdown')) {
+			parentli.parent().find('li').removeClass('active');
+			parentli.addClass('active');
+		}
+
 		if (parentli.hasClass('dropdown'))
 		{
 			$('.nav2 ul.nav').html(parentli.find('ul.dropdown-menu').html());
@@ -77,14 +83,12 @@ $(function() {
 					navbar.hide2();
 				});
 			}
+
+			return false; //if we have sub pages, let's not do a page load..?
 		}
 		else
 		{
 			navbar.hide2();
-		}
-		if (!parentli.hasClass('user')) {
-			parentli.parent().find('li').removeClass('active');
-			parentli.addClass('active');
 		}
 	})
 });

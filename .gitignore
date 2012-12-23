@@ -39,3 +39,6 @@ gitlist/
 #Silex Vendor
 framework/vendor
 framework/composer.phar
+
+#DB connection information
+src/ICFS/DoctrineConnection.php
