@@ -13,24 +13,52 @@ body {
    Login
    ========================================================================== */
 
-.login .container {
+.login-content {
 	margin: 0 0;
 }
-.login .container .hero-unit {
+.login-content .hero-unit {
 	width: 400px;
 	padding: 50px 20px;
 	margin: 100px auto 0;
 	text-align: center;
 	box-shadow: 0 0 10px 2px #666;
 }
-.login .container .hero-unit h1 img {
+.login-content .hero-unit h1 img {
 	max-width: 390px;
 	padding-right: 10px;
 }
-.login .container .hero-unit .alert {
+.login-content .garlic-swap {
+	display: none;
+}
+.login-content .hero-unit .alert {
 	margin-top: 40px;
 }
-.login footer {
+.login-content footer {
+	left: 0;
+}
+
+/* ==========================================================================
+   No Permission
+   ========================================================================== */
+
+.notallowed-content {
+	margin: 0 0 !important;
+}
+.notallowed-content .hero-unit {
+	background: #f1e9e5;
+	width: 80%;
+	padding: 50px 20px;
+	margin: 100px auto 0;
+	text-align: center;
+	box-shadow: 0 0 10px 2px #666;
+}
+.notallowed-content .hero-unit h1 {
+	color: #57120f;
+}
+.notallowed-content .hero-unit .alert {
+	margin-top: 40px;
+}
+.notallowed-content footer {
 	left: 0;
 }
 
@@ -162,13 +190,28 @@ ul.nav > li > p {
 	width: 100px;
 }
 
-.edit-panel .alert {
+.edit-panel .lastedit {
 	text-align: left;
 	width: 60%;
 	margin: 10px 0 0;
+	float: left;
 }
 .edit-panel .btn {
 	margin-top: 10px;
+}
+
+.edit-panel .btn-save {
+	float:right;
+}
+.edit-panel .delete-holder {
+	float:right;
+}
+.edit-panel .btn-delete {
+}
+
+.content-pageedit .edit-panel .yousure {
+	display: inline;
+	opacity: 0;
 }
 
 /* ==========================================================================
