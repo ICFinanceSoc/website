@@ -72,9 +72,9 @@ class ICFSUser
             $this->auth = true;
             $this->username = $user['uname'];
             $this->name = array(
-                'first' => $user['firstname'],
-                'last' => $user['lastname'], 
-                'full' => ($user['firstname'] . " " . $user['lastname']));
+                'first' => $user['fname'],
+                'last' => $user['lname'], 
+                'full' => ($user['fname'] . " " . $user['lname']));
             $this->admin = $user['admin'];
 
             return true;
