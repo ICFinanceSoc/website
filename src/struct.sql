@@ -295,3 +295,50 @@ CREATE TABLE IF NOT EXISTS `subsidpage` (
   `event` int(11) NOT NULL,
   PRIMARY KEY  (`ID`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+
+-------------------------------------------------------------------
+-- Table structure for the new content (CMS) table
+
+CREATE TABLE IF NOT EXISTS `pages_content` (
+
+`name` varchar(20) NOT NULL,
+
+`title` varchar(100) NOT NULL,
+
+`content` text NOT NULL,
+
+`lastedit_who` varchar(10) DEFAULT NULL,
+
+`lastedit_when` datetime DEFAULT NULL,
+
+PRIMARY KEY (`name`)
+
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;# MySQL returned an empty result set (i.e. zero rows).
+
+-------------------------------------------------------------------
+-- Table structure for the new members table
+
+CREATE TABLE IF NOT EXISTS `members` (
+
+`uname` varchar(30) NOT NULL,
+
+`mobile` varchar(15) DEFAULT NULL,
+
+`dept` tinytext NOT NULL,
+
+`fname` tinytext NOT NULL,
+
+`lname` tinytext NOT NULL,
+
+`email` tinytext NOT NULL,
+
+`regdate` datetime NOT NULL,
+
+`regmethod` varchar(20) NOT NULL,
+
+`admin` int(11) NOT NULL,
+
+PRIMARY KEY (`uname`)
+
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
