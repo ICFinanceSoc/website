@@ -37,6 +37,7 @@
             	$('.btn-canceldel').click(function() {
             		$('.yousure').animate({'opacity' : 0, 'margin-right' : '0px'});
             	})
+            	
                 {% include "ngap/tinymce.twig" %} {# TinyMCE settings/config #}
         });
 </script>
