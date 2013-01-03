@@ -7,6 +7,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Silex\ControllerProviderInterface;
 use ICFS\AdminServiceProvider;
+use ICFS\Model\Admin\PageEdit;
 
 class AdminController implements ControllerProviderInterface
 {
@@ -79,29 +80,59 @@ class AdminController implements ControllerProviderInterface
 			return $app['twig']->render('ngap/skeleton', array('content' => $app['twig']->render('ngap/home')));
         })->before($this->allowed())->before($this->nav->fetch()); //->before($this->nav->make())
 
-
+        /* ****************************************************** **
+        ** Page Editor
+        ** ****************************************************** */
 
         $this->controllers->get('pages/add', function (Application $app) {
             return $app['twig']->render('ngap/page_edit', array('title' => "Add New Page"));
         })->before($this->allowed($this->nav->permission('pages')))->before($this->nav->fetch());
 
+        $this->controllers->get('pages/{pageid}', function (Application $app, $pageid) {
+            $page = new PageEdit($app, $pageid);
+            if (!$page->exists)
+                return $app->abort(404, "Page $pageid doesn't exist.");
 
-
-        $this->controllers->get('pages/{page}', function (Application $app, $page) {
             if ($app['request']->query->has("delete")){
-                $data = $app['db']->executeQuery("DELETE FROM pages_content WHERE name = ?", array($page));
+                $page->delete();
                 return $app->redirect($app['url_generator']->generate('ngap'));
             }
-            if ($data = $app['db']->executeQuery("SELECT * FROM pages_content WHERE name = ?", array($page))->fetch())
-                return $app['twig']->render('ngap/page_edit', array('data' => $data, 'save' => $app['request']->query->has("success")));
 
-            return $app->abort(404, "Page $page does not exist.");
-
+            return $app['twig']->render('ngap/page_edit', array('data' => $page->data, 'save' => $app['request']->query->has("success")));
         })->before($this->allowed())->before($this->nav->fetch());
 
+        $this->controllers->post('pages/{pageid}', function (Application $app, $pageid) {
 
+            $data = array(
+                'name' => $app['request']->get('page_url'),
+                'title' => $app['request']->get('page_title'),
+                'content' => $app['request']->get('page_content'), 
+                'owner' => $app['icfs.user']->username
+                );
 
-        $this->controllers->post('pages/{page}', function (Application $app, $page) {
+            if (strlen($app['request']->get('page_title')) < 2 || strlen($app['request']->get('page_url')) < 2)
+                $error = "Please make sure the title and url are long enough (2 characters)";
+            else {
+                if ($pageid == "add") {
+                    if (!($page = PageEdit::create($app, $data))) //$page will return false if the name is used already
+                        $error = "Name is in use already - new page can't be made with an exisiting page name!";
+                } else {
+                    $page = new PageEdit($app, $pageid);
+                    if (!$page->exists)
+                        $error = "Page doesn't exist... strange error (deleted while you were editing?)";
+                    elseif (!$page->canRename($data['name'])) {
+                        $error = "Name is in use already - you can't change a page name to an existing page name!";
+                        $data = array_merge($page->data, $data); //this gives us the "Last edited" stuff
+                    } else
+                        $page->update($data); //all good, let's update!
+                }
+            }
+
+            if (isset($error))
+                return $app['twig']->render('ngap/page_edit', array('data' => $data, 'error' => @$error));
+            return $app->redirect($app['url_generator']->generate('ngap', array(), true) . 'pages/' . $data['name'] . '?success');
+
+            /*
             if ($page == "add" || $data = $app['db']->executeQuery("SELECT * FROM pages_content WHERE name = ?", array($page))->fetch()) {
                 //lets clean our inputs up
                 //$app['request']->set('page_url', 'dario');
@@ -139,7 +170,8 @@ class AdminController implements ControllerProviderInterface
 
                 return $app->redirect($app['url_generator']->generate('ngap', array(), true) . 'pages/' . $app['request']->get('page_url') . '?success');
             }
-            return $app->abort(404, "Page $page does not exist.");
+            */
+            return $app->abort(404, "Page $pageid does not exist.");
         })->before($this->allowed())->before($this->nav->fetch());
     }
 }

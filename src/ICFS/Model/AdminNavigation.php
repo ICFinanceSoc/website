@@ -107,7 +107,8 @@ class AdminNavigation
                 'subpages' => array(
                     'access' => array(
                         'name' => 'Ngap Access',
-                        'type' => 'link')
+                        'type' => 'link',
+                        'permission' => 0)
                 )
             )
 
@@ -117,6 +118,9 @@ class AdminNavigation
     //gets the permissions for a page. Currently subpage permissions doesnt work!
     public function permission($page, $subpage = null)
     {
+        if ($subpage != null)
+            if (isset($this->pages[$page]['subpages'][$subpage]['permission']))
+                return $this->pages[$page]['subpages'][$subpage]['permission'];
         if (isset($this->pages[$page]['permission']))
             return $this->pages[$page]['permission'];
         return 0;
@@ -133,6 +137,18 @@ class AdminNavigation
                         $navigation[$key] = $value['generate']($pages[$key]);
                     else
                         $navigation[$key] = $pages[$key];
+
+                    if (isset($navigation[$key]['subpages']))
+                    {
+                        foreach ($navigation[$key]['subpages'] as $subkey=>$subvalue)
+                        {
+                            if (!$app['icfs.user']->adminAllowed( (isset($subvalue['permission'])) ? $subvalue['permission'] : 0 )) {
+                                echo $navigation[$key]['subpages'][$subkey];
+                                unset($navigation[$key]['subpages'][$subkey]);
+                            }
+                        }
+                    }
+
                 }
             }
 
