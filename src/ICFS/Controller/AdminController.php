@@ -173,6 +173,11 @@ class AdminController implements ControllerProviderInterface
             */
             return $app->abort(404, "Page $pageid does not exist.");
         })->before($this->allowed())->before($this->nav->fetch());
+
+        //Mail part of admin starts here
+        $this->controllers->get('mail/new', function (Application $app) {
+            return $app['twig']->render('ngap/email_edit.twig', array('title' => "Create new email"));
+        })->before($this->allowed($this->nav->permission('pages')))->before($this->nav->fetch());
     }
 }
 

@@ -1,0 +1,30 @@
+{% extends "ngap/skeleton" %}
+
+{% block content %}
+<div class="page-header">
+	<h1>{% if title %}{{title}}{% else %}Emailing Members{% endif %} <small>{{data.title}}</small></h1>
+</div>
+<div class="edit-panel">
+	<form method="POST">
+		<div class="edit-input edit-subject">Subject: <input class="full-width" name="subject" type="text" value="{{data.subject}}"></div><br />
+        <div class="edit-input edit-from-name">From <em>name</em>:<input name="frm_name" type="text" value="ICFS" </div>
+		<div class="edit-input edit-from-address">From <em>address</em>: <input name="frm_adr" type="text" value="no-reply@financesociety.co.uk"></div><br />
+		<textarea name="page_content" class='tinymce'>{{data.content}}</textarea>
+		<input type="submit" class="btn btn-large btn-primary btn-save" value="Send"><br style="clear: both"/>
+		</div>
+	</form>
+</div>
+{% endblock %}
+
+{% block contentclass %} content-pageedit{% endblock %}
+
+{% block srcpagejs %}<script src="{{path('homepage')}}assets/js/vendor/tiny_mce/jquery.tinymce.js"> </script>{% endblock %} {# TinyMCE JS Source #}
+
+
+{% block pagejs %}
+<script>
+    $(function () {
+        {% include "ngap/tinymce.twig" %} {# TinyMCE settings/config #}
+    });
+</script>
+{% endblock %}
