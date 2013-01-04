@@ -8,6 +8,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Silex\ControllerProviderInterface;
 use ICFS\AdminServiceProvider;
 use ICFS\Model\Admin\PageEdit;
+use ICFS\Model\Admin\Mail;
 
 class AdminController implements ControllerProviderInterface
 {
@@ -177,6 +178,18 @@ class AdminController implements ControllerProviderInterface
         //Mail part of admin starts here
         $this->controllers->get('mail/new', function (Application $app) {
             return $app['twig']->render('ngap/email_edit.twig', array('title' => "Create new email"));
+        })->before($this->allowed($this->nav->permission('pages')))->before($this->nav->fetch());
+
+        $this->controllers->post('mail/new', function (Application $app) {
+            $data = array(
+                'subject' => $app['request']->get('subject'),
+                'from-address' => $app['request']->get('frm_adr'),
+                'from-name' => $app['request']->get('frm_name'),
+                'content' => $app['request']->get('email_content'),
+                'sender' => $app['icfs.user']->username
+            );
+            Mail::insertMail($app, $data);
+            return 'Your message has been added to the system and will be sent shortly';
         })->before($this->allowed($this->nav->permission('pages')))->before($this->nav->fetch());
     }
 }

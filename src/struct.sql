@@ -342,3 +342,17 @@ CREATE TABLE IF NOT EXISTS `members` (
 PRIMARY KEY (`uname`)
 
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE IF NOT EXISTS `mail` (
+  `mid` int(11) NOT NULL AUTO_INCREMENT,
+  `from-address` varchar(100) NOT NULL DEFAULT 'no-reply@financesociety.co.uk',
+  `from-name` varchar(50) NOT NULL DEFAULT 'ICFS',
+  `subject` tinytext NOT NULL,
+  `content` text NOT NULL,
+  `to` text NOT NULL,
+  `sent` tinyint(1) NOT NULL DEFAULT '0',
+  `draft` tinyint(1) NOT NULL,
+  `sender` varchar(30) NOT NULL,
+  `sendtime` datetime NOT NULL,
+  PRIMARY KEY (`mid`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
