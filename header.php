@@ -121,6 +121,7 @@ $totalRows_Recordset1 = mysql_num_rows($Recordset1);
                     <li><a href="publications.php" <?php if($currentpage == 'publications'){ echo 'class="active"'; } ?> title="">Publications</a></li>
                     <li><a href="http://iciclub.co.uk" <?php if($currentpage == 'subsidiaries'){ echo 'class="active"'; } ?> target="_blank" title="Imperial College Investment Club">ICIC</a></li>
                     <li><a href="asia.php" <?php if($currentpage == 'asia'){ echo 'class="active"'; } ?> title="">Asia</a></li>
+                    <li><a href="kenya.php" <?php if($currentpage == 'kenya'){ echo 'class="active"'; } ?> title="">Kenya</a></li>
                     <li><a href="sponsors.php" <?php if($currentpage == 'sponsors'){ echo 'class="active"'; } ?> title="">Sponsors</a></li>
                     <li><a href="team.php" <?php if($currentpage == 'management'){ echo 'class="active"'; } ?> title="">Team</a></li>
                     <li><a href="media.php" <?php if($currentpage == 'media'){ echo 'class="active"'; } ?> title="">Media</a></li>

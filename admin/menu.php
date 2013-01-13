@@ -15,7 +15,7 @@
 <ul>
   <li><a href="homepagetext.php" target="mainFrame">About Us page</a></li>
  <li><a href="subsidpagetext.php" target="mainFrame">Subsidiary page</a></li> 
-  <li><a href="mediapagetext.php" target="mainFrame">Media page</a></li>
+  <li><a href="mediapagetext.php" target="mainFrame">Kenya page</a></li>
     <li><a href="asiapagetext.php" target="mainFrame">Asia page</a></li>
   <li><a href="editsponsors.php" target="mainFrame">Sponsors</a></li>
   <li><a href="editevents.php" target="mainFrame">Events</a></li>

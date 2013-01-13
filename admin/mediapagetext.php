@@ -37,7 +37,7 @@ if (isset($_SERVER['QUERY_STRING'])) {
 }
 
 if ((isset($_POST["MM_update"])) && ($_POST["MM_update"] == "form1")) {
-  $updateSQL = sprintf("UPDATE media SET title=%s, body=%s WHERE ID=%s",
+  $updateSQL = sprintf("UPDATE kenya SET title=%s, body=%s WHERE ID=%s",
                        GetSQLValueString(urlencode($_POST['title']), "text"),
                        GetSQLValueString(urlencode($_POST['body']), "text"),
                        GetSQLValueString($_POST['ID'], "int"));
@@ -54,13 +54,13 @@ if ((isset($_POST["MM_update"])) && ($_POST["MM_update"] == "form1")) {
 }
 
 mysql_select_db($database_sql, $sql);
-$query_media = "SELECT * FROM media";
+$query_media = "SELECT * FROM kenya";
 $media = mysql_query($query_media, $sql) or die(mysql_error());
 $row_media = mysql_fetch_assoc($media);
 $totalRows_media = mysql_num_rows($media);
 
 mysql_select_db($database_sql, $sql);
-$query_Recordset1 = "SELECT * FROM media WHERE ID = 1";
+$query_Recordset1 = "SELECT * FROM kenya WHERE ID = 1";
 $Recordset1 = mysql_query($query_Recordset1, $sql) or die(mysql_error());
 $row_Recordset1 = mysql_fetch_assoc($Recordset1);
 $totalRows_Recordset1 = mysql_num_rows($Recordset1);
