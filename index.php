@@ -21,12 +21,12 @@
  
  </div>
 	<div id="nfw_advert" class="clearfix"> <?php //TXSL hack here too. CSS/LESS needs upating ?>
-		<h4>Merry Christmas & A Happy New Year</h4>
+		<h4>Welcome to 2013!</h4>
 		<div id="image_box">
-			<img src="images/xmas2012_banner.jpg" width="550px"/>
+			<img src="images/jan_2013.jpeg" width="550px"/>
 		</div>
-            <p>Many thanks for attending all of our events this term. With over 40 on-campus events, a conference, numerous off-site trips, dinners and the Winter Festival, it's certainly been a busy term for the ICFS ! We've had over 1500 members attending events this term and we hope they have all been useful in educating, inspiring and motivating careers in finance & applications. <a href="http://bit.ly/Uv7l8J" target="_blank">Recap all our events with our Autumn Highlights video.</a></p>
-			<p>If you enjoyed our events this term - just wait till you see what we have in store for 2013 ! From more off-site visits, a finance course, mutiple international trips, a summer festival, AGM and Annual Dinner, ICFS is going to be even busier. Have a look at what you can expect from the ICFS next term and how to get involved in our new <a href="http://bit.ly/SxjqcP" target="_blank">Spring Term Preview Video</a></p>
+            <p>We've got even more in store for our members this term with more unique, one-on-one events – designed to give you a real insight into the industry aside from general presentations. Of course, this term it's all about going global. For the first time in ICFS history, we've got not one, but two international trips – with Hong Kong in March and a pilot trip to Kenya in June on Microfinance!</p>
+			<p>With more industry connections built over Christmas and a record-breaking number of sponsors and events, it's truly been an amazing year for the ICFS and we look forward to carrying this on next year! As such, we have our highly anticipated Annual General Meeting & Election coming up on March 6th! Are you ready to take this to the next level? We've finally also got our amazing annual dinner to cap off the year in style on March 14th. Have a great term!</p>
             <p style="font-weight:bold">ICFS Committee 2012/2013</p>
 			<p>Giri Kesavan, Deepka Rana, Christine Kan, Avtar Rekhi, Thomas Lim, </br> Grahame Harris, Jia Cheong, Tracy Lin</p>
 		</a>
