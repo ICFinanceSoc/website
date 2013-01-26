@@ -65,7 +65,7 @@ function freshers_createuser($username, $mobile, $interests){
     return $result;
 }
 
-function hkreg($username){
+function kenyareg($username){
     $names = ldap_get_names($username);
     if ($names){
         if(mysql_num_rows(mysql_query("SELECT * FROM 2011_Members WHERE Username = '$username'"))==0){
@@ -77,7 +77,7 @@ function hkreg($username){
 	    );
         }
         else{
-		mysql_query("INSERT INTO hk (Username, Reg_time) VALUES('$username', NOW())");
+		mysql_query("INSERT INTO kenya (Username, Reg_time) VALUES('$username', NOW())");
             return array(
                 "msg" => "Thank you, $names[0]. Your attendance has been registered.",
 		"already_mem" => true,
