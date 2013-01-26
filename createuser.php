@@ -77,7 +77,7 @@ function kenyareg($username){
 	    );
         }
         else{
-		mysql_query("INSERT INTO kenya (Username, Reg_time) VALUES('$username', NOW())");
+		mysql_query("INSERT INTO kenya_registration (Username, Reg_time) VALUES('$username', NOW())");
             return array(
                 "msg" => "Thank you, $names[0]. Your attendance has been registered.",
 		"already_mem" => true,
