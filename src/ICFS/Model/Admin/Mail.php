@@ -29,4 +29,15 @@ class Mail
         $stmt->bindValue(5, $data['sender']);
         $stmt->execute();
     }
+
+    function loadMailToSend()
+    {
+        $this->app['db']->fetchAll("SELECT * FROM `mail` where `sent` = 0 AND `draft` = 0"); // Query to get unsent msgs. Will need to work with time in future
+
+    }
+
+    function markAsSent($mid)
+    {
+        $this->app['db']->executeQuery("UPDATE `mail` SET `sent`=1 WHERE `mid`=?", array($mid));
+    }
 }
