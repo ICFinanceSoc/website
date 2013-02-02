@@ -7,13 +7,13 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Silex\ControllerProviderInterface;
 use ICFS\AdminServiceProvider;
-use ICFS\Model\Admin\PageEdit;
+use ICFS\Model\Page;
 
 class AdminController implements ControllerProviderInterface
 {
     public function connect(Application $app)
     {
-        $this->nav = new \ICFS\Model\AdminNavigation($app);
+        $this->nav = new \ICFS\Model\Admin\Navigation($app);
 
         // creates a new controller based on the default route
         $this->controllers = $app['controllers_factory'];
@@ -84,10 +84,12 @@ class AdminController implements ControllerProviderInterface
         ** Page Editor
         ** ****************************************************** */
 
+        // GET - Add Page
         $this->controllers->get('pages/add', function (Application $app) {
             return $app['twig']->render('ngap/page_edit', array('title' => "Add New Page"));
         })->before($this->allowed($this->nav->permission('pages')))->before($this->nav->fetch());
 
+        // GET - Edit Page
         $this->controllers->get('pages/{pageid}', function (Application $app, $pageid) {
             $page = new PageEdit($app, $pageid);
             if (!$page->exists)
@@ -101,8 +103,10 @@ class AdminController implements ControllerProviderInterface
             return $app['twig']->render('ngap/page_edit', array('data' => $page->data, 'save' => $app['request']->query->has("success")));
         })->before($this->allowed())->before($this->nav->fetch());
 
+        // POST - Add and Edit Page
         $this->controllers->post('pages/{pageid}', function (Application $app, $pageid) {
 
+            // Save our values to the data variable to pass to the Page Model.
             $data = array(
                 'name' => $app['request']->get('page_url'),
                 'title' => $app['request']->get('page_title'),
@@ -132,45 +136,6 @@ class AdminController implements ControllerProviderInterface
                 return $app['twig']->render('ngap/page_edit', array('data' => $data, 'error' => @$error));
             return $app->redirect($app['url_generator']->generate('ngap', array(), true) . 'pages/' . $data['name'] . '?success');
 
-            /*
-            if ($page == "add" || $data = $app['db']->executeQuery("SELECT * FROM pages_content WHERE name = ?", array($page))->fetch()) {
-                //lets clean our inputs up
-                //$app['request']->set('page_url', 'dario');
-
-
-                //check for validity: (Duplicates and reserved names)
-                if (strlen($app['request']->get('page_title')) < 2 || strlen($app['request']->get('page_url')) < 2)
-                    $error = "Please make sure the title and url are long enough (2 characters)";
-                elseif (($app['request']->get('page_url') == 'add') || ($app['request']->get('page_url') != $page && $app['db']->executeQuery("SELECT * FROM pages_content WHERE name = ?", array($app['request']->get('page_url')))->fetch()) )
-                    $error = "Wowzers... That didn't go well. Make sure you're page URL is unique and is not 'add'!";
-
-                if ($error) {
-                    //Let's inject the user stuff into our $data.
-                    $data['name'] = $app['request']->get('page_url');
-                    $data['title'] = $app['request']->get('page_title');
-                    $data['content'] = $app['request']->get('page_content');
-                    return $app['twig']->render('ngap/page_edit', array('data' => $data, 'error' => @$error));;
-                }
-
-                //if this a new page or are we updating?
-                if ($page == 'add')
-                    $app['db']->executeUpdate("INSERT INTO pages_content VALUES (?, ?, ?, null, NOW())", array(
-                        $app['request']->get('page_url'),
-                        $app['request']->get('page_title'),
-                        $app['request']->get('page_content')
-                    ));
-                else  //The page exists, lets update!
-                    $app['db']->executeUpdate("UPDATE pages_content SET name = ?, title = ?, content = ?, lastedit_who = ?, lastedit_when = NOW() WHERE name = ?", array(
-                        $app['request']->get('page_url'),
-                        $app['request']->get('page_title'),
-                        $app['request']->get('page_content'),
-                        $app['icfs.user']->username,
-                        $data['name']
-                    ));
-
-                return $app->redirect($app['url_generator']->generate('ngap', array(), true) . 'pages/' . $app['request']->get('page_url') . '?success');
-            }
-            */
             return $app->abort(404, "Page $pageid does not exist.");
         })->before($this->allowed())->before($this->nav->fetch());
     }

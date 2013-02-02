@@ -4,11 +4,11 @@
  * Login, Logout and logging is handled by this
 */
 
-namespace ICFS\Model;
+namespace ICFS\Model\Admin;
 
 use Silex\Application;
 
-class AdminNavigation
+class Navigation
 {
     public function __construct(Application $app)
     {

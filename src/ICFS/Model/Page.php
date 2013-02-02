@@ -1,5 +1,5 @@
 <?php
-namespace ICFS\Model\Admin;
+namespace ICFS\Model;
 
 class PageEdit
 {
