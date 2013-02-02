@@ -54,6 +54,16 @@ class Navigation
                         'type' => 'link')
                 )
             ),
+            'mail' => array(
+                'name' => 'Messaging System »',
+                'type' => 'holder',
+                'subpages' => array(
+                    'new' =>array(
+                        'name' => 'New E-mail',
+                        'type' => 'link'
+                    )
+                )
+            ),
             'events' => array(
                 'name' => 'Events »',
                 'type'  =>  'holder',

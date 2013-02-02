@@ -213,6 +213,26 @@ ul.nav > li > p {
 	display: inline;
 	opacity: 0;
 }
+/* ==========================================================================
+   Mailing (inherits loads stuff from page-edit)
+   ========================================================================== */
+
+.edit-subject {
+    font-size: 2em;
+}
+
+.full-width {
+    width: 82%;
+    float: right
+}
+.edit-from-name {
+    float: left;
+}
+
+.edit-from-address {
+    float: right;
+
+}
 
 /* ==========================================================================
    Footer
