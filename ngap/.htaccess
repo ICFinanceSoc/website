@@ -1,0 +1,9 @@
+<IfModule mod_rewrite.c>
+    Options -MultiViews
+    RewriteEngine On
+
+    RewriteEngine On
+    RewriteBase /icfs/
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^ silex.php [L]
+</IfModule>
