@@ -12,6 +12,8 @@
 
         <link rel="stylesheet" href="{{path('homepage')}}assets/css/bootstrap.min.css">
         <link rel="stylesheet" href="{{path('homepage')}}assets/css/main.css">
+        <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.0/themes/base/jquery-ui.css">
+
 
         <script src="{{path('homepage')}}assets/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
     </head>
@@ -22,7 +24,6 @@
 {% block skel_navigation %} 
         <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="navbar-inner nav1">
-                <div class="nav-collapse collapse">
                     <ul class="nav">
 {% for name,data in ngap_nav %}{# I know this is mega messy, but it makes pretty html! #}
                         <li class="{% if data.subpages %}dropdown{% endif %}{% if data.class %} {{data.class}}{% endif %}">{% if data.type == 'link' %}<a href="{{path('ngap')}}{{name}}">{{data.name}}</a>{%elseif data.type == 'holder' %}<a href="#{{name}}">{{data.name}}</a>{% else %}<p>{{data.name}}</p>{%endif%}{% if data.subpages %} 
@@ -34,7 +35,6 @@
                         {% endif %}</li>
 {% endfor %}
                     </ul>
-                </div><!--/.nav-collapse -->
             </div>
             <div class="navbar-inner nav2">
                 <div class="nav-collapse collapse">
@@ -58,6 +58,7 @@
         </div> <!-- /container -->
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="{{path('homepage')}}assets/js/vendor/jquery-1.8.3.min.js"><\/script>')</script>
+        <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.0/jquery-ui.min.js"></script>
         <script src="{{path('homepage')}}assets/js/vendor/bootstrap.min.js"></script>
         {% block srcpagejs %}{% endblock %} 
         <script src="{{path('homepage')}}assets/js/main.js"></script>
