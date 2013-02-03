@@ -9,19 +9,40 @@
 
 namespace ICFS\Model\Admin;
 
-class Mail
+use Silex\Application;
+use Silex\ServiceProviderInterface;
+
+class Mail implements ServiceProviderInterface
+{
+    public function register(Application $app)
+    {
+        $app['icfs.mail'] = $app->share(function ($app) {
+            return new ICFSMail($app);
+        });
+    }
+
+    public function boot(Application $app)
+    {
+        
+    }
+}
+
+class ICFSMail
 {
     var $app;
 
     function __construct($app)
     {
         $this->app = $app;
+        //$loader = new \Silex\Provider\Twig_Loader_String();
+        //$this->twig = new \Silex\Provider\Twig_Environment($loader);
+
     }
 
-    static public function insertMail($app, $data)
+    public function insertMail($data)
     {
         $sql = "INSERT INTO `mail` (`from-address`, `from-name`, `subject`, `content`, `sender`, `sendtime`) VALUES (?, ?, ?, ?, ?, NOW())";
-        $stmt = $app['db']->prepare($sql);
+        $stmt = $this->app['db']->prepare($sql);
         $stmt->bindValue(1, $data['from-address']);
         $stmt->bindValue(2, $data['from-name']);
         $stmt->bindValue(3, $data['subject']);
@@ -30,14 +51,49 @@ class Mail
         $stmt->execute();
     }
 
-    function loadMailToSend()
+    public function loadMailToSend()
     {
-        $this->app['db']->fetchAll("SELECT * FROM `mail` where `sent` = 0 AND `draft` = 0"); // Query to get unsent msgs. Will need to work with time in future
+        return $this->app['db']->fetchAll("SELECT * FROM `mail` where `sent` = 0 AND `draft` = 0"); // Query to get unsent msgs. Will need to work with time in future
 
     }
 
-    function markAsSent($mid)
+    public function markAsSent($mid)
     {
         $this->app['db']->executeQuery("UPDATE `mail` SET `sent`=1 WHERE `mid`=?", array($mid));
     }
+
+    private function merge_names($content, $merge)
+    {
+        return $this->twig->render($content, $merge);
+    }
+
+    private function merge_emails($subject, $content, $merge)
+    {
+        //Will make this work once the twig string loader is working...
+        //$merged_content = $this->merge_names($content, $merge);
+        $html_content = $this->app['twig']->render('ngap/mail-template.twig', array($content));
+        $plain_content = strip_tags($content);
+        //$subject = $this->twig->render($subject, $merge);
+        return array('subject' => $subject,
+                        'plain_content' => $plain_content,
+                        'html_content' => $html_content
+                        );
+    }
+
+    // merge is the data specific to each user which we are sending to.
+    public function send_email($mail_info, $to)
+    {
+        $merged_data = $this->merge_emails($mail_info['subject'], $mail_info['content'], $to);
+
+        $message = \Swift_Message::newInstance()
+                    ->setSubject($mail_info['subject'])
+                    ->setFrom(array($mail_info['from-address'] => $mail_info['from-name']))
+                    ->setTo(array($to['email'] => $to['fname']))
+                    ->setBody($merged_data['html_content'],'text/html')
+                    ->addPart($merged_data['text_plain'],'text/plain');
+
+
+                    $this->app['mailer']->send($message);
+    }
+    
 }

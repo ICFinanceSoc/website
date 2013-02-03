@@ -153,7 +153,7 @@ class AdminController implements ControllerProviderInterface
                 'content' => $app['request']->get('email_content'),
                 'sender' => $app['icfs.user']->username
             );
-            Mail::insertMail($app, $data);
+            $app['icfs.mail']->insertMail($data);
             return 'Your message has been added to the system and will be sent shortly';
         })->before($this->allowed($this->nav->permission('pages')))->before($this->nav->fetch());
     }

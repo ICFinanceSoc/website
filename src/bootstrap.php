@@ -8,6 +8,8 @@ $app = new Silex\Application();
 $app['debug'] = true;
 
 $app->register(new ICFS\Model\User());
+$app->register(new ICFS\Model\Members());
+$app->register(new ICFS\Model\Admin\Mail());
 
 $app->register(new Silex\Provider\UrlGeneratorServiceProvider());
 use Symfony\Component\HttpFoundation\Session\Session;
@@ -21,6 +23,10 @@ $app->register(new Silex\Provider\TwigServiceProvider(), array(
     'twig.path' => __DIR__.'/../src/views',
     'twig.options' => array('strict_variables' => false)
 ));
+
+$app->register(new Silex\Provider\SwiftmailerServiceProvider());
+$app['swiftmailer.transport'] = Swift_SendmailTransport::newInstance('/usr/sbin/sendmail -bs');
+
 $app->register(new ICFS\DoctrineConnection());
 
 $app->mount('/ngap', new ICFS\Controller\AdminController());
