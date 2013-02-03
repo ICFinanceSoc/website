@@ -4,11 +4,11 @@
  * Login, Logout and logging is handled by this
 */
 
-namespace ICFS\Model;
+namespace ICFS\Model\Admin;
 
 use Silex\Application;
 
-class AdminNavigation
+class Navigation
 {
     public function __construct(Application $app)
     {
@@ -52,6 +52,16 @@ class AdminNavigation
                     'interests' => array(
                         'name' => 'Interests',
                         'type' => 'link')
+                )
+            ),
+            'mail' => array(
+                'name' => 'Messaging System »',
+                'type' => 'holder',
+                'subpages' => array(
+                    'new' =>array(
+                        'name' => 'New E-mail',
+                        'type' => 'link'
+                    )
                 )
             ),
             'events' => array(

@@ -42,3 +42,4 @@ framework/composer.phar
 
 #DB connection information
 src/ICFS/DoctrineConnection.php
+ngap/.htaccess

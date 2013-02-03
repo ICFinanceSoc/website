@@ -98,7 +98,8 @@ class ICFSUser
     public function authenticate() //this is run at the start of every page. Sets the adminauth, and user details, fetched from SQL to make sure we're up to date.
     {
         if ($this->app['session']->has('icfs_user'))
-            if ($this->fillUserClass($this->app['db']->executeQuery('SELECT * FROM members WHERE uname = ?', array($this->app['session']->get('icfs_user')))->fetch())) {
+            if ($this->fillUserClass($this->app['db']->executeQuery('SELECT * FROM members WHERE uname = ?', array($this->app['session']->get('icfs_user')))->fetch()))
+            {
                 if ($this->app['session']->get('icfs_admin') === true) //We've logged ourselves in...
                     if ($this->admin > 0)
                         $this->adminauth = true;
