@@ -1,7 +1,7 @@
 <?php
 namespace ICFS\Model;
 
-class PageEdit
+class Page
 {
 	var $name, $exists, $data, $app;
 
@@ -12,18 +12,16 @@ class PageEdit
 		if ($this->data = $app['db']->executeQuery("SELECT * FROM pages_content WHERE name = ?", array($pageid))->fetch()) {
 			$this->exists = true;
 		}
-
-		//$this->exists = false;
 	}
 
 	static function create($app, $data) {
-		if (PageEdit::checkName($app, $data['name'])) {
+		if (Page::checkName($app, $data['name'])) {
 			$app['db']->executeQuery("INSERT INTO pages_content VALUES (?, ?, ?, null, NOW())", array(
 	            $data['name'],
 	            $data['title'],
 	            $data['content']
 	        ));
-			return new PageEdit($app, $data['name']);
+			return new Page($app, $data['name']);
 		}
 		
 		return false;

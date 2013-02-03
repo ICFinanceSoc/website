@@ -9,6 +9,7 @@ use Silex\ControllerProviderInterface;
 use ICFS\AdminServiceProvider;
 use ICFS\Model\Admin\Mail;
 use ICFS\Model\Page;
+use ICFS\Model\Event;
 
 class AdminController implements ControllerProviderInterface
 {
@@ -82,6 +83,24 @@ class AdminController implements ControllerProviderInterface
         })->before($this->allowed())->before($this->nav->fetch()); //->before($this->nav->make())
 
         /* ****************************************************** **
+        ** Events Tool
+        ** ****************************************************** */
+
+        $this->controllers->get('events/add', function (Application $app) {
+            return $app['twig']->render('ngap/event_edit', array('title' => "Add New Event"));
+        })->before($this->allowed($this->nav->permission('pages')))->before($this->nav->fetch());
+
+        $this->controllers->get('events/{eventid}', function (Application $app, $eventid) {
+            $event = new Event($app, $eventid);
+            if (!$event->exists)
+                return $app->abort(404, "Event with ID $eventid doesn't exist.");
+
+            return $app['twig']->render('ngap/event_edit', array('title' => "Edit Event", 'data' => $event->data));
+        })->before($this->allowed($this->nav->permission('pages')))->before($this->nav->fetch());
+
+
+
+        /* ****************************************************** **
         ** Page Editor
         ** ****************************************************** */
 
@@ -90,9 +109,10 @@ class AdminController implements ControllerProviderInterface
             return $app['twig']->render('ngap/page_edit', array('title' => "Add New Page"));
         })->before($this->allowed($this->nav->permission('pages')))->before($this->nav->fetch());
 
+
         // GET - Edit Page
         $this->controllers->get('pages/{pageid}', function (Application $app, $pageid) {
-            $page = new PageEdit($app, $pageid);
+            $page = new Page($app, $pageid);
             if (!$page->exists)
                 return $app->abort(404, "Page $pageid doesn't exist.");
 
@@ -119,10 +139,10 @@ class AdminController implements ControllerProviderInterface
                 $error = "Please make sure the title and url are long enough (2 characters)";
             else {
                 if ($pageid == "add") {
-                    if (!($page = PageEdit::create($app, $data))) //$page will return false if the name is used already
+                    if (!($page = Page::create($app, $data))) //$page will return false if the name is used already
                         $error = "Name is in use already - new page can't be made with an exisiting page name!";
                 } else {
-                    $page = new PageEdit($app, $pageid);
+                    $page = new Page($app, $pageid);
                     if (!$page->exists)
                         $error = "Page doesn't exist... strange error (deleted while you were editing?)";
                     elseif (!$page->canRename($data['name'])) {

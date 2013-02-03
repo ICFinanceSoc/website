@@ -4,7 +4,7 @@
 <div class="page-header">
 	<h1>{% if title %}{{title}}{% else %}Editing Content Page{% endif %} <small>{{data.title}}</small></h1>
 </div>
-<div class="edit-panel">
+<div class="edit-panel edit-page">
 {% if save %}	<div class="alert alert-success goodsave">All saved up! (@{{'now'|date('H:i')}} server time)</div><br />
 {% elseif error %}	<div class="alert alert-error">{{error}}</div><br />{%endif%}
 	<form method="POST">
