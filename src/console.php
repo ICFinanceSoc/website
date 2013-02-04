@@ -47,7 +47,13 @@ EOF
 	        {
 	        	$app['icfs.mail']->markAsSent($mail['mid']);
 	        	$members = $app['icfs.members']->return_members();
-	        	foreach ($members as $member)
+	        	$app['icfs.mail']->sendEmail($mail, $members);
+	        	if ($app['mailer.initialized'])
+	        	{
+                    	$output->writeln('flushing spool cache');
+					    $app['swiftmailer.spooltransport']->getSpool()->flushQueue($app['swiftmailer.transport']);
+				}
+	        	/*foreach ($members as $member)
 	        	{
 	        		$output->writeln('Sending email to '.$member['fname']);
 	        		$app['icfs.mail']->send_email($mail, $member);
@@ -56,7 +62,7 @@ EOF
                     	$output->writeln('flushing spool cache');
 					    $app['swiftmailer.spooltransport']->getSpool()->flushQueue($app['swiftmailer.transport']);
 					}
-	        	}
+	        	}*/
 	        }
 	    }
 	);
