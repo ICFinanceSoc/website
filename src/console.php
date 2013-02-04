@@ -47,6 +47,7 @@ EOF
 	        {
 	        	$app['icfs.mail']->markAsSent($mail['mid']);
 	        	$members = $app['icfs.members']->return_members();
+	        	var_dump($members);
 	        	$app['icfs.mail']->sendEmail($mail, $members);
 	        	if ($app['mailer.initialized'])
 	        	{

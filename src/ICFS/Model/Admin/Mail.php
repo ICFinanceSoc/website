@@ -86,6 +86,7 @@ class ICFSMail
         $replacements = array();
         foreach($to as $user)
         {
+            var_dump($user);
             $replacements[$user['email']] = array();
             foreach($user as $key => $prop)
             {
