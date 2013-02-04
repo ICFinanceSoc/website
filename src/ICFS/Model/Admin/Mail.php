@@ -62,7 +62,7 @@ class ICFSMail
         $this->app['db']->executeQuery("UPDATE `mail` SET `sent`=1 WHERE `mid`=?", array($mid));
     }
 
-    private function merge_names($content, $merge)
+/*    private function merge_names($content, $merge)
     {
         return $this->twig->render($content, $merge);
     }
@@ -79,19 +79,40 @@ class ICFSMail
                         'html_content' => $html_content
                         );
     }
-
+*/
     // merge is the data specific to each user which we are sending to.
-    public function send_email($mailInfo, $to)
+    public function sendEmail($mailInfo, $to)
     {
-        $merged_data = $this->merge_emails($mailInfo['subject'], $mailInfo['content'], $to);
+        $replacements = array();
+        foreach($to as $user)
+        {
+            var_dump($user);
+            $replacements[$user['email']] = array();
+            foreach($user as $key => $prop)
+            {
+                $replacements[$user['email']]['{'.$key.'}'] = $prop;
+            }
+        }
+
+        $decorator = new \Swift_Plugins_DecoratorPlugin($replacements);
+
+        $this->app['mailer']->registerPlugin($decorator);
+        
+        var_dump($replacements);
+
+        $html_content = $this->app['twig']->render('ngap/mail-template.twig', array('content' => $mailInfo['content']));
+        $plain_content = strip_tags($mailInfo['content']);
 
         $message = \Swift_Message::newInstance()
                     ->setSubject($mailInfo['subject'])
                     ->setFrom(array($mailInfo['from-address'] => $mailInfo['from-name']))
-                    ->setTo(array($to['email']))
-                    ->setBody($merged_data['html_content'], 'text/html')
-                    ->addPart($merged_data['plain_content'],'text/plain');
+                    ->setBody($html_content, 'text/html')
+                    ->addPart($plain_content,'text/plain');
 
+        foreach($to as $user)
+        {
+            $message->addTo($user['email']);
+        }
         $this->app['mailer']->send($message);
     }
     
