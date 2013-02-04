@@ -41,37 +41,37 @@ class AdminController implements ControllerProviderInterface
 
     private function redirects() //make life easier to manage!
     {
-		$this->controllers->get('/', function (Application $app) {
-			return $app->redirect('home');
+        $this->controllers->get('/', function (Application $app) {
+            return $app->redirect('home');
         })->bind('ngap');
     }
 
     /* Binds the login and logout functions */
-	private function adminLogin() {
+    private function adminLogin() {
 
-		// Logs the user out via the AdminServiceProvider (ngap.admin)
-		$this->controllers->get('/user/logout', function (Application $app) {
-			$app['icfs.user']->logout();
-			return $app->redirect($app['url_generator']->generate('login'));
+        // Logs the user out via the AdminServiceProvider (ngap.admin)
+        $this->controllers->get('/user/logout', function (Application $app) {
+            $app['icfs.user']->logout();
+            return $app->redirect($app['url_generator']->generate('login'));
         });
 
-		// Checks if the user is logged out. If he is, show him login, else forward to ngap
+        // Checks if the user is logged out. If he is, show him login, else forward to ngap
         $this->controllers->get('/login', function (Application $app) {
-        	if ($app['icfs.user']->checkAdminLogin())
-        		return $app->redirect($app['url_generator']->generate('ngap'));
+            if ($app['icfs.user']->checkAdminLogin())
+                return $app->redirect($app['url_generator']->generate('ngap'));
 
-			return $app['twig']->render('ngap/login', array('error' => ''));
+            return $app['twig']->render('ngap/login', array('error' => ''));
         })->bind('login');
 
         // Logic behind the login. Delegates actual login function to AdminServiceProvider
         $this->controllers->post('/login', function (Application $app) {
-        	if (($error = $app['icfs.user']->adminLogin()) === true)
-        		return $app->redirect($app['url_generator']->generate('ngap', array(), true));
+            if (($error = $app['icfs.user']->adminLogin()) === true)
+                return $app->redirect($app['url_generator']->generate('ngap', array(), true));
 
             return $app['twig']->render('ngap/login', 
-        		array('error' => $error, 
-        			'username' => $app['request']->get('username'))
-        		);
+                array('error' => $error, 
+                    'username' => $app['request']->get('username'))
+                );
         });
     }
 
@@ -79,7 +79,7 @@ class AdminController implements ControllerProviderInterface
     private function adminPages()
     {
         $this->controllers->get('home', function (Application $app) {
-			return $app['twig']->render('ngap/skeleton', array('content' => $app['twig']->render('ngap/home')));
+            return $app['twig']->render('ngap/skeleton', array('content' => $app['twig']->render('ngap/home')));
         })->before($this->allowed())->before($this->nav->fetch()); //->before($this->nav->make())
 
         /* ****************************************************** **
@@ -89,6 +89,11 @@ class AdminController implements ControllerProviderInterface
         $this->controllers->get('events/', function(Application $app) {
             return $app->redirect('add');
         });
+
+        $this->controllers->get('events/list', function(Application $app) {
+            return $app['twig']->render('ngap/event_list');
+        })->before($this->allowed($this->nav->permission('pages')))->before($this->nav->fetch());
+
 
         $this->controllers->get('events/add', function (Application $app) {
             return $app['twig']->render('ngap/event_edit', array('title' => "Add New Event"));
