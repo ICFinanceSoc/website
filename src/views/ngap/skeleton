@@ -22,28 +22,26 @@
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
         <![endif]-->
 {% block skel_navigation %} 
-        <div class="navbar navbar-inverse navbar-fixed-top">
-            <div class="navbar-inner nav1">
-                    <ul class="nav">
+        <div class="nav-wrapper">
+            <div class="nav1">
+                    <ul class="nav nav-tabs nav-stacked">
 {% for name,data in ngap_nav %}{# I know this is mega messy, but it makes pretty html! #}
-                        <li class="{% if data.subpages %}dropdown{% endif %}{% if data.class %} {{data.class}}{% endif %}">{% if data.type == 'link' %}<a href="{{path('ngap')}}{{name}}">{{data.name}}</a>{%elseif data.type == 'holder' %}<a href="#{{name}}">{{data.name}}</a>{% else %}<p>{{data.name}}</p>{%endif%}{% if data.subpages %} 
+                        <li class="{% if data.subpages %}dropdown{% endif %}{% if data.class %} {{data.class}}{% endif %}">{% if data.type == 'link' %}<a href="{{path('ngap')}}{{name}}">{{data.name}}</a>{%elseif data.type == 'holder' %}<a href="#{{name}}">{{data.name}}</a>{% else %}<a>{{data.name}}</a>{%endif%}{% if data.subpages %} 
                             <ul class="dropdown-menu">
 {% for subname,subdata in data.subpages %}
-                                <li{% if subdata.class %} class="{{subdata.class}}"{% endif %}>{% if subdata.type == 'link' %}<a href="{{path('ngap')}}{{name}}/{{subname}}">{{subdata.name}}</a>{% else %}<p>{{subdata.name}}</p>{%endif%}</li>
+                                <li{% if subdata.class %} class="{{subdata.class}}"{% endif %}>{% if subdata.type == 'link' %}<a href="{{path('ngap')}}{{name}}/{{subname}}">{{subdata.name}}</a>{% else %}<a>{{subdata.name}}</a>{%endif%}</li>
 {% endfor %}
                             </ul>
                         {% endif %}</li>
 {% endfor %}
                     </ul>
             </div>
-            <div class="navbar-inner nav2">
-                <div class="nav-collapse collapse">
-                    <ul class="nav">
-                        <li class="active"><a href="#">sub1</a></li>
-                        <li><a href="#about">sub2</a></li>
-                        <li><a href="#contact">sub3</a></li>
-                    </ul>
-                </div><!--/.nav-collapse -->
+            <div class="nav2">
+                <ul class="nav nav-tabs nav-stacked">
+                    <li class="active"><a href="#">sub1</a></li>
+                    <li><a href="#about">sub2</a></li>
+                    <li><a href="#contact">sub3</a></li>
+                </ul>
             </div>
         </div>
 {% endblock %}
