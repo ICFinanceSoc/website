@@ -37,7 +37,7 @@ EOF
 	    function (InputInterface $input, OutputInterface $output) use ($app) {
 	        
 	        $tosend = $app['icfs.mail']->loadMailToSend();
-	        var_dump($tosend);
+	        //var_dump($tosend);
 	        if(empty($tosend))
 	        {
 	        	$output->writeln('Nothing to send');
@@ -45,12 +45,17 @@ EOF
 	        }
 	        foreach ($tosend as $mail) 
 	        {
-	        	//$app['icfs.mail']->markAsSent($mail['mid']);
+	        	$app['icfs.mail']->markAsSent($mail['mid']);
 	        	$members = $app['icfs.members']->return_members();
 	        	foreach ($members as $member)
 	        	{
 	        		$output->writeln('Sending email to '.$member['fname']);
 	        		$app['icfs.mail']->send_email($mail, $member);
+	        		if ($app['mailer.initialized']) 
+                    {
+                    	$output->writeln('flushing spool cache');
+					    $app['swiftmailer.spooltransport']->getSpool()->flushQueue($app['swiftmailer.transport']);
+					}
 	        	}
 	        }
 	    }

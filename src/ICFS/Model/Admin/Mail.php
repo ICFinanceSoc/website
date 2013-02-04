@@ -71,7 +71,7 @@ class ICFSMail
     {
         //Will make this work once the twig string loader is working...
         //$merged_content = $this->merge_names($content, $merge);
-        $html_content = $this->app['twig']->render('ngap/mail-template.twig', array($content));
+        $html_content = $this->app['twig']->render('ngap/mail-template.twig', array('content' => $content));
         $plain_content = strip_tags($content);
         //$subject = $this->twig->render($subject, $merge);
         return array('subject' => $subject,
@@ -81,19 +81,18 @@ class ICFSMail
     }
 
     // merge is the data specific to each user which we are sending to.
-    public function send_email($mail_info, $to)
+    public function send_email($mailInfo, $to)
     {
-        $merged_data = $this->merge_emails($mail_info['subject'], $mail_info['content'], $to);
+        $merged_data = $this->merge_emails($mailInfo['subject'], $mailInfo['content'], $to);
 
         $message = \Swift_Message::newInstance()
-                    ->setSubject($mail_info['subject'])
-                    ->setFrom(array($mail_info['from-address'] => $mail_info['from-name']))
-                    ->setTo(array($to['email'] => $to['fname']))
-                    ->setBody($merged_data['html_content'],'text/html')
-                    ->addPart($merged_data['text_plain'],'text/plain');
+                    ->setSubject($mailInfo['subject'])
+                    ->setFrom(array($mailInfo['from-address'] => $mailInfo['from-name']))
+                    ->setTo(array($to['email']))
+                    ->setBody($merged_data['html_content'], 'text/html')
+                    ->addPart($merged_data['plain_content'],'text/plain');
 
-
-                    $this->app['mailer']->send($message);
+        $this->app['mailer']->send($message);
     }
     
 }
