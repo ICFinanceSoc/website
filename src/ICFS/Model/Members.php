@@ -108,7 +108,7 @@ class ICFSMembers
         return $return;
     }
 
-    public function return_members($depts = NULL)
+    public function returnMembers($depts = NULL)
     {
         if($depts)
         {
@@ -127,6 +127,21 @@ class ICFSMembers
         {
             //If we want to get all society members back
             return $this->app['db']->executeQuery("SELECT * from `members`")->fetchAll();
+        }
+    }
+
+    public function deleteMember($memid)
+    {
+        $member = $this->app['db']->executeQuery("SELECT * FROM members WHERE uname = ?", array($memid))->fetchAll();
+        var_dump($member);
+        if($member)
+        {
+            $this->app['db']->insert('deletedmembers', $member[0]);
+            $this->app['db']->delete('members', array('uname' => $memid));
+        }
+        else
+        {
+            return false; //Here if they are not registered as a member
         }
     }
 }
