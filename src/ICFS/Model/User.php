@@ -44,21 +44,30 @@ class ICFSUser
                 $return = "No admin permissions for you!";
         return $return;
     }
-    public function login() { //return true if went well, otherwise return the error message!
-        if ($this->app['debug'] && !function_exists('pam_auth')) {
+
+    public function checkCredentials($user, $pass)
+    {
+        if ($this->app['debug'] && !function_exists('pam_auth')) 
+        {
             function pam_auth($user, $pass) {
                 if (($user == 'dm1911' && $pass == "sexy") || ($user == 'txl11' && $pass == "sexy"))
                     return true;
                 return false;
             }
         }
+        return pam_auth($user, $pass);
+    }
 
-        if (!pam_auth($this->app['request']->get('username'), $this->app['request']->get('password')))
+    public function login() 
+    { //return true if went well, otherwise return the error message!
+
+        if (!$this->checkCredentials($this->app['request']->get('username'), $this->app['request']->get('password')))
             $error = "Invalid User/Password Combination";
         elseif (!($user = $this->app['db']->executeQuery("SELECT * FROM members WHERE uname = ?", array($this->app['request']->get('username')))->fetch()))
             $error = "Unregistered user - IP Logged";
 
-        if (!isset($error)) {
+        if (!isset($error)) 
+        {
             $this->app['session']->set('icfs_user', $this->app['request']->get('username'));
             $this->fillUserClass($user);
             return true;
@@ -66,6 +75,7 @@ class ICFSUser
 
         return $error;
     }
+
     private function fillUserClass($user) //$user is an SQL query result (->fetch() ed)
     {
         if ($user) {
