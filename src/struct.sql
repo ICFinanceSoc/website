@@ -343,6 +343,12 @@ PRIMARY KEY (`uname`)
 
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+
+---------------------------------------------------
+--- NEW MAIL TABLE
+
+
+
 CREATE TABLE IF NOT EXISTS `mail` (
   `mid` int(11) NOT NULL AUTO_INCREMENT,
   `from-address` varchar(100) NOT NULL DEFAULT 'no-reply@financesociety.co.uk',
@@ -356,3 +362,24 @@ CREATE TABLE IF NOT EXISTS `mail` (
   `sendtime` datetime NOT NULL,
   PRIMARY KEY (`mid`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+
+
+
+
+
+---------------------------------------------------
+--- NEW EVENTS TABLE
+
+CREATE TABLE IF NOT EXISTS `NGAP_EVENT` (
+  `eid` int(5) NOT NULL AUTO_INCREMENT,
+  `open` tinyint(1) NOT NULL,
+  `title` varchar(50) NOT NULL,
+  `information` text NOT NULL,
+  `starttime` int(11) NOT NULL,
+  `endtime` int(11) NOT NULL,
+  `location` varchar(50) NOT NULL,
+  `organiser` varchar(50) NOT NULL,
+  `sponsorID` int(5) NOT NULL,
+  PRIMARY KEY (`eid`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
