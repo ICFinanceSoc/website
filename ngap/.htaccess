@@ -3,7 +3,7 @@
     RewriteEngine On
 
     RewriteEngine On
-    RewriteBase /icfs/
+    RewriteBase /finance/
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ silex.php [L]
 </IfModule>

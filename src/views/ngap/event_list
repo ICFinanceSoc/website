@@ -1,0 +1,20 @@
+{% extends "ngap/skeleton" %}
+
+{% block content %}
+<div class="page-header">
+	<h1>{% if title %}{{title}}{% else %}Editing Content Page{% endif %} <small>{{data.title}}</small></h1>
+</div>
+<div class="edit-panel edit-event">
+	<ul class="nav nav-tabs nav-stacked">
+		<li><a href="#">test</a></li>
+		<li><a href="#">test2</a></li>
+	</ul>
+</div>
+{% endblock %}
+
+{% block contentclass %} content-pageedit{% endblock %}
+
+{% block srcpagejs %}<script src="{{path('homepage')}}assets/js/vendor/tiny_mce/jquery.tinymce.js"> </script>{% endblock %} {# TinyMCE JS Source #}
+
+{% block pagejs %}
+{% endblock %}

@@ -41,37 +41,37 @@ class AdminController implements ControllerProviderInterface
 
     private function redirects() //make life easier to manage!
     {
-		$this->controllers->get('/', function (Application $app) {
-			return $app->redirect('home');
+        $this->controllers->get('/', function (Application $app) {
+            return $app->redirect('home');
         })->bind('ngap');
     }
 
     /* Binds the login and logout functions */
-	private function adminLogin() {
+    private function adminLogin() {
 
-		// Logs the user out via the AdminServiceProvider (ngap.admin)
-		$this->controllers->get('/user/logout', function (Application $app) {
-			$app['icfs.user']->logout();
-			return $app->redirect($app['url_generator']->generate('login'));
+        // Logs the user out via the AdminServiceProvider (ngap.admin)
+        $this->controllers->get('/user/logout', function (Application $app) {
+            $app['icfs.user']->logout();
+            return $app->redirect($app['url_generator']->generate('login'));
         });
 
-		// Checks if the user is logged out. If he is, show him login, else forward to ngap
+        // Checks if the user is logged out. If he is, show him login, else forward to ngap
         $this->controllers->get('/login', function (Application $app) {
-        	if ($app['icfs.user']->checkAdminLogin())
-        		return $app->redirect($app['url_generator']->generate('ngap'));
+            if ($app['icfs.user']->checkAdminLogin())
+                return $app->redirect($app['url_generator']->generate('ngap'));
 
-			return $app['twig']->render('ngap/login', array('error' => ''));
+            return $app['twig']->render('ngap/login', array('error' => ''));
         })->bind('login');
 
         // Logic behind the login. Delegates actual login function to AdminServiceProvider
         $this->controllers->post('/login', function (Application $app) {
-        	if (($error = $app['icfs.user']->adminLogin()) === true)
-        		return $app->redirect($app['url_generator']->generate('ngap', array(), true));
+            if (($error = $app['icfs.user']->adminLogin()) === true)
+                return $app->redirect($app['url_generator']->generate('ngap', array(), true));
 
             return $app['twig']->render('ngap/login', 
-        		array('error' => $error, 
-        			'username' => $app['request']->get('username'))
-        		);
+                array('error' => $error, 
+                    'username' => $app['request']->get('username'))
+                );
         });
     }
 
@@ -79,12 +79,21 @@ class AdminController implements ControllerProviderInterface
     private function adminPages()
     {
         $this->controllers->get('home', function (Application $app) {
-			return $app['twig']->render('ngap/skeleton', array('content' => $app['twig']->render('ngap/home')));
+            return $app['twig']->render('ngap/skeleton', array('content' => $app['twig']->render('ngap/home')));
         })->before($this->allowed())->before($this->nav->fetch()); //->before($this->nav->make())
 
         /* ****************************************************** **
         ** Events Tool
         ** ****************************************************** */
+
+        $this->controllers->get('events/', function(Application $app) {
+            return $app->redirect('add');
+        });
+
+        $this->controllers->get('events/list', function(Application $app) {
+            return $app['twig']->render('ngap/event_list');
+        })->before($this->allowed($this->nav->permission('pages')))->before($this->nav->fetch());
+
 
         $this->controllers->get('events/add', function (Application $app) {
             return $app['twig']->render('ngap/event_edit', array('title' => "Add New Event"));
@@ -95,7 +104,43 @@ class AdminController implements ControllerProviderInterface
             if (!$event->exists)
                 return $app->abort(404, "Event with ID $eventid doesn't exist.");
 
-            return $app['twig']->render('ngap/event_edit', array('title' => "Edit Event", 'data' => $event->data));
+            return $app['twig']->render('ngap/event_edit', array('title' => "Edit Event", 'data' => $event->data, 'save' => $app['request']->query->has("success")));
+        })->before($this->allowed($this->nav->permission('pages')))->before($this->nav->fetch());
+
+        $this->controllers->post('events/{eventid}', function (Application $app, $eventid) {
+            //check the data has been given:
+            $data['starttime'] = strtotime($app['request']->get('event-date') . " " . $app['request']->get('event-time-start'));
+            $data['endtime'] = strtotime($app['request']->get('event-date') . " " . $app['request']->get('event-time-end'));
+
+            foreach (array('event-title', 'event-location', 'event-organiser', 'event-sponsorID', 'event-information') as $required) {
+                $data[str_replace('event-', '', $required)] = $app['request']->get($required);
+                if (strlen($app['request']->get($required)) < 3)
+                    $error = "Field is not long enough: <b>$required</b>";
+            }
+            //if (time() > $data['starttime'] || time() > $data['endtime'])
+            //    $error = "Event time cannot be in the past!";
+            if ($data['endtime'] < $data['starttime'])
+                $error = "Event cannot end before it starts!";
+
+            $data['open'] = ($app['request']->get('event-enabled') == "on") ? '1' : '0';
+
+            if (!isset($error)) {
+                if ($eventid == "add") {
+                    echo "CREATE";
+                    $page = Event::create($app, $data);
+                } else {
+                    $page = new Event($app, $eventid);
+                    if ($page->exists) {
+                        $page->update($data);
+                    } else
+                        $error = "Page ID doesn't exist. Deleted before created?";
+                }
+            }
+
+            if (isset($error))
+                return $app['twig']->render('ngap/event_edit', array('title' => ($eventid == "add") ? "Add New Event" : "Edit Event", 'data' => $data, 'error'=>@$error));
+            return $app->redirect($app['url_generator']->generate('ngap', array(), true) . 'events/' . $page->id . '?success');
+
         })->before($this->allowed($this->nav->permission('pages')))->before($this->nav->fetch());
 
 
@@ -160,7 +205,12 @@ class AdminController implements ControllerProviderInterface
             return $app->abort(404, "Page $pageid does not exist.");
         })->before($this->allowed())->before($this->nav->fetch());
 
-        //Mail part of admin starts here
+
+
+        /* ****************************************************** **
+        ** Mailer
+        ** ****************************************************** */
+
         $this->controllers->get('mail/new', function (Application $app) {
             return $app['twig']->render('ngap/email_edit.twig', array('title' => "Create new email"));
         })->before($this->allowed($this->nav->permission('pages')))->before($this->nav->fetch());

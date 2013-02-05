@@ -35,28 +35,28 @@ navbar = {
 	},
 
 	onecol: function() {
-		$('.navbar').unbind('hover').hover(
+		$('.nav-wrapper').unbind('hover').hover(
 			function(){
-				$('.navbar').animate({"left":"0%"}, 70);
+				$('.nav-wrapper').animate({"left":"0%"}, 70);
 			}, function(){
-				$('.navbar').animate({"left":"-10%"}, 70);
+				$('.nav-wrapper').animate({"left":"-10%"}, 70);
 			});
 	},
 
 	twocol: function() {
-		$('.navbar').unbind('hover').hover(
+		$('.nav-wrapper').unbind('hover').hover(
 			function(){
 				$('.nav1').animate({"left":"-75%"}, 70);
-				$('.navbar').animate({"left":"0%"}, 70);
+				$('.nav-wrapper').animate({"left":"0%"}, 70);
 			}, function(){
 				$('.nav1').animate({"left":"-35%"}, 70);
-				$('.navbar').animate({"left":"-10%"}, 70);
+				$('.nav-wrapper').animate({"left":"-10%"}, 70);
 			});
 	}
 }
 
 $(function() {
-	$('.container').css('margin-left', (parseInt($('.navbar').css('width'), 10) + parseInt($('.navbar').css('left'), 10)) + 'px');
+	$('.container').css('margin-left', (parseInt($('.nav-wrapper').css('width'), 10) + parseInt($('.nav-wrapper').css('left'), 10)) + 'px');
 
 	navbar.onecol();
 
