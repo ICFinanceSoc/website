@@ -39,6 +39,12 @@ class AdminController implements ControllerProviderInterface
         };
     }
 
+
+    /* ******************************************************
+    ** ROUTE FUNCTIONS DEFINED HERE
+    ** ****************************************************** */
+
+
     private function redirects() //make life easier to manage!
     {
         $this->controllers->get('/', function (Application $app) {
@@ -87,7 +93,7 @@ class AdminController implements ControllerProviderInterface
         ** ****************************************************** */
 
         $this->controllers->get('events/', function(Application $app) {
-            return $app->redirect('add');
+            return $app->redirect('list');
         });
 
         $this->controllers->get('events/list', function(Application $app) {
@@ -163,6 +169,10 @@ class AdminController implements ControllerProviderInterface
         /* ****************************************************** **
         ** Page Editor
         ** ****************************************************** */
+
+        $this->controllers->get('pages/', function(Application $app) {
+            return $app->redirect('add');
+        });
 
         // GET - Add Page
         $this->controllers->get('pages/add', function (Application $app) {

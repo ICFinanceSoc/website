@@ -91,7 +91,7 @@ class Navigation
             'pages' => array(
                 'name' => 'Page Manager »',
                 'type'  =>  'holder',
-                'permission' => 1,
+                'permission' => 0,
                 'generate' => function ($name) use ($app) {
                     $cmspages = $app['db']->fetchAll("SELECT name,title FROM pages_content");
 
@@ -138,7 +138,7 @@ class Navigation
 
     public function fetch() //makes a a closure (un-executed function) for silex to execute before a page is rended. This makes the Twig global to generate the navigation bar.
     {
-        $pages = $this->pages;
+        $pages = $this->pages; //we cant pass $this-> variables as use()
         return function (\Symfony\Component\HttpFoundation\Request $req, Application $app) use ($pages) {
             foreach ($pages as $key=>$value)
             {
