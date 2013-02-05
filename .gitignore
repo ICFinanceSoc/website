@@ -43,3 +43,6 @@ framework/composer.phar
 #DB connection information
 src/ICFS/DoctrineConnection.php
 ngap/.htaccess
+
+#TXSL's sandbox
+src/sandbox.php

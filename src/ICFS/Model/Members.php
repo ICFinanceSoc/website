@@ -121,13 +121,20 @@ class ICFSMembers
             }
             $sql .= "?";
 
-            return $this->app['db']->executeQuery($sql, $depts)->fetchAll();
+            $members = $this->app['db']->executeQuery($sql, $depts)->fetchAll();
         }
         else
         {
             //If we want to get all society members back
-            return $this->app['db']->executeQuery("SELECT * from `members`")->fetchAll();
+            $members = $this->app['db']->executeQuery("SELECT * from `members`")->fetchAll();
         }
+
+        foreach($members as &$member)
+        {
+            $member['fullName'] = $member['fname'].' '.$member['lname'];
+        }
+
+        return $members;
     }
 
     public function deleteMember($memid)

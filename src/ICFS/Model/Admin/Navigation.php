@@ -46,12 +46,6 @@ class Navigation
                     'list' => array(
                         'name' => 'Member List',
                         'type' => 'link'),
-                    'email' => array(
-                        'name' => 'E-mail Members',
-                        'type' => 'link'),
-                    'interests' => array(
-                        'name' => 'Interests',
-                        'type' => 'link')
                 )
             ),
             'mail' => array(

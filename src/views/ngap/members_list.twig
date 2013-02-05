@@ -1,0 +1,44 @@
+{% extends "ngap/skeleton" %}
+
+{% block content %}
+<div class="page-header">
+	<h1>ICFS Members List</h1>
+</div>
+
+<table class="table table-condensed table-bordered table-striped">
+	<caption>List of ICFS Members</caption>
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Department</th>
+			<th>Email</th>
+			<th>Mobile Number</th>
+			<th>Registration Method</th>
+			<th>Registration Time</th>
+			<th>Delete Member</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for member in members %}
+		<tr>
+			<td>{{ member.fullName }}</td>
+			<td>{{ member.dept }}</td>
+			<td>{{ member.email }}</td>
+			<td>{{ member.mobile }}</td>
+			<td>{{ member.regmethod }}</td>
+			<td>{{ member.regdate }}</td>
+			<td><a href="{{path('ngap')}}members/delete/{{ member.uname }}">X</a></td>
+		</tr>
+		{% endfor %}
+	</tbody>	
+</table>
+
+{% endblock %}
+
+{% block contentclass %} content-pageedit{% endblock %}
+
+{% block srcpagejs %}{% endblock %}
+
+{% block pagejs %}
+
+{% endblock %}
