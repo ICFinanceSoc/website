@@ -8,12 +8,12 @@
 {% if save %}	<div class="alert alert-success goodsave">All saved up! (@{{'now'|date('H:i')}} server time)</div><br />
 {% elseif error %}	<div class="alert alert-error">Form not saved: <em>{{error|raw}}</em></div><br />{%endif%}
 	<form method="POST">
-		<div class="edit-input edit-name"><input placeholder="Event Name" name="event-title" type="text" value="{{data.title}}"></div>
+		<div class="edit-name"><input placeholder="Event Name" name="event-title" type="text" value="{{data.title}}"></div>
 		<div class="edit-events-topholder">
-			<div class="edit-input edit-subname"><input placeholder="Location / Venue" name="event-location" type="text" value="{{data.location}}"><br/>
+			<div class="edit-subname"><input placeholder="Location / Venue" name="event-location" type="text" value="{{data.location}}"><br/>
 				<input placeholder="Organiser" name="event-organiser" type="text" value="{{data.organiser}}"><br />
 				<select name="event-sponsorID"><option value="test">Sponsor</option></select></div>
-			<div class="edit-input edit-url">
+			<div class="edit-url">
 				<label for="checkbox-event-enabled"><input{% if data.open == 1 %} checked{% endif %} id="checkbox-event-enabled" type="checkbox" name="event-enabled"> Enabled</label>
 				Event Date: <input name="event-date" type="text" placeholder="dd/mm/yyyy" value="{{data.starttime|date('d/m/Y')}}" style="width: 75px;"><br />
 				Time: <input name="event-time-start" type="text" style="width: 40px;" placeholder="hh:mm" value="{% if data.starttime is not null %}{{data.starttime|date('H:i')}}{%else%}18:00{%endif%}"> - <input name="event-time-end" type="text" style="width: 40px;" placeholder="hh:mm" value="{% if data.endtime is not null %}{{data.endtime|date('H:i')}}{%else%}20:00{%endif%}">
