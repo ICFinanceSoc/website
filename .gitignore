@@ -46,3 +46,5 @@ ngap/.htaccess
 
 #sessions, needed for running on Dougal
 sessions/
+#TXSL's sandbox
+src/sandbox.php
