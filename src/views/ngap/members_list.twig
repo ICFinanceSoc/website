@@ -5,14 +5,21 @@
 	<h1>ICFS Members List</h1>
 </div>
 
-{% if deleted %}
+{% if success is defined %}
+
+{% if success == true %}
 <div class="alert">
 	{{ deleted.fullName }} successfully removed from the system.
 </div>
-{% elseif deleted == 0 %}
+
+{% elseif success == false %}
+
 <div class="alert alert-error">
-	Error! Did you try and delete someone who wasn't a member? If not, something has gone wrong! Please let us know.
+	Error! Did you try and delete someone who wasn't a member? If not, something has gone wrong! Please let VPT know!
 </div>
+
+{% endif %}
+
 {% endif %}
 
 <table class="table table-condensed table-bordered table-striped">
