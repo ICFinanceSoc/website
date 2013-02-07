@@ -5,8 +5,17 @@
 	<h1>ICFS Members List</h1>
 </div>
 
+{% if deleted %}
+<div class="alert">
+	{{ deleted.fullName }} successfully removed from the system.
+</div>
+{% elseif deleted == 0 %}
+<div class="alert alert-error">
+	Error! Did you try and delete someone who wasn't a member? If not, something has gone wrong! Please let us know.
+</div>
+{% endif %}
+
 <table class="table table-condensed table-bordered table-striped">
-	<caption>List of ICFS Members</caption>
 	<thead>
 		<tr>
 			<th>Name</th>
@@ -27,7 +36,7 @@
 			<td>{{ member.mobile }}</td>
 			<td>{{ member.regmethod }}</td>
 			<td>{{ member.regdate }}</td>
-			<td><a href="{{path('ngap')}}members/delete/{{ member.uname }}">X</a></td>
+			<td ><a class="delete-member" href="{{path('ngap')}}members/delete/{{ member.uname }}">X</a></td>
 		</tr>
 		{% endfor %}
 	</tbody>	
@@ -40,5 +49,18 @@
 {% block srcpagejs %}{% endblock %}
 
 {% block pagejs %}
-
+<script>
+	$(function() {
+		$(".delete-member").each(function(){
+			$(this).click(function(){
+				if($(this).hasClass("delete-member"))
+				{	
+					var name = $(this).parent().parent().find(":first-child").html();
+					$(this).addClass("btn btn-danger btn-mini delete-member-really").removeClass("delete-member").css("line-height", "14px").text("Delete " + name + "?");
+					return false;
+				}
+			})
+		})
+	});
+</script>
 {% endblock %}

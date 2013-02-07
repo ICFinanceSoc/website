@@ -232,9 +232,26 @@ class AdminController implements ControllerProviderInterface
         ** ****************************************************** */
 
         $this->controllers->get('members/list', function (Application $app) {
+            $deletedMember = $app['session']->get('deleted-member');
+            $app['session']->remove('deleted-member');
             $members = $app['icfs.members']->returnMembers();
-            return $app['twig']->render('ngap/members_list.twig', array('members' => $members));
+            return $app['twig']->render('ngap/members_list.twig', array('members' => $members, 'deleted' => $deletedMember));
         })->before($this->allowed($this->nav->permission('pages')))->before($this->nav->fetch());;
+
+        $this->controllers->get('members/delete/{uname}', function (Application $app, $uname) {
+            if($result = $app['icfs.members']->deleteMember($uname, 'NGAP'))
+            {
+                $app['session']->set('deleted-member', $result);
+                return $app->redirect($app['url_generator']->generate('ngap', array(), true) . 'members/list');
+            }
+            else
+            {
+                $app['session']->set('deleted-member', 0);
+                return $app->redirect($app['url_generator']->generate('ngap', array(), true) . 'members/list');
+            }
+        })->before($this->allowed($this->nav->permission('pages')))->before($this->nav->fetch());;
+
+
     }
 }
 

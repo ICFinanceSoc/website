@@ -137,14 +137,17 @@ class ICFSMembers
         return $members;
     }
 
-    public function deleteMember($memid)
+    public function deleteMember($memid, $deletemethod)
     {
         $member = $this->app['db']->executeQuery("SELECT * FROM members WHERE uname = ?", array($memid))->fetchAll();
-        var_dump($member);
         if($member)
         {
+            $member[0]['deletemethod'] = $deletemethod;
+            $member[0]['deletetime'] = date('Y-m-d H:i:s');
             $this->app['db']->insert('deletedmembers', $member[0]);
             $this->app['db']->delete('members', array('uname' => $memid));
+            $member[0]['fullName'] = $member[0]['fname'].' '.$member[0]['lname'];
+            return $member[0]; //We only return this if we have successfully deleted someone.
         }
         else
         {
