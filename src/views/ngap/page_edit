@@ -8,8 +8,8 @@
 {% if save %}	<div class="alert alert-success goodsave">All saved up! (@{{'now'|date('H:i')}} server time)</div><br />
 {% elseif error %}	<div class="alert alert-error">{{error}}</div><br />{%endif%}
 	<form method="POST">
-		<div class="edit-input edit-name">Page Title: <input name="page_title" type="text" value="{{data.title}}"></div>
-		<div class="edit-input edit-url">Page URL: <input name="page_url" type="text" value="{{data.name}}"></div><br />
+		<div class="edit-name"><input name="page_title" type="text" value="{{data.title}}" placeholder="Page Title"></div>
+		<div class="edit-url">URL: <input name="page_url" type="text" value="{{data.name}}" placeholder="Page URL"></div><br />
 		<textarea name="page_content" class='tinymce'>{{data.content}}</textarea>
 	{% if data.lastedit_who %}	<div class="alert alert-block lastedit">Last edited by <strong>{{data.lastedit_who}}</strong> on {{data.lastedit_when|date("d/m/Y \\a\\t H:i")}}</div>{%endif%}
 		<input type="submit" class="btn btn-large btn-primary btn-save" value="Save"><br style="clear: both"/>

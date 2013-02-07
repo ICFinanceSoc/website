@@ -9,7 +9,7 @@ use Silex\ControllerProviderInterface;
 use ICFS\AdminServiceProvider;
 use ICFS\Model\Admin\Mail;
 use ICFS\Model\Page;
-use ICFS\Model\Event;
+use ICFS\Model\Events;
 
 class AdminController implements ControllerProviderInterface
 {
@@ -91,7 +91,12 @@ class AdminController implements ControllerProviderInterface
         });
 
         $this->controllers->get('events/list', function(Application $app) {
-            return $app['twig']->render('ngap/event_list');
+            $events = new Events($app);
+
+            return $app['twig']->render('ngap/event_list', array(
+                'nextFive' => $events->filter("starttime > " . time(), "starttime asc", 5),
+                'lastFive' => $events->filter("starttime < " . time() . " AND starttime > " . (time() - 31557600), "starttime desc", 5)
+                ));
         })->before($this->allowed($this->nav->permission('pages')))->before($this->nav->fetch());
 
 
@@ -100,17 +105,27 @@ class AdminController implements ControllerProviderInterface
         })->before($this->allowed($this->nav->permission('pages')))->before($this->nav->fetch());
 
         $this->controllers->get('events/{eventid}', function (Application $app, $eventid) {
-            $event = new Event($app, $eventid);
-            if (!$event->exists)
+            $events = new Events($app);
+            if (!($event = $events->get($eventid)))
                 return $app->abort(404, "Event with ID $eventid doesn't exist.");
 
             return $app['twig']->render('ngap/event_edit', array('title' => "Edit Event", 'data' => $event->data, 'save' => $app['request']->query->has("success")));
         })->before($this->allowed($this->nav->permission('pages')))->before($this->nav->fetch());
 
         $this->controllers->post('events/{eventid}', function (Application $app, $eventid) {
+            $events = new Events($app);
             //check the data has been given:
-            $data['starttime'] = strtotime($app['request']->get('event-date') . " " . $app['request']->get('event-time-start'));
-            $data['endtime'] = strtotime($app['request']->get('event-date') . " " . $app['request']->get('event-time-end'));
+
+            if (($time = strtotime(str_replace('/','.', $app['request']->get('event-date')) . " " . $app['request']->get('event-time-start'))) !== FALSE)
+                $data['starttime'] = $time;
+            else
+                $error = "Start time is invalid";
+
+            if (($time = strtotime(str_replace('/','.', $app['request']->get('event-date')) . " " . $app['request']->get('event-time-end'))) !== FALSE)
+                $data['endtime'] = $time;
+            else
+                $error = "Start time is invalid";
+
 
             foreach (array('event-title', 'event-location', 'event-organiser', 'event-sponsorID', 'event-information') as $required) {
                 $data[str_replace('event-', '', $required)] = $app['request']->get($required);
@@ -119,7 +134,7 @@ class AdminController implements ControllerProviderInterface
             }
             //if (time() > $data['starttime'] || time() > $data['endtime'])
             //    $error = "Event time cannot be in the past!";
-            if ($data['endtime'] < $data['starttime'])
+            if (@$data['endtime'] < @$data['starttime'])
                 $error = "Event cannot end before it starts!";
 
             $data['open'] = ($app['request']->get('event-enabled') == "on") ? '1' : '0';
@@ -127,9 +142,9 @@ class AdminController implements ControllerProviderInterface
             if (!isset($error)) {
                 if ($eventid == "add") {
                     echo "CREATE";
-                    $page = Event::create($app, $data);
+                    $page = $events->create($data);
                 } else {
-                    $page = new Event($app, $eventid);
+                    $page = $events->get($eventid);
                     if ($page->exists) {
                         $page->update($data);
                     } else

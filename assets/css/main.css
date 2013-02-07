@@ -153,100 +153,35 @@ body {
 }
 
 /* ==========================================================================
-   Page Editing
+   Page Editing - Generic
    ========================================================================== */
 
 .content-pageedit .page-header {
 	padding-left: 60px;
 	margin-bottom: 10px;
 }
-
 .content-pageedit .edit-panel {
 	margin-left: 40px;
 	width: 700px;
 	padding: 20px;
 }
-
 .edit-panel textarea.tinymce {
 	width: 100%;
 }
 
-.edit-input {
-	display: inline;
-}
-.edit-name ::-webkit-input-placeholder {
-	padding-top: 7px;
-}
 .edit-page .edit-name{
 	font-size: 2em;
 }
-.edit-event .edit-name {
-	display: block;
-	width: 100%;
+.edit-panel .edit-name ::-webkit-input-placeholder {
+	padding-top: 7px;
 }
-.edit-name input {
+.edit-panel .edit-name input {
 	width: 100%;
 	box-sizing: border-box;
 	font-size: 28px;
 	height: 38px;
 	color: #333;
 }
-.edit-subname {
-	display: block;
-	width: 70%;
-	float: left;
-	margin-bottom: 10px;
-}
-.edit-subname input {
-	width: 100%;
-	box-sizing: border-box;
-	height: 28px;
-	margin-bottom: 5px;
-}
-.edit-subname select {
-	width: 100%;
-	box-sizing: border-box;
-	height: 28px;
-	margin-bottom: 5px;
-}
-.edit-url {
-	float: right;
-	text-align: right;
-	margin-right: 0px;
-	font-size: .95em;
-	font-weight: 400;
-	line-height: 1em;
-}
-.edit-page .edit-url {
-	margin-top: 10px;
-}
-.edit-url input[type=text] {
-	margin-top: 5px;
-	font-size: 13px;
-	height: 13px;
-	width: 100px;
-}
-
-.edit-url .btn {
-	margin-bottom: 5px;
-}
-
-.edit-events-topholder {
-	position: relative;
-}
-
-.edit-event .edit-url {
-	position: absolute;
-	bottom: 10px;
-	right: 0;
-	float: right;
-	width: 25%;
-	text-align: right;
-}
-.edit-event .edit-url input {
-	margin: 0 0 5px 0;
-}
-
 .edit-panel .lastedit {
 	text-align: left;
 	width: 60%;
@@ -256,20 +191,90 @@ body {
 .edit-panel .btn {
 	margin-top: 10px;
 }
-
 .edit-panel .btn-save {
 	float:right;
 }
 .edit-panel .delete-holder {
 	float:right;
 }
-.edit-panel .btn-delete {
-}
-
 .content-pageedit .edit-panel .yousure {
 	display: inline;
 	opacity: 0;
 }
+
+/* ==========================================================================
+   Page Editing - CMS
+   ========================================================================== */
+
+
+.edit-panel.edit-page .edit-name {
+	float: left;
+	width: 70%;
+}
+.edit-panel.edit-page .edit-url {
+	float: right;
+	text-align: right;
+	margin-right: 0px;
+	font-size: .95em;
+	font-weight: 400;
+	line-height: 1em;
+}
+.edit-panel.edit-page .edit-url {
+	margin-top: 10px;
+}
+.edit-panel.edit-page .edit-url input[type=text] {
+	margin-top: 5px;
+	font-size: 13px;
+	height: 13px;
+	width: 100px;
+}
+
+/* ==========================================================================
+   Page Editing - Events
+   ========================================================================== */
+
+.edit-panel.edit-event .edit-name {
+	display: block;
+	width: 100%;
+}
+.edit-panel.edit-event .edit-events-topholder {
+	position: relative;
+}
+.edit-panel.edit-event .edit-subname {
+	display: block;
+	width: 70%;
+	float: left;
+	margin-bottom: 10px;
+}
+.edit-panel.edit-event .edit-subname input {
+	width: 100%;
+	box-sizing: border-box;
+	height: 28px;
+	margin-bottom: 5px;
+}
+.edit-panel.edit-event .edit-subname select {
+	width: 100%;
+	box-sizing: border-box;
+	height: 28px;
+	margin-bottom: 5px;
+}
+.edit-panel.edit-event .edit-url {
+	position: absolute;
+	bottom: 10px;
+	right: 0;
+	float: right;
+	width: 25%;
+	text-align: right;
+}
+.edit-panel.edit-event .edit-url input, .edit-panel.edit-event .edit-url .btn {
+	margin: 0 0 5px 0;
+}
+.edit-panel.edit-event .edit-url input[type=text] {
+	font-size: 13px;
+	height: 13px;
+	width: 100px;
+}
+
 /* ==========================================================================
    Mailing (inherits loads stuff from page-edit)
    ========================================================================== */
