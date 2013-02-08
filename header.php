@@ -4,6 +4,9 @@ session_name('ICFS2011');
 session_start(); 
 include("db.php");
 include("login.php");
+
+include("NGAPAweosmeToAdminShit.php");
+$NGAPIntegrator = new NGAPAweosmeToAdminShit($db);
 /*************************************/
 
 if(!isset($_SERVER["HTTPS"]) && (LOCAL == false)) {
