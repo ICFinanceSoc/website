@@ -89,6 +89,29 @@ class AdminController implements ControllerProviderInterface
         })->before($this->allowed())->before($this->nav->fetch()); //->before($this->nav->make())
 
         /* ****************************************************** **
+        ** UPLOADS
+        ** ****************************************************** */
+
+        $this->controllers->get('uploads/', function(Application $app) {
+            return $app['twig']->render('ngap/upload');
+        })->before($this->allowed())->before($this->nav->fetch())->bind('ngap_uploads');
+
+        $this->controllers->match('uploads/json', function(Application $app) {
+            $upload_handler = new \ICFS\Model\UploadHandler(array(
+                'upload_dir' => dirname(dirname(dirname(__dir__))) .'/assets/uploads/',
+                'upload_url'=> $app['url_generator']->generate('homepage', array(), true) . 'assets/uploads/',
+                'script_url'=> $app['url_generator']->generate('ngap', array(), true) . 'uploads/json',
+                'delete_type' => 'POST',
+                'accept_file_types' => '/\.(gif|jpe?g|png)$/i'
+                ));
+            return "";
+        })->before($this->allowed());
+
+
+
+
+
+        /* ****************************************************** **
         ** Events Tool
         ** ****************************************************** */
 

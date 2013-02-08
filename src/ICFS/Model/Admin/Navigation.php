@@ -120,6 +120,12 @@ class Navigation
                         'type' => 'link',
                         'permission' => 0)
                 )
+            ),
+            'uploads' => array(
+                'name' => 'Uploads',
+                'type' => 'link'
+
+
             )
 
         );

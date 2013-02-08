@@ -13,15 +13,20 @@
 		<input type="submit" class="btn btn-large btn-primary btn-save" value="Send"><br style="clear: both"/>
 		</div>
 	</form>
+    <br style="clear:both" />     
+    {%include "ngap/uploadFiles_mainPage" %}
 </div>
 {% endblock %}
 
 {% block contentclass %} content-pageedit{% endblock %}
 
-{% block srcpagejs %}<script src="{{path('homepage')}}assets/js/vendor/tiny_mce/jquery.tinymce.js"> </script>{% endblock %} {# TinyMCE JS Source #}
+{% block srcpagejs %}
+{% include "ngap/uploadFiles_src" %}
+<script src="{{path('homepage')}}assets/js/vendor/tiny_mce/jquery.tinymce.js"> </script>{% endblock %} {# TinyMCE JS Source #}
 
 
 {% block pagejs %}
+{% include "ngap/uploadFiles_scriptPage" %}
 <script>
     $(function () {
         {% include "ngap/tinymce.twig" %} {# TinyMCE settings/config #}

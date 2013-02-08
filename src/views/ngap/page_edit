@@ -18,15 +18,19 @@
 			<div class="btn btn-danger btn-delete">Delete</div>
 		</div>
 	</form>
+      <br style="clear:both" />     
+      {%include "ngap/uploadFiles_mainPage" %}
 </div>
 {% endblock %}
 
 {% block contentclass %} content-pageedit{% endblock %}
 
-{% block srcpagejs %}<script src="{{path('homepage')}}assets/js/vendor/tiny_mce/jquery.tinymce.js"> </script>{% endblock %} {# TinyMCE JS Source #}
+{% block srcpagejs %}
+{% include "ngap/uploadFiles_src" %}<script src="{{path('homepage')}}assets/js/vendor/tiny_mce/jquery.tinymce.js"> </script>{% endblock %} {# TinyMCE JS Source #}
 
 
 {% block pagejs %}
+{% include "ngap/uploadFiles_scriptPage" %}
 <script>
             $(function () {
 

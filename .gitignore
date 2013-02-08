@@ -42,4 +42,12 @@ framework/composer.phar
 
 #DB connection information
 src/ICFS/DoctrineConnection.php
+
+#This will change from user to user..
 ngap/.htaccess
+
+#Lets ignore uploads, but keep everything else!
+assets/uploads/*.jpeg
+assets/uploads/*.jpg
+assets/uploads/*.png
+assets/uploads/*.gif
