@@ -274,6 +274,45 @@ class AdminController implements ControllerProviderInterface
             $app['icfs.mail']->insertMail($data);
             return 'Your message has been added to the system and will be sent shortly';
         })->before($this->allowed($this->nav->permission('pages')))->before($this->nav->fetch());
+
+        /* ****************************************************** **
+        ** Members
+        ** ****************************************************** */
+
+        $this->controllers->get('members/list', function (Application $app) {
+            $members = $app['icfs.members']->returnMembers();
+            if(!(null === $deletedMember = $app['session']->get('deleted-member')))
+            {
+                $app['session']->remove('deleted-member');
+                if($deletedMember)
+                {
+                    return $app['twig']->render('ngap/members_list.twig', array('members' => $members, 'deleted' => $deletedMember, 'success' => true));
+                }
+                else
+                {
+                    return $app['twig']->render('ngap/members_list.twig', array('members' => $members, 'success' => false));
+                }
+            }
+            else
+            {
+                return $app['twig']->render('ngap/members_list.twig', array('members' => $members));
+            }
+        })->before($this->allowed($this->nav->permission('pages')))->before($this->nav->fetch());;
+
+        $this->controllers->get('members/delete/{uname}', function (Application $app, $uname) {
+            if($result = $app['icfs.members']->deleteMember($uname, 'NGAP'))
+            {
+                $app['session']->set('deleted-member', $result);
+            }
+            else
+            {
+                $app['session']->set('deleted-member', false);
+                
+            }
+            return $app->redirect($app['url_generator']->generate('ngap', array(), true) . 'members/list');
+        })->before($this->allowed($this->nav->permission('pages')))->before($this->nav->fetch());;
+
+
     }
 }
 

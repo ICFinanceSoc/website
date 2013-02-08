@@ -51,3 +51,9 @@ assets/uploads/*.jpeg
 assets/uploads/*.jpg
 assets/uploads/*.png
 assets/uploads/*.gif
+
+#sessions, needed for running on Dougal
+sessions/
+
+#TXSL's sandbox
+src/sandbox.php
