@@ -1,0 +1,17 @@
+{% extends "ngap/skeleton" %}
+
+{% block content %}
+<div class="page-header">
+	<h1>ICFS Team <small>Management</small></h1>
+</div>
+<div class="edit-panel">
+	<a class='btn btn-small btn-warning' href='test'>2012/13</a>
+</div>
+{% endblock %}
+
+{% block contentclass %} content-pageedit{% endblock %}
+
+{% block srcpagejs %}<script src="{{path('homepage')}}assets/js/vendor/tiny_mce/jquery.tinymce.js"> </script>{% endblock %} {# TinyMCE JS Source #}
+
+{% block pagejs %}
+{% endblock %}

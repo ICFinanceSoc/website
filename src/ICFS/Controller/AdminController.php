@@ -313,6 +313,21 @@ class AdminController implements ControllerProviderInterface
         })->before($this->allowed($this->nav->permission('pages')))->before($this->nav->fetch());;
 
 
+
+        /* ****************************************************** **
+        ** Team Management
+        ** ****************************************************** */
+
+        $this->controllers->get('team/', function (Application $app) {
+            return $app->redirect($app['url_generator']->generate('ngap', array(), true) . 'team/' . date('Y'));
+
+        })->before($this->allowed())->before($this->nav->fetch());
+
+        $this->controllers->get('team/{year}', function (Application $app, $year) {
+            return $app['twig']->render('ngap/icfsteam');
+
+        })->before($this->allowed())->before($this->nav->fetch());
+
     }
 }
 
