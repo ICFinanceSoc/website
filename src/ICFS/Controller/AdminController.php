@@ -324,7 +324,15 @@ class AdminController implements ControllerProviderInterface
         })->before($this->allowed())->before($this->nav->fetch());
 
         $this->controllers->get('team/{year}', function (Application $app, $year) {
-            return $app['twig']->render('ngap/icfsteam', array('selectyear' => $year));
+
+            $team = new \ICFS\Model\ICFSTeam($app);
+            if (($comittee = $team->getComittee($year)) == null) {
+                echo "empty";
+            }
+            else
+                //var_dump($comittee);
+
+            return $app['twig']->render('ngap/icfsteam', array('selectyear' => $year, 'comittee' => $comittee));
 
         })->before($this->allowed())->before($this->nav->fetch());
 
