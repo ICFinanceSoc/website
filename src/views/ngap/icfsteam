@@ -1,11 +1,19 @@
 {% extends "ngap/skeleton" %}
 
+{% set ayear = "now"|date('Y') - ("now"|date('m') < 8) %}
+{% set date = { "long" : ayear, "short" : ayear|slice(2) } %}
+
 {% block content %}
 <div class="page-header">
-	<h1>ICFS Team <small>Management</small></h1>
+	<h1>ICFS Team Management <small>Currently {{ayear}}</small></h1>
 </div>
 <div class="edit-panel">
-	<a class='btn btn-small btn-warning' href='test'>2012/13</a>
+	<div class="btn-group">
+		<a class='btn {% if selectyear == (date.long - 2) %}btn-success{%endif%}' href='{{date.long - 2}}'>{{date.long - 2}}/{{date.short - 1}}</a>
+		<a class='btn {% if selectyear == (date.long - 1) %}btn-success{%endif%}' href='{{date.long - 1}}'>{{date.long - 1}}/{{date.short}}</a>
+		<a class='btn {% if selectyear == (date.long) %}btn-success{%endif%}' href='{{date.long}}'>{{date.long}}/{{date.short + 1}}</a>
+		<a class='btn {% if selectyear == (date.long + 1) %}btn-success{%endif%}' href='{{date.long + 1}}'>{{date.long + 1}}/{{date.short + 2}}</a>
+	</div>
 </div>
 {% endblock %}
 
