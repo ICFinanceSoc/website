@@ -1,5 +1,5 @@
 {# One place for all TinyMCE config n stuff #}
-            $('textarea.tinymce').tinymce({
+tinyMCEsetting = {
             // Location of TinyMCE script
 
             width : '100%',
@@ -42,4 +42,19 @@
             external_link_list_url : "lists/link_list.js",
             external_image_list_url : "lists/image_list.js",
             media_external_list_url : "lists/media_list.js",
-            });
+
+            start: function(e, ui){
+    $(this).find('.tinyMCE').each(function(){
+        tinyMCE.execCommand( 'mceRemoveControl', false, $(this).attr('id') );
+    });
+},
+stop: function(e,ui) {
+    $(this).find('.tinyMCE').each(function(){
+        tinyMCE.execCommand( 'mceAddControl', true, $(this).attr('id') );
+        $(this).sortable("refresh");
+    });
+}
+
+            };
+
+            $('textarea.tinymce').tinymce(tinyMCEsetting);

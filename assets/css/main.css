@@ -297,6 +297,56 @@ body {
 }
 
 /* ==========================================================================
+   Team Management
+   ========================================================================== */
+#add-comittee .comittee-holder {
+	background: #eee;
+	border: thin solid #bbb;
+}
+.comittee-holder {
+	margin-top: 1em;
+	background: #fff;
+}
+.comittee-holder .comittee-image .hover{
+	position: absolute;
+	display: none;
+	background: #fff;
+	background: rgba(255,255,255,0.5);
+	z-index: 2;
+	padding-top: 30px;
+	text-align: center;
+}
+.comittee-holder .comittee-image img {
+	min-height: 100px; width: 100%
+}
+.comittee-holder .comittee-image a.hover{
+	text-decoration: none;
+	color: #000;
+}
+.comittee-holder .comittee-image{
+	float: left;
+	width: 25%;
+}
+.comittee-holder .comittee-content{
+	float: right;
+	width: 74%;
+}
+.comittee-holder .comittee-content .sortbuttons{
+	text-align: center;
+}
+a.btn.add {
+	margin-right: 20px;
+	display: block;
+}
+.comittee-holder hr {
+	border-bottom: solid thin #666;
+}
+
+#uploader {
+	display: none;
+}
+
+/* ==========================================================================
    Footer
    ========================================================================== */
 
