@@ -21,10 +21,11 @@
 	{% endif %}
 	<ul id="sortable" class="nav">
 	{% for whorekey, whore in comittee %}
-	{% set index = (whore == null) ? "__new" : ((whore.name == null) ? whorekey : whore.name) %}
+	{% set index = (whore == null) ? "__new" : whore.id %}
 	<li {% if whore == null %}id="add-comittee"{% endif %}>
 	<div class="comittee-holder">
-		{% if whore == null %}<div class="alert alert-info">Add new position; Leave blank to ignore</div>{% endif %}
+		<input type="hidden" name="comittee[{{index}}][id]" value="{{index}}" />
+		{% if whore == null %}<div class="alert alert-info">Add new position; Leave completely blank to ignore</div>{% endif %}
 		<div class="comittee-image" >
 			<a class="hover">Upload New</a>
 			<img class="img-rounded" src="{{whore.img}}" />
@@ -200,10 +201,11 @@ $(function() {
 		});
 	}; makeUI();
 
-    $( "#sortable" ).sortable({
-		revert: true,
-		forcePlaceholderSize: true
-    });
+    //$( "#sortable" ).sortable({
+	//	revert: true,
+	//	forcePlaceholderSize: true,
+	//	containment: '#sortbuttons'
+    //});
 
     $( "ul, li" ).disableSelection();
 
