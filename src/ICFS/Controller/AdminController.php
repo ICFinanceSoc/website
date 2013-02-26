@@ -119,6 +119,10 @@ class AdminController implements ControllerProviderInterface
             return $app->redirect('list');
         });
 
+        $this->controllers->get('events/attend', function(Application $app) {
+            return $app->redirect('list');
+        });
+
         $this->controllers->get('events/list', function(Application $app) {
             $events = new Events($app);
 
