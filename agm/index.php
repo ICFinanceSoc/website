@@ -33,12 +33,12 @@
             </div>
 
             <div class="row-fluid">
-                <div class="span12 pagination-centered title-top"><h1>AGM 2013 Registration</h1></div>
+                <div class="span12 pagination-centered title-top"><h1>Welcome to the ICFS 2013 AGM</h1></div>
             </div>
 
 
             <div class="row-fluid">
-                <div class="span12 pagination-centered title-top" style="margin-left:7px"><h3>Welcome to the ICFS 2013 AGM. Please sign in to register your attendance, and to receive your electronic ballot paper.</h3></div>
+                <div class="span12 pagination-centered title-top" style="margin-left:7px"><h3>Please sign in to register your attendance, and to receive your electronic ballot paper.</h3></div>
             </div>
 
 <?php
