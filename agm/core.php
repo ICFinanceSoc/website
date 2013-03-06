@@ -41,7 +41,7 @@ function check($user, $pass)
 {
 	if(pam_auth($user, $pass))
 	{
-		$res = mysql_query("SELECT COUNT(*) FROM `union_members` WHERE `members` = '".mysql_real_escape_string($user)."'");
+		$res = mysql_query("SELECT COUNT(*) FROM `20123_union_members` WHERE `members` = '".mysql_real_escape_string($user)."'");
 		$row = mysql_fetch_assoc($res);
 		if($row['COUNT(*)'])
 		{
