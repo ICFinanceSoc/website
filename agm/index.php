@@ -17,6 +17,16 @@
         <link rel="stylesheet" href="agm.css">
     </head>
     <body>
+
+        <?php
+            require 'core.php';
+
+            if($_SERVER['REQUEST_METHOD'] == 'POST')
+            {
+                $result = check($_POST['user'], $_POST['pass']);
+            }
+        ?>
+
         <div class="container-fluid">
             <div class="row-fluid">
                 <div class="span12 pagination-centered logo-top"><img src="../images/logo.png" style alt="Imperial College Finance Society"></div>
@@ -26,23 +36,47 @@
                 <div class="span12 pagination-centered title-top"><h1>AGM 2013 Registration</h1></div>
             </div>
 
+
             <div class="row-fluid">
                 <div class="span12 pagination-centered title-top" style="margin-left:7px"><h3>Welcome to the ICFS 2013 AGM. Please sign in to register your attendance, and to receive your electronic ballot paper.</h3></div>
             </div>
 
+<?php
+        if(isset($result))
+        {
+
+          if($result[0])
+          {
+            ?>
+            <div class="row-fluid span12 pagination-centered">
+                <h4><img src="../images/tick.png" style="vertical-align:top;"> <?php echo $result[1]; ?></h4>
+            </div> 
+          <?php
+          }
+          else
+          {
+          ?>
+            <div class="row-fluid span12 pagination-centered">
+                <h4><img src="../images/error.png" style="vertical-align:top;"> <?php echo $result[1]; ?></h4>
+            </div>
+    <?php
+          }
+        }
+        ?>
+
             <div class="row-fluid hidden-desktop">
                 <div class="span12 offset2 form-top">
-                        <form class="form-horizontal">
+                        <form class="form-horizontal" method="POST" action="">
                           <div class="control-group">
                             <label class="control-label" for="user">College Username</label>
                             <div class="controls">
-                              <input type="text" id="user" placeholder="Username">
+                              <input type="text" id="user" name="user" placeholder="Username">
                             </div>
                           </div>
                           <div class="control-group">
                             <label class="control-label" for="pass">Password</label>
                             <div class="controls">
-                              <input type="password" id="pass" placeholder="Password">
+                              <input type="password" id="pass" name="pass" placeholder="Password">
                             </div>
                           </div>
                           <div class="control-group">
@@ -55,17 +89,17 @@
                 </div>
                 <div class="row-fluid visible-desktop">
                     <div class="span12 offset4 form-top">
-                            <form class="form-horizontal">
+                            <form class="form-horizontal" method="POST" action="">
                               <div class="control-group">
                                 <label class="control-label" for="user">College Username</label>
                                 <div class="controls">
-                                  <input type="text" id="user" placeholder="Username">
+                                  <input type="text" id="user" name="user" placeholder="Username">
                                 </div>
                               </div>
                               <div class="control-group">
                                 <label class="control-label" for="pass">Password</label>
                                 <div class="controls">
-                                  <input type="password" id="pass" placeholder="Password">
+                                  <input type="password" id="pass" name="pass" placeholder="Password">
                                 </div>
                               </div>
                               <div class="control-group">
