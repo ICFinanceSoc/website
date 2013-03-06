@@ -12,9 +12,9 @@
 
         <link rel="stylesheet" href="{{path('homepage')}}assets/css/bootstrap.min.css">
         <link rel="stylesheet" href="{{path('homepage')}}assets/css/main.css">
-        <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.0/themes/base/jquery-ui.css">
+        <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.0/themes/base/jquery-ui.css">
 
-        <link rel="stylesheet" href="http://blueimp.github.com/Bootstrap-Image-Gallery/css/bootstrap-image-gallery.min.css">
+        <link rel="stylesheet" href="{{url('homepage')}}assets/css/bootstrap-image-gallery.min.css">
         <link rel="stylesheet" href="{{url('homepage')}}assets/css/jquery.fileupload-ui.css">
         
         <script src="{{path('homepage')}}assets/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
