@@ -1,0 +1,25 @@
+.logo-top
+{
+	padding-top: 25px;
+}
+
+.title-top
+{
+	padding-top: 25px;
+	margin-left: 7px
+}
+
+.form-top
+{
+	margin-top: 30px
+}
+
+body,
+input,
+button,
+select,
+textarea,
+.navbar-search .search-query {
+	font-family: 'EurostileRegular', sans-serif;
+	font-weight: normal;
+}
