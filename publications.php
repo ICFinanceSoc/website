@@ -15,7 +15,8 @@
 
 </p>
               
-                <strong><a href="/scc/finance/content/Capital2012.pdf">Read Capital 2012</a></strong>
+                <strong><a href="/scc/finance/content/Capital2012.pdf" class="btn">Read Capital 2012</a><br /><br />
+		<a href="/scc/finance/content/CapitalInsight2013-hi.pdf" class="btn">Capital Insights 2013</a> <a href="/scc/finance/content/CapitalInsight2013-lo.pdf" class="btn">Capital Insights 2013 (Low Res)</a></strong>
 </div>
 </div>                  
 <?php require_once('footer.php');  ?>
