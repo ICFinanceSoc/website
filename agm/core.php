@@ -58,7 +58,7 @@ function check($user, $pass)
 				return array(false, "You have already registered at the AGM.");
 			}
 			//Check if new insert or not
-			mysql_query("INSERT INTO `2013_agm` (user, email, name, member, time) VALUES('" . mysql_real_1escape_string($user) ."', '$email', '$name', '$mailing', NOW())");
+			mysql_query("INSERT INTO `2013_agm` (user, email, name, member, time) VALUES('" . mysql_real_escape_string($user) ."', '$email', '$name', '$mailing', NOW())");
 			return array(true, "Thank you, " . $names[0] .". You have been successfully registered.");
 		}
 		else return array(false, "You do not appear to be an official member of the society.");
