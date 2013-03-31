@@ -38,7 +38,7 @@ require_once('../createuser.php');
         $result = kenyareg($Username);
     }
     if(!isset($result)){ ?>
-    <p style="font-size:13px;font-weight:normal;line-height:18px;margin-bottom:4px;font-style:italic;padding-left:20px;color:#666666;"><img src="../images/information.png"> Please enter your details in order to confirm your attendance at the Hong Kong Briefing</p>
+    <p style="font-size:13px;font-weight:normal;line-height:18px;margin-bottom:4px;font-style:italic;padding-left:20px;color:#666666;"><img src="../images/information.png"> Please enter your details in order to confirm your attendance at the Kenya Briefing</p>
 </div>
     <?php }
     else{
