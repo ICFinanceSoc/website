@@ -1,0 +1,11 @@
+AuthUserFile /website/scc/finance/register/.htpasswd
+AuthGroupFile /dev/null
+AuthName "Committee Only"
+AuthType Basic
+
+require user icfs
+
+RewriteEngine On
+RewriteCond %{HTTPS} !=on
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
