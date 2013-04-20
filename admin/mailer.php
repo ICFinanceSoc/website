@@ -174,15 +174,14 @@ $message .=<<<EOF
                                                                                                                     <table width="130" border="0" cellspacing="0" cellpadding="0">
                                                                                                                       
                                                                                                                           </table>
-                                                                                                                                                                                                  <p><a href="mailto:president@financesociety.co.uk">Giri Kesavan</a> - President <br />
-                                                                                                                                                                                                          <a href="mailto:vp.partnerships@financesociety.co.uk">Deepka Rana</a> - VP Partnerships<br />
-                                                                                                                                                                                                          <!-- <a href="mailto:vp.corprelations@financesociety.co.uk">Christine Kan</a> - VP Corporate Liaisons<br /> -->
-                                                                                                                                                                                                          <a href="mailto:vp.events@financesociety.co.uk">Avtar Rekhi</a> - VP Events <br />
-                                                                                                                                                                                                          <a href="mailto:vp.technology@financesociety.co.uk">Thomas Lim</a> - VP Technology <br />  
-                                                                                                                                                                                                          <!-- <a href="mailto:vp.marketing@financesociety.co.uk">Grahame Harris</a> - VP Marketing <br /> -->
-                                                                                                                                                                                                          <!-- <a href="mailto:capmag@financesociety.co.uk">Mario Hayashi</a> - Capmag Editor <br /> -->
-                                                                                                                                                                                                          <!-- <a href="mailto:treasurer@financesociety.co.uk">Tia Cheong</a> - Treasurer <br /> -->
-                                                                                                                                                                                                          <a href="mailto:secretary@financesociety.co.uk">Tracy Lin</a> - Secretary <br />
+                                                                                                                                                                                                  <p><a href="mailto:president@financesociety.co.uk">Walker Ferguson</a> - President <br />
+                                                                                                                                                                                                          <a href="mailto:vp.partnerships@financesociety.co.uk">Deepika Pyla</a> - Senior Vice President<br />
+                                                                                                                                                                                                          <a href="mailto:vp.events@financesociety.co.uk">Abhinav Gandhi</a> - VP Events <br />
+                                                                                                                                                                                                          <a href="mailto:vp.technology@financesociety.co.uk">Dario Magliocchetti</a> - VP Technology <br />  
+                                                                                                                                                                                                          <!-- <a href="mailto:vp.marketing@financesociety.co.uk">Tsatska Enkhbayer</a> - VP Marketing <br /> -->
+                                                                                                                                                                                                          <!-- <a href="mailto:capmag@financesociety.co.uk">Tasmin Symons</a> - Capmag Editor <br /> -->
+                                                                                                                                                                                                          <!-- <a href="mailto:treasurer@financesociety.co.uk">Karen Lai</a> - Treasurer <br /> -->
+                                                                                                                                                                                                          <a href="mailto:secretary@financesociety.co.uk">Wee Kii Teh</a> - Secretary <br />
                                                                                                                                                                                                                               </p>
                                                                                                                                                                                                                                       <p> <a href="http://www.financesociety.co.uk/">Imperial College Finance Society</a></p></td>
                                                                                                                                                                                                                                                                           <td bgcolor="#334b6d" style="font-family: Helvetica, Verdana, sans-serif; background: #334b6d url(http://union.ic.ac.uk/scc/finance/email/bg_footer.png);">&nbsp;
@@ -208,8 +207,10 @@ $message .=<<<EOF
 
 
 EOF;
+
 $headers  = "From: $from\r\n";
 $headers .= "Content-type: text/html\r\n";
 mail($to, $subject, $message, $headers);
 }
+
 ?>
