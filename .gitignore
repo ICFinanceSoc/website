@@ -52,6 +52,7 @@ assets/uploads/*.jpg
 assets/uploads/*.png
 assets/uploads/*.gif
 assets/uploads/thumbnail/
+assets/uploads/sponsors/
 
 #sessions, needed for running on Dougal
 sessions/

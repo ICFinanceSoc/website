@@ -276,6 +276,26 @@ body {
 }
 
 /* ==========================================================================
+   Page Editing - Sponsors
+   ========================================================================== */
+
+.edit-panel.edit-sponsor .edit-url {
+	width: 50%;
+	float: left;
+}
+
+.edit-panel.edit-sponsor .btn-group {
+	float:right;
+}
+.edit-panel.edit-sponsor .btn-group button {
+	margin-top: 0;
+}
+
+.edit-panel.edit-sponsor .edit-logo {
+	clear: both;
+}
+
+/* ==========================================================================
    Mailing (inherits loads stuff from page-edit)
    ========================================================================== */
 
@@ -294,6 +314,17 @@ body {
 .edit-from-address {
     float: right;
 
+}
+
+/* ==========================================================================
+   Sponsor List
+   ========================================================================== */
+.content-sponsorlist {
+	width: 800px;
+}
+
+.content-sponsorlist a.btn.btn-large {
+	margin-bottom: 20px;
 }
 
 /* ==========================================================================

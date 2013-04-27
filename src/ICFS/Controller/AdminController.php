@@ -107,6 +107,17 @@ class AdminController implements ControllerProviderInterface
             return "";
         })->before($this->allowed());
 
+        $this->controllers->match('uploads/json/sponsors', function(Application $app) {
+            $upload_handler = new \ICFS\Model\UploadHandler(array(
+                'upload_dir' => dirname(dirname(dirname(__dir__))) .'/assets/uploads/sponsors/',
+                'upload_url'=> $app['url_generator']->generate('homepage', array(), true) . 'assets/uploads/sponsors/',
+                'script_url'=> $app['url_generator']->generate('ngap', array(), true) . 'uploads/json/sponsors',
+                'delete_type' => 'POST',
+                'accept_file_types' => '/\.(gif|jpe?g|png)$/i'
+                ));
+            return "";
+        })->before($this->allowed());
+
 
 
 
@@ -316,6 +327,76 @@ class AdminController implements ControllerProviderInterface
             return $app->redirect($app['url_generator']->generate('ngap', array(), true) . 'members/list');
         })->before($this->allowed($this->nav->permission('pages')))->before($this->nav->fetch());;
 
+
+        /* ****************************************************** **
+        ** Sponsors
+        ** ****************************************************** */
+
+        $this->controllers->get('sponsors/', function (Application $app) {
+            return $app->redirect('list');
+        });
+
+
+        $this->controllers->get('sponsors/list', function (Application $app) {
+            $sponsors = new \ICFS\Model\Sponsors($app);
+
+            return $app['twig']->render('ngap/sponsor-list.twig', array('sponsors' => $sponsors->all()));
+        })->before($this->allowed($this->nav->permission('pages')))->before($this->nav->fetch());
+
+        // GET - Add Page
+        $this->controllers->get('sponsors/edit/add', function (Application $app) {
+            return $app['twig']->render('ngap/sponsor-edit', array('title' => "Add New Sponsor"));
+        })->before($this->allowed($this->nav->permission('pages')))->before($this->nav->fetch());
+
+
+        // GET - Edit Page
+        $this->controllers->get('sponsors/edit/{sponsorid}', function (Application $app, $sponsorid) {
+            
+            $sponsors = new \ICFS\Model\Sponsors($app);
+
+            if (!($data = $sponsors->fetch($sponsorid)))
+                return $app->abort(404, "Sponsor $sponsorid doesn't exist.");
+
+            return $app['twig']->render('ngap/sponsor-edit', array('data' => $data, 'save' => $app['request']->query->has("success")));
+        })->before($this->allowed())->before($this->nav->fetch());
+
+        $this->controllers->post('sponsors/edit/{sponsorid}', function (Application $app, $sponsorid) {
+            $data = array(  'sid' => $sponsorid,
+                            'name' => $app['request']->get('sponsor_name'),
+                            'type' => ($app['request']->get('sponsor_type')) ? $app['request']->get('sponsor_type') : 4,
+                            'about' => $app['request']->get('sponsor_about'),
+                            'logo' => $app['request']->get('sponsor_logo'),
+                            'url' => $app['request']->get('sponsor_url')
+                        );
+
+            //validate it all...
+            if (strlen($data['name']) < 2)
+                $error = "Please ensure the Sponsor has a name.";
+            elseif ($data['type'] < 1 || $data['type'] > 4)
+                $error = "Please ensure the sponsor has a valid type.";
+            elseif (filter_var($data['url'], FILTER_VALIDATE_URL) == false)
+                $error = "Please validate the URL (Make sure you start it with http://)";
+            elseif (strlen($data['logo']) < 2)
+                $error = "Ensure the logo is set!";
+            else {
+                $sponsors = new \ICFS\Model\Sponsors($app);
+                //no error
+                if ($sponsorid == 'add') {
+                    $id = $sponsors->add($data);
+                    if ($id > 0)
+                        return $app->redirect($app['url_generator']->generate('ngap', array(), true) . 'sponsors/edit/' . $id . '?success');
+                    $error = "Something wrong while adding.. Please try again.";
+                } else {
+                    $id = $sponsors->update($data);
+                    if ($id > 0)
+                        return $app->redirect($app['url_generator']->generate('ngap', array(), true) . 'sponsors/edit/' . $id . '?success');
+                    $error = "Something wrong while editing.. Please try again.";
+                }
+            }
+
+            return $app['twig']->render('ngap/sponsor-edit', array('data' => $data, 'error' => @$error, 'save' => $app['request']->query->has("success")));
+
+        })->before($this->allowed($this->nav->permission('pages')))->before($this->nav->fetch());
 
 
         /* ****************************************************** **
