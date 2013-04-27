@@ -73,7 +73,7 @@ body {
 	float: left;
 	width: 20%;
 	left: -10%;
-	min-width: 300px;
+	width: 370px;
 	height: 100%;
 	border-right: thin solid #999;
 	overflow: hidden;
@@ -139,7 +139,7 @@ body {
    ========================================================================== */
 
 .container {
-	margin-left: 10%;
+	margin-left: 180px;
 	width: auto;
 	padding: 1em;
 	margin-bottom: 50px;

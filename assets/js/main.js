@@ -37,9 +37,9 @@ navbar = {
 	onecol: function() {
 		$('.nav-wrapper').unbind('hover').hover(
 			function(){
-				$('.nav-wrapper').animate({"left":"0%"}, 70);
+				$('.nav-wrapper').animate({"left":"0%"}, 120);
 			}, function(){
-				$('.nav-wrapper').animate({"left":"-10%"}, 70);
+				$('.nav-wrapper').animate({"left":"-10%"}, 120);
 			});
 	},
 
@@ -56,7 +56,6 @@ navbar = {
 }
 
 $(function() {
-	$('.container').css('margin-left', (parseInt($('.nav-wrapper').css('width'), 10) + parseInt($('.nav-wrapper').css('left'), 10)) + 'px');
 
 	navbar.onecol();
 

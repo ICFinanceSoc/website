@@ -3,5 +3,5 @@
     <h1>IC Finance Society NGAP</h1>
     <p>Welcome to the Finance Society's Next Generation Admin Panel (NGAP). Please find appropriate functions on the left navigation bar.<br />
     <strong>Please logout after use!</strong></p>
-    <p><a class="btn btn-warning btn-large">Report a Problem &raquo;</a></p>
+    <p><a class="btn btn-warning btn-large">Report a Problem &raquo;</a> <a href="{{url('ngap')}}user/logout" class="btn btn-danger btn-large">Logout &raquo;</a></p>
 </div>

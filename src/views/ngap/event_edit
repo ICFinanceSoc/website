@@ -1,12 +1,16 @@
 {% extends "ngap/skeleton" %}
+{% block contentclass %} content-pageedit{% endblock %}
+
+
+
 
 {% block content %}
 <div class="page-header">
 	<h1>{% if title %}{{title}}{% else %}Editing Content Page{% endif %} <small>{{data.title}}</small></h1>
 </div>
 <div class="edit-panel edit-event">
-{% if save %}	<div class="alert alert-success goodsave">All saved up! (@{{'now'|date('H:i')}} server time)</div><br />
-{% elseif error %}	<div class="alert alert-error">Form not saved: <em>{{error|raw}}</em></div><br />{%endif%}
+{% if save %}     <div class="alert alert-success goodsave">All saved up! (@{{'now'|date('H:i')}} server time)</div><br />
+{% elseif error %}      <div class="alert alert-error">Form not saved: <em>{{error|raw}}</em></div><br />{%endif%}
 	<form method="POST">
 		<div class="edit-name"><input placeholder="Event Name" name="event-title" type="text" value="{{data.title}}"></div>
 		<div class="edit-events-topholder">
@@ -32,11 +36,15 @@
 </div>
 {% endblock %}
 
-{% block contentclass %} content-pageedit{% endblock %}
+
+
 
 {% block srcpagejs %}
 {% include "ngap/uploadFiles_src" %}
 <script src="{{path('homepage')}}assets/js/vendor/tiny_mce/jquery.tinymce.js"> </script>{% endblock %} {# TinyMCE JS Source #}
+
+
+
 
 
 {% block pagejs %}
