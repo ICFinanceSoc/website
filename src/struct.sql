@@ -396,3 +396,19 @@ CREATE TABLE IF NOT EXISTS `NGAP_team` (
   `about` text NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `NGAP_sponsors`
+--
+
+CREATE TABLE IF NOT EXISTS `NGAP_sponsors` (
+  `sid` int(5) NOT NULL AUTO_INCREMENT,
+  `name` varchar(256) NOT NULL,
+  `type` tinyint(1) NOT NULL,
+  `about` text NOT NULL,
+  `logo` varchar(256) NOT NULL,
+  `url` varchar(256) NOT NULL,
+  PRIMARY KEY (`sid`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1;

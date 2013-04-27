@@ -18,6 +18,7 @@ navbar = {
 		}
 	},
 
+	//Show the second column - popitout
 	show2: function() {
 		if (this.hidden)
 		{
@@ -34,6 +35,7 @@ navbar = {
 		}
 	},
 
+	//Hover events for the main column links
 	onecol: function() {
 		$('.nav-wrapper').unbind('hover').hover(
 			function(){
@@ -43,6 +45,7 @@ navbar = {
 			});
 	},
 
+	//Hover events for both columns - main links and sublinks
 	twocol: function() {
 		$('.nav-wrapper').unbind('hover').hover(
 			function(){

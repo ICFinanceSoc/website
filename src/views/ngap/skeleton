@@ -40,9 +40,6 @@
             </div>
             <div class="nav2">
                 <ul class="nav nav-tabs nav-stacked">
-                    <li class="active"><a href="#">sub1</a></li>
-                    <li><a href="#about">sub2</a></li>
-                    <li><a href="#contact">sub3</a></li>
                 </ul>
             </div>
         </div>
