@@ -48,6 +48,17 @@ $app['swiftmailer.transport'] = Swift_SendmailTransport::newInstance('/usr/sbin/
 //$transport = Swift_MailTransport::newInstance();
 //$app['swiftmailer.transport']=$transport;
 
+$app['em'] = function ($app) {
+    $config = Doctrine\ORM\Tools\Setup::createAnnotationMetadataConfiguration(array(__DIR__."/ICFS/Model/"), $app['debug']);
+    $params = array(
+        'driver' => 'pdo_sqlite',
+        'path' => __DIR__ . '/../development.sqlite',
+    );
+    $entityManager = Doctrine\ORM\EntityManager::create($params, $config);
+
+    return $entityManager;
+};
+
 $app->register(new ICFS\DoctrineConnection());
 
 $app->mount('/ngap', new ICFS\Controller\AdminController());
@@ -55,5 +66,3 @@ $app->mount('/ngap', new ICFS\Controller\AdminController());
 $app->get('/', function() {
     return 'Hello!';
 })->bind('homepage');
-
-

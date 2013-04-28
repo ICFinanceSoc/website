@@ -22,6 +22,7 @@
         "monolog/monolog": ">=1.0.0,<1.2-dev",
         "twig/twig": ">=1.2.0,<2.0-dev",
         "doctrine/dbal": ">=2.2.0,<2.4.0-dev",
+        "doctrine/orm": "2.*",
         "swiftmailer/swiftmailer": "4.1.*"
     },
     "autoload" : {
