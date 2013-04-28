@@ -338,9 +338,10 @@ class AdminController implements ControllerProviderInterface
 
 
         $this->controllers->get('sponsors/list', function (Application $app) {
-            $sponsors = new \ICFS\Model\Sponsors($app);
 
-            return $app['twig']->render('ngap/sponsor-list.twig', array('sponsors' => $sponsors->all()));
+            return $app['twig']->render('ngap/sponsor-list.twig', array(
+                'sponsors' => $app['db.em']->getRepository('\\ICFS\\Model\\Sponsors')->findAll()
+                ));
         })->before($this->allowed($this->nav->permission('pages')))->before($this->nav->fetch());
 
         // GET - Add Page
@@ -352,50 +353,36 @@ class AdminController implements ControllerProviderInterface
         // GET - Edit Page
         $this->controllers->get('sponsors/edit/{sponsorid}', function (Application $app, $sponsorid) {
             
-            $sponsors = new \ICFS\Model\Sponsors($app);
-
-            if (!($data = $sponsors->fetch($sponsorid)))
+            if (!($sponsor = $app['db.em']->find('\\ICFS\\Model\\Sponsors', $sponsorid)))
                 return $app->abort(404, "Sponsor $sponsorid doesn't exist.");
-
-            return $app['twig']->render('ngap/sponsor-edit', array('data' => $data, 'save' => $app['request']->query->has("success")));
+                
+            return $app['twig']->render('ngap/sponsor-edit', array('data' => $sponsor, 'save' => $app['request']->query->has("success")));
         })->before($this->allowed())->before($this->nav->fetch());
 
+
+        // POST - Pages
         $this->controllers->post('sponsors/edit/{sponsorid}', function (Application $app, $sponsorid) {
-            $data = array(  'sid' => $sponsorid,
-                            'name' => $app['request']->get('sponsor_name'),
-                            'type' => ($app['request']->get('sponsor_type')) ? $app['request']->get('sponsor_type') : 4,
-                            'about' => $app['request']->get('sponsor_about'),
-                            'logo' => $app['request']->get('sponsor_logo'),
-                            'url' => $app['request']->get('sponsor_url')
-                        );
+            if ($sponsorid == 'add')
+                $sponsor = new \ICFS\Model\Sponsors();
+            elseif (!($sponsor = $app['db.em']->find('\\ICFS\\Model\\Sponsors', $sponsorid)))
+                return $app->abort(404, "Sponsor $sponsorid doesn't exist.");
 
-            //validate it all...
-            if (strlen($data['name']) < 2)
-                $error = "Please ensure the Sponsor has a name.";
-            elseif ($data['type'] < 1 || $data['type'] > 4)
-                $error = "Please ensure the sponsor has a valid type.";
-            elseif (filter_var($data['url'], FILTER_VALIDATE_URL) == false)
-                $error = "Please validate the URL (Make sure you start it with http://)";
-            elseif (strlen($data['logo']) < 2)
-                $error = "Ensure the logo is set!";
-            else {
-                $sponsors = new \ICFS\Model\Sponsors($app);
-                //no error
-                if ($sponsorid == 'add') {
-                    $id = $sponsors->add($data);
-                    if ($id > 0)
-                        return $app->redirect($app['url_generator']->generate('ngap', array(), true) . 'sponsors/edit/' . $id . '?success');
-                    $error = "Something wrong while adding.. Please try again.";
-                } else {
-                    $id = $sponsors->update($data);
-                    if ($id > 0)
-                        return $app->redirect($app['url_generator']->generate('ngap', array(), true) . 'sponsors/edit/' . $id . '?success');
-                    $error = "Something wrong while editing.. Please try again.";
-                }
-            }
+            $data = array(
+                'sid' => $sponsorid,
+                'name' => $app['request']->get('sponsor_name'),
+                'type' => ($app['request']->get('sponsor_type')) ? $app['request']->get('sponsor_type') : 4,
+                'about' => $app['request']->get('sponsor_about'),
+                'logo' => $app['request']->get('sponsor_logo'),
+                'url' => $app['request']->get('sponsor_url')
+            );
 
-            return $app['twig']->render('ngap/sponsor-edit', array('data' => $data, 'error' => @$error, 'save' => $app['request']->query->has("success")));
+            if ($error = $sponsor->update($data))
+                return $app['twig']->render('ngap/sponsor-edit', array('data' => $data, 'error' => @$error, 'save' => $app['request']->query->has("success")));
 
+            $app['db.em']->persist($sponsor);
+            $app['db.em']->flush();
+
+            return $app->redirect($app['url_generator']->generate('ngap', array(), true) . 'sponsors/edit/' . $sponsor->getId() . '?success');           
         })->before($this->allowed($this->nav->permission('pages')))->before($this->nav->fetch());
 
 

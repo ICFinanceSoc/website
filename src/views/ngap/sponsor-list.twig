@@ -19,10 +19,10 @@
 	<tbody>
 		{% for sponsor in sponsors %}
 		<tr>
-			<td><img src="{{ sponsor.logo }}" /></td>
-			<td>{{ sponsor.name }} ({% if sponsor.type == 1 %}Platinum{% elseif sponsor.type == 2 %}Gold{% elseif sponsor.type == 3 %}Silver{% else %}Bronze{% endif %})</td>
-			<td><a href="{{ sponsor.url }}">{{ sponsor.url }}</a></td>
-			<td><a href="edit/{{sponsor.sid}}" class="btn btn-warning">Edit</a></td>
+			<td><img src="{{ sponsor.getLogo }}" /></td>
+			<td>{{ sponsor.getName }} ({% if sponsor.getType == 1 %}Platinum{% elseif sponsor.getType == 2 %}Gold{% elseif sponsor.getType == 3 %}Silver{% else %}Bronze{% endif %})</td>
+			<td><a href="{{ sponsor.getUrl }}">{{ sponsor.getUrl }}</a></td>
+			<td><a href="edit/{{sponsor.getId}}" class="btn btn-warning">Edit</a></td>
 		</tr>
 		{% endfor %}
 	</tbody>	
