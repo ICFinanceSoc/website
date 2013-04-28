@@ -50,34 +50,33 @@
 {% block pagejs %}
 {% include "ngap/uploadFiles_scriptPage" %}
 <script>
-            $(function () {
-            	if ($('#checkbox-event-enabled').is(':checked'))
-            		$('#checkbox-event-enabled, label[for=checkbox-event-enabled]').hide().before("<div class='btn btn-medium btn-success'>Registration is Enabled</div>", "</br>");
-            	else
-            		$('#checkbox-event-enabled, label[for=checkbox-event-enabled]').hide().before("<div class='btn btn-medium btn-danger'>Registration is Disabled</div>", "</br>");
+$(function () {
+    	if ($('#checkbox-event-enabled').is(':checked'))
+    		$('#checkbox-event-enabled, label[for=checkbox-event-enabled]').hide().before("<div class='btn btn-medium btn-success'>Registration is Enabled</div>", "</br>");
+    	else
+    		$('#checkbox-event-enabled, label[for=checkbox-event-enabled]').hide().before("<div class='btn btn-medium btn-danger'>Registration is Disabled</div>", "</br>");
 
-            	$('.edit-url .btn').first().click(event, function() {
+    	$('.edit-url .btn').first().click(event, function() {
+    		$('#checkbox-event-enabled').prop("checked", !$('#checkbox-event-enabled').prop("checked"));
+    		if ($(this).hasClass('btn-success')) {
+    			$(this).removeClass('btn-success').addClass('btn-danger').text('Registration is Disabled');
+    		}
+    		else {
+    			$(this).removeClass('btn-danger').addClass('btn-success').text('Registration is Enabled');
+    		}
+    	})
 
-            		$('#checkbox-event-enabled').prop("checked", !$('#checkbox-event-enabled').prop("checked"));
-            		if ($(this).hasClass('btn-success')) {
-            			$(this).removeClass('btn-success').addClass('btn-danger').text('Registration is Disabled');
-            		}
-            		else {
-            			$(this).removeClass('btn-danger').addClass('btn-success').text('Registration is Enabled');
-            		}
-            	})
+    	$("input[name=event-date]").datepicker({ dateFormat: "dd/mm/yy" });
 
-            	$("input[name=event-date]").datepicker({ dateFormat: "dd/mm/yy" });
-
-            	$('.btn-delete').click(function() {
-            		$('.yousure').animate({'opacity' : 1, 'margin-right' : '20px'});
-            	})
-
-            	$('.btn-canceldel').click(function() {
-            		$('.yousure').animate({'opacity' : 0, 'margin-right' : '0px'});
-            	})
-            	
-                {% include "ngap/tinymce.twig" %} {# TinyMCE settings/config #}
-        });
+    	$('.btn-delete').click(function() {
+    		$('.yousure').animate({'opacity' : 1, 'margin-right' : '20px'});
+    	})
+      
+    	$('.btn-canceldel').click(function() {
+    		$('.yousure').animate({'opacity' : 0, 'margin-right' : '0px'});
+    	})
+    	
+      {% include "ngap/tinymce.twig" %} {# TinyMCE settings/config #}
+});
 </script>
 {% endblock %}
