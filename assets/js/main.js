@@ -41,7 +41,7 @@ navbar = {
 			function(){
 				$('.nav-wrapper').animate({"left":"0%"}, 120);
 			}, function(){
-				$('.nav-wrapper').animate({"left":"-10%"}, 120);
+				$('.nav-wrapper').animate({"left":"-185px"}, 120);
 			});
 	},
 
@@ -53,7 +53,7 @@ navbar = {
 				$('.nav-wrapper').animate({"left":"0%"}, 70);
 			}, function(){
 				$('.nav1').animate({"left":"-35%"}, 70);
-				$('.nav-wrapper').animate({"left":"-10%"}, 70);
+				$('.nav-wrapper').animate({"left":"-185px"}, 70);
 			});
 	}
 }
