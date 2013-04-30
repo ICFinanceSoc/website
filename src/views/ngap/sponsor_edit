@@ -1,4 +1,4 @@
-{% extends "ngap/skeleton" %}
+{% extends "ngap/_skeleton" %}
 
 {% block content %}
 <div class="page-header">
@@ -26,7 +26,7 @@
 		</div>
 	</form>
       <br style="clear:both" />     
-      {%include "ngap/uploadFiles_mainPageSponsors" %}
+      {%include "ngap/uploads/sponsors_htmlPage" %}
 </div>
 {% endblock %}
 
@@ -38,11 +38,11 @@
 {% block contentclass %} content-pageedit{% endblock %}
 
 {% block srcpagejs %}
-{% include "ngap/uploadFiles_src" %}<script src="{{path('homepage')}}assets/js/vendor/tiny_mce/jquery.tinymce.js"></script>{% endblock %} {# TinyMCE JS Source #}
+{% include "ngap/uploads/main_jsInclude" %}<script src="{{path('homepage')}}assets/js/vendor/tiny_mce/jquery.tinymce.js"></script>{% endblock %} {# TinyMCE JS Source #}
 
 
 {% block pagejs %}
-{% include "ngap/uploadFiles_scriptPageSponsors" %}
+{% include "ngap/uploads/sponsors_jsPage" %}
 <script>
     $(function () {
 
@@ -58,7 +58,7 @@
 		    $("input[name=sponsor_type]").attr('value', $(this).attr('data-id'));
 		})
 
-        {% include "ngap/tinymce.twig" %} {# TinyMCE settings/config #}
+        {% include "ngap/_js_tinymce" %} {# TinyMCE settings/config #}
 
     });
 </script>

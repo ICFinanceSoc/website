@@ -116,10 +116,18 @@ class Navigation
                 )
             ),
             'uploads' => array(
-                'name' => 'Uploads',
-                'type' => 'link'
-
-
+                'name' => 'Uploads »',
+                'type' => 'holder',
+                'subpages' => array(
+                    'main' => array(
+                        'name' => 'Main Uploads',
+                        'type' => 'link',
+                        'permission' => 0),
+                    'sponsors' => array(
+                        'name' => 'Sponsor Uploads',
+                        'type' => 'link',
+                        'permission' => 0)
+                    )
             )
 
         );

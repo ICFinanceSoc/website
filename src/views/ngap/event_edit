@@ -1,4 +1,4 @@
-{% extends "ngap/skeleton" %}
+{% extends "ngap/_skeleton" %}
 {% block contentclass %} content-pageedit{% endblock %}
 
 
@@ -32,7 +32,7 @@
 		</div>
 	</form>
       <br style="clear:both" />     
-      {%include "ngap/uploadFiles_mainPage" %}
+      {%include "ngap/uploads/main_htmlPage" %}
 </div>
 {% endblock %}
 
@@ -40,7 +40,7 @@
 
 
 {% block srcpagejs %}
-{% include "ngap/uploadFiles_src" %}
+{% include "ngap/uploads/main_jsInclude" %}
 <script src="{{path('homepage')}}assets/js/vendor/tiny_mce/jquery.tinymce.js"> </script>{% endblock %} {# TinyMCE JS Source #}
 
 
@@ -48,7 +48,7 @@
 
 
 {% block pagejs %}
-{% include "ngap/uploadFiles_scriptPage" %}
+{% include "ngap/uploads/main_jsPage" %}
 <script>
 $(function () {
     	if ($('#checkbox-event-enabled').is(':checked'))
@@ -76,7 +76,7 @@ $(function () {
     		$('.yousure').animate({'opacity' : 0, 'margin-right' : '0px'});
     	})
     	
-      {% include "ngap/tinymce.twig" %} {# TinyMCE settings/config #}
+      {% include "ngap/_js_tinymce" %} {# TinyMCE settings/config #}
 });
 </script>
 {% endblock %}

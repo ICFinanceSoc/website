@@ -50,6 +50,11 @@ class AdminController implements ControllerProviderInterface
         $this->controllers->get('/', function (Application $app) {
             return $app->redirect('home');
         })->bind('ngap');
+
+        $this->controllers->get('sponsors/', function (Application $app) {
+            return $app->redirect('list');
+        });
+
     }
 
     /* Binds the login and logout functions */
@@ -85,22 +90,27 @@ class AdminController implements ControllerProviderInterface
     private function adminPages()
     {
         $this->controllers->get('home', function (Application $app) {
-            return $app['twig']->render('ngap/skeleton', array('content' => $app['twig']->render('ngap/home')));
+            return $app['twig']->render('ngap/_skeleton', array('content' => $app['twig']->render('ngap/home')));
         })->before($this->allowed())->before($this->nav->fetch()); //->before($this->nav->make())
+        
 
         /* ****************************************************** **
         ** UPLOADS
         ** ****************************************************** */
 
-        $this->controllers->get('uploads/', function(Application $app) {
-            return $app['twig']->render('ngap/upload');
+        $this->controllers->get('uploads/main', function(Application $app) {
+            return $app['twig']->render('ngap/upload_main');
         })->before($this->allowed())->before($this->nav->fetch())->bind('ngap_uploads');
 
-        $this->controllers->match('uploads/json', function(Application $app) {
+        $this->controllers->get('uploads/sponsors', function(Application $app) {
+            return $app['twig']->render('ngap/upload_sponsors');
+        })->before($this->allowed())->before($this->nav->fetch())->bind('ngap_uploads_sponsors');
+
+        $this->controllers->match('uploads/json/main', function(Application $app) {
             $upload_handler = new \ICFS\Model\UploadHandler(array(
                 'upload_dir' => dirname(dirname(dirname(__dir__))) .'/assets/uploads/',
                 'upload_url'=> $app['url_generator']->generate('homepage', array(), true) . 'assets/uploads/',
-                'script_url'=> $app['url_generator']->generate('ngap', array(), true) . 'uploads/json',
+                'script_url'=> $app['url_generator']->generate('ngap', array(), true) . 'uploads/json/main',
                 'delete_type' => 'POST',
                 'accept_file_types' => '/\.(gif|jpe?g|png)$/i'
                 ));
@@ -301,16 +311,16 @@ class AdminController implements ControllerProviderInterface
                 $app['session']->remove('deleted-member');
                 if($deletedMember)
                 {
-                    return $app['twig']->render('ngap/members_list.twig', array('members' => $members, 'deleted' => $deletedMember, 'success' => true));
+                    return $app['twig']->render('ngap/members_list', array('members' => $members, 'deleted' => $deletedMember, 'success' => true));
                 }
                 else
                 {
-                    return $app['twig']->render('ngap/members_list.twig', array('members' => $members, 'success' => false));
+                    return $app['twig']->render('ngap/members_list', array('members' => $members, 'success' => false));
                 }
             }
             else
             {
-                return $app['twig']->render('ngap/members_list.twig', array('members' => $members));
+                return $app['twig']->render('ngap/members_list', array('members' => $members));
             }
         })->before($this->allowed($this->nav->permission('pages')))->before($this->nav->fetch());;
 
@@ -332,31 +342,21 @@ class AdminController implements ControllerProviderInterface
         ** Sponsors
         ** ****************************************************** */
 
-        $this->controllers->get('sponsors/', function (Application $app) {
-            return $app->redirect('list');
-        });
-
-
         $this->controllers->get('sponsors/list', function (Application $app) {
-
-            return $app['twig']->render('ngap/sponsor-list.twig', array(
-                'sponsors' => $app['db.em']->getRepository('\\ICFS\\Model\\Sponsors')->findAll()
-                ));
+            return $app['twig']->render('ngap/sponsor_list', array('sponsors' => $app['db.em']->getRepository('\\ICFS\\Model\\Sponsors')->findAll()));
         })->before($this->allowed($this->nav->permission('pages')))->before($this->nav->fetch());
 
         // GET - Add Page
         $this->controllers->get('sponsors/edit/add', function (Application $app) {
-            return $app['twig']->render('ngap/sponsor-edit', array('title' => "Add New Sponsor"));
+            return $app['twig']->render('ngap/sponsor_edit', array('title' => "Add New Sponsor"));
         })->before($this->allowed($this->nav->permission('pages')))->before($this->nav->fetch());
 
 
         // GET - Edit Page
         $this->controllers->get('sponsors/edit/{sponsorid}', function (Application $app, $sponsorid) {
-            
             if (!($sponsor = $app['db.em']->find('\\ICFS\\Model\\Sponsors', $sponsorid)))
                 return $app->abort(404, "Sponsor $sponsorid doesn't exist.");
-                
-            return $app['twig']->render('ngap/sponsor-edit', array('data' => $sponsor, 'save' => $app['request']->query->has("success")));
+            return $app['twig']->render('ngap/sponsor_edit', array('data' => $sponsor, 'save' => $app['request']->query->has("success")));
         })->before($this->allowed())->before($this->nav->fetch());
 
 
@@ -377,7 +377,7 @@ class AdminController implements ControllerProviderInterface
             );
 
             if ($error = $sponsor->update($data))
-                return $app['twig']->render('ngap/sponsor-edit', array('data' => $data, 'error' => @$error, 'save' => $app['request']->query->has("success")));
+                return $app['twig']->render('ngap/sponsor_edit', array('data' => $data, 'error' => @$error, 'save' => $app['request']->query->has("success")));
 
             $app['db.em']->persist($sponsor);
             $app['db.em']->flush();
@@ -398,14 +398,14 @@ class AdminController implements ControllerProviderInterface
             $team = new \ICFS\Model\ICFSTeam($app);
             $comittee = $team->getComittee($year);
 
-            return $app['twig']->render('ngap/icfsteam', array('selectyear' => $year, 'comittee' => $comittee));
+            return $app['twig']->render('ngap/team_manager', array('selectyear' => $year, 'comittee' => $comittee));
         })->before($this->allowed())->before($this->nav->fetch());
 
         $this->controllers->post('team/{year}', function (Application $app, $year) {
             $team = new \ICFS\Model\ICFSTeam($app);
 
             if ($error = $team->updateFromPost($year))
-                return $app['twig']->render('ngap/icfsteam', array('selectyear' => $year, 'comittee' => $app['request']->request->get('comittee')));
+                return $app['twig']->render('ngap/team_manager', array('selectyear' => $year, 'comittee' => $app['request']->request->get('comittee')));
             return $app->redirect($app['url_generator']->generate('ngap', array(), true) . 'team/' . $year);
         })->before($this->allowed())->before($this->nav->fetch());
     }

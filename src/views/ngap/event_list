@@ -1,4 +1,4 @@
-{% extends "ngap/skeleton" %}
+{% extends "ngap/_skeleton" %}
 {% block contentclass %} content-pageedit{% endblock %}
 
 

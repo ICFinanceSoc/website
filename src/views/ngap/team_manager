@@ -1,4 +1,4 @@
-{% extends "ngap/skeleton" %}
+{% extends "ngap/_skeleton" %}
 
 {% set ayear = "now"|date('Y') - ("now"|date('m') < 8) %}
 {% set date = { "long" : ayear, "short" : ayear|slice(2) } %}
@@ -62,7 +62,7 @@
 	<input type="submit" class="btn btn-large btn-primary btn-block" value="Save"/>
 	</form>
 	<div id="uploader">
-		{%include "ngap/uploadFiles_mainPage" %}
+		{%include "ngap/uploads/main_htmlPage" %}
 	</div>
 </div>
 {% endblock %}
@@ -70,15 +70,15 @@
 {% block contentclass %} content-pageedit{% endblock %}
 
 {% block srcpagejs %}
-{% include "ngap/uploadFiles_src" %}
+{% include "ngap/uploads/main_jsInclude" %}
 <script src="{{path('homepage')}}assets/js/vendor/tiny_mce/jquery.tinymce.js"></script>
 <script src="{{path('homepage')}}assets/js/bootbox.min.js"></script>{% endblock %} {# TinyMCE JS Source #}
 
 {% block pagejs %}
-{% include "ngap/uploadFiles_scriptPage" %}
+{% include "ngap/uploads/main_jsPage" %}
 <script>
 $(function() {
-    {% include "ngap/tinymce.twig" %} {# TinyMCE settings/config #}
+    {% include "ngap/_js_tinymce" %} {# TinyMCE settings/config #}
 
 	var updateInsertButtons = function(that) {
         $("button.insert").each(function(){

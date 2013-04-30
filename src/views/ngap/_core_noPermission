@@ -1,4 +1,4 @@
-{% extends "ngap/skeleton" %}
+{% extends "ngap/_skeleton" %}
 
 {% block skel_navigation %}{% endblock %}
 {% block contentclass %} notallowed-content{% endblock %}

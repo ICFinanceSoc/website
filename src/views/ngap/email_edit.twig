@@ -1,4 +1,4 @@
-{% extends "ngap/skeleton" %}
+{% extends "ngap/_skeleton" %}
 
 {% block content %}
 <div class="page-header">
@@ -14,22 +14,22 @@
 		</div>
 	</form>
     <br style="clear:both" />     
-    {%include "ngap/uploadFiles_mainPage" %}
+    {%include "ngap/uploads/main_htmlPage" %}
 </div>
 {% endblock %}
 
 {% block contentclass %} content-pageedit{% endblock %}
 
 {% block srcpagejs %}
-{% include "ngap/uploadFiles_src" %}
+{% include "ngap/uploads/main_jsInclude" %}
 <script src="{{path('homepage')}}assets/js/vendor/tiny_mce/jquery.tinymce.js"> </script>{% endblock %} {# TinyMCE JS Source #}
 
 
 {% block pagejs %}
-{% include "ngap/uploadFiles_scriptPage" %}
+{% include "ngap/uploads/main_jsPage" %}
 <script>
     $(function () {
-        {% include "ngap/tinymce.twig" %} {# TinyMCE settings/config #}
+        {% include "ngap/_js_tinymce" %} {# TinyMCE settings/config #}
     });
 </script>
 {% endblock %}
