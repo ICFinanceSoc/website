@@ -53,8 +53,7 @@ class AdminController implements ControllerProviderInterface
 
         $this->controllers->get('sponsors/', function (Application $app) {
             return $app->redirect('list');
-        });
-
+        })->bind('ngap.sponsors');
     }
 
     /* Binds the login and logout functions */
@@ -70,7 +69,6 @@ class AdminController implements ControllerProviderInterface
         $this->controllers->get('/login', function (Application $app) {
             if ($app['icfs.user']->checkAdminLogin())
                 return $app->redirect($app['url_generator']->generate('ngap'));
-
             return $app['twig']->render('ngap/login', array('error' => ''));
         })->bind('login');
 
@@ -78,13 +76,13 @@ class AdminController implements ControllerProviderInterface
         $this->controllers->post('/login', function (Application $app) {
             if (($error = $app['icfs.user']->adminLogin()) === true)
                 return $app->redirect($app['url_generator']->generate('ngap', array(), true));
-
-            return $app['twig']->render('ngap/login', 
-                array('error' => $error, 
-                    'username' => $app['request']->get('username'))
-                );
+            return $app['twig']->render('ngap/login', array('error' => $error, 'username' => $app['request']->get('username')) );
         });
     }
+
+
+
+
 
     /* Binds the admin pages function */
     private function adminPages()
@@ -93,6 +91,9 @@ class AdminController implements ControllerProviderInterface
             return $app['twig']->render('ngap/_skeleton', array('content' => $app['twig']->render('ngap/home')));
         })->before($this->allowed())->before($this->nav->fetch()); //->before($this->nav->make())
         
+
+
+
 
         /* ****************************************************** **
         ** UPLOADS
@@ -127,6 +128,8 @@ class AdminController implements ControllerProviderInterface
                 ));
             return "";
         })->before($this->allowed());
+
+
 
 
 
@@ -214,6 +217,9 @@ class AdminController implements ControllerProviderInterface
 
 
 
+
+
+
         /* ****************************************************** **
         ** Page Editor
         ** ****************************************************** */
@@ -280,6 +286,10 @@ class AdminController implements ControllerProviderInterface
 
 
 
+
+
+
+
         /* ****************************************************** **
         ** Mailer
         ** ****************************************************** */
@@ -299,6 +309,14 @@ class AdminController implements ControllerProviderInterface
             $app['icfs.mail']->insertMail($data);
             return 'Your message has been added to the system and will be sent shortly';
         })->before($this->allowed($this->nav->permission('pages')))->before($this->nav->fetch());
+
+
+
+
+
+
+
+
 
         /* ****************************************************** **
         ** Members
@@ -336,6 +354,13 @@ class AdminController implements ControllerProviderInterface
             }
             return $app->redirect($app['url_generator']->generate('ngap', array(), true) . 'members/list');
         })->before($this->allowed($this->nav->permission('pages')))->before($this->nav->fetch());;
+
+
+
+
+
+
+
 
 
         /* ****************************************************** **
@@ -384,6 +409,13 @@ class AdminController implements ControllerProviderInterface
 
             return $app->redirect($app['url_generator']->generate('ngap', array(), true) . 'sponsors/edit/' . $sponsor->getId() . '?success');           
         })->before($this->allowed($this->nav->permission('pages')))->before($this->nav->fetch());
+
+
+
+
+
+
+
 
 
         /* ****************************************************** **
