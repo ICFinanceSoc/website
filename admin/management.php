@@ -33,13 +33,13 @@ function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDe
 }
 
 mysql_select_db($database_sql, $sql);
-$query_Recordset1 = "SELECT * FROM 2012_management ORDER BY `order` ASC";
+$query_Recordset1 = "SELECT * FROM 2013_management ORDER BY `order` ASC";
 $Recordset1 = mysql_query($query_Recordset1, $sql) or die(mysql_error());
 $row_Recordset1 = mysql_fetch_assoc($Recordset1);
 $totalRows_Recordset1 = mysql_num_rows($Recordset1);
 
 mysql_select_db($database_sql, $sql);
-$query_repeated = "SELECT * FROM 2012_management ORDER BY `order` ASC";
+$query_repeated = "SELECT * FROM 2013_management ORDER BY `order` ASC";
 $repeated = mysql_query($query_repeated, $sql) or die(mysql_error());
 $row_repeated = mysql_fetch_assoc($repeated);
 $totalRows_repeated = mysql_num_rows($repeated);

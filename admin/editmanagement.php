@@ -36,7 +36,7 @@ if (isset($_GET['ID'])) {
   $colname_currentmanagement = $_GET['ID'];
 }
 mysql_select_db($database_sql, $sql);
-$query_currentmanagement = sprintf("SELECT * FROM 2012_management WHERE ID = %s", GetSQLValueString($colname_currentmanagement, "int"));
+$query_currentmanagement = sprintf("SELECT * FROM 2013_management WHERE ID = %s", GetSQLValueString($colname_currentmanagement, "int"));
 $currentmanagement = mysql_query($query_currentmanagement, $sql) or die(mysql_error());
 $row_currentmanagement = mysql_fetch_assoc($currentmanagement);
 $totalRows_currentmanagement = mysql_num_rows($currentmanagement);

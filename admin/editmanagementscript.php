@@ -2,7 +2,7 @@
 require_once("header.php");
 $ID = $_POST['ID'];
 mysql_select_db($database_sql, $sql);
-$query_Recordset1 = "SELECT * FROM 2012_management WHERE ID = '$ID'";
+$query_Recordset1 = "SELECT * FROM 2013_management WHERE ID = '$ID'";
 $Recordset1 = mysql_query($query_Recordset1, $sql) or die(mysql_error());
 $row_Recordset1 = mysql_fetch_assoc($Recordset1);
 $totalRows_Recordset1 = mysql_num_rows($Recordset1);
@@ -38,10 +38,10 @@ include('SimpleImage.php');
 
 
 // insert image into db
-mysql_query("UPDATE 2012_management SET `name` = '$name', `position` = '$position', `degree` = '$degree', `blurb` = '$blurb', `image` = '$fileinput' WHERE `ID` = '$ID'");
+mysql_query("UPDATE 2013_management SET `name` = '$name', `position` = '$position', `degree` = '$degree', `blurb` = '$blurb', `image` = '$fileinput' WHERE `ID` = '$ID'");
   
   // rever back to upload page
- print "<meta http-equiv=\"refresh\" content=\"0;URL=management.php?message=Management updated\">";
+print "<meta http-equiv=\"refresh\" content=\"0;URL=management.php?message=Management updated\">";
 
 mysql_close($sql);
 ?>
