@@ -6,7 +6,7 @@ if (isset($_GET[year])){
     $year = $_GET[year];
 }
 else{
-    $year = 2012;   
+    $year = 2013;   
 }
 
 mysql_select_db($database_sql, $sql);
@@ -18,6 +18,7 @@ $totalRows_Recordset1 = mysql_num_rows($Recordset1);
 
 <div id="<?php echo $currentpage; ?>">
     <div style="text-align:center;font-size:1.4em">
+        <a href="team.php">2013</a>
         <a href="team.php?year=2012">2012</a>
         <a href="team.php?year=2011">2011</a>
     </div>
