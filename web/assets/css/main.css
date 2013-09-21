@@ -3,26 +3,24 @@
    ========================================================================== */
 body.login {
   font-weight: 300; }
-  body.login .container .hero-unit {
-    width: 400px;
-    padding: 50px 20px;
-    margin: 100px auto 0;
-    text-align: center;
-    border-radius: 0px;
-    box-shadow: 0 0 1px 0 rgba(0, 50, 0, 0.6); }
-    body.login .container .hero-unit.login-error {
-      box-shadow: 0 0 1px 0 rgba(50, 0, 0, 0.6); }
-    body.login .container .hero-unit h1 img {
-      max-width: 390px;
-      padding-right: 10px; }
-    body.login .container .hero-unit .alert {
-      margin-top: 40px; }
+  body.login .container {
+    margin-left: 0px; }
+    body.login .container .hero-unit {
+      width: 400px;
+      padding: 50px 20px;
+      margin: 100px auto 0;
+      text-align: center;
+      border-radius: 0px;
+      box-shadow: 0 0 1px 0 rgba(0, 50, 0, 0.6); }
+      body.login .container .hero-unit.login-error {
+        box-shadow: 0 0 1px 0 rgba(50, 0, 0, 0.6); }
+      body.login .container .hero-unit h1 img {
+        max-width: 390px;
+        padding-right: 10px; }
+      body.login .container .hero-unit .alert {
+        margin-top: 40px; }
   body.login .garlic-swap {
     display: none; }
-  body.login footer {
-    margin-top: 60px;
-    color: #aaa;
-    text-align: center; }
 
 /* ==========================================================================
    Author's custom styles
@@ -351,5 +349,5 @@ footer {
   background: #fff;
   border-top: thin solid #ddd;
   padding: .5em 0;
-  font-size: 0.95em;
-  text-align: center; }
+  text-align: center;
+  color: #aaa; }

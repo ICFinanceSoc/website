@@ -6,6 +6,7 @@ body.login {
     font-weight: 300;
 
     .container {
+        margin-left: 0px;
         .hero-unit {
             width: 400px;
             padding: 50px 20px;
@@ -28,11 +29,5 @@ body.login {
 
     .garlic-swap {
         display: none;
-    }
-
-    footer {
-        margin-top: 60px;
-        color: #aaa;
-        text-align: center;
     }
 }
