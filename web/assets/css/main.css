@@ -23,3 +23,333 @@ body.login {
     margin-top: 60px;
     color: #aaa;
     text-align: center; }
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+body {
+  margin: 0;
+  padding: 0; }
+
+/* ==========================================================================
+   No Permission
+   ========================================================================== */
+.notallowed-content {
+  margin: 0 0 !important; }
+
+.notallowed-content .hero-unit {
+  background: #f1e9e5;
+  width: 80%;
+  padding: 50px 20px;
+  margin: 100px auto 0;
+  text-align: center;
+  box-shadow: 0 0 10px 2px #666; }
+
+.notallowed-content .hero-unit h1 {
+  color: #57120f; }
+
+.notallowed-content .hero-unit .alert {
+  margin-top: 40px; }
+
+.notallowed-content footer {
+  left: 0; }
+
+/* ==========================================================================
+   Navigation Bar custom styles
+   ========================================================================== */
+.nav-wrapper {
+  background: #000;
+  position: fixed;
+  z-index: 1000;
+  float: left;
+  width: 20%;
+  left: -185px;
+  width: 370px;
+  height: 100%;
+  border-right: thin solid #999;
+  overflow: hidden;
+  padding: 0 !important; }
+
+.nav-wrapper .nav {
+  text-align: right;
+  box-shadow: 0 0 8px 1px #000; }
+
+.nav-wrapper ul.nav.nav-stacked.nav-tabs > li > a {
+  border-radius: 0;
+  border-color: #000;
+  background: #333;
+  color: #ddd;
+  font-weight: 200; }
+
+/*.nav-wrapper ul.nav.nav-stacked.nav-tabs > li > a:not([href]) {
+    background: #fff;
+}*/
+.nav-wrapper ul.nav.nav-stacked.nav-tabs > li > a[href]:hover {
+  color: #fff;
+  background: #222; }
+
+.nav-wrapper ul.nav.nav-stacked.nav-tabs > li > a {
+  border-radius: 0; }
+
+.nav1, .nav2 {
+  box-shadow: 0 0 8px 1px #000;
+  width: 100%;
+  height: 100%;
+  position: absolute; }
+
+.nav1 {
+  left: 0;
+  z-index: 5;
+  overflow: scroll;
+  background: #ddd; }
+
+.nav2 {
+  left: 0%;
+  overflow: scroll;
+  background: #ddd; }
+
+.nav-wrapper ul.nav.nav-stacked.nav-tabs > li.logout > a, .nav-wrapper ul.nav.nav-stacked.nav-tabs > li.logout > a:hover {
+  background: #3f0311;
+  color: #fff; }
+
+.nav-wrapper ul.nav.nav-stacked.nav-tabs > li.user > a, .nav-wrapper ul.nav.nav-stacked.nav-tabs > li.user > a:hover {
+  background: #050364;
+  color: #fff;
+  font-weight: 200; }
+
+.nav-wrapper ul.nav.nav-stacked.nav-tabs > li.navli-green > a, .nav-wrapper ul.nav.nav-stacked.nav-tabs > li.navli-green > a:hover {
+  background: #0d3f06; }
+
+/* ==========================================================================
+   NGAP Main
+   ========================================================================== */
+.container {
+  margin-left: 180px;
+  width: auto;
+  padding: 1em;
+  margin-bottom: 50px; }
+
+.hero-unit {
+  margin-top: 50px; }
+
+.hero-unit p {
+  margin-top: 10px; }
+
+/* ==========================================================================
+   Page Editing - Generic
+   ========================================================================== */
+.content-pageedit .page-header {
+  padding-left: 60px;
+  margin-bottom: 10px; }
+
+.content-pageedit .edit-panel {
+  margin-left: 40px;
+  width: 700px;
+  padding: 20px; }
+
+.edit-panel textarea.tinymce {
+  width: 100%; }
+
+.edit-page .edit-name {
+  font-size: 2em; }
+
+.edit-panel .edit-name ::-webkit-input-placeholder {
+  padding-top: 7px; }
+
+.edit-panel .edit-name input {
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 28px;
+  height: 38px;
+  color: #333; }
+
+.edit-panel .lastedit {
+  text-align: left;
+  width: 60%;
+  margin: 10px 0 0;
+  float: left; }
+
+.edit-panel .btn {
+  margin-top: 10px; }
+
+.edit-panel .btn-save {
+  float: right; }
+
+.edit-panel .delete-holder {
+  float: right; }
+
+.content-pageedit .edit-panel .yousure {
+  display: inline;
+  opacity: 0; }
+
+/* ==========================================================================
+   Page Editing - CMS
+   ========================================================================== */
+.edit-panel.edit-page .edit-name {
+  float: left;
+  width: 70%; }
+
+.edit-panel.edit-page .edit-url {
+  float: right;
+  text-align: right;
+  margin-right: 0px;
+  font-size: .95em;
+  font-weight: 400;
+  line-height: 1em; }
+
+.edit-panel.edit-page .edit-url {
+  margin-top: 10px; }
+
+.edit-panel.edit-page .edit-url input[type=text] {
+  margin-top: 5px;
+  font-size: 13px;
+  height: 13px;
+  width: 100px; }
+
+/* ==========================================================================
+   Page Editing - Events
+   ========================================================================== */
+.edit-panel.edit-event .edit-name {
+  display: block;
+  width: 100%; }
+
+.edit-panel.edit-event .edit-events-topholder {
+  position: relative; }
+
+.edit-panel.edit-event .edit-subname {
+  display: block;
+  width: 70%;
+  float: left;
+  margin-bottom: 10px; }
+
+.edit-panel.edit-event .edit-subname input {
+  width: 100%;
+  box-sizing: border-box;
+  height: 28px;
+  margin-bottom: 5px; }
+
+.edit-panel.edit-event .edit-subname select {
+  width: 100%;
+  box-sizing: border-box;
+  height: 28px;
+  margin-bottom: 5px; }
+
+.edit-panel.edit-event .edit-url {
+  position: absolute;
+  bottom: 10px;
+  right: 0;
+  float: right;
+  width: 25%;
+  text-align: right; }
+
+.edit-panel.edit-event .edit-url input, .edit-panel.edit-event .edit-url .btn {
+  margin: 0 0 5px 0; }
+
+.edit-panel.edit-event .edit-url input[type=text] {
+  font-size: 13px;
+  height: 13px;
+  width: 100px; }
+
+/* ==========================================================================
+   Page Editing - Sponsors
+   ========================================================================== */
+.edit-panel.edit-sponsor .edit-url {
+  width: 50%;
+  float: left; }
+
+.edit-panel.edit-sponsor .btn-group {
+  float: right; }
+
+.edit-panel.edit-sponsor .btn-group button {
+  margin-top: 0; }
+
+.edit-panel.edit-sponsor .edit-logo {
+  clear: both; }
+
+/* ==========================================================================
+   Mailing (inherits loads stuff from page-edit)
+   ========================================================================== */
+.edit-subject {
+  font-size: 2em; }
+
+.full-width {
+  width: 82%;
+  float: right; }
+
+.edit-from-name {
+  float: left; }
+
+.edit-from-address {
+  float: right; }
+
+/* ==========================================================================
+   Sponsor List
+   ========================================================================== */
+.content-sponsorlist {
+  width: 800px; }
+
+.content-sponsorlist a.btn.btn-large {
+  margin-bottom: 20px; }
+
+/* ==========================================================================
+   Team Management
+   ========================================================================== */
+#add-comittee .comittee-holder {
+  background: #eee;
+  border: thin solid #bbb; }
+
+.comittee-holder {
+  margin-top: 1em;
+  background: #fff; }
+
+.comittee-holder .comittee-image .hover {
+  position: absolute;
+  display: none;
+  background: #fff;
+  background: rgba(255, 255, 255, 0.5);
+  z-index: 2;
+  padding-top: 30px;
+  text-align: center; }
+
+.comittee-holder .comittee-image img {
+  min-height: 100px;
+  width: 100%; }
+
+.comittee-holder .comittee-image a.hover {
+  text-decoration: none;
+  color: #000; }
+
+.comittee-holder .comittee-image {
+  float: left;
+  width: 25%; }
+
+.comittee-holder .comittee-content {
+  float: right;
+  width: 74%; }
+
+.comittee-holder .comittee-content .sortbuttons {
+  text-align: center; }
+
+a.btn.add {
+  margin-right: 20px;
+  display: block; }
+
+.comittee-holder hr {
+  border-bottom: solid thin #666; }
+
+#uploader {
+  display: none; }
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+footer {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: #fff;
+  border-top: thin solid #ddd;
+  padding: .5em 0;
+  font-size: 0.95em;
+  text-align: center; }
