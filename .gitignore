@@ -60,3 +60,4 @@ sessions/
 #TXSL's sandbox
 src/sandbox.php
 assets/uploads/sponsors
+*.sass-cache

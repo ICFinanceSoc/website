@@ -1,9 +1,10 @@
+{% set body_class = "login"%}
 {% extends "ngap/_skeleton" %}
 
 {% block skel_navigation %}{# Remove Navigation! #}{% endblock %}
 {% block contentclass %} login-content{% endblock %}
 {% block content %}
-            <div class="hero-unit">
+            <div class="hero-unit{% if error != '' %} login-error{%endif%}">
                 <h1><img src="https://www.union.ic.ac.uk/scc/finance/images/logo.png" /></h1>
                 {% if error != '' %}<div class="alert alert-error">{{error}}</div>{% else %}<div class="alert alert-success">Please Login to use NGAP</div>{% endif %}
                 <p><form data-persist="garlic" method="POST">
