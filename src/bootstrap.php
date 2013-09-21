@@ -1,11 +1,13 @@
 <?php
-
 date_default_timezone_set("GMT");
 
-require_once __DIR__.'/../framework/vendor/autoload.php';
+require_once __DIR__.'/../vendor/autoload.php';
 
-$app = new Silex\Application();
-$app['debug'] = true;
+use Silex\Application;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation;
+
+$app = new Application();
 
 $app->register(new ICFS\Model\User());
 $app->register(new ICFS\Model\Members());
@@ -16,6 +18,7 @@ use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\HttpFoundation\Session\Storage\NativeSessionStorage;
 $storage = new NativeSessionStorage(array('save_path' => '/Users/txsl/sites/icfs'), new NativeSessionStorage());
 $session = new Session($storage);
+
 
 $app->register(new Silex\Provider\SessionServiceProvider());
 
@@ -48,11 +51,7 @@ $app['swiftmailer.transport'] = Swift_SendmailTransport::newInstance('/usr/sbin/
 //$transport = Swift_MailTransport::newInstance();
 //$app['swiftmailer.transport']=$transport;
 
-
 $app->register(new ICFS\DoctrineConnection());
 
-$app->mount('/ngap', new ICFS\Controller\AdminController());
 
-$app->get('/', function() use ($app) {
-    return 'Hello!';
-})->bind('homepage');
+return $app;
