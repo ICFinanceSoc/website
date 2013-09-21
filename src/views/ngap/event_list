@@ -1,4 +1,8 @@
-{% extends "ngap/skeleton" %}
+{% extends "ngap/_skeleton" %}
+{% block contentclass %} content-pageedit{% endblock %}
+
+
+
 
 {% block content %}
 <div class="page-header">
@@ -20,7 +24,10 @@
 </div>
 {% endblock %}
 
-{% block contentclass %} content-pageedit{% endblock %}
+
+
+
+
 
 {% block srcpagejs %}<script src="{{path('homepage')}}assets/js/vendor/tiny_mce/jquery.tinymce.js"> </script>{% endblock %} {# TinyMCE JS Source #}
 

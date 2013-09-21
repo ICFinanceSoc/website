@@ -1,0 +1,9 @@
+<script src="{{url('homepage')}}assets/js/vendor/jquery.ui.widget.js"></script>
+<script src="{{url('homepage')}}assets/js/tmpl.min.js"></script>
+<script src="{{url('homepage')}}assets/js/load-image.min.js"></script>
+<script src="{{url('homepage')}}assets/js/bootstrap.min.js"></script>
+<script src="{{url('homepage')}}assets/js/bootstrap-image-gallery.min.js"></script>
+<script src="{{url('homepage')}}assets/js/jquery.iframe-transport.js"></script>
+<script src="{{url('homepage')}}assets/js/jquery.fileupload.js"></script>
+<script src="{{url('homepage')}}assets/js/jquery.fileupload-fp.js"></script>
+<script src="{{url('homepage')}}assets/js/jquery.fileupload-ui.js"></script>

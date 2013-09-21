@@ -18,6 +18,7 @@ navbar = {
 		}
 	},
 
+	//Show the second column - popitout
 	show2: function() {
 		if (this.hidden)
 		{
@@ -34,15 +35,17 @@ navbar = {
 		}
 	},
 
+	//Hover events for the main column links
 	onecol: function() {
 		$('.nav-wrapper').unbind('hover').hover(
 			function(){
-				$('.nav-wrapper').animate({"left":"0%"}, 70);
+				$('.nav-wrapper').animate({"left":"0%"}, 120);
 			}, function(){
-				$('.nav-wrapper').animate({"left":"-10%"}, 70);
+				$('.nav-wrapper').animate({"left":"-185px"}, 120);
 			});
 	},
 
+	//Hover events for both columns - main links and sublinks
 	twocol: function() {
 		$('.nav-wrapper').unbind('hover').hover(
 			function(){
@@ -50,13 +53,12 @@ navbar = {
 				$('.nav-wrapper').animate({"left":"0%"}, 70);
 			}, function(){
 				$('.nav1').animate({"left":"-35%"}, 70);
-				$('.nav-wrapper').animate({"left":"-10%"}, 70);
+				$('.nav-wrapper').animate({"left":"-185px"}, 70);
 			});
 	}
 }
 
 $(function() {
-	$('.container').css('margin-left', (parseInt($('.nav-wrapper').css('width'), 10) + parseInt($('.nav-wrapper').css('left'), 10)) + 'px');
 
 	navbar.onecol();
 

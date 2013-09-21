@@ -1,0 +1,65 @@
+{% extends "ngap/_skeleton" %}
+
+{% block content %}
+<div class="page-header">
+	<h1>{% if title %}{{title}}{% else %}Editing Sponsor{% endif %} <small>{{data.name}}</small></h1>
+</div>
+<div class="edit-panel edit-sponsor">
+{% if save %}	<div class="alert alert-success goodsave">All saved up! (@{{'now'|date('H:i')}} server time)</div><br />
+{% elseif error %}	<div class="alert alert-error">{{error}}</div><br />{%endif%}
+	<form method="POST">
+		<div class="edit-name"><input name="sponsor_name" type="text" value="{{data.name}}" placeholder="Sponsor Name"></div>
+		<div class="edit-url"><input name="sponsor_url" type="text" value="{{data.url}}" placeholder="Sponsor Homepage URL"></div>
+		<div class="btn-group" data-toggle="buttons-radio">
+			<button type="button" data-id="1" class="btn{% if data.type == 1%} active{% endif %}">Platinum</button>
+			<button type="button" data-id="2" class="btn{% if data.type == 2%} active{% endif %}">Gold</button>
+			<button type="button" data-id="3" class="btn{% if data.type == 3%} active{% endif %}">Silver</button>
+			<button type="button" data-id="4" class="btn{% if data.type == 4%} active{% endif %}">Bronze</button>
+		</div>
+		<input type="hidden" name="sponsor_type" value="{{data.type}}" />
+		<div class="edit-logo"><img src="{{data.logo}}" /> <input type="hidden" name="sponsor_logo" value="{{data.logo}}"></div><br />
+		<textarea name="sponsor_about" class='tinymce'>{{data.about}}</textarea>
+		<input type="submit" class="btn btn-large btn-primary btn-save" value="Save"><br style="clear: both"/>
+		<div class="delete-holder">
+			<div class="yousure"><a href="{{path('ngap')}}pages/{{data.name}}?delete" class="btn btn-mini btn-danger">Delete</a> <div class="btn btn-inverse btn-canceldel">Cancel</div></div>
+			<div class="btn btn-danger btn-delete">Delete</div>
+		</div>
+	</form>
+      <br style="clear:both" />     
+      {%include "ngap/uploads/sponsors_htmlPage" %}
+</div>
+{% endblock %}
+
+
+
+
+
+
+{% block contentclass %} content-pageedit{% endblock %}
+
+{% block srcpagejs %}
+{% include "ngap/uploads/main_jsInclude" %}<script src="{{path('homepage')}}assets/js/vendor/tiny_mce/jquery.tinymce.js"></script>{% endblock %} {# TinyMCE JS Source #}
+
+
+{% block pagejs %}
+{% include "ngap/uploads/sponsors_jsPage" %}
+<script>
+    $(function () {
+
+        $('.btn-delete').click(function() {
+            $('.yousure').animate({'opacity' : 1, 'margin-right' : '20px'});
+        })
+
+        $('.btn-canceldel').click(function() {
+            $('.yousure').animate({'opacity' : 0, 'margin-right' : '0px'});
+        })
+
+        $('div.btn-group > button').click(function() {
+		    $("input[name=sponsor_type]").attr('value', $(this).attr('data-id'));
+		})
+
+        {% include "ngap/_js_tinymce" %} {# TinyMCE settings/config #}
+
+    });
+</script>
+{% endblock %}

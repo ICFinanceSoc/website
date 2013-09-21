@@ -72,8 +72,8 @@ body {
 	z-index: 1000;
 	float: left;
 	width: 20%;
-	left: -10%;
-	min-width: 300px;
+	left: -185px;
+	width: 370px;
 	height: 100%;
 	border-right: thin solid #999;
 	overflow: hidden;
@@ -139,7 +139,7 @@ body {
    ========================================================================== */
 
 .container {
-	margin-left: 10%;
+	margin-left: 180px;
 	width: auto;
 	padding: 1em;
 	margin-bottom: 50px;
@@ -276,6 +276,26 @@ body {
 }
 
 /* ==========================================================================
+   Page Editing - Sponsors
+   ========================================================================== */
+
+.edit-panel.edit-sponsor .edit-url {
+	width: 50%;
+	float: left;
+}
+
+.edit-panel.edit-sponsor .btn-group {
+	float:right;
+}
+.edit-panel.edit-sponsor .btn-group button {
+	margin-top: 0;
+}
+
+.edit-panel.edit-sponsor .edit-logo {
+	clear: both;
+}
+
+/* ==========================================================================
    Mailing (inherits loads stuff from page-edit)
    ========================================================================== */
 
@@ -294,6 +314,17 @@ body {
 .edit-from-address {
     float: right;
 
+}
+
+/* ==========================================================================
+   Sponsor List
+   ========================================================================== */
+.content-sponsorlist {
+	width: 800px;
+}
+
+.content-sponsorlist a.btn.btn-large {
+	margin-bottom: 20px;
 }
 
 /* ==========================================================================

@@ -1,9 +1,0 @@
-<script src="{{url('homepage')}}assets/js/vendor/jquery.ui.widget.js"></script>
-<script src="http://blueimp.github.com/JavaScript-Templates/tmpl.min.js"></script>
-<script src="http://blueimp.github.com/JavaScript-Load-Image/load-image.min.js"></script>
-<script src="http://blueimp.github.com/cdn/js/bootstrap.min.js"></script>
-<script src="http://blueimp.github.com/Bootstrap-Image-Gallery/js/bootstrap-image-gallery.min.js"></script>
-<script src="{{url('homepage')}}assets/js/jquery.iframe-transport.js"></script>
-<script src="{{url('homepage')}}assets/js/jquery.fileupload.js"></script>
-<script src="{{url('homepage')}}assets/js/jquery.fileupload-fp.js"></script>
-<script src="{{url('homepage')}}assets/js/jquery.fileupload-ui.js"></script>

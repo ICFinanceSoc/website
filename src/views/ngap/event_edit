@@ -1,12 +1,16 @@
-{% extends "ngap/skeleton" %}
+{% extends "ngap/_skeleton" %}
+{% block contentclass %} content-pageedit{% endblock %}
+
+
+
 
 {% block content %}
 <div class="page-header">
 	<h1>{% if title %}{{title}}{% else %}Editing Content Page{% endif %} <small>{{data.title}}</small></h1>
 </div>
 <div class="edit-panel edit-event">
-{% if save %}	<div class="alert alert-success goodsave">All saved up! (@{{'now'|date('H:i')}} server time)</div><br />
-{% elseif error %}	<div class="alert alert-error">Form not saved: <em>{{error|raw}}</em></div><br />{%endif%}
+{% if save %}     <div class="alert alert-success goodsave">All saved up! (@{{'now'|date('H:i')}} server time)</div><br />
+{% elseif error %}      <div class="alert alert-error">Form not saved: <em>{{error|raw}}</em></div><br />{%endif%}
 	<form method="POST">
 		<div class="edit-name"><input placeholder="Event Name" name="event-title" type="text" value="{{data.title}}"></div>
 		<div class="edit-events-topholder">
@@ -28,48 +32,51 @@
 		</div>
 	</form>
       <br style="clear:both" />     
-      {%include "ngap/uploadFiles_mainPage" %}
+      {%include "ngap/uploads/main_htmlPage" %}
 </div>
 {% endblock %}
 
-{% block contentclass %} content-pageedit{% endblock %}
+
+
 
 {% block srcpagejs %}
-{% include "ngap/uploadFiles_src" %}
+{% include "ngap/uploads/main_jsInclude" %}
 <script src="{{path('homepage')}}assets/js/vendor/tiny_mce/jquery.tinymce.js"> </script>{% endblock %} {# TinyMCE JS Source #}
 
 
+
+
+
 {% block pagejs %}
-{% include "ngap/uploadFiles_scriptPage" %}
+{% include "ngap/uploads/main_jsPage" %}
 <script>
-            $(function () {
-            	if ($('#checkbox-event-enabled').is(':checked'))
-            		$('#checkbox-event-enabled, label[for=checkbox-event-enabled]').hide().before("<div class='btn btn-medium btn-success'>Registration is Enabled</div>", "</br>");
-            	else
-            		$('#checkbox-event-enabled, label[for=checkbox-event-enabled]').hide().before("<div class='btn btn-medium btn-danger'>Registration is Disabled</div>", "</br>");
+$(function () {
+    	if ($('#checkbox-event-enabled').is(':checked'))
+    		$('#checkbox-event-enabled, label[for=checkbox-event-enabled]').hide().before("<div class='btn btn-medium btn-success'>Registration is Enabled</div>", "</br>");
+    	else
+    		$('#checkbox-event-enabled, label[for=checkbox-event-enabled]').hide().before("<div class='btn btn-medium btn-danger'>Registration is Disabled</div>", "</br>");
 
-            	$('.edit-url .btn').first().click(event, function() {
+    	$('.edit-url .btn').first().click(event, function() {
+    		$('#checkbox-event-enabled').prop("checked", !$('#checkbox-event-enabled').prop("checked"));
+    		if ($(this).hasClass('btn-success')) {
+    			$(this).removeClass('btn-success').addClass('btn-danger').text('Registration is Disabled');
+    		}
+    		else {
+    			$(this).removeClass('btn-danger').addClass('btn-success').text('Registration is Enabled');
+    		}
+    	})
 
-            		$('#checkbox-event-enabled').prop("checked", !$('#checkbox-event-enabled').prop("checked"));
-            		if ($(this).hasClass('btn-success')) {
-            			$(this).removeClass('btn-success').addClass('btn-danger').text('Registration is Disabled');
-            		}
-            		else {
-            			$(this).removeClass('btn-danger').addClass('btn-success').text('Registration is Enabled');
-            		}
-            	})
+    	$("input[name=event-date]").datepicker({ dateFormat: "dd/mm/yy" });
 
-            	$("input[name=event-date]").datepicker({ dateFormat: "dd/mm/yy" });
-
-            	$('.btn-delete').click(function() {
-            		$('.yousure').animate({'opacity' : 1, 'margin-right' : '20px'});
-            	})
-
-            	$('.btn-canceldel').click(function() {
-            		$('.yousure').animate({'opacity' : 0, 'margin-right' : '0px'});
-            	})
-            	
-                {% include "ngap/tinymce.twig" %} {# TinyMCE settings/config #}
-        });
+    	$('.btn-delete').click(function() {
+    		$('.yousure').animate({'opacity' : 1, 'margin-right' : '20px'});
+    	})
+      
+    	$('.btn-canceldel').click(function() {
+    		$('.yousure').animate({'opacity' : 0, 'margin-right' : '0px'});
+    	})
+    	
+      {% include "ngap/_js_tinymce" %} {# TinyMCE settings/config #}
+});
 </script>
 {% endblock %}

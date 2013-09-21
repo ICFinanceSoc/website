@@ -48,12 +48,11 @@ $app['swiftmailer.transport'] = Swift_SendmailTransport::newInstance('/usr/sbin/
 //$transport = Swift_MailTransport::newInstance();
 //$app['swiftmailer.transport']=$transport;
 
+
 $app->register(new ICFS\DoctrineConnection());
 
 $app->mount('/ngap', new ICFS\Controller\AdminController());
 
-$app->get('/', function() {
+$app->get('/', function() use ($app) {
     return 'Hello!';
 })->bind('homepage');
-
-

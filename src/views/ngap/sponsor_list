@@ -1,0 +1,52 @@
+{% extends "ngap/_skeleton" %}
+
+{% block content %}
+<div class="page-header">
+	<h1>ICFS Sponsor List</h1>
+</div>
+
+<a href="edit/add" class="btn btn-large btn-success"><i class="icon-plus-sign icon-white"></i> Add Sponsor</a>
+
+<table class="table table-condensed table-bordered table-striped">
+	<thead>
+		<tr>
+			<th>Logo</th>
+			<th>Name</th>
+			<th>Homepage</th>
+			<th>Options</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for sponsor in sponsors %}
+		<tr>
+			<td><img src="{{ sponsor.getLogo }}" /></td>
+			<td>{{ sponsor.getName }} ({% if sponsor.getType == 1 %}Platinum{% elseif sponsor.getType == 2 %}Gold{% elseif sponsor.getType == 3 %}Silver{% else %}Bronze{% endif %})</td>
+			<td><a href="{{ sponsor.getUrl }}">{{ sponsor.getUrl }}</a></td>
+			<td><a href="edit/{{sponsor.getId}}" class="btn btn-warning">Edit</a></td>
+		</tr>
+		{% endfor %}
+	</tbody>	
+</table>
+
+{% endblock %}
+
+{% block contentclass %} content-sponsorlist{% endblock %}
+
+{% block srcpagejs %}{% endblock %}
+
+{% block pagejs %}
+<script>
+	$(function() {
+		$(".delete-member").each(function(){
+			$(this).click(function(){
+				if($(this).hasClass("delete-member"))
+				{	
+					var name = $(this).parent().parent().find(":first-child").html();
+					$(this).addClass("btn btn-danger btn-mini delete-member-really").removeClass("delete-member").css("line-height", "14px").text("Delete " + name + "?");
+					return false;
+				}
+			})
+		})
+	});
+</script>
+{% endblock %}
