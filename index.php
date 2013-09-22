@@ -21,14 +21,14 @@
  
  </div>
 	<div id="nfw_advert" class="clearfix"> <?php //TXSL hack here too. CSS/LESS needs upating ?>
-		<h4>Welcome to 2013!</h4>
+		<h4>Welcome to 2013/14!</h4>
 		<div id="image_box">
 			<img src="images/jan_2013.jpeg" width="550px"/>
 		</div>
             <p>We've got even more in store for our members this term with more unique, one-on-one events – designed to give you a real insight into the industry aside from general presentations. Of course, this term it's all about going global. For the first time in ICFS history, we've got not one, but two international trips – with Hong Kong in March and a pilot trip to Kenya in June on Microfinance!</p>
 			<p>With more industry connections built over Christmas and a record-breaking number of sponsors and events, it's truly been an amazing year for the ICFS and we look forward to carrying this on next year! As such, we have our highly anticipated Annual General Meeting & Election coming up on March 6th! Are you ready to take this to the next level? We've finally also got our amazing annual dinner to cap off the year in style on March 14th. Have a great term!</p>
             <p style="font-weight:bold">ICFS Committee 2012/2013</p>
-			<p>Giri Kesavan, Deepka Rana, Christine Kan, Avtar Rekhi, Thomas Lim, </br> Grahame Harris, Jia Cheong, Tracy Lin</p>
+			<p>Walker, Deepika, George, Dario, Abhinav, Tsatska, Tasmin, Karen &amp; Wee Kii</p>
 		</a>
 	</div>
     
