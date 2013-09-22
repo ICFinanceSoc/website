@@ -57,9 +57,7 @@
                     </div>
                 <?php } while ($row_Recordset1 = mysql_fetch_assoc($Recordset1)); ?>
             <?php } else { ?>
-                <p>We have recently updated our website and are still in the process of uploading all the necessary documents to the site.</p>
-                <p>The work should be completed in the next few days</p>
-                <p>Sorry for any inconvenience this may have caused.</p>
+                <p>Events are currently still being confirmed - come back soon!</p>
         <?php } ?>
     </div>
     <?php if($totalRows_Recordset1 < 6) { ?>
