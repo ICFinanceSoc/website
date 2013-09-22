@@ -11,12 +11,12 @@
 <div id="<?php echo $currentpage; ?>">
     <div class="publication clearfix">
     <h3>Capital Magazine</h3>
-                            <p class="intro">Capital is the editorial arm of ICFS. The flagship publication, Capital Magazine, will provide you with insights and in-depth analysis of current markets. Our current 2012 edition will be available at our stall in Freshers Fair and at other select ICFS events. 
-
-</p>
+    <p class="intro">Capital is the editorial arm of ICFS. The flagship publication, Capital Magazine, will provide you with insights and in-depth analysis of current markets. Our current 2013 edition will be available at our stall in Freshers Fair and at other select ICFS events. </p>
               
-                <strong><a href="/content/Capital2012.pdf" class="btn">Capital 2012</a><br /><br />
-		<a href="/content/CapitalInsight2013-hi.pdf" class="btn">Capital Insights 2013</a> <a href="/content/CapitalInsight2013-lo.pdf" class="btn">Capital Insights 2013 (Low Res)</a></strong>
+    <strong>
+        <a href="/content/Capital2012.pdf" class="btn">Capital 2012</a><br /><br />
+    	<a href="/content/CapitalInsight2013-hi.pdf" class="btn">Capital Insights 2013</a> <a href="/content/CapitalInsight2013-lo.pdf" class="btn">Capital Insights 2013 (Low Res)</a>
+    </strong>
 </div>
 </div>                  
 <?php require_once('footer.php');  ?>
