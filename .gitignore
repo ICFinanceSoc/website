@@ -37,8 +37,7 @@ gitlist/
 *.DS_Store
 
 #Silex Vendor
-framework/vendor
-framework/composer.phar
+vendor
 
 #DB connection information
 src/ICFS/DoctrineConnection.php
