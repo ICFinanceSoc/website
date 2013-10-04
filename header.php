@@ -124,6 +124,7 @@ $totalRows_Recordset1 = mysql_num_rows($Recordset1);
                     <li><a href="kenya.php" <?php if($currentpage == 'kenya'){ echo 'class="active"'; } ?> title="">Kenya</a></li> ?> */ ?>
                     <li><a href="sponsors.php" <?php if($currentpage == 'sponsors'){ echo 'class="active"'; } ?> title="">Sponsors</a></li>
                     <li><a href="team.php" <?php if($currentpage == 'management'){ echo 'class="active"'; } ?> title="">Team</a></li>
+                    <li><a href="icic.php" <?php if($currentpage == 'icic'){ echo 'class="active"'; } ?> title="">ICIC</a></li>
                     <li><a href="media.php" <?php if($currentpage == 'media'){ echo 'class="active"'; } ?> title="">Media</a></li>
 		  <!--<?php if(isset($_SESSION[username])){ }else { ?>
                     <li><a href="register.php" <?php if($currentpage == 'register'){ echo 'class="active"'; } ?> title="">Register</a></li>
@@ -166,7 +167,7 @@ $totalRows_Recordset1 = mysql_num_rows($Recordset1);
                     <?php } ?>
                     <img src="images/slider4.jpg" alt="" title="#htmlcaption5"/>
                     </a>
-                    <?php if(isset($_SESSION[username])){ } else {?>
+                    <?php if(isset($_SESSION['username'])){ } else {?>
                         <a href="requirelogin.php">
                     <?php } ?>
                         <img src="images/slider5.jpg" alt="" title="#htmlcaption3"/>
