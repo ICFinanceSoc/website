@@ -83,7 +83,7 @@ $totalRows_Recordset1 = mysql_num_rows($Recordset1);
     
     <!-- Main stylesheet -->
     <!-- <link rel="stylesheet" type="text/css" href="CSS/style.css" /> -->
-    <link rel="stylesheet/less" type="text/css" href="CSS/style.less" />
+    <link rel="stylesheet/less" type="text/css" href="CSS/style.less?v=20131016" />
     <script src="js/less-1.1.4.min.js" type="text/javascript"></script>
 
     <?php if($currentpage == 'index'){ // Nivo slider themes ?>
@@ -125,6 +125,7 @@ $totalRows_Recordset1 = mysql_num_rows($Recordset1);
                     <li><a href="sponsors.php" <?php if($currentpage == 'sponsors'){ echo 'class="active"'; } ?> title="">Sponsors</a></li>
                     <li><a href="team.php" <?php if($currentpage == 'management'){ echo 'class="active"'; } ?> title="">Team</a></li>
                     <li><a href="icic.php" <?php if($currentpage == 'icic'){ echo 'class="active"'; } ?> title="">ICIC</a></li>
+                    <li><a href="tec.php" <?php if($currentpage == 'tec'){ echo 'class="active"'; } ?> title="">TEC</a></li>
                     <li><a href="media.php" <?php if($currentpage == 'media'){ echo 'class="active"'; } ?> title="">Media</a></li>
 		  <!--<?php if(isset($_SESSION[username])){ }else { ?>
                     <li><a href="register.php" <?php if($currentpage == 'register'){ echo 'class="active"'; } ?> title="">Register</a></li>
