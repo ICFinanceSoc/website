@@ -24,11 +24,11 @@
                                     if($spon != '0'){
                                         $sponlogo = mysql_query("SELECT * FROM sponsors WHERE ID='$spon'");
                                         $sponlogoadd = mysql_result($sponlogo,0,logo);
-                                        echo '<img src="images/timthumb.php?src=sponsorlogos/';
+                                        echo '<img src="/sponsorlogos/';
                                         echo $sponlogoadd;
-                                        echo '&h=130" width="286" alt="" />';
+                                        echo ' width="286" style="max-height: 130px" alt="" />';
                                     } else {
-                                        echo '<img src="images/timthumb.php?src=logo-250.png&h=130" width="286" alt="" />';
+                                        echo '<img src="/images/ogo-250.png" style="max-height: 130px" width="286" alt="" />';
                                     }
                                 ?>
                                 <span id="shadow"></span>
