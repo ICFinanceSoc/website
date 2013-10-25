@@ -28,7 +28,7 @@
                                         echo $sponlogoadd;
                                         echo '" width="286" style="max-height: 130px" alt="" />';
                                     } else {
-                                        echo '<img src="/images/ogo-250.png" style="max-height: 130px" width="286" alt="" />';
+                                        echo '<img src="/images/logo-250.png" style="max-height: 130px" width="286" alt="" />';
                                     }
                                 ?>
                                 <span id="shadow"></span>
