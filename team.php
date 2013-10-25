@@ -17,12 +17,12 @@ $totalRows_Recordset1 = mysql_num_rows($Recordset1);
 ?>
 
 <div id="<?php echo $currentpage; ?>">
-    <div style="text-align:center;font-size:1.4em">
+    <?php /*<div style="text-align:center;font-size:1.4em">
         <a href="team.php">2013</a>
         <a href="team.php?year=2012">2012</a>
         <a href="team.php?year=2011">2011</a>
     </div>
-</br>
+</br>*/?>
 <?php do { ?>
     <?php $currentimage = $row_Recordset1['image']; ?>
     <div class="person clearfix <?php if(file_exists("managementpictures/$currentimage")) echo 'imageactive'; ?>">
