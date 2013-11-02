@@ -10,11 +10,11 @@
         </div>
         <div style="">
             <div class="next-lecture">
-                <strong>Lecture IV:</strong> 2nd November 2013, 11:00am, Huxley 308 - "Fundamental Analysis II" with Credit Suisse
+                <strong>Lecture IV:</strong> 2nd November 2013, 11:00am, Huxley 308 - "Fundamental Analysis II" with Credit Suisse<br />
                 <?php if(isset($_SESSION['username'])) { echo '<a href="/content/TEC3.pdf">download</a>'; } else {echo 'Login to download lecture summary'; } ?>
             </div>
             <div class="next-lecture">
-                <strong>Lecture III:</strong> 26th October 2013, 11:00am, Huxley 308 - "Fundamental Analysis I"
+                <strong>Lecture III:</strong> 26th October 2013, 11:00am, Huxley 308 - "Fundamental Analysis I"<br />
                 <?php if(isset($_SESSION['username'])) { echo '<a href="/content/TEC3.pdf">download</a>'; } else {echo 'Login to download lecture summary'; } ?>
             </div>
             <div class="next-lecture">
