@@ -23,12 +23,12 @@
 	<div id="nfw_advert" class="clearfix"> <?php //TXSL hack here too. CSS/LESS needs upating ?>
 		<h4>Welcome to 2013/14!</h4>
 		<div id="image_box">
-			<img src="images/jan_2013.jpeg" width="550px"/>
+			<img src="images/nov_2013.jpg" width="550px" style="margin-bottom: 10px"/>
 		</div>
-            <p>We've got even more in store for our members this term with more unique, one-on-one events – designed to give you a real insight into the industry aside from general presentations. Of course, this term it's all about going global. For the first time in ICFS history, we've got not one, but two international trips – with Hong Kong in March and a pilot trip to Kenya in June on Microfinance!</p>
-			<p>With more industry connections built over Christmas and a record-breaking number of sponsors and events, it's truly been an amazing year for the ICFS and we look forward to carrying this on next year! As such, we have our highly anticipated Annual General Meeting & Election coming up on March 6th! Are you ready to take this to the next level? We've finally also got our amazing annual dinner to cap off the year in style on March 14th. Have a great term!</p>
-            <p style="font-weight:bold">ICFS Committee 2012/2013</p>
-			<p>Walker, Deepika, George, Dario, Abhinav, Tsatska, Tasmin, Karen &amp; Wee Kii</p>
+            <p>Last year we were voted the fourth best Student Society in the UK - join us this year to go three better! Forget the staid networking events, ICFS offers something totally different from the norm. With unrivalled industry connections built up over several years and a dedicated committee we are able to offer you opportunities you can’t find elsewhere, ranging from the wildly successful Trading Education Certificate (now in its fourth year!) to our flagship New Financial Worlds Conference in November.</p>
+            <p>ICFS’ unique blend of academic, business and social sets it apart from other societies, at Imperial and elsewhere. So what are you waiting for? Click on Events to find out what’s on this week.</p>
+            <p style="font-weight:bold">ICFS Committee 2013/14</p>
+            <p>George, Deepika, Abhinav, Dario, Ash, Tsatska, Tasmin, Karen & Wee Kii</p>
 		</a>
 	</div>
     
