@@ -23,7 +23,7 @@
 	<div id="nfw_advert" class="clearfix"> <?php //TXSL hack here too. CSS/LESS needs upating ?>
 		<h4>Welcome to 2013/14!</h4>
 		<div id="image_box">
-			<img src="images/nov_2013.jpg" width="550px" style="margin-bottom: 10px"/>
+			<img src="images/nov_2013_2.jpg" width="550px" style="margin-bottom: 10px"/>
 		</div>
             <p>Last year we were voted the fourth best Student Society in the UK - join us this year to go three better! Forget the staid networking events, ICFS offers something totally different from the norm. With unrivalled industry connections built up over several years and a dedicated committee we are able to offer you opportunities you can’t find elsewhere, ranging from the wildly successful Trading Education Certificate (now in its fourth year!) to our flagship New Financial Worlds Conference in November.</p>
             <p>ICFS’ unique blend of academic, business and social sets it apart from other societies, at Imperial and elsewhere. So what are you waiting for? Click on Events to find out what’s on this week.</p>
