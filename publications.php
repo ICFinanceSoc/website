@@ -15,7 +15,8 @@
               
     <strong>
         <a href="/content/Capital2012.pdf" class="btn">Capital 2012</a><br /><br />
-    	<a href="/content/CapitalInsight2013-hi.pdf" class="btn">Capital Insights 2013</a> <a href="/content/CapitalInsight2013-lo.pdf" class="btn">Capital Insights 2013 (Low Res)</a>
+        <a href="/content/CapitalInsight2013-hi.pdf" class="btn">Capital Insights 2013</a> <a href="/content/CapitalInsight2013-lo.pdf" class="btn">Capital Insights 2013 (Low Res)</a><br /><br />
+        <a href="/content/Capital_oct2013.pdf" class="btn">Capital October 2013</a>
     </strong>
     <br /><br /><br />
     <h3>Useful Downloads<h3>
