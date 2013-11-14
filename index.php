@@ -37,13 +37,6 @@
             <div id="items">
                 <div class="featitem clearfix">
                     <div class="image">
-                        <a href="events.php"><img src="images/s1.jpg"/></a>
-                    </div>
-                    <p> Find out more about all the latest ICFS events for the upcoming week and register.</p>
-                    <a href="events.php" title="Read More" class="btn dark">Read More</a>
-                </div>
-                <div class="featitem clearfix">
-                    <div class="image">
                         <a href="http://nfwconference.com/"><img src="images/s2.jpg"/></a>
                     </div>
                     <div class="image">
@@ -53,6 +46,13 @@
                     <p>The New Financial Worlds conference is on the 30th of November. We will be there - will you?</p>
                     <br />
                     <a href="http://nfwconference.com/" title="Read More" class="btn dark">Read More</a>
+                </div>
+                <div class="featitem clearfix">
+                    <div class="image">
+                        <a href="events.php"><img src="images/s1.jpg"/></a>
+                    </div>
+                    <p> Find out more about all the latest ICFS events for the upcoming week and register.</p>
+                    <a href="events.php" title="Read More" class="btn dark">Read More</a>
                 </div>
                 <div class="featitem clearfix">
                     <div class="image">

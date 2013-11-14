@@ -6,7 +6,8 @@ $(document).ready(function() {
             fx: 'scrollDown',
             easing: 'easeOutQuint',
             next:   '#next', 
-            prev:   '#prev'
+            prev:   '#prev',
+            timeout: 5000
         });
     }
 
