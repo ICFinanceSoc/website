@@ -10,6 +10,9 @@
         </div>
         <div style="">
             <div class="next-lecture">
+                <strong>Lecture VI:</strong> 16nd November 2013, 11:00am, Huxley 308 - "Technical Analysis II"<br />
+            </div>
+            <div class="next-lecture">
                 <strong>Lecture V:</strong> 9nd November 2013, 11:00am, Huxley 308 - "Technical Analysis I" <i>with Taz</i><br />
             </div>
             <div class="next-lecture">
