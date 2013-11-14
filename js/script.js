@@ -4,7 +4,7 @@ $(document).ready(function() {
     if($('#featbox').length) {
         $('#featbox #items').cycle( {
             fx: 'scrollDown',
-            easing: 'easeOutBounce',
+            easing: 'easeOutQuint',
             next:   '#next', 
             prev:   '#prev'
         });

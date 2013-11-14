@@ -44,24 +44,29 @@
                 </div>
                 <div class="featitem clearfix">
                     <div class="image">
-                        <a href="asia.php"><img src="images/s2.jpg"/></a>
+                        <a href="http://nfwconference.com/"><img src="images/s2.jpg"/></a>
                     </div>
-                    <p>We’re off to Hong Kong! Learn more about our international trips and Asia Pacific opportunities.</p>
-                    <a href="asia.php" title="Read More" class="btn dark">Read More</a>
+                    <div class="image">
+                        <a href="http://nfwconference.com/"><img src="http://nfwconference.com/img_/logo2.png"/></a>
+                        
+                    </div>
+                    <p>The New Financial Worlds conference is on the 30th of November. We will be there - will you?</p>
+                    <br />
+                    <a href="http://nfwconference.com/" title="Read More" class="btn dark">Read More</a>
                 </div>
                 <div class="featitem clearfix">
                     <div class="image">
                         <a href="team.php"><img src="images/s3.jpg"/></a>
                     </div>
-                    <p>Who runs the ICFS? Meet the people behind the society and find out how to get involved.</p>
+                    <p>Who runs the ICFS for 2013/14? Meet the committee behind the society and find out how to get involved.</p>
                     <a href="team.php" title="Read More" class="btn dark">Read More</a>
                 </div>
                 <div class="featitem clearfix">
                     <div class="image">
-                        <a href="media.php"><img src="images/s4.jpg"/></a>
+                        <a href="tec.php"><img src="images/s4.jpg"/></a>
                     </div>
-                    <p>We really love cool videos, pictures and other media ! Check out what kind of things we’ve been up to in our Media section.</p>
-                    <a href="media.php" title="Read More" class="btn dark">Read More</a>
+                    <p>We would love to see you at our Trading Educational Certificate lectures on Saturdays - these are a series of seminars about the financial markets. </p>
+                    <a href="tec.php" title="Read More" class="btn dark">Read More</a>
                 </div>
             </div>
             <div id="nav">
