@@ -126,7 +126,7 @@
 
     <div id="footer">
         <div class="container_12">
-            <p class="grid_4 push_4">&#169; Imperial College Finance Society 2011</p>
+            <p class="grid_4 push_4">&#169; Imperial College Finance Society 2011-2013</p>
         </div>
     </div>
 
