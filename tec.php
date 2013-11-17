@@ -17,18 +17,18 @@
             </div>
             <div class="next-lecture">
                 <strong>Lecture IV:</strong> 2nd November 2013, 11:00am, Huxley 308 - "Fundamental Analysis II" with Credit Suisse<br />
-                <?php if(isset($_SESSION['username'])) { echo '<a href="/content/TEC3.pdf">Download Lecture Summary</a>'; } else {echo '<a href="https://www.financesociety.co.uk/requirelogin.php">Login to download lecture summary & notes</a>'; } ?>
+                <?php if(isset($_SESSION['username'])) { echo '<a href="/content/TEC3.pdf">Download Lecture Summary</a><br />'; } else {echo '<a href="https://www.financesociety.co.uk/requirelogin.php">Login to download lecture summary & notes</a>'; } ?>
                 <?php if(isset($_SESSION['username'])) { echo '<a href="/content/TEC-slides-4.pdf">Download Lecture Slides</a>'; }?>
             </div>
             <div class="next-lecture">
                 <strong>Lecture III:</strong> 26th October 2013, 11:00am, Huxley 308 - "Fundamental Analysis I"<br />
-                <?php if(isset($_SESSION['username'])) { echo '<a href="/content/TEC3.pdf">Download Lecture Summary</a>'; } else {echo '<a href="https://www.financesociety.co.uk/requirelogin.php">Login to download lecture summary & notes</a>'; } ?>
+                <?php if(isset($_SESSION['username'])) { echo '<a href="/content/TEC3.pdf">Download Lecture Summary</a><br />'; } else {echo '<a href="https://www.financesociety.co.uk/requirelogin.php">Login to download lecture summary & notes</a>'; } ?>
                 <?php if(isset($_SESSION['username'])) { echo '<a href="/content/TEC-slides-3.pdf">Download Lecture Slides</a>'; } ?>
             </div>
             <div class="next-lecture">
                 <strong>Lecture I &amp; II:</strong> 19th October 2013, 10:00am, RSM 1.47 – “An Introduction to Securities and Trading” and “Investment Banking Divisions”<br />
-                <?php if(isset($_SESSION['username'])) { echo '<a href="/content/TEC1.pdf">Download Lecture Summary</a>'; } else {echo '<a href="https://www.financesociety.co.uk/requirelogin.php">Login to download lecture summary & notes</a>'; } ?>
-                <?php if(isset($_SESSION['username'])) { echo '<a href="/content/TEC-slides-2.pdf">Download Lecture Slides II</a>'; } ?>
+                <?php if(isset($_SESSION['username'])) { echo '<a href="/content/TEC1.pdf">Download Lecture Summary</a><br />'; } else {echo '<a href="https://www.financesociety.co.uk/requirelogin.php">Login to download lecture summary & notes</a>'; } ?>
+                <?php if(isset($_SESSION['username'])) { echo '<a href="/content/TEC-slides-2.pdf">Download Lecture Slides II</a><br />'; } ?>
                 <?php if(isset($_SESSION['username'])) { echo '<a href="/content/TEC-slides-1.pdf">Download Lecture Slides I</a>'; }  ?>
             </div>
             <h2>Trading Education Certificate</h2>
