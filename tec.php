@@ -17,15 +17,19 @@
             </div>
             <div class="next-lecture">
                 <strong>Lecture IV:</strong> 2nd November 2013, 11:00am, Huxley 308 - "Fundamental Analysis II" with Credit Suisse<br />
-                <?php if(isset($_SESSION['username'])) { echo '<a href="/content/TEC3.pdf">Download Lecture Summary</a>'; } else {echo '<a href="https://www.financesociety.co.uk/requirelogin.php">Login to download lecture summary</a>'; } ?>
+                <?php if(isset($_SESSION['username'])) { echo '<a href="/content/TEC3.pdf">Download Lecture Summary</a>'; } else {echo '<a href="https://www.financesociety.co.uk/requirelogin.php">Login to download lecture summary & notes</a>'; } ?>
+                <?php if(isset($_SESSION['username'])) { echo '<a href="/content/TEC-slides-4.pdf">Download Lecture Slides</a>'; }?>
             </div>
             <div class="next-lecture">
                 <strong>Lecture III:</strong> 26th October 2013, 11:00am, Huxley 308 - "Fundamental Analysis I"<br />
-                <?php if(isset($_SESSION['username'])) { echo '<a href="/content/TEC3.pdf">Download Lecture Summary</a>'; } else {echo '<a href="https://www.financesociety.co.uk/requirelogin.php">Login to download lecture summary</a>'; } ?>
+                <?php if(isset($_SESSION['username'])) { echo '<a href="/content/TEC3.pdf">Download Lecture Summary</a>'; } else {echo '<a href="https://www.financesociety.co.uk/requirelogin.php">Login to download lecture summary & notes</a>'; } ?>
+                <?php if(isset($_SESSION['username'])) { echo '<a href="/content/TEC-slides-3.pdf">Download Lecture Slides</a>'; } ?>
             </div>
             <div class="next-lecture">
                 <strong>Lecture I &amp; II:</strong> 19th October 2013, 10:00am, RSM 1.47 – “An Introduction to Securities and Trading” and “Investment Banking Divisions”<br />
-                <?php if(isset($_SESSION['username'])) { echo '<a href="/content/TEC1.pdf">Download Lecture Summary</a>'; } else {echo '<a href="https://www.financesociety.co.uk/requirelogin.php">Login to download lecture summary</a>'; } ?>
+                <?php if(isset($_SESSION['username'])) { echo '<a href="/content/TEC1.pdf">Download Lecture Summary</a>'; } else {echo '<a href="https://www.financesociety.co.uk/requirelogin.php">Login to download lecture summary & notes</a>'; } ?>
+                <?php if(isset($_SESSION['username'])) { echo '<a href="/content/TEC-slides-2.pdf">Download Lecture Slides II</a>'; } ?>
+                <?php if(isset($_SESSION['username'])) { echo '<a href="/content/TEC-slides-1.pdf">Download Lecture Slides I</a>'; }  ?>
             </div>
             <h2>Trading Education Certificate</h2>
             <p>The Trading Educational Certificate is a series of seminars about the financial markets run in partnership with Credit Suisse. Now in its fourth year, the TEC is an invaluable qualification recognised by employers. It provides an excellent opportunity to learn first-hand about the theory behind finance, gain the essential knowledge to perfect your internship applications and excel in those all-important interviews!</p>
