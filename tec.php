@@ -23,6 +23,7 @@
             </div>
             <div class="next-lecture">
                 <strong>Lecture V:</strong> 9nd November 2013, 11:00am, Huxley 308 - "Technical Analysis I" <i>with Taz</i><br />
+                <?php if(isset($_SESSION['username'])) { echo '<a href="/content/TEC-slides-5.pdf">Download Lecture Slides</a>'; } else {echo '<a href="https://www.financesociety.co.uk/requirelogin.php">Login to download lecture summary & notes</a>'; } ?>
             </div>
             <div class="next-lecture">
                 <strong>Lecture IV:</strong> 2nd November 2013, 11:00am, Huxley 308 - "Fundamental Analysis II" with Credit Suisse<br />
