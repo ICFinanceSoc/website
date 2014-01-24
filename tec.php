@@ -11,19 +11,19 @@
         <div style="">
             <div class="next-lecture">
                 <strong>Lecture VIII:</strong> 30nd November 2013, 11:00am, Huxley 308 - "Derivatives"<br />
-                <?php if(isset($_SESSION['username'])) { echo '<a href="/content/TEC-slides-8.pdf">Download Lecture Slides</a>'; } else {echo '<a href="https://www.financesociety.co.uk/requirelogin.php">Login to download lecture summary & notes</a>'; } ?>
+                <?php if(isset($_SESSION['username'])) { echo '<a href="/content/TEC8.pdf">Download Lecture Summary</a><br /><a href="/content/TEC-slides-8.pdf">Download Lecture Slides</a>'; } else {echo '<a href="https://www.financesociety.co.uk/requirelogin.php">Login to download lecture summary & notes</a>'; } ?>
             </div>
             <div class="next-lecture">
                 <strong>Lecture VII:</strong> 23nd November 2013, 11:00am, Huxley 308 - "Macroeconomics"<br />
-                <?php if(isset($_SESSION['username'])) { echo '<a href="/content/TEC-slides-7.pdf">Download Lecture Slides</a>'; } else {echo '<a href="https://www.financesociety.co.uk/requirelogin.php">Login to download lecture summary & notes</a>'; } ?>
+                <?php if(isset($_SESSION['username'])) { echo '<a href="/content/TEC7.pdf">Download Lecture Summary</a><br /><a href="/content/TEC-slides-7.pdf">Download Lecture Slides</a>'; } else {echo '<a href="https://www.financesociety.co.uk/requirelogin.php">Login to download lecture summary & notes</a>'; } ?>
             </div>
             <div class="next-lecture">
                 <strong>Lecture VI:</strong> 16nd November 2013, 11:00am, Huxley 308 - "Technical Analysis II"<br />
-                <?php if(isset($_SESSION['username'])) { echo '<a href="/content/TEC-slides-6.pdf">Download Lecture Slides</a>'; } else {echo '<a href="https://www.financesociety.co.uk/requirelogin.php">Login to download lecture summary & notes</a>'; } ?>
+                <?php if(isset($_SESSION['username'])) { echo '<a href="/content/TEC6.pdf">Download Lecture Summary</a><br /><a href="/content/TEC-slides-6.pdf">Download Lecture Slides</a>'; } else {echo '<a href="https://www.financesociety.co.uk/requirelogin.php">Login to download lecture summary & notes</a>'; } ?>
             </div>
             <div class="next-lecture">
                 <strong>Lecture V:</strong> 9nd November 2013, 11:00am, Huxley 308 - "Technical Analysis I" <i>with Taz</i><br />
-                <?php if(isset($_SESSION['username'])) { echo '<a href="/content/TEC-slides-5.pdf">Download Lecture Slides</a>'; } else {echo '<a href="https://www.financesociety.co.uk/requirelogin.php">Login to download lecture summary & notes</a>'; } ?>
+                <?php if(isset($_SESSION['username'])) { echo '<a href="/content/TEC5.pdf">Download Lecture Summary</a><br /><a href="/content/TEC-slides-5.pdf">Download Lecture Slides</a>'; } else {echo '<a href="https://www.financesociety.co.uk/requirelogin.php">Login to download lecture summary & notes</a>'; } ?>
             </div>
             <div class="next-lecture">
                 <strong>Lecture IV:</strong> 2nd November 2013, 11:00am, Huxley 308 - "Fundamental Analysis II" with Credit Suisse<br />
