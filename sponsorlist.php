@@ -111,23 +111,29 @@
     </table>
     </ul>
 </div>
-<div class="sponsorbox ">
-    <h4>Partners</h4>
+
+
+<div class="sponsorbox">
+    <h4>Partners Sponsors</h4>
     <table cellspacing="0">
         <tr>
-        <?php $pcount = 0; do { $pcount++; ?>
+        <?php $end_middle_img = 0; $pcount = 0; do { $pcount++; ?>
             <td style="vertical-align:middle">
                 <a href="sponsordetail.php?ID=<?php echo $row_learningsponsors['ID']; ?>" title="<?php echo urldecode($row_learningsponsors['name']);?>">
                     <img src="sponsorlogos/<?php echo $row_learningsponsors['logo']; ?>thumb" width="<?php if($currentpage == 'index') echo '100'; else echo '120';?>" alt="" />
                 </a>
             </td>
-        <?php if($pcount == 3) { ?>
+        <?php   if ($end_middle_img){
+                    echo '<td></td>';
+                    }
+        if($pcount % 3 == 0) { ?>
             </tr><tr> 
-        <?php
-            $pcount = 0; 
-        } ?>
+        <?php }
+        if (($totalRows_learningsponsors % 3 == 1) && (($totalRows_learningsponsors - $pcount) == 1)){
+               $end_middle_img = 1;
+               echo '<td></td>';
+                        } ?>
         <?php } while ($row_learningsponsors = mysql_fetch_assoc($learningsponsors)); ?>
         </tr>
     </table>
 </div>
-
