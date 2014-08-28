@@ -12,7 +12,7 @@
                 $name = ldap_get_names($_SESSION['username']); 
                 echo $name[0].'!';
             } else {
-                 echo $_SESSION['username'];
+                 echo @$_SESSION['username'];
             } ?>
         </h1>
 

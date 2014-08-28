@@ -9,7 +9,7 @@
                     </a>
                 </td>
                 <?php
-                if ($end_middle_img){
+                if (isset($end_middle_img)){
                     echo '<td></td>';
                     }
                  if($pcount % 3 == 0) { ?>
