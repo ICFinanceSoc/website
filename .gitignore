@@ -60,3 +60,7 @@ sessions/
 src/sandbox.php
 assets/uploads/sponsors
 *.sass-cache
+
+forums/*
+web/.htaccess
+composer.phar
