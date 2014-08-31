@@ -1,0 +1,16 @@
+{% extends "ngap/_skeleton" %}
+
+{% block skel_navigation %}{% endblock %}
+{% block contentclass %} notallowed-content{% endblock %}
+
+{% block content %}
+<!-- Main hero unit for a primary marketing message or call to action -->
+<div class="hero-unit">
+    <h1>No Permission</h1>
+    <p>You are not authorised to access this part of the NGAP panel. If you beleive this is a mistake, please contact VP Technology.<br />
+    </p>
+    <p>If you were trying to send emails, please use the old admin panel: <a href="/old/">here</a></p>
+    <p><a href="{{path('ngap')}}home" class="btn btn-inverse btn-large">Back Home</a></p>
+</div>
+
+{% endblock %}

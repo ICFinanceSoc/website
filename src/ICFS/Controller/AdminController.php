@@ -261,6 +261,9 @@ class AdminController implements ControllerProviderInterface
 
             if (strlen($app['request']->get('page_title')) < 2 || strlen($app['request']->get('page_url')) < 2)
                 $error = "Please make sure the title and url are long enough (2 characters)";
+            elseif (strpos($app['request']->get('page_url'), '/')) {
+                $error = "Please remove all forward slashes from the url";
+            }
             else {
                 if ($pageid == "add") {
                     if (!($page = Page::create($app, $data))) //$page will return false if the name is used already
@@ -296,7 +299,7 @@ class AdminController implements ControllerProviderInterface
 
         $this->controllers->get('mail/new', function (Application $app) {
             return $app['twig']->render('ngap/email_edit.twig', array('title' => "Create new email"));
-        })->before($this->allowed($this->nav->permission('pages')))->before($this->nav->fetch());
+        })->before($this->allowed($this->nav->permission('mail')))->before($this->nav->fetch());
 
         $this->controllers->post('mail/new', function (Application $app) {
             $data = array(
@@ -308,7 +311,7 @@ class AdminController implements ControllerProviderInterface
             );
             $app['icfs.mail']->insertMail($data);
             return 'Your message has been added to the system and will be sent shortly';
-        })->before($this->allowed($this->nav->permission('pages')))->before($this->nav->fetch());
+        })->before($this->allowed($this->nav->permission('mail')))->before($this->nav->fetch());
 
 
 

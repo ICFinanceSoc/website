@@ -14,7 +14,6 @@ if ('cli' !== php_sapi_name()) {
 $app = require __DIR__.'/../src/bootstrap.php';
 require __DIR__.'/../src/controllers.php';
 
-
 $app['debug'] = true;
 
 

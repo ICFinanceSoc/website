@@ -30,6 +30,7 @@ class ICFSTeam {
             			if ($key == "__new" && strlen(implode($value)) > 5 ) { // id = __new (strlen = 5)
 	            			$value['year'] = $year;
 	            			$value['rank'] = $order;
+                                    $value['id'] = null;
 	            			//var_dump($value);
             				$this->app['db']->insert($this->table_name, $value);
             			}
