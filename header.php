@@ -187,7 +187,7 @@ $totalRows_Recordset1 = mysql_num_rows($Recordset1);
                         Click the logo for more information. To attend the event, please sign in and register your interest.
                         <?php } ?>
                     <?php } else { ?>
-                    <h4>What have we acheived?</h4>
+                    <h4>What have we achieved?</h4>
                     Take a look at some of the events we've held this year.
                     <?php }   ?>
                 </div>
