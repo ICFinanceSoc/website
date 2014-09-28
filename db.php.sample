@@ -4,6 +4,7 @@
 
 
 $dbname = 'db_name';
+$database_sql = $dbname;
 $user = 'user';
 $pass = 'pword';
 
