@@ -14,9 +14,10 @@ $app->register(new ICFS\Model\Members());
 $app->register(new ICFS\Model\Admin\Mail());
 
 $app->register(new Silex\Provider\UrlGeneratorServiceProvider());
+
 use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\HttpFoundation\Session\Storage\NativeSessionStorage;
-$storage = new NativeSessionStorage(array('save_path' => '/Users/txsl/sites/icfs'), new NativeSessionStorage());
+$storage = new NativeSessionStorage(array(), new NativeSessionStorage());
 $session = new Session($storage);
 
 

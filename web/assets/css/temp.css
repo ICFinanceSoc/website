@@ -1,0 +1,135 @@
+/* @font-face {
+    font-family: 'EurostileRegular';
+    src: url('http://localhost:8001/fonts/eurosti-webfont.eot');
+    src: url('http://localhost:8001/fonts/eurosti-webfont.eot?#iefix') format('embedded-opentype'),
+         url('http://localhost:8001/fonts/eurosti-webfont.woff') format('woff'),
+         url('http://localhost:8001/fonts/eurosti-webfont.ttf') format('truetype'),
+         url('http://localhost:8001/fonts/eurosti-webfont.svg#EurostileRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+} */
+
+.navbar-brand {
+	height: auto;
+}
+.navbar-brand img {
+	max-width: 250px;
+}
+
+.nav > li > a:hover,
+.nav > li > a:focus {
+  text-decoration: none;
+  background: none;
+}
+.nav .open > a,
+.nav .open > a:hover,
+.nav .open > a:focus {
+  background: none;
+}
+
+.nav-login {
+	margin-left: 30px;
+}
+
+ul.navbar-nav {
+	margin-top: 15px;
+}
+
+.nav .open>a {
+	background-color: #fff;
+}
+.navbar-icfs .dropdown-menu {
+	border: 0;
+	text-align: right;
+	font-size: 15px;
+	font-family: 'EurostileRegular', sans-serif;
+	box-shadow: none;
+	border-radius: none;
+	border-bottom-left-radius: 0px;
+	border-bottom-right-radius: 0px;
+	border-top-left-radius: 0px;
+	border-top-right-radius: 0px;
+	padding: 0;
+}
+.navbar-icfs .dropdown-menu a {
+	padding: 6px 15px 4px 0;
+}
+
+
+
+.navbar-icfs .navbar-nav>li>button {
+	border-radius: 0px;
+	margin-top: 8px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	font-family: 'EurostileRegular', sans-serif;
+	font-size: 15px;
+}
+
+.navbar-icfs .navbar-nav>li>a {
+	margin-top: 10px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	font-family: 'EurostileRegular', sans-serif;
+	font-size: 15px;
+	color: #444;
+}
+.navbar-icfs .navbar-nav>li>a:hover {
+	border-bottom: thin solid #999;
+	color: #aaa;
+	transition: color 0.4s;
+}
+.navbar-icfs .navbar-nav>li.open>a {
+	border-bottom: thin solid #999;
+}
+.navbar-icfs .navbar-nav>li.active>a {
+	color: #141945;
+	border-bottom: thin solid #2e395a;
+}
+
+
+
+.navbar-icfs .navbar-toggle {
+	margin-top: 25px;
+	border-color: #ddd;
+}
+.navbar-icfs .navbar-toggle .icon-bar {
+	background-color: #888;
+}
+
+
+
+#homepage_caro .carousel-caption {
+	background: #555;
+	background: rgba(50,50,50,.7);
+}
+
+
+table.table-sponsor.thin {
+	border-radius: 5px;
+	border: 1px solid #ddd;
+	border-spacing:0
+}
+
+table.table-sponsor.thin tr td {
+	width: 50%;
+}
+
+
+
+
+
+
+
+
+
+/* Footer */
+
+#footer {
+	margin-top: 50px;
+	padding-top: 20px;
+	padding-bottom: 10px;
+	background: #171717 url('https://www.financesociety.co.uk/images/black_denim.png');
+	color: white;
+}
+
