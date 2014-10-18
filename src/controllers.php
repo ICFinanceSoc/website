@@ -2,9 +2,33 @@
 
 use ICFS\Model\Page;
 use Symfony\Component\HttpFoundation\Response;
+use Silex\Application;
 
 
 $app->mount('/ngap', new ICFS\Controller\AdminController());
+
+$app->get('/user/logout', function (Application $app) {
+    $app['icfs.user']->logout();
+    return $app->redirect($app['url_generator']->generate('homepage'));
+});
+        // // Logic behind the login. Delegates actual login function to AdminServiceProvider
+        // $this->controllers->post('/login', function (Application $app) {
+        //     if (($error = $app['icfs.user']->adminLogin()) === true)
+        //         return $app->redirect($app['url_generator']->generate('ngap', array(), true));
+        //     return $app['twig']->render('ngap/login', array('error' => $error, 'username' => $app['request']->get('username')) );
+        // });
+
+$app->get('/login', function (Application $app) {
+    if ($app['icfs.user']->checkLogin())
+        return $app->redirect($app['url_generator']->generate('homepage'));
+    return $app['twig']->render('pages/login', array('error' => ''));
+});
+$app->post('/login', function (Application $app) {
+	if (($error = $app['icfs.user']->login()) === true)
+        return $app->redirect($app['url_generator']->generate('homepage', array(), true));
+    return $app['twig']->render('pages/login', array('error' => $error, 'username' => $app['request']->get('username')) );
+});
+
 
 $app->get('/', function() use ($app) {
 	$sponsors = $app['db.em']->getRepository('\\ICFS\\Model\\Sponsors');

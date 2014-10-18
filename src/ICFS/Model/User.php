@@ -21,6 +21,7 @@ class User implements ServiceProviderInterface
     public function boot(Application $app)
     {
         $app['icfs.user']->authenticate($app); //check if the user is authenticated
+        $app["twig"]->addGlobal('user', $app['icfs.user']);
     }
 }
 
