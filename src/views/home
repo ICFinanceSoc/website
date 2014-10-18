@@ -1,7 +1,13 @@
 {% extends "skeleton" %}
 
-{% block content %}
+{% block precontent %}
+<div id="carousel-wrapper"> <div class="container">
 	{% embed "carousel" %} {% endembed %}
+</div> </div>
+{% endblock %}
+
+{% block content %}
+	
 
 	<div class="row">
 		<div class="col-md-8">

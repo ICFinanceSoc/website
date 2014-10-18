@@ -38,6 +38,9 @@ ul.navbar-nav {
 .nav .open>a {
 	background-color: #fff;
 }
+.navbar-icfs {
+	margin-bottom: 0px;
+}
 .navbar-icfs .dropdown-menu {
 	border: 0;
 	text-align: right;
@@ -118,6 +121,17 @@ table.table-sponsor.thin tr td {
 
 
 
+
+
+#carousel-wrapper {
+	padding-top: 20px;
+	padding-bottom: 20px;
+	background: #171714 url('https://www.financesociety.co.uk/images/black_denim.png');
+}
+#carousel-wrapper .carousel-inner>.item img {
+	min-width: 100%;
+	min-height: 250px;
+}
 
 
 
