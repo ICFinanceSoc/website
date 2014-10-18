@@ -4,13 +4,13 @@
 {% block skel_navigation %}{# Remove Navigation! #}{% endblock %}
 {% block contentclass %} login-content{% endblock %}
 {% block content %}
-            <div class="hero-unit{% if error != '' %} login-error{%endif%}">
+            <div class="jumbotron{% if error != '' %} login-error{%endif%}">
                 <h1><img src="https://www.union.ic.ac.uk/scc/finance/images/logo.png" /></h1>
-                {% if error != '' %}<div class="alert alert-error">{{error}}</div>{% else %}<div class="alert alert-success">Please Login to use NGAP</div>{% endif %}
-                <p><form data-persist="garlic" method="POST">
-                    <input type='text' name='username' class='error' placeholder='Username' value="{{username}}"><br />
-                    <input type='password' name='password' data-storage='false' placeholder='Password'><br />
-                    <input type='submit' class='btn btn-inverse btn-large' value="Enter &raquo;">
+                {% if error != '' %}<div class="alert alert-danger">{{error}}</div>{% else %}<div class="alert alert-success">Please Login to use NGAP</div>{% endif %}
+                <p><form role="form" data-persist="garlic" method="POST">
+                    <input type='text' name='username' class="form-control" placeholder='Username' value="{{username}}"><br />
+                    <input type='password' name='password' class="form-control" data-storage='false' placeholder='Password'><br />
+                    <button class='btn btn-primary btn-lg'>Enter &raquo;</button>
                 </form></p>
             </div>
 {% endblock %}

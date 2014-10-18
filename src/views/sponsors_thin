@@ -5,7 +5,7 @@
 {% for sponsor_row in sponsors[i]|batch(2) %}
 	<tr>
 		{% for sponsor in sponsor_row %}
-			<td >{{sponsor.getName}}</td>
+			<td ><img src="{{sponsor.getLogo}}" style="max-width: 100%;" /></td>
 		{% endfor %}
 		{% if sponsor_row|length == 1 %}
 			<td></td>

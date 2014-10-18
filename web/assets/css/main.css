@@ -5,19 +5,19 @@ body.login {
   font-weight: 300; }
   body.login .container {
     margin-left: 0px; }
-    body.login .container .hero-unit {
-      width: 400px;
+    body.login .container .jumbotron {
+      width: 450px;
       padding: 50px 20px;
       margin: 100px auto 0;
       text-align: center;
       border-radius: 0px;
       box-shadow: 0 0 1px 0 rgba(0, 50, 0, 0.6); }
-      body.login .container .hero-unit.login-error {
+      body.login .container .jumbotron.login-error {
         box-shadow: 0 0 1px 0 rgba(50, 0, 0, 0.6); }
-      body.login .container .hero-unit h1 img {
+      body.login .container .jumbotron h1 img {
         max-width: 390px;
         padding-right: 10px; }
-      body.login .container .hero-unit .alert {
+      body.login .container .jumbotron .alert {
         margin-top: 40px; }
   body.login .garlic-swap {
     display: none; }
@@ -351,3 +351,5 @@ footer {
   padding: .5em 0;
   text-align: center;
   color: #aaa; }
+
+/*# sourceMappingURL=main.css.map */

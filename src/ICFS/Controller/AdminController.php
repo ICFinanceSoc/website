@@ -109,7 +109,7 @@ class AdminController implements ControllerProviderInterface
 
         $this->controllers->match('uploads/json/main', function(Application $app) {
             $upload_handler = new \ICFS\Model\UploadHandler(array(
-                'upload_dir' => dirname(dirname(dirname(__dir__))) .'/assets/uploads/',
+                'upload_dir' => dirname(dirname(dirname(__dir__))) .'/web/assets/uploads/',
                 'upload_url'=> $app['url_generator']->generate('homepage', array(), true) . 'assets/uploads/',
                 'script_url'=> $app['url_generator']->generate('ngap', array(), true) . 'uploads/json/main',
                 'delete_type' => 'POST',
@@ -120,7 +120,7 @@ class AdminController implements ControllerProviderInterface
 
         $this->controllers->match('uploads/json/sponsors', function(Application $app) {
             $upload_handler = new \ICFS\Model\UploadHandler(array(
-                'upload_dir' => dirname(dirname(dirname(__dir__))) .'/assets/uploads/sponsors/',
+                'upload_dir' => dirname(dirname(dirname(__dir__))) .'/web/assets/uploads/sponsors/',
                 'upload_url'=> $app['url_generator']->generate('homepage', array(), true) . 'assets/uploads/sponsors/',
                 'script_url'=> $app['url_generator']->generate('ngap', array(), true) . 'uploads/json/sponsors',
                 'delete_type' => 'POST',

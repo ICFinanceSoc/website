@@ -46,19 +46,18 @@ src/ICFS/DoctrineConnection.php
 ngap/.htaccess
 
 #Lets ignore uploads, but keep everything else!
-assets/uploads/*.jpeg
-assets/uploads/*.jpg
-assets/uploads/*.png
-assets/uploads/*.gif
-assets/uploads/thumbnail/
-assets/uploads/sponsors/
+web/assets/uploads/*.jpeg
+web/assets/uploads/*.jpg
+web/assets/uploads/*.png
+web/assets/uploads/*.gif
+web/assets/uploads/thumbnail/
+web/assets/uploads/sponsors/
 
 #sessions, needed for running on Dougal
 sessions/
 
 #TXSL's sandbox
 src/sandbox.php
-assets/uploads/sponsors
 *.sass-cache
 
 forums/*
