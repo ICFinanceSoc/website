@@ -1,5 +1,9 @@
 <?php
 
+use ICFS\Model\Page;
+use Symfony\Component\HttpFoundation\Response;
+
+
 $app->mount('/ngap', new ICFS\Controller\AdminController());
 
 $app->get('/', function() use ($app) {
@@ -13,3 +17,17 @@ $app->get('/', function() use ($app) {
     		'5'=>$sponsors->findBy(array('type' => '5'), array('type' => 'ASC')),
     	)));
 })->bind('homepage');
+
+$app->get('/{page_name}', function($page_name) use ($app) {
+	$page = new Page($app, $page_name);
+
+	if ($page->exists) {
+		return  $app['twig']->render('pages/generic', array(
+			'content'=>$page->data['content']
+			));
+	} else {
+		return new Response($app['twig']->render('pages/404'), 404);
+	}
+
+	return $page_name;
+});

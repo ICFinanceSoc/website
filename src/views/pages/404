@@ -1,0 +1,11 @@
+{% extends "skeleton" %}
+
+{% block content %}
+
+	<div class="jumbotron" style="margin-top: 50px">
+		<h2>404: Not Found</h2>
+		<p>Whoops!</p>
+		The page you requested no longer exists
+	</div>
+
+{% endblock %}

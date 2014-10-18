@@ -1,0 +1,6 @@
+{% extends "skeleton" %}
+
+{% block content %}
+	{{content|raw}}
+
+{% endblock %}
