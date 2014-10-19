@@ -13,7 +13,7 @@
 	                <span class="rollover"></span>
 	                {{sponsor[event.sponsorID].getName}}
 	                <div class="image">
-	                	<img src="{% if event.sponsorID == 0 %}/assets/img/logo.png{% else %}{{sponsors[event.sponsorID].getLogo}}{%endif%}" style="max-height: 130px; opacity: 1; max-width: 90%;" alt="">
+	                	<img src="{% if event.sponsorID == 0 %}{{path('homepage')}}assets/img/logo.png{% else %}{{sponsors[event.sponsorID].getLogo}}{%endif%}" style="max-height: 130px; opacity: 1; max-width: 90%;" alt="">
                 	</div>
 	                <span id="shadow"></span>
 	                </div>
