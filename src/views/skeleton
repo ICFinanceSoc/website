@@ -66,15 +66,21 @@
       {% block content %}{% endblock %}
     </div> <!-- /container -->
 
-    <div id="footer" style="">
+    <div id="footer">
       <div class="container">
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <p><a href="{{url('homepage')}}team">Contact Us</a></p>
+            <p>&copy; 2011-2014 Imperial College Finance Society<p>
+          </div>
         </div>
-        <div class="row"><div class="col-md-12 text-center">
-          <p><a href="{{url('homepage')}}team">Contact Us</a></p>
-          <p>&copy; 2011-2014 Imperial College Finance Society<p>
-        </div></div>
       </div>
     </div>
+
+
+
+
+
 
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
