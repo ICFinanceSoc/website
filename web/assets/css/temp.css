@@ -110,12 +110,15 @@ ul.navbar-nav {
 }
 
 
-table.table-sponsor.thin {
+table.table-sponsor {
 	border-radius: 5px;
 	border: 1px solid #ddd;
 	border-spacing:0
 }
 
+table.table-sponsor tr td {
+	width: 33.33%;
+}
 table.table-sponsor.thin tr td {
 	width: 50%;
 }

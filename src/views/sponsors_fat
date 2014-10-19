@@ -1,13 +1,17 @@
 {% for i in [1,2,3,4,5] %}
 <h4>{%if i == 5 %}Partners{% else %}{% if i == 1%}Platinum{%elseif i == 2%}Gold{%elseif i == 3%}Silver{%elseif i == 4%}Bronze{%endif%} Sponsors{%endif%}</h4>
 
-<table class="table table-bordered table-sponsor thin">
-{% for sponsor_row in sponsors[i]|batch(2) %}
+<table class="table table-bordered table-sponsor">
+{% for sponsor_row in sponsors[i]|batch(3) %}
 	<tr>
 		{% for sponsor in sponsor_row %}
-			<td><a href="{{url('homepage')}}sponsors"><img src="{{sponsor.getLogo}}" style="max-width: 100%;" /></a></td>
+			<td><a class="sponsorimage" href="#" data-id="{{sponsor.getId}}"><img src="{{sponsor.getLogo}}" style="max-width: 100%;" /></a></td>
 		{% endfor %}
 		{% if sponsor_row|length == 1 %}
+			<td></td>
+			<td></td>
+		{% endif %}
+		{% if sponsor_row|length == 2 %}
 			<td></td>
 		{% endif %}
 	</tr>

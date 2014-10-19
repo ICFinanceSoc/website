@@ -76,7 +76,7 @@
       <div class="container">
         </div>
         <div class="row"><div class="col-md-12 text-center">
-          <p><a href="team.php">Contact Us</a></p>
+          <p><a href="{{url('homepage')}}team">Contact Us</a></p>
           <p>&copy; 2011-2014 Imperial College Finance Society<p>
         </div></div>
       </div>
@@ -136,6 +136,7 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="{{path('homepage')}}assets/js/bootstrap.min.js"></script>
+    <script src="{{path('homepage')}}assets/js/icfs.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="{{path('homepage')}}assets/js/ie10-viewport-bug-workaround.js"></script>
   </body>

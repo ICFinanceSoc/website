@@ -75,16 +75,31 @@ $app->get('/events', function() use ($app) {
 
 $app->get('/events/{eventid}', function($eventid) use ($app) {
 	$events = new Events($app);
-
     if (!is_numeric($eventid) || !($event = $events->get($eventid)))
         return new Response($app['twig']->render('pages/404'), 404);
-
-
     return $app['twig']->render('pages/eventdetails', array(
     	'event'=>$event
     	));
 });
 
+$app->get('/sponsors', function() use ($app) {
+	$sponsors = $app['db.em']->getRepository('\\ICFS\\Model\\Sponsors');
+    return $app['twig']->render('pages/sponsors', array(
+    	'sponsors'=> array(
+    		'1'=>$sponsors->findBy(array('type' => '1'), array('type' => 'ASC')),
+    		'2'=>$sponsors->findBy(array('type' => '2'), array('type' => 'ASC')),
+    		'3'=>$sponsors->findBy(array('type' => '3'), array('type' => 'ASC')),
+    		'4'=>$sponsors->findBy(array('type' => '4'), array('type' => 'ASC')),
+    		'5'=>$sponsors->findBy(array('type' => '5'), array('type' => 'ASC')),
+	    )
+    	));
+});
+$app->get('/sponsors/{sponsorid}/ajax', function($sponsorid) use ($app) {
+	$sponsors = $app['db.em']->getRepository('\\ICFS\\Model\\Sponsors');
+    return $app['twig']->render('sponsordetails', array(
+    	'sponsor'=> $sponsors->find($sponsorid)
+    	));
+});
 
 
 

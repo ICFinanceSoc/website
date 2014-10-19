@@ -1,0 +1,19 @@
+{% extends "skeleton" %}
+
+{% block content %}
+	<div style="margin-top: 50px;"></div>
+	<div class="row">
+		<div class="col-sm-7">
+			{% embed "sponsors_fat" %} {% endembed %}
+		</div>
+		<div class="col-sm-5" id="sponsor_details">
+			<h4>Our Sponsors</h4>
+			<p>Select a sponsor image from the left to see more details</p>
+			<hr />
+			<small>
+				<p>Without the help of our sponsors, we wouldn't be able to provide you with the number of events and insights. We are grateful for the continued support we receive from all our sponsors.</p>
+				<p>If you are interested in sponsoring our society, please <a href="{{url('homepage')}}team">contact</a> the ICFS President</p>
+			</small>
+		</div>
+	</div>
+{% endblock %}
