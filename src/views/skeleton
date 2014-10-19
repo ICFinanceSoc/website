@@ -11,14 +11,14 @@
     <title>Static Top Navbar Example for Bootstrap</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{path('homepage')}}assets/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="assets/css/temp.css" rel="stylesheet">
+    <link href="{{path('homepage')}}assets/css/temp.css" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
+    <script src="{{path('homepage')}}assets/js/ie-emulation-modes-warning.js"></script>
 
 
 
@@ -43,27 +43,27 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="/"><img src="assets/img/logo.png" /></a>
+          <a class="navbar-brand" href="{{url('homepage')}}"><img src="{{path('homepage')}}assets/img/logo.png" /></a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right nav-login">
             <li class="dropdown">{% if user.auth == 1 %}<a href="#" class="dropdown-toggle" data-toggle="dropdown">{{user.username}} <span class="glyphicon glyphicon-cog"></a><ul class="dropdown-menu" role="menu">
-                <li><a href="user/logout">Logout</a></li>
+                <li><a href="{{url('homepage')}}user/logout">Logout</a></li>
               </ul>{% else %}<button class="btn btn-success" data-toggle="modal" data-target="#myModal">Login </button>{% endif %}</li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">About us</a>
               <ul class="dropdown-menu" role="menu">
-                <li><a href="about">About ICFS</a></li>
-                <li><a href="icic">About ICIC</a></li>
-                <li><a href="team">The Team</a></li>
+                <li><a href="{{url('homepage')}}about">About ICFS</a></li>
+                <li><a href="{{url('homepage')}}icic">About ICIC</a></li>
+                <li><a href="{{url('homepage')}}team">The Team</a></li>
               </ul>
             </li>
-            <li><a href="events">Events</a></li>
-            <li><a href="media">Media</a></li>
-            <li><a href="tec">TEC</a></li>
-            <li><a href="forums">Forums</a></li>
+            <li><a href="{{url('homepage')}}events">Events</a></li>
+            <li><a href="{{url('homepage')}}media">Media</a></li>
+            <li><a href="{{url('homepage')}}tec">TEC</a></li>
+            <li><a href="/forums">Forums</a></li>
             
           </ul>
         </div><!--/.nav-collapse -->
@@ -96,7 +96,7 @@
         <p>Please login to our website for full benefits.</p>
         <p>You will be authenticated with your Imperial College login details. Alumni and external members can register here.</p>
         <p><br /></p>
-        <p><form class="form-horizontal" role="form" method="POST" action="login">
+        <p><form class="form-horizontal" role="form" method="POST" action="{{path('homepage')}}login">
   <div class="form-group">
     <label for="inputEmail3" class="col-sm-2 control-label">Username</label>
     <div class="col-sm-10">
@@ -137,8 +137,8 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="{{path('homepage')}}assets/js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+    <script src="{{path('homepage')}}assets/js/ie10-viewport-bug-workaround.js"></script>
   </body>
 </html>

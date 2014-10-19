@@ -1,0 +1,31 @@
+{% extends "skeleton" %}
+
+{% block content %}
+	<h2>{{event.data.title}}</h2>
+
+	<div class="row">
+		<div class="col-md-6">
+			<table class="table table-bordered table-condensed">
+				<tr><td class="text-right"><b>Date</b></td><td>{{event.data.starttime|date("d M Y")}}</td></tr>
+				<tr><td class="text-right"><b>Time</b></td><td>{{event.data.starttime|date("g:ia")}} to {{event.data.endtime|date("g:ia")}}</td></tr>
+				<tr><td class="text-right"><b>Venue</b></td><td>{{event.data.location}}</td></tr>
+				<tr><td class="text-right"><b>Organisers</b></td><td>{{event.data.organiser}}</td></tr>
+			</table>
+		</div>
+	</div>
+	<hr />
+	{{event.data.information|raw}}
+	{#<hr />
+	{% if user.auth == 1 %}
+		<h3>Register</h3>
+		<p>By registering, you will be given preference in attending our events.</p>
+		<p>In addition, we will inform you with any change in event details. Some events require registration for attendance.</p>
+		<a href="{{event.data.eid}}/register" class="btn btn-success" data-toggle="modal" data-target="#myModal">Register</a> <span style="padding: 8px 10px 10px" class="alert alert-info">You are currently <b>not</b> registered on this event</span>
+	{% else %}
+		<h3>Login to register</h3>
+		<p>By registering, you will be given preference in attending our events.</p>
+		<p>In addition, we will inform you with any change in event details. Some events require registration for attendance.</p>
+		<button class="btn btn-success" data-toggle="modal" data-target="#myModal">Login</button>
+	{% endif %}#}
+
+{% endblock %}

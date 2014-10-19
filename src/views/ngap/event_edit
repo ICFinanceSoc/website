@@ -12,17 +12,34 @@
 {% if save %}     <div class="alert alert-success goodsave">All saved up! (@{{'now'|date('H:i')}} server time)</div><br />
 {% elseif error %}      <div class="alert alert-error">Form not saved: <em>{{error|raw}}</em></div><br />{%endif%}
 	<form method="POST">
-		<div class="edit-name"><input placeholder="Event Name" name="event-title" type="text" value="{{data.title}}"></div>
-		<div class="edit-events-topholder">
-			<div class="edit-subname"><input placeholder="Location / Venue" name="event-location" type="text" value="{{data.location}}"><br/>
-				<input placeholder="Organiser" name="event-organiser" type="text" value="{{data.organiser}}"><br />
-				<select name="event-sponsorID"><option value="test">Sponsor</option></select></div>
-			<div class="edit-url">
-				<label for="checkbox-event-enabled"><input{% if data.open == 1 %} checked{% endif %} id="checkbox-event-enabled" type="checkbox" name="event-enabled"> Enabled</label>
-				Event Date: <input name="event-date" type="text" placeholder="dd/mm/yyyy" value="{{data.starttime|date('d/m/Y')}}" style="width: 75px;"><br />
-				Time: <input name="event-time-start" type="text" style="width: 40px;" placeholder="hh:mm" value="{% if data.starttime is not null %}{{data.starttime|date('H:i')}}{%else%}18:00{%endif%}"> - <input name="event-time-end" type="text" style="width: 40px;" placeholder="hh:mm" value="{% if data.endtime is not null %}{{data.endtime|date('H:i')}}{%else%}20:00{%endif%}">
-			</div>
-			<br style="clear: both" />
+		<input class="form-control" placeholder="Event Name" name="event-title" type="text" value="{{data.title}}">
+		<div class="row" style="margin: 0 0 10px;">
+            <div class="col-md-8" style="margin-top: 10px;">
+    			<input class="form-control" placeholder="Location / Venue" name="event-location" type="text" value="{{data.location}}">
+    			<input class="form-control" placeholder="Organiser" name="event-organiser" type="text" value="{{data.organiser}}">
+    			<select name="event-sponsorID" class="form-control">
+                    <option value="0">No Sponsor</option>
+                    {% for sponsor in sponsors %}
+                        <option value="{{sponsor.getId}}">{{sponsor.getName}}</option>
+                    {% endfor %}         
+                </select>
+            </div>
+            <div class="col-md-4">
+                <div class="event-open-button text-center">
+                    <label for="checkbox-event-enabled">
+                        <input{% if data.open == 1 %} checked{% endif %} id="checkbox-event-enabled" type="checkbox" name="event-enabled"> Enabled
+                    </label>
+                </div>
+
+                <input class="form-control" name="event-date" type="text" placeholder="dd/mm/yyyy" value="{{data.starttime|date('d/m/Y')}}"  />
+                <div class="row">
+                    <div class="col-sm-6">
+                        <input class="form-control" name="event-time-start" type="text" placeholder="hh:mm" value="{% if data.starttime is not null %}{{data.starttime|date('H:i')}}{%else%}18:00{%endif%}">
+                    </div><div class="col-sm-6">
+                        <input class="form-control" name="event-time-end" type="text" placeholder="hh:mm" value="{% if data.endtime is not null %}{{data.endtime|date('H:i')}}{%else%}20:00{%endif%}" />
+                    </div>
+                </div>
+            </div>
 		</div>
 		<textarea name="event-information" class='tinymce'>{{data.information}}</textarea>
 		<input type="submit" class="btn btn-large btn-primary btn-save" value="Save"><br style="clear: both"/>
@@ -56,7 +73,7 @@ $(function () {
     	else
     		$('#checkbox-event-enabled, label[for=checkbox-event-enabled]').hide().before("<div class='btn btn-medium btn-danger'>Registration is Disabled</div>", "</br>");
 
-    	$('.edit-url .btn').first().click(event, function() {
+    	$('.event-open-button .btn').first().click(event, function() {
     		$('#checkbox-event-enabled').prop("checked", !$('#checkbox-event-enabled').prop("checked"));
     		if ($(this).hasClass('btn-success')) {
     			$(this).removeClass('btn-success').addClass('btn-danger').text('Registration is Disabled');

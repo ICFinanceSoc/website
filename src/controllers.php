@@ -2,6 +2,7 @@
 
 use ICFS\Model\Page;
 use Symfony\Component\HttpFoundation\Response;
+use ICFS\Model\Events;
 use Silex\Application;
 
 
@@ -41,6 +42,49 @@ $app->get('/', function() use ($app) {
     		'5'=>$sponsors->findBy(array('type' => '5'), array('type' => 'ASC')),
     	)));
 })->bind('homepage');
+
+
+
+
+
+$app->get('/events', function() use ($app) {
+	$events = new Events($app);
+
+	$sponsors = $app['db.em']->getRepository('\\ICFS\\Model\\Sponsors')->findAll();
+	$twig_sponsor = array();
+	foreach ($sponsors as $sponsor) {
+		$twig_sponsor[$sponsor->getId()] = $sponsor;
+	}
+
+	$futureEvents = $events->filter("1=1", "starttime asc");
+	$futureEventsArray = array();
+
+	foreach ($futureEvents as $fe) {
+		$futureEventsArray[date("F Y",$fe['starttime'])][] = $fe;
+	}
+
+    return $app['twig']->render('pages/events', array(
+    	'events'=>$futureEventsArray,
+    	'sponsors'=> $twig_sponsor
+    	));
+});
+
+
+$app->get('/events/{eventid}', function($eventid) use ($app) {
+	$events = new Events($app);
+
+    if (!is_numeric($eventid) || !($event = $events->get($eventid)))
+        return new Response($app['twig']->render('pages/404'), 404);
+
+
+    return $app['twig']->render('pages/eventdetails', array(
+    	'event'=>$event
+    	));
+});
+
+
+
+
 
 $app->get('/{page_name}', function($page_name) use ($app) {
 	$page = new Page($app, $page_name);

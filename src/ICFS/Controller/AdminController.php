@@ -158,7 +158,7 @@ class AdminController implements ControllerProviderInterface
 
 
         $this->controllers->get('events/add', function (Application $app) {
-            return $app['twig']->render('ngap/event_edit', array('title' => "Add New Event"));
+            return $app['twig']->render('ngap/event_edit', array('title' => "Add New Event", 'sponsors'=>$app['db.em']->getRepository('\\ICFS\\Model\\Sponsors')->findAll()));
         })->before($this->allowed($this->nav->permission('pages')))->before($this->nav->fetch());
 
         $this->controllers->get('events/{eventid}', function (Application $app, $eventid) {
@@ -166,12 +166,18 @@ class AdminController implements ControllerProviderInterface
             if (!($event = $events->get($eventid)))
                 return $app->abort(404, "Event with ID $eventid doesn't exist.");
 
-            return $app['twig']->render('ngap/event_edit', array('title' => "Edit Event", 'data' => $event->data, 'save' => $app['request']->query->has("success")));
+            return $app['twig']->render('ngap/event_edit', array('title' => "Edit Event", 'data' => $event->data, 'sponsors'=>$app['db.em']->getRepository('\\ICFS\\Model\\Sponsors')->findAll(), 'save' => $app['request']->query->has("success")));
         })->before($this->allowed($this->nav->permission('pages')))->before($this->nav->fetch());
 
         $this->controllers->post('events/{eventid}', function (Application $app, $eventid) {
             $events = new Events($app);
             //check the data has been given:
+
+            if (!is_numeric($app['request']->get("event-sponsorID")) || $app['request']->get("event-sponsorID") < 0) {
+                $error = "Event Sponsor ID must be integer larger than 0";
+            } else {
+                $data['sponsorID'] = floor($app['request']->get("event-sponsorID"));
+            }
 
             if (($time = strtotime(str_replace('/','.', $app['request']->get('event-date')) . " " . $app['request']->get('event-time-start'))) !== FALSE)
                 $data['starttime'] = $time;
@@ -184,13 +190,13 @@ class AdminController implements ControllerProviderInterface
                 $error = "Start time is invalid";
 
 
-            foreach (array('event-title', 'event-location', 'event-organiser', 'event-sponsorID', 'event-information') as $required) {
+            foreach (array('event-title', 'event-location', 'event-organiser', 'event-information') as $required) {
                 $data[str_replace('event-', '', $required)] = $app['request']->get($required);
                 if (strlen($app['request']->get($required)) < 3)
                     $error = "Field is not long enough: <b>$required</b>";
             }
-            //if (time() > $data['starttime'] || time() > $data['endtime'])
-            //    $error = "Event time cannot be in the past!";
+
+
             if (@$data['endtime'] < @$data['starttime'])
                 $error = "Event cannot end before it starts!";
 
@@ -198,7 +204,6 @@ class AdminController implements ControllerProviderInterface
 
             if (!isset($error)) {
                 if ($eventid == "add") {
-                    echo "CREATE";
                     $page = $events->create($data);
                 } else {
                     $page = $events->get($eventid);

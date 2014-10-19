@@ -63,3 +63,8 @@ src/sandbox.php
 forums/*
 web/.htaccess
 composer.phar
+
+
+
+fabfile.py
+fabfile.pyc

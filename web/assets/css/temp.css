@@ -137,6 +137,85 @@ table.table-sponsor.thin tr td {
 
 
 
+.eventbox {
+	margin-bottom: 40px;
+}
+
+.eventbox .imagecont {
+	height: 130px;
+	position: relative;
+}
+.eventbox .imagecont .image {
+	position: absolute;
+	width: 100%;
+	bottom: 0;
+	left: 0;
+}
+
+.eventbox .rollover {
+	opacity: 0;
+	display: block;
+	height: 130px;
+	width: 100%;
+	background: url('https://www.financesociety.co.uk/CSS/../images/hover-opacity.png') center center no-repeat;
+	background-color: #ffffff;
+	position: absolute;
+	z-index: 5;	
+	top: 0px;
+	left: 0px;
+}
+.eventbox .rollover:hover {
+	opacity: 0.7;
+	transition: opacity 1s;
+}
+.eventbox #shadow {
+background: url('https://www.financesociety.co.uk/CSS/../images/shadow-pf3.png') center center no-repeat;
+display: block;
+height: 10px;
+width: 100%;
+position: absolute;
+bottom: -10px;
+left: 0px;
+}
+
+.eventbox h4 {
+	margin-left: 10px;
+margin-top: 10px;
+line-height: 24px;
+}
+
+.eventbox #date {
+float: right;
+padding-right: 20px;
+text-align: center;
+margin-top: 10px;
+margin-right: 14px;
+font-family: 'EurostileRegular', sans-serif;
+}
+.eventbox #date #day {
+float: left;
+font-size: 24px;
+border-right: 1px solid #BEBEBE;
+padding-right: 8px;
+}
+
+
+.eventbox #date #time {
+clear: both;
+text-align: center;
+font-size: 14px;
+margin-top: 2px;
+}
+
+.eventbox .btn {
+	margin-left: 10px;
+}
+
+
+
+
+
+
 /* Footer */
 
 #footer {
@@ -147,3 +226,18 @@ table.table-sponsor.thin tr td {
 	color: white;
 }
 
+
+
+
+
+
+
+
+.table-no-border>thead>tr>th, 
+.table-no-border>tbody>tr>th, 
+.table-no-border>tfoot>tr>th, 
+.table-no-border>thead>tr>td, 
+.table-no-border>tbody>tr>td, 
+.table-no-border>tfoot>tr>td {
+  border-top: none; 
+}
