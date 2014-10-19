@@ -56,16 +56,19 @@ $app->get('/events', function() use ($app) {
 		$twig_sponsor[$sponsor->getId()] = $sponsor;
 	}
 
-	$futureEvents = $events->filter("1=1", "starttime asc");
+	$futureEvents = $events->filter("endtime > " . (time()-(24*60*60)), "starttime asc");
 	$futureEventsArray = array();
 
 	foreach ($futureEvents as $fe) {
 		$futureEventsArray[date("F Y",$fe['starttime'])][] = $fe;
 	}
 
+	$pastEvents = $events->filter("endtime < " . (time()-(24*60*60)), "starttime desc", 3);
+
     return $app['twig']->render('pages/events', array(
     	'events'=>$futureEventsArray,
-    	'sponsors'=> $twig_sponsor
+    	'sponsors'=> $twig_sponsor,
+    	'past_event' => $pastEvents
     	));
 });
 

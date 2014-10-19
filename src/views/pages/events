@@ -37,4 +37,40 @@
 	{% endfor %}
 	</div>
 	{% endfor %}
+
+	<hr />
+	<h3>Previous Events</h3>
+	<div class="row">
+		{% for event in past_event %}
+		<div class="col-md-4 col-sm-6">
+	        <div class="eventbox clearfix">
+	            <a href="/events/{{event.eid}}" title="Find out more about the event" id="imgcont" class="">
+	            <div class="imagecont text-center">
+	                <span class="rollover"></span>
+	                {{sponsor[event.sponsorID].getName}}
+	                <div class="image">
+	                	<img src="{% if event.sponsorID == 0 %}/assets/img/logo.png{% else %}{{sponsors[event.sponsorID].getLogo}}{%endif%}" style="max-height: 130px; opacity: 1; max-width: 90%;" alt="">
+                	</div>
+	                <span id="shadow"></span>
+	                </div>
+	            </a>
+	            <div class="row">
+	            	<div class="col-xs-6">
+			            <h4>{{event.title}}</h4>
+			            <a href="/events/{{event.eid}}" title="Sign Up" class="btn btn-success btn-sm">Sign Up</a>
+	            	</div>
+	            	<div class="col-xs-6">
+	            		<div id="date">
+			                <div id="day">{{ event.starttime|date("d") }}</div>
+			                <div id="daylong">{{ event.starttime|date("D") }}</div>
+			                <div id="month">{{ event.starttime|date("M") }}</div>
+			                <div id="time">{{ event.starttime|date("G:i") }} - {{ event.endtime|date("G:i") }}</div>
+			            </div>
+	            	</div>
+	            </div>
+	        </div>
+	    </div>
+		{% endfor %}
+	</div>
+
 {% endblock %}
