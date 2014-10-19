@@ -16,12 +16,6 @@
     <!-- Custom styles for this template -->
     <link href="{{path('homepage')}}assets/css/temp.css" rel="stylesheet">
 
-    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="{{path('homepage')}}assets/js/ie-emulation-modes-warning.js"></script>
-
-
-
     </style>
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -138,6 +132,5 @@
     <script src="{{path('homepage')}}assets/js/bootstrap.min.js"></script>
     <script src="{{path('homepage')}}assets/js/icfs.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="{{path('homepage')}}assets/js/ie10-viewport-bug-workaround.js"></script>
   </body>
 </html>
