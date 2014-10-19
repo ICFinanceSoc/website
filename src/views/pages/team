@@ -1,0 +1,27 @@
+{% extends "skeleton" %}
+
+{% block content %}
+{% for person in team %}
+	<div style="margin-top: 50px;"></div>
+	<div class="row person clearfix imageactive">
+        <div class="col-md-2 col-sm-3 image text-center">
+			<img src="{{person.img}}" class="visible-xs" alt="" style="max-width: 80%; margin: 0 auto 20px;">
+			<img src="{{person.img}}" class="hidden-xs" alt="" style="max-width: 100%;">
+        </div>
+        <div class="col-md-10 col-sm-9">
+	        <div class="leftpointer hidden-xs"></div>
+	        <div class="personinfo">
+	            <div class="name">
+	                <h2>{{person.name}}</h2>
+	            </div>
+	            <div class="info">
+	                <div id="position">
+	                    <p>{{person.position}} - {{person.dept}}</p>
+	                </div>
+	                {{person.about|raw}}
+	            </div>
+	        </div>
+        </div>
+    </div>
+{% endfor %}
+{% endblock %}

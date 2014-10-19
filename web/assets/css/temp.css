@@ -235,6 +235,28 @@ margin-top: 2px;
 
 
 
+.person {
+	margin-bottom: 20px;
+	position: relative;
+}
+.person.imageactive .leftpointer {
+	position: absolute;
+	top: 20px;
+	left: 3px;
+	background: url('https://www.financesociety.co.uk/CSS/../images/leftpointer.png') 0px 0px no-repeat;
+	width: 13px;
+	height: 23px;
+	z-index: 200;
+}
+.person .personinfo {
+padding: 5px 10px;
+border: 1px solid #E7E7E7;
+}
+.person .personinfo .info {
+background: none;
+padding: 0px;
+}
+
 
 
 

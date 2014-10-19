@@ -104,6 +104,22 @@ $app->get('/sponsors/{sponsorid}/ajax', function($sponsorid) use ($app) {
 
 
 
+
+$app->get('/team', function() use ($app) {
+    $year = ( date('Y') - (date('m') < 8));
+
+    $team = new \ICFS\Model\ICFSTeam($app);
+    $comittee = $team->getComittee($year);
+
+    $sponsors = $app['db.em']->getRepository('\\ICFS\\Model\\Sponsors');
+    return $app['twig']->render('pages/team', array(
+        'team'=> $comittee
+        ));
+});
+
+
+
+
 $app->get('/{page_name}', function($page_name) use ($app) {
 	$page = new Page($app, $page_name);
 
