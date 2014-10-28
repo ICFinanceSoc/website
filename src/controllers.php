@@ -111,13 +111,35 @@ $app->get('/events', function() use ($app) {
 
 
 $app->get('/events/{eventid}', function($eventid) use ($app) {
-	$events = new Events($app);
+    $events = new Events($app);
     if (!is_numeric($eventid) || !($event = $events->get($eventid)))
         return new Response($app['twig']->render('pages/404'), 404);
+
+    $attending = $events->attending($eventid, $app['icfs.user']->username);
+
     return $app['twig']->render('pages/eventdetails', array(
-    	'event'=>$event
-    	));
+            'event'=>$event,
+            'attending' => $attending
+        ));
 });
+$app->post('/events/{eventid}', function($eventid) use ($app) {
+    $events = new Events($app);
+    if (!is_numeric($eventid) || !($event = $events->get($eventid)))
+        return new Response($app['twig']->render('pages/404'), 404);
+
+    $attending = $events->attending($eventid, $app['icfs.user']->username);
+
+    if ($attending) {
+        // remove attendance
+        $events->removeAttendance($eventid, $app['icfs.user']->username);
+    } else {
+        // add attendance
+        $events->addAttendance($eventid, $app['icfs.user']->username);
+    }
+
+    return $app->redirect($app['url_generator']->generate('homepage') . "events/" . $eventid);
+});
+
 
 $app->get('/sponsors', function() use ($app) {
 	$sponsors = $app['db.em']->getRepository('\\ICFS\\Model\\Sponsors');

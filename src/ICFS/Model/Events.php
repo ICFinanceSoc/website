@@ -26,6 +26,18 @@ class Events {
 		$limit = ($limit != null) ? " LIMIT $limit" : "";
 		return $this->app['db']->fetchAll("SELECT * FROM " . $this->table_name . $where . $order . $limit);
 	}
+
+	function attending($eventid, $userid) {
+		return sizeof($this->app['db']->fetchAll("SELECT * FROM attendance WHERE eventid = ? AND username = ?", array($eventid, $userid)));
+	}
+
+	function removeAttendance($eventid, $userid) {
+		$this->app['db']->delete('attendance', array('eventid' => $eventid, 'username' => $userid));
+	}
+
+	function addAttendance($eventid, $userid) {
+		$this->app['db']->insert('attendance', array('eventid' => $eventid, 'username' => $userid));
+	}
 }
 
 class EventObject {
