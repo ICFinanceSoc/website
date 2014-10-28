@@ -5,12 +5,11 @@
 
 	<div class="row">
 		<div class="col-md-6">
-			<table class="table table-bordered table-condensed">
-				<tr><td class="text-right"><b>Date</b></td><td>{{event.data.starttime|date("d M Y")}}</td></tr>
-				<tr><td class="text-right"><b>Time</b></td><td>{{event.data.starttime|date("g:ia")}} to {{event.data.endtime|date("g:ia")}}</td></tr>
-				<tr><td class="text-right"><b>Venue</b></td><td>{{event.data.location}}</td></tr>
-				<tr><td class="text-right"><b>Organisers</b></td><td>{{event.data.organiser}}</td></tr>
-			</table>
+			<p style="font-size: 110%">
+				{% if event.data.organiser|length > 0 %}Organised by {{event.data.organiser}}<br />{% endif %}
+				{{event.data.starttime|date("l, d F Y f\\r\\o\\m G:i")}} to {{event.data.endtime|date("G:i")}} (GMT)<br />
+				{{event.data.location}}
+			</p>
 		</div>
 	</div>
 	<hr />
