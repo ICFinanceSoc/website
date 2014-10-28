@@ -23,11 +23,48 @@ $app->get('/login', function (Application $app) {
     if ($app['icfs.user']->checkLogin())
         return $app->redirect($app['url_generator']->generate('homepage'));
     return $app['twig']->render('pages/login', array('error' => ''));
-});
+})->bind('userlogin');
 $app->post('/login', function (Application $app) {
 	if (($error = $app['icfs.user']->login()) === true)
         return $app->redirect($app['url_generator']->generate('homepage', array(), true));
+    else if ($app['icfs.user']->checkCredentials($app['request']->get('username'), $app['request']->get('password'))) {
+        $app['session']->set('icfs_temp_user', $app['request']->get('username'));
+        return $app->redirect($app['url_generator']->generate('registration_finalise'));
+        
+    }
     return $app['twig']->render('pages/login', array('error' => $error, 'username' => $app['request']->get('username')) );
+});
+
+$app->get('/register/complete', function (Application $app) {
+    if (!$app['session']->get('icfs_temp_user')) 
+        return $app->redirect($app['url_generator']->generate('userlogin'));
+
+    $username = $app['session']->get('icfs_temp_user');
+    $info = $app['icfs.user']->getLdapDetails($username);
+
+    return $app['twig']->render('pages/register_complete', array(
+        'username' => $username,
+        'name' => implode(" ", $app['icfs.user']->getLdapName($username))
+        ) );
+})->bind('registration_finalise');
+$app->post('/register/complete', function (Application $app) {
+    if (!$app['session']->get('icfs_temp_user')) 
+        return $app->redirect($app['url_generator']->generate('userlogin'));
+
+    $username = $app['session']->get('icfs_temp_user');
+    $newsletter = ($app['request']->get('newsletter') == "on") ? true : false;
+
+    if (($error = $app['icfs.user']->newUser($username, "WEB2", $newsletter)) === true){
+        $app['icfs.user']->forceLogin($username);
+        $app['session']->remove('icfs_temp_user');
+        return $app->redirect($app['url_generator']->generate('homepage', array(), true));
+    }
+    else
+        return $app['twig']->render('pages/register_complete', array(
+            'error' => $error,
+            'username' => $username,
+            'name' => implode(" ", $app['icfs.user']->getLdapName($username))
+        ) );
 });
 
 
@@ -118,6 +155,10 @@ $app->get('/team', function() use ($app) {
 });
 
 
+$app->get('/register', function() use ($app) {
+    return $app['twig']->render('pages/register', array(
+        ));
+});
 
 
 $app->get('/{page_name}', function($page_name) use ($app) {

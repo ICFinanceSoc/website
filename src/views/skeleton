@@ -92,7 +92,7 @@
       </div>
       <div class="modal-body">
         <p>Please login to our website for full benefits.</p>
-        <p>You will be authenticated with your Imperial College login details. Alumni and external members can register here.</p>
+        <p>You will be authenticated with your Imperial College login details. Alumni and external members can register <a href="{{path('homepage')}}register">here</a>.</p>
         <p><br /></p>
         <p><form class="form-horizontal" role="form" method="POST" action="{{path('homepage')}}login">
   <div class="form-group">

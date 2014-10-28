@@ -48,7 +48,7 @@ class ICFSUser
 
     public function checkCredentials($user, $pass)
     {
-        if ($this->app['debug'] && !function_exists('pam_auth')) 
+        if ($this->app['debug'] && !function_exists('ICFS\Model\pam_auth')) 
         {
             function pam_auth($user, $pass) {
                 if (($user == 'dm1911' && $pass == "sexy") || ($user == 'txl11' && $pass == "sexy"))
@@ -57,6 +57,27 @@ class ICFSUser
             }
         }
         return pam_auth($user, $pass);
+    }
+
+    public function getLdapName($username)
+    {
+        if ($this->app['debug'] && !function_exists('ldap_get_names')) 
+        {
+            function ldap_get_names($username) {
+                return array("First $username", "Last");
+            }
+        }
+        return ldap_get_names($username);
+    }
+
+    public function getLdapDetails($username) {
+        if ($this->app['debug'] && !function_exists('ldap_get_info')) 
+        {
+            function ldap_get_info($username) {
+                return array(2=>"EEE");
+            }
+        }
+        return ldap_get_info($username);
     }
 
     public function login() 
@@ -75,6 +96,15 @@ class ICFSUser
         }
 
         return $error;
+    }
+
+    public function forceLogin($username) {
+        if ( $user = $this->app['db']->executeQuery("SELECT * FROM members WHERE uname = ?", array($username))->fetch() ) {
+            $this->app['session']->set('icfs_user', $username);
+            $this->fillUserClass($user);
+            return true;
+        }
+        return false;
     }
 
     private function fillUserClass($user) //$user is an SQL query result (->fetch() ed)
@@ -121,12 +151,39 @@ class ICFSUser
         return false;
     }
 
-
     public function adminAllowed($location) //Returns a true/false depending on the bit we are requesting. 0 = global true, 1 = bit 0, etc
     {
         if ($location == 0)
             return true;
         return (bool)($this->admin & (0x1 << ($location - 1)));
+    }
+
+    public function newUser($username, $method, $newsletter)
+    {
+
+        if ($user = $this->app['db']->executeQuery("SELECT * FROM members WHERE uname = ?", array($username))->fetch()) {
+            $error = "Username already exists";
+        } else {
+            $datetime = new \DateTime("now");
+            $names = $this->getLdapName($username);
+            $info = $this->getLdapDetails($username);
+
+            $this->app['db']->insert('members', array(
+                'uname' => $username,
+                'mobile' => "",
+                'dept' => $info[2],
+                'fname' => $names[0],
+                'lname' => $names[1],
+                'email' => $username . "@imperial.ac.uk",
+                'regdate' => $datetime->format('Y-m-d H:i:s'),
+                'regmethod' => $method,
+                'admin' => "0",
+                'newsletter' => ($newsletter) ? "1" : "0"
+            ));
+
+            return true;
+        }
+        return $error;
     }
 }
 
