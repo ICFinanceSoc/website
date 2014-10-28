@@ -54,9 +54,14 @@
             <li><a href="{{url('homepage')}}sponsors">Sponsors</a></li>
             <li><a href="{{url('homepage')}}tec">TEC</a></li>
             <li><a href="/forums">Forums</a></li>
-            <li class="dropdown">{% if user.auth == 1 %}<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span style="padding-left: 15px" class="hidden-sm">{{user.username}}</span> <span class="glyphicon glyphicon-cog"></a><ul class="dropdown-menu" role="menu">
+            <li class="dropdown">{% if user.auth == 1 %}<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span style="padding-left: 15px" class="hidden-sm">{{user.username}}</span> <span class="glyphicon glyphicon-cog"></a>
+              <ul class="dropdown-menu" role="menu">
+                {% if user.admin > 0 %}<li style="background: #333;"><a href="{{url('homepage')}}admin/" style="color: white;">Admin Panel</a></li>
+                <li style="background: #333;"><a href="{{url('homepage')}}ngap/" style="color: white;">NGAP</a></li>{% endif %}
+                <li><a href="{{url('homepage')}}user">User Panel</a></li>
                 <li><a href="{{url('homepage')}}user/logout">Logout</a></li>
-              </ul>{% else %}<button class="btn btn-success" data-toggle="modal" data-target="#myModal">Login </button>{% endif %}</li>
+              </ul>
+            {% else %}<button class="btn btn-success" data-toggle="modal" data-target="#myModal">Login </button>{% endif %}</li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>

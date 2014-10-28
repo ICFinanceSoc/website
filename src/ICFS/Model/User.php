@@ -112,6 +112,7 @@ class ICFSUser
         if ($user) {
             $this->auth = true;
             $this->username = $user['uname'];
+            $this->newsletter = $user['newsletter'];
             $this->name = array(
                 'first' => $user['fname'],
                 'last' => $user['lname'], 
@@ -184,6 +185,14 @@ class ICFSUser
             return true;
         }
         return $error;
+    }
+
+    public function updateNewsletter($newsletter){
+        $this->app['db']->update('members', array(
+                'newsletter' => ($newsletter) ? "1" : "0"
+            ), array(
+                'uname' => $this->username,
+            ));
     }
 }
 

@@ -139,6 +139,23 @@ $app->get('/sponsors/{sponsorid}/ajax', function($sponsorid) use ($app) {
 });
 
 
+$app->get('/user', function() use ($app) {
+    if (!$app['icfs.user']->checkLogin())
+        return $app->redirect($app['url_generator']->generate('homepage'));
+    return $app['twig']->render('pages/usercp', array());
+})->bind('usercp');
+$app->post('/user', function() use ($app) {
+    if (!$app['icfs.user']->checkLogin())
+        return $app->redirect($app['url_generator']->generate('homepage'));
+
+    $newsletter = ($app['request']->get('newsletter')) ? 1 : 0;
+    if ($newsletter != $app['icfs.user']->newsletter){
+        $app['icfs.user']->updateNewsletter($newsletter);
+    }
+
+    return $app->redirect($app['url_generator']->generate('usercp'));
+});
+
 
 
 
@@ -156,8 +173,10 @@ $app->get('/team', function() use ($app) {
 
 
 $app->get('/register', function() use ($app) {
-    return $app['twig']->render('pages/register', array(
-        ));
+    if ($app['icfs.user']->checkLogin())
+        return $app->redirect($app['url_generator']->generate('homepage'));
+
+    return $app['twig']->render('pages/register', array());
 });
 
 

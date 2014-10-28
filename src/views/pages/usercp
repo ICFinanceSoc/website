@@ -1,0 +1,27 @@
+{% extends "skeleton" %}
+
+{% block content %}
+	<h2 style="margin-top: 50px;">User Panel</h2>
+
+	<p>Looks pretty barebones, huh? Nothing much to change here apart from your preferences!</p>
+	<form class="form-horizontal" role="form" method="POST">
+		<div class="panel panel-default"><div class="panel-body">
+			<h4>Newsletter Preferences</h4>
+			<p>ICFS will use your email to send you updates from our society. These will be sent out roughly once a week, depending on the number of events we run.</p>
+			<hr />
+			{% if user.newsletter == 1 %}
+				<div class="alert alert-success">You are currently receiving our newsletter</div>
+			{% else %}
+				<div class="alert alert-danger">You are currently not receiving our newsletter</div>
+			{% endif %}
+			<input name="newsletter" type="checkbox" checked> <strong>Yes</strong>, I want to subscribe to the ICFS mailing list.<br />
+			<small>Your email will never be distributed to any sponsors without prior agreement.</small>
+		</div></div>
+		<div class="form-group">
+		<div class="col-sm-12">
+		<button type="submit" class="btn btn-default">Update</button>
+		</div>
+		</div>
+	</form>
+
+{% endblock %}
