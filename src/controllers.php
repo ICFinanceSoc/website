@@ -12,13 +12,6 @@ $app->get('/user/logout', function (Application $app) {
     $app['icfs.user']->logout();
     return $app->redirect($app['url_generator']->generate('homepage'));
 });
-        // // Logic behind the login. Delegates actual login function to AdminServiceProvider
-        // $this->controllers->post('/login', function (Application $app) {
-        //     if (($error = $app['icfs.user']->adminLogin()) === true)
-        //         return $app->redirect($app['url_generator']->generate('ngap', array(), true));
-        //     return $app['twig']->render('ngap/login', array('error' => $error, 'username' => $app['request']->get('username')) );
-        // });
-
 $app->get('/login', function (Application $app) {
     if ($app['icfs.user']->checkLogin())
         return $app->redirect($app['url_generator']->generate('homepage'));
@@ -34,6 +27,8 @@ $app->post('/login', function (Application $app) {
     }
     return $app['twig']->render('pages/login', array('error' => $error, 'username' => $app['request']->get('username')) );
 });
+
+
 
 $app->get('/register/complete', function (Application $app) {
     if (!$app['session']->get('icfs_temp_user')) 

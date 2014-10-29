@@ -81,8 +81,7 @@ class ICFSUser
     }
 
     public function login() 
-    { //return true if went well, otherwise return the error message!
-
+    {
         if (!$this->checkCredentials($this->app['request']->get('username'), $this->app['request']->get('password')))
             $error = "Invalid User/Password Combination";
         elseif (!($user = $this->app['db']->executeQuery("SELECT * FROM members WHERE uname = ?", array($this->app['request']->get('username')))->fetch()))
@@ -90,6 +89,26 @@ class ICFSUser
 
         if (!isset($error)) 
         {
+            if ($this->app['request']->get('remember') == "on") {
+
+                $hash = hash("sha256", time() . rand() . $this->app['request']->get('username'));
+                $this->app['db']->update('members', array(
+                    'loginhash' => $hash), array(
+                    'uname' => $this->app['request']->get('username')));
+
+                $this->app->after(function (\Symfony\Component\HttpFoundation\Request $request, \Symfony\Component\HttpFoundation\Response $response) use ($hash) {
+                    $dt = new \DateTime();
+                    $dt->modify("+1 month");
+
+                    $c1 = new \Symfony\Component\HttpFoundation\Cookie("icfs_hash", $hash, $dt);
+                    $c2 = new \Symfony\Component\HttpFoundation\Cookie("icfs_user", $request->get('username'), $dt);
+
+                    $response->headers->setCookie($c1);
+                    $response->headers->setCookie($c2);
+                });
+
+                $this->app['session']->set('icfs_hash', $hash);
+            }
             $this->app['session']->set('icfs_user', $this->app['request']->get('username'));
             $this->fillUserClass($user);
             return true;
@@ -126,6 +145,11 @@ class ICFSUser
 
     public function logout() {
         $this->app['session']->clear();
+        $this->app->after(function (\Symfony\Component\HttpFoundation\Request $request, \Symfony\Component\HttpFoundation\Response $response) {
+            $response->headers->clearCookie('icfs_hash');
+            $response->headers->clearCookie('icfs_user');
+        });
+
         return true;
     }
 
@@ -139,7 +163,7 @@ class ICFSUser
 
     public function authenticate() //this is run at the start of every page. Sets the adminauth, and user details, fetched from SQL to make sure we're up to date.
     {
-        if ($this->app['session']->has('icfs_user'))
+        if ($this->app['session']->has('icfs_user')) {
             if ($this->fillUserClass($this->app['db']->executeQuery('SELECT * FROM members WHERE uname = ?', array($this->app['session']->get('icfs_user')))->fetch()))
             {
                 if ($this->app['session']->get('icfs_admin') === true) //We've logged ourselves in...
@@ -149,6 +173,12 @@ class ICFSUser
                         $this->app['session']->remove('icfs_admin');
                 return true;
             }
+        } elseif (isset($_COOKIE["icfs_hash"])) {
+            if (!$this->fillUserClass($this->app['db']->executeQuery('SELECT * FROM members WHERE uname = ? AND loginhash = ?', array($_COOKIE['icfs_user'], $_COOKIE['icfs_hash']))->fetch())) {
+                $this->logout();
+            }
+            return true;
+        }
         return false;
     }
 
