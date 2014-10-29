@@ -8,7 +8,7 @@
 	{% for event in month %}
 		<div class="col-md-4 col-sm-6">
 	        <div class="eventbox clearfix">
-	            <a href="/events/{{event.eid}}" title="Find out more about the event" id="imgcont" class="">
+	            <a href="{{path('homepage')}}events/{{event.eid}}" title="Find out more about the event" id="imgcont" class="">
 	            <div class="imagecont text-center">
 	                <span class="rollover"></span>
 	                {{sponsor[event.sponsorID].getName}}
@@ -21,7 +21,7 @@
 	            <div class="row">
 	            	<div class="col-xs-6">
 			            <h4>{{event.title}}</h4>
-			            <a href="/events/{{event.eid}}" title="Sign Up" class="btn btn-success btn-sm">Sign Up</a>
+			            <a href="{{path('homepage')}}events/{{event.eid}}" title="Sign Up" class="btn btn-success btn-sm">Sign Up</a>
 	            	</div>
 	            	<div class="col-xs-6">
 	            		<div id="date">
@@ -44,7 +44,7 @@
 		{% for event in past_event %}
 		<div class="col-md-4 col-sm-6">
 	        <div class="eventbox clearfix">
-	            <a href="/events/{{event.eid}}" title="Find out more about the event" id="imgcont" class="">
+	            <a href="{{path('homepage')}}events/{{event.eid}}" title="Find out more about the event" id="imgcont" class="">
 	            <div class="imagecont text-center">
 	                <span class="rollover"></span>
 	                {{sponsor[event.sponsorID].getName}}
@@ -57,7 +57,7 @@
 	            <div class="row">
 	            	<div class="col-xs-6">
 			            <h4>{{event.title}}</h4>
-			            <a href="/events/{{event.eid}}" title="Sign Up" class="btn btn-success btn-sm">Sign Up</a>
+			            <a href="{{path('homepage')}}events/{{event.eid}}" title="Sign Up" class="btn btn-success btn-sm">Sign Up</a>
 	            	</div>
 	            	<div class="col-xs-6">
 	            		<div id="date">
