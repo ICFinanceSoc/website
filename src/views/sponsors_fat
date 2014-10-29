@@ -1,7 +1,7 @@
 {% for i in [1,2,3,4,5] %}
 <h4>{%if i == 5 %}Partners{% else %}{% if i == 1%}Platinum{%elseif i == 2%}Gold{%elseif i == 3%}Silver{%elseif i == 4%}Bronze{%endif%} Sponsors{%endif%}</h4>
 
-<table class="table table-bordered table-sponsor">
+<table class="table table-bordered table-sponsor" style="table-layout: fixed;">
 {% for sponsor_row in sponsors[i]|batch(3) %}
 	<tr>
 		{% for sponsor in sponsor_row %}
