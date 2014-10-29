@@ -200,7 +200,7 @@ class ICFSUser
             $info = $this->getLdapDetails($username);
 
             $this->app['db']->insert('members', array(
-                'uname' => $username,
+                'uname' => strtolower($username),
                 'mobile' => "",
                 'dept' => $info[2],
                 'fname' => $names[0],
