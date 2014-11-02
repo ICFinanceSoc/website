@@ -1,0 +1,99 @@
+{% extends "ngap/_skeleton" %}
+{% block contentclass %} content-pageedit{% endblock %}
+
+
+
+
+{% block content %}
+<div class="page-header">
+	<h1>{% if title %}{{title}}{% else %}Editing Content Page{% endif %} <small>{{data.title}}</small></h1>
+</div>
+<div class="edit-panel edit-event">
+{% if save %}     <div class="alert alert-success goodsave">All saved up! (@{{'now'|date('H:i')}} server time)</div><br />
+{% elseif error %}      <div class="alert alert-error">Form not saved: <em>{{error|raw}}</em></div><br />{%endif%}
+	<form method="POST">
+		<input class="form-control" placeholder="Event Name" name="event-title" type="text" value="{{data.title}}">
+		<div class="row" style="margin: 0 0 10px;">
+            <div class="col-xs-8" style="margin-top: 10px;">
+    			<input class="form-control" placeholder="Location / Venue" name="event-location" type="text" value="{{data.location}}">
+    			<input class="form-control" placeholder="Organiser" name="event-organiser" type="text" value="{{data.organiser}}">
+    			<select name="event-sponsorID" class="form-control">
+                    <option value="0">No Sponsor</option>
+                    {% for sponsor in sponsors %}
+                        <option {% if sponsor.getId == data.sponsorID%}selected="selected"{%endif%} value="{{sponsor.getId}}">{{sponsor.getName}}</option>
+                    {% endfor %}         
+                </select>
+            </div>
+            <div class="col-xs-4">
+                <div class="event-open-button text-center">
+                    <label for="checkbox-event-enabled">
+                        <input{% if data.open == 1 %} checked{% endif %} id="checkbox-event-enabled" type="checkbox" name="event-enabled"> Enabled
+                    </label>
+                </div>
+
+                <input class="form-control" name="event-date" type="text" placeholder="dd/mm/yyyy" value="{{data.starttime|date('d/m/Y')}}"  />
+                <div class="row">
+                    <div class="col-sm-6">
+                        <input class="form-control" name="event-time-start" type="text" placeholder="hh:mm" value="{% if data.starttime is not null %}{{data.starttime|date('H:i')}}{%else%}18:00{%endif%}">
+                    </div><div class="col-sm-6">
+                        <input class="form-control" name="event-time-end" type="text" placeholder="hh:mm" value="{% if data.endtime is not null %}{{data.endtime|date('H:i')}}{%else%}20:00{%endif%}" />
+                    </div>
+                </div>
+            </div>
+		</div>
+		<textarea name="event-information" class='tinymce'>{{data.information}}</textarea>
+		<input type="submit" class="btn btn-large btn-primary btn-save" value="Save"><br style="clear: both"/>
+		<div class="delete-holder">
+			<div class="yousure"><a href="{{path('ngap')}}pages/{{data.name}}?delete" class="btn btn-mini btn-danger">Delete</a> <div class="btn btn-inverse btn-canceldel">Cancel</div></div>
+			<div class="btn btn-danger btn-delete">Delete</div>
+		</div>
+	</form>
+      <br style="clear:both" />     
+      {%include "ngap/uploads/main_htmlPage" %}
+</div>
+{% endblock %}
+
+
+
+
+{% block srcpagejs %}
+{% include "ngap/uploads/main_jsInclude" %}
+<script src="{{path('homepage')}}assets/js/vendor/tiny_mce/jquery.tinymce.js"> </script>{% endblock %} {# TinyMCE JS Source #}
+
+
+
+
+
+{% block pagejs %}
+{% include "ngap/uploads/main_jsPage" %}
+<script>
+$(function () {
+    	if ($('#checkbox-event-enabled').is(':checked'))
+    		$('#checkbox-event-enabled, label[for=checkbox-event-enabled]').hide().before("<div class='btn btn-medium btn-success'>Registration is Enabled</div>", "</br>");
+    	else
+    		$('#checkbox-event-enabled, label[for=checkbox-event-enabled]').hide().before("<div class='btn btn-medium btn-danger'>Registration is Disabled</div>", "</br>");
+
+    	$('.event-open-button .btn').first().click(event, function() {
+    		$('#checkbox-event-enabled').prop("checked", !$('#checkbox-event-enabled').prop("checked"));
+    		if ($(this).hasClass('btn-success')) {
+    			$(this).removeClass('btn-success').addClass('btn-danger').text('Registration is Disabled');
+    		}
+    		else {
+    			$(this).removeClass('btn-danger').addClass('btn-success').text('Registration is Enabled');
+    		}
+    	})
+
+    	$("input[name=event-date]").datepicker({ dateFormat: "dd/mm/yy" });
+
+    	$('.btn-delete').click(function() {
+    		$('.yousure').animate({'opacity' : 1, 'margin-right' : '20px'});
+    	})
+      
+    	$('.btn-canceldel').click(function() {
+    		$('.yousure').animate({'opacity' : 0, 'margin-right' : '0px'});
+    	})
+    	
+      {% include "ngap/_js_tinymce" %} {# TinyMCE settings/config #}
+});
+</script>
+{% endblock %}

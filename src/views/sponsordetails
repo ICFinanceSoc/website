@@ -1,0 +1,3 @@
+<h4>{{sponsor.name}}</h4>
+<p><small><a href="{{sponsor.url}}">Homepage</a></small></p>
+{{sponsor.about|raw}}

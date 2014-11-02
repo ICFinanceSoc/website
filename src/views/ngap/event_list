@@ -1,0 +1,35 @@
+{% extends "ngap/_skeleton" %}
+{% block contentclass %} content-pageedit{% endblock %}
+
+
+
+
+{% block content %}
+<div class="page-header">
+	<h1>Event List</h1>
+</div>
+<div class="edit-panel edit-event">
+	<h2>Latest Events</h2>
+	<ul class="nav nav-tabs nav-stacked">
+{%for event in lastFive%}
+		<li><a href="{{event.eid}}"><span class="label label-warning">{{event.starttime|date("d M")}}</span> {{event.title}}</a></li>
+{%endfor%}
+	</ul>
+	<h2>Upcoming Events</h2>
+	<ul class="nav nav-tabs nav-stacked">
+{%for event in nextFive%}
+		<li><a href="{{event.eid}}"><span class="label label-warning">{{event.starttime|date("d M")}}</span> {{event.title}}</a></li>
+{%endfor%}
+	</ul>
+</div>
+{% endblock %}
+
+
+
+
+
+
+{% block srcpagejs %}<script src="{{path('homepage')}}assets/js/vendor/tiny_mce/jquery.tinymce.js"> </script>{% endblock %} {# TinyMCE JS Source #}
+
+{% block pagejs %}
+{% endblock %}

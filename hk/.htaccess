@@ -1,4 +1,0 @@
-AuthType Basic
-AuthName "ICFS Development"
-AuthUserFile /home/www/htdocs/scc/finance/dev/.htpasswd
-Require user icfs

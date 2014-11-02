@@ -1,0 +1,270 @@
+/* @font-face {
+    font-family: 'EurostileRegular';
+    src: url('http://localhost:8001/fonts/eurosti-webfont.eot');
+    src: url('http://localhost:8001/fonts/eurosti-webfont.eot?#iefix') format('embedded-opentype'),
+         url('http://localhost:8001/fonts/eurosti-webfont.woff') format('woff'),
+         url('http://localhost:8001/fonts/eurosti-webfont.ttf') format('truetype'),
+         url('http://localhost:8001/fonts/eurosti-webfont.svg#EurostileRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+} */
+
+.navbar-brand {
+	height: auto;
+}
+.navbar-brand img {
+	max-width: 250px;
+}
+
+.nav > li > a:hover,
+.nav > li > a:focus {
+  text-decoration: none;
+  background: none;
+}
+.nav .open > a,
+.nav .open > a:hover,
+.nav .open > a:focus {
+  background: none;
+}
+
+.nav-login {
+	margin-left: 30px;
+}
+
+ul.navbar-nav {
+	margin-top: 15px;
+}
+
+.nav .open>a {
+	background-color: #fff;
+}
+.navbar-icfs {
+	margin-bottom: 0px;
+}
+.navbar-icfs .dropdown-menu {
+	border: 0;
+	text-align: right;
+	font-size: 15px;
+	font-family: 'EurostileRegular', sans-serif;
+	box-shadow: none;
+	border-radius: none;
+	border-bottom-left-radius: 0px;
+	border-bottom-right-radius: 0px;
+	border-top-left-radius: 0px;
+	border-top-right-radius: 0px;
+	padding: 0;
+}
+.navbar-icfs .dropdown-menu a {
+	padding: 6px 15px 4px 0;
+}
+
+
+
+.navbar-icfs .navbar-nav>li>button {
+	border-radius: 0px;
+	margin-top: 8px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	font-family: 'EurostileRegular', sans-serif;
+	font-size: 15px;
+}
+
+.navbar-icfs .navbar-nav>li>a {
+	margin-top: 10px;
+	padding-top: 5px;
+	padding-left: 8px;
+	padding-right: 8px;
+	padding-bottom: 5px;
+	font-family: 'EurostileRegular', sans-serif;
+	font-size: 15px;
+	color: #444;
+}
+.navbar-icfs .navbar-nav>li>a:hover {
+	border-bottom: thin solid #999;
+	color: #aaa;
+	transition: color 0.4s;
+}
+.navbar-icfs .navbar-nav>li.open>a {
+	border-bottom: thin solid #999;
+}
+.navbar-icfs .navbar-nav>li.active>a {
+	color: #141945;
+	border-bottom: thin solid #2e395a;
+}
+
+
+
+.navbar-icfs .navbar-toggle {
+	margin-top: 25px;
+	border-color: #ddd;
+}
+.navbar-icfs .navbar-toggle .icon-bar {
+	background-color: #888;
+}
+
+
+
+#homepage_caro .carousel-caption {
+	background: #555;
+	background: rgba(50,50,50,.7);
+}
+
+
+table.table-sponsor {
+	border-radius: 5px;
+	border: 1px solid #ddd;
+	border-spacing:0
+}
+
+table.table-sponsor tr td {
+	width: 33.33%;
+}
+table.table-sponsor.thin tr td {
+	width: 50%;
+}
+
+
+
+
+
+
+#carousel-wrapper {
+	padding-top: 20px;
+	padding-bottom: 20px;
+	background: #171714 url('https://www.financesociety.co.uk/images/black_denim.png');
+}
+#carousel-wrapper .carousel-inner>.item img {
+	min-width: 100%;
+	min-height: 250px;
+}
+
+
+
+
+
+.eventbox {
+	margin-bottom: 40px;
+}
+
+.eventbox .imagecont {
+	height: 130px;
+	position: relative;
+}
+.eventbox .imagecont .image {
+	position: absolute;
+	width: 100%;
+	bottom: 0;
+	left: 0;
+}
+
+.eventbox .rollover {
+	opacity: 0;
+	display: block;
+	height: 130px;
+	width: 100%;
+	background: url('https://www.financesociety.co.uk/CSS/../images/hover-opacity.png') center center no-repeat;
+	background-color: #ffffff;
+	position: absolute;
+	z-index: 5;	
+	top: 0px;
+	left: 0px;
+}
+.eventbox .rollover:hover {
+	opacity: 0.7;
+	transition: opacity 1s;
+}
+.eventbox #shadow {
+background: url('https://www.financesociety.co.uk/CSS/../images/shadow-pf3.png') center center no-repeat;
+display: block;
+height: 10px;
+width: 100%;
+position: absolute;
+bottom: -10px;
+left: 0px;
+}
+
+.eventbox h4 {
+	margin-left: 10px;
+margin-top: 10px;
+line-height: 24px;
+}
+
+.eventbox #date {
+float: right;
+padding-right: 20px;
+text-align: center;
+margin-top: 10px;
+margin-right: 14px;
+font-family: 'EurostileRegular', sans-serif;
+}
+.eventbox #date #day {
+float: left;
+font-size: 24px;
+border-right: 1px solid #BEBEBE;
+padding-right: 8px;
+}
+
+
+.eventbox #date #time {
+clear: both;
+text-align: center;
+font-size: 14px;
+margin-top: 2px;
+}
+
+.eventbox .btn {
+	margin-left: 10px;
+}
+
+
+
+
+
+
+/* Footer */
+
+#footer {
+	margin-top: 50px;
+	padding-top: 20px;
+	padding-bottom: 10px;
+	background: #171717 url('https://www.financesociety.co.uk/images/black_denim.png');
+	color: white;
+}
+
+
+
+
+
+.person {
+	margin-bottom: 20px;
+	position: relative;
+}
+.person.imageactive .leftpointer {
+	position: absolute;
+	top: 20px;
+	left: 3px;
+	background: url('https://www.financesociety.co.uk/CSS/../images/leftpointer.png') 0px 0px no-repeat;
+	width: 13px;
+	height: 23px;
+	z-index: 200;
+}
+.person .personinfo {
+padding: 5px 10px;
+border: 1px solid #E7E7E7;
+}
+.person .personinfo .info {
+background: none;
+padding: 0px;
+}
+
+
+
+
+.table-no-border>thead>tr>th, 
+.table-no-border>tbody>tr>th, 
+.table-no-border>tfoot>tr>th, 
+.table-no-border>thead>tr>td, 
+.table-no-border>tbody>tr>td, 
+.table-no-border>tfoot>tr>td {
+  border-top: none; 
+}

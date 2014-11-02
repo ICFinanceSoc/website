@@ -1,0 +1,21 @@
+{% extends 'ngap/_skeleton' %}
+
+
+{%block content%}
+<div class="page-header">
+        <h1>Upload Manager <small>Manage Main ICFS Uploads</small></h1>
+    </div>
+    <br>
+    {%include "ngap/uploads/main_htmlManager" %}
+</div>
+{%endblock%}
+
+
+{% block srcpagejs %}
+{% include "ngap/uploads/main_jsInclude" %}
+{% endblock %}
+
+
+{% block pagejs %}
+{% include "ngap/uploads/main_jsManager" %}
+{% endblock %} 

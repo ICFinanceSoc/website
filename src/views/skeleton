@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+
+    <title>Imperial College Finance Society</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{{path('homepage')}}assets/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{{path('homepage')}}assets/css/temp.css" rel="stylesheet">
+
+    </style>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <!-- Static navbar -->
+    <div class="navbar navbar-icfs navbar-static-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="{{url('homepage')}}"><img src="{{path('homepage')}}assets/img/logo.png" /></a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">About us</a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="{{url('homepage')}}about">About ICFS</a></li>
+                <li><a href="{{url('homepage')}}icic">About ICIC</a></li>
+                <li><a href="{{url('homepage')}}team">The Team</a></li>
+              </ul>
+            </li>
+            <li><a href="{{url('homepage')}}events">Events</a></li>
+            <li><a href="{{url('homepage')}}media">Media</a></li>
+            <li><a href="{{url('homepage')}}sponsors">Sponsors</a></li>
+            <li><a href="{{url('homepage')}}tec">TEC</a></li>
+            <li><a href="/forums">Forums</a></li>
+            <li class="dropdown">{% if user.auth == 1 %}<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span style="padding-left: 15px" class="hidden-sm">{{user.username}}</span> <span class="glyphicon glyphicon-cog"></a>
+              <ul class="dropdown-menu" role="menu">
+                {% if user.admin > 0 %}<li style="background: #333;"><a href="{{url('homepage')}}admin/index.php" style="color: white;">Admin Panel</a></li>
+                <li style="background: #333;"><a href="{{url('homepage')}}ngap/" style="color: white;">NGAP</a></li>{% endif %}
+                <li><a href="{{url('homepage')}}user">User Panel</a></li>
+                <li><a href="{{url('homepage')}}user/logout">Logout</a></li>
+              </ul>
+            {% else %}<button class="btn btn-success" data-toggle="modal" data-target="#myModal">Login </button>{% endif %}</li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+    {% block precontent %}{% endblock %}
+    <div class="container">
+      {% block content %}{% endblock %}
+    </div> <!-- /container -->
+
+    <div id="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <p><a href="{{url('homepage')}}team">Contact Us</a></p>
+            <p>&copy; 2011-2014 Imperial College Finance Society<p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Login</h4>
+      </div>
+      <div class="modal-body">
+        <p>Please login to our website for full benefits.</p>
+        <p>You will be authenticated with your Imperial College login details. Alumni and external members can register <a href="{{path('homepage')}}register">here</a>.</p>
+        <p><br /></p>
+        <p><form class="form-horizontal" role="form" method="POST" action="{{path('homepage')}}login">
+  <div class="form-group">
+    <label for="inputEmail3" class="col-sm-2 control-label">Username</label>
+    <div class="col-sm-10">
+      <input name="username" type="text" class="form-control" placeholder="Username">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+    <div class="col-sm-10">
+      <input name="password" type="password" class="form-control" id="inputPassword3" placeholder="Password">
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <div class="checkbox">
+        <label>
+          <input name="remember" type="checkbox" checked> Remember me
+        </label>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" class="btn btn-default">Sign in</button>
+    </div>
+  </div>
+</form></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="{{path('homepage')}}assets/js/bootstrap.min.js"></script>
+    <script src="{{path('homepage')}}assets/js/icfs.js"></script>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-56302054-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+  </body>
+</html>

@@ -1,0 +1,48 @@
+{% extends "ngap/_skeleton" %}
+
+{% block content %}
+<div class="page-header">
+	<h1>{% if title %}{{title}}{% else %}Editing Content Page{% endif %} <small>{{data.title}}</small></h1>
+</div>
+<div class="edit-panel edit-page">
+{% if save %}	<div class="alert alert-success goodsave">All saved up! (@{{'now'|date('H:i')}} server time)</div><br />
+{% elseif error %}	<div class="alert alert-error">{{error}}</div><br />{%endif%}
+	<form method="POST">
+		<div class="edit-name"><input name="page_title" type="text" value="{{data.title}}" placeholder="Page Title"></div>
+		<div class="edit-url">URL: <input name="page_url" type="text" value="{{data.name}}" placeholder="Page URL"></div><br />
+		<textarea name="page_content" class='tinymce'>{{data.content}}</textarea>
+	{% if data.lastedit_who %}	<div class="alert alert-block lastedit">Last edited by <strong>{{data.lastedit_who}}</strong> on {{data.lastedit_when|date("d/m/Y \\a\\t H:i")}}</div>{%endif%}
+		<input type="submit" class="btn btn-large btn-primary btn-save" value="Save"><br style="clear: both"/>
+		<div class="delete-holder">
+			<div class="yousure"><a href="{{path('ngap')}}pages/{{data.name}}?delete" class="btn btn-mini btn-danger">Delete</a> <div class="btn btn-inverse btn-canceldel">Cancel</div></div>
+			<div class="btn btn-danger btn-delete">Delete</div>
+		</div>
+	</form>
+      <br style="clear:both" />     
+      {%include "ngap/uploads/main_htmlPage" %}
+</div>
+{% endblock %}
+
+{% block contentclass %} content-pageedit{% endblock %}
+
+{% block srcpagejs %}
+{% include "ngap/uploads/main_jsInclude" %}<script src="{{path('homepage')}}assets/js/vendor/tiny_mce/jquery.tinymce.js"> </script>{% endblock %} {# TinyMCE JS Source #}
+
+
+{% block pagejs %}
+{% include "ngap/uploads/main_jsPage" %}
+<script>
+            $(function () {
+
+            	$('.btn-delete').click(function() {
+            		$('.yousure').animate({'opacity' : 1, 'margin-right' : '20px'});
+            	})
+
+            	$('.btn-canceldel').click(function() {
+            		$('.yousure').animate({'opacity' : 0, 'margin-right' : '0px'});
+            	})
+            	
+                {% include "ngap/_js_tinymce" %} {# TinyMCE settings/config #}
+        });
+</script>
+{% endblock %}

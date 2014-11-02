@@ -1,0 +1,33 @@
+/* ==========================================================================
+   Login
+   ========================================================================== */
+
+body.login {
+    font-weight: 300;
+
+    .container {
+        margin-left: 0px;
+        .jumbotron {
+            width: 450px;
+            padding: 50px 20px;
+            margin: 100px auto 0;
+            text-align: center;
+            border-radius: 0px;
+            box-shadow: 0 0 1px 0 rgba(0,50,0,0.6);
+            &.login-error {
+                box-shadow: 0 0 1px 0 rgba(50,0,0,0.6);
+            }
+            h1 img {
+                max-width: 390px;
+                padding-right: 10px;
+            }
+            .alert {
+                margin-top: 40px;
+            }
+        }
+    }
+
+    .garlic-swap {
+        display: none;
+    }
+}

@@ -1,0 +1,32 @@
+{% extends "skeleton" %}
+
+{% block content %}
+	<h2>{{event.data.title}}</h2>
+
+	<div class="row">
+		<div class="col-md-6">
+			<p style="font-size: 110%">
+				{% if event.data.organiser|length > 0 %}Organised by {{event.data.organiser}}<br />{% endif %}
+				{{event.data.starttime|date("l, d F Y f\\r\\o\\m G:i")}} to {{event.data.endtime|date("G:i")}} (GMT)<br />
+				{{event.data.location}}
+			</p>
+		</div>
+	</div>
+	<hr />
+	{{event.data.information|raw}}
+	<hr />
+	{% if user.auth == 1 %}
+		{% if attending == true %}
+			<form method="POST"><span style="padding: 8px 10px 10px" class="alert alert-success">You are currently registered on this event</span> <button class="btn btn-danger">Remove Registration</button></form><br />
+			<p><small>By registering, you will be given preference in attending our events.<br />In addition, we will inform you with any change in event details. Some events require registration for attendance.</small></p>
+		{% else %}
+			<form method="POST"><button class="btn btn-success">Register</button> <span style="padding: 8px 10px 10px" class="alert alert-danger">You are currently <b>not</b> registered on this event</span></form><br />
+			<p><small>By registering, you will be given preference in attending our events.<br />In addition, we will inform you with any change in event details. Some events require registration for attendance.</small></p>
+		{% endif %}
+	{% else %}
+		<h3>Login to register</h3>
+		<p>By registering, you will be given preference in attending our events. In addition, we will inform you with any change in event details. Some events require registration for attendance.</p>
+		<button class="btn btn-success" data-toggle="modal" data-target="#myModal">Login</button>
+	{% endif %}
+
+{% endblock %}

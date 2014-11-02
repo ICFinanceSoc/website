@@ -1,0 +1,44 @@
+{% extends "skeleton" %}
+
+{% block content %}
+	<h1 style="margin-top: 50px;">Almost there!</h1>
+
+	<p>This seems to be the first time you're using the ICFS website. Please take a moment to confirm a couple of things for us!</p><br />
+	{% if error|length > 0 %}
+		<div class="alert alert-danger">{{error}}</div>
+	{% endif %}
+	<form class="form-horizontal" role="form" method="POST">
+	  <div class="form-group">
+	    <label class="col-sm-2 control-label">Username</label>
+	    <div class="col-sm-10">
+	      <input class="form-control" type="text" placeholder="{{username}}" disabled>
+	    </div>
+	  </div>
+
+	  <div class="form-group">
+	    <label class="col-sm-2 control-label">Full Name</label>
+	    <div class="col-sm-10">
+	      <input class="form-control" type="text" placeholder="{{name}}" disabled>
+	    </div>
+	  </div>
+
+
+
+	  <div class="form-group">
+	    <div class="col-sm-offset-2 col-sm-10">
+	      <div class="checkbox">
+	        <label>
+	          <input type="checkbox" name="newsletter" checked="checked"> Yes, please sign me up for the mailing list.<br />
+	          <small>We will never distribute or share your email address; you can always change your preferences through the control panel!</small>
+	        </label>
+	      </div>
+	    </div>
+	  </div>
+	  <div class="form-group">
+	    <div class="col-sm-offset-2 col-sm-10">
+	      <button type="submit" class="btn btn-default">Finish Registration</button>
+	    </div>
+	  </div>
+	</form>
+
+{% endblock %}
