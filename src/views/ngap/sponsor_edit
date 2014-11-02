@@ -8,15 +8,24 @@
 {% if save %}	<div class="alert alert-success goodsave">All saved up! (@{{'now'|date('H:i')}} server time)</div><br />
 {% elseif error %}	<div class="alert alert-error">{{error}}</div><br />{%endif%}
 	<form method="POST">
-		<div class="edit-name"><input name="sponsor_name" type="text" class="form-control input-lg" value="{{data.name}}" placeholder="Sponsor Name"></div>
-		<div class="edit-url"><input name="sponsor_url" type="text" class="form-control" value="{{data.url}}" placeholder="Sponsor Homepage URL"></div>
-		<div class="btn-group" data-toggle="buttons-radio">
+	<div class="row">
+		<div class="col-md-12">
+			<input name="sponsor_name" type="text" class="form-control input-lg" value="{{data.name}}" placeholder="Sponsor Name">
+		</div>
+	</div>
+	<div class="row">	
+		<div class="col-xs-5">
+			<input name="sponsor_url" type="text" class="form-control" value="{{data.url}}" placeholder="Sponsor Homepage URL">
+		</div>
+		<div class="col-xs-7 btn-group" data-toggle="buttons-radio">
 			<button type="button" data-id="1" class="btn btn-primary{% if data.type == 1%} active{% endif %}">Platinum</button>
 			<button type="button" data-id="2" class="btn btn-primary{% if data.type == 2%} active{% endif %}">Gold</button>
 			<button type="button" data-id="3" class="btn btn-primary{% if data.type == 3%} active{% endif %}">Silver</button>
 			<button type="button" data-id="4" class="btn btn-primary{% if data.type == 4%} active{% endif %}">Bronze</button>
+			<button type="button" data-id="5" class="btn btn-primary{% if data.type == 4%} active{% endif %}">Partner</button>
 		</div>
 		<input type="hidden" name="sponsor_type" value="{{data.type}}" />
+	</div>
 		<div class="edit-logo"><img src="{{data.logo}}" /> <input type="hidden" name="sponsor_logo" value="{{data.logo}}"></div><br />
 		<textarea name="sponsor_about" class='tinymce'>{{data.about}}</textarea>
 		<input type="submit" class="btn btn-large btn-primary btn-save" value="Save"><br style="clear: both"/>

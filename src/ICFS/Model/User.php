@@ -48,7 +48,7 @@ class ICFSUser
 
     public function checkCredentials($user, $pass)
     {
-        if ($this->app['debug'] && !function_exists('ICFS\Model\pam_auth')) 
+        if ($this->app['debug'] && !function_exists('ICFS\Model\pam_auth') && !function_exists('pam_auth')) 
         {
             function pam_auth($user, $pass) {
                 if (($user == 'dm1911' && $pass == "sexy") || ($user == 'txl11' && $pass == "sexy"))
@@ -61,7 +61,7 @@ class ICFSUser
 
     public function getLdapName($username)
     {
-        if ($this->app['debug'] && !function_exists('ldap_get_names')) 
+        if ($this->app['debug'] && !function_exists('ICFS\Model\ldap_get_names') && !function_exists('ldap_get_names')) 
         {
             function ldap_get_names($username) {
                 return array("First $username", "Last");
@@ -71,7 +71,7 @@ class ICFSUser
     }
 
     public function getLdapDetails($username) {
-        if ($this->app['debug'] && !function_exists('ldap_get_info')) 
+        if ($this->app['debug'] && !function_exists('ICFS\Model\ldap_get_info') && !function_exists('ldap_get_info')) 
         {
             function ldap_get_info($username) {
                 return array(2=>"EEE");

@@ -189,8 +189,8 @@ class AdminController implements ControllerProviderInterface
             else
                 $error = "Start time is invalid";
 
-
-            foreach (array('event-title', 'event-location', 'event-organiser', 'event-information') as $required) {
+            $data['organiser'] = $app['request']->get('event-organiser');
+            foreach (array('event-title', 'event-location', 'event-information') as $required) {
                 $data[str_replace('event-', '', $required)] = $app['request']->get($required);
                 if (strlen($app['request']->get($required)) < 3)
                     $error = "Field is not long enough: <b>$required</b>";
