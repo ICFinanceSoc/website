@@ -71,7 +71,8 @@ class Navigation
                 'subpages' => array(
                     'attend' => array(
                         'name' => 'Complete Attendance',
-                        'type' => 'link'),
+                        'type' => 'link',
+                        'permission' => 2),
                     'list' => array(
                         'name' => 'Event List',
                         'type' => 'link'),

@@ -27,6 +27,10 @@ class Events {
 		return $this->app['db']->fetchAll("SELECT * FROM " . $this->table_name . $where . $order . $limit);
 	}
 
+	function eventAttendance($eventid) {
+		return $this->app['db']->fetchAll("SELECT m.uname, m.fname, m.lname, m.dept FROM `attendance` a INNER JOIN members m ON a.username = m.uname INNER JOIN NGAP_EVENT e ON a.eventid = e.eid WHERE eventid = ?", array($eventid));
+	}
+
 	function attending($eventid, $userid) {
 		return sizeof($this->app['db']->fetchAll("SELECT * FROM attendance WHERE eventid = ? AND username = ?", array($eventid, $userid)));
 	}

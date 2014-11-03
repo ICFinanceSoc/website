@@ -5,7 +5,9 @@ use Symfony\Component\HttpFoundation\Response;
 use ICFS\Model\Events;
 use Silex\Application;
 
-
+$app->get('/ngap', function (Application $app) {
+    return $app->redirect($app['url_generator']->generate('homepage').'ngap/');
+});
 $app->mount('/ngap', new ICFS\Controller\AdminController());
 
 $app->get('/user/logout', function (Application $app) {

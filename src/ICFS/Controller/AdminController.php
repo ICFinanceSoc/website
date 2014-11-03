@@ -166,7 +166,9 @@ class AdminController implements ControllerProviderInterface
             if (!($event = $events->get($eventid)))
                 return $app->abort(404, "Event with ID $eventid doesn't exist.");
 
-            return $app['twig']->render('ngap/event_edit', array('title' => "Edit Event", 'data' => $event->data, 'sponsors'=>$app['db.em']->getRepository('\\ICFS\\Model\\Sponsors')->findAll(), 'save' => $app['request']->query->has("success")));
+            $attendance = $events->eventAttendance($eventid);
+
+            return $app['twig']->render('ngap/event_edit', array('title' => "Event Details", 'attendance'=>$attendance, 'data' => $event->data, 'sponsors'=>$app['db.em']->getRepository('\\ICFS\\Model\\Sponsors')->findAll(), 'save' => $app['request']->query->has("success")));
         })->before($this->allowed($this->nav->permission('pages')))->before($this->nav->fetch());
 
         $this->controllers->post('events/{eventid}', function (Application $app, $eventid) {

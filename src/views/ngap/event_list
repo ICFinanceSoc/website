@@ -6,18 +6,18 @@
 
 {% block content %}
 <div class="page-header">
-	<h1>Event List</h1>
+	<h1>Event List <a class="btn btn-success btn-sm" href="add">+ Add New Event</a></h1>
 </div>
 <div class="edit-panel edit-event">
-	<h2>Latest Events</h2>
-	<ul class="nav nav-tabs nav-stacked">
-{%for event in lastFive%}
-		<li><a href="{{event.eid}}"><span class="label label-warning">{{event.starttime|date("d M")}}</span> {{event.title}}</a></li>
-{%endfor%}
-	</ul>
 	<h2>Upcoming Events</h2>
 	<ul class="nav nav-tabs nav-stacked">
 {%for event in nextFive%}
+		<li><a href="{{event.eid}}"><span class="label label-warning">{{event.starttime|date("d M")}}</span> {{event.title}}</a></li>
+{%endfor%}
+	</ul>
+	<h2>Latest Events</h2>
+	<ul class="nav nav-tabs nav-stacked">
+{%for event in lastFive%}
 		<li><a href="{{event.eid}}"><span class="label label-warning">{{event.starttime|date("d M")}}</span> {{event.title}}</a></li>
 {%endfor%}
 	</ul>

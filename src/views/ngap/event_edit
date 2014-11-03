@@ -6,11 +6,36 @@
 
 {% block content %}
 <div class="page-header">
-	<h1>{% if title %}{{title}}{% else %}Editing Content Page{% endif %} <small>{{data.title}}</small></h1>
+	<h1>{% if title %}{{title}}{% else %}Editing Events{% endif %} <small>{{data.title}}</small></h1>
 </div>
 <div class="edit-panel edit-event">
-{% if save %}     <div class="alert alert-success goodsave">All saved up! (@{{'now'|date('H:i')}} server time)</div><br />
-{% elseif error %}      <div class="alert alert-error">Form not saved: <em>{{error|raw}}</em></div><br />{%endif%}
+
+{% if attendance %}
+<div class="row"><div class="col-md-12">
+    <h2>Attendence</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>Name</th>
+                <th>Department</th>
+            </tr>
+        </thead>
+        {% for a in attendance %}
+            <tr>
+                <td>{{a.uname}}</td>
+                <td>{{a.fname}} {{a.lname}}</td>
+                <td>{{a.dept}}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    <br /><br />
+    <h2>Edit Event Details</h2>
+</div></div>
+{% endif %}
+
+{% if save %}<div class="alert alert-success goodsave">All saved up! (@{{'now'|date('H:i')}} server time)</div><br />
+{% elseif error %}<div class="alert alert-error">Form not saved: <em>{{error|raw}}</em></div><br />{%endif%}
 	<form method="POST">
 		<input class="form-control" placeholder="Event Name" name="event-title" type="text" value="{{data.title}}">
 		<div class="row" style="margin: 0 0 10px;">
