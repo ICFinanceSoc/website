@@ -12,7 +12,7 @@
 
 {% if attendance %}
 <div class="row"><div class="col-md-12">
-    <h2>Attendence</h2>
+    <h2>Attendence <small>{{attendance|length}} total registrations</small></h2>
     <table class="table">
         <thead>
             <tr>
