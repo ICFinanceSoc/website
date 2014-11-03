@@ -53,9 +53,15 @@ class Navigation
                 'type' => 'holder',
                 'permission' => '2',
                 'subpages' => array(
+                    'old-system' =>array(
+                        'name' => 'New E-mail (Old System)',
+                        'type' => 'link',
+                        'permission' => 1
+                    ),
                     'new' =>array(
                         'name' => 'New E-mail',
-                        'type' => 'link'
+                        'type' => 'link',
+                        'permission' => 2
                     )
                 )
             ),
@@ -162,7 +168,7 @@ class Navigation
                         foreach ($navigation[$key]['subpages'] as $subkey=>$subvalue)
                         {
                             if (!$app['icfs.user']->adminAllowed( (isset($subvalue['permission'])) ? $subvalue['permission'] : 0 )) {
-                                echo $navigation[$key]['subpages'][$subkey];
+                                //echo $navigation[$key]['subpages'][$subkey];
                                 unset($navigation[$key]['subpages'][$subkey]);
                             }
                         }

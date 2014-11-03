@@ -1,0 +1,45 @@
+{% extends "ngap/_skeleton" %}
+
+{% block content %}
+<div class="page-header">
+	<h1>Send new Email <small>To all members</small></h1>
+</div>
+<div class="edit-panel edit-page">
+{% if save %}	<div class="alert alert-success goodsave">All saved up! (@{{'now'|date('H:i')}} server time)</div><br />
+{% elseif error %}	<div class="alert alert-danger">{{error}}</div>{%endif%}
+	<form method="POST">
+		<div class="row">
+			<div class="col-md-12">
+				<input name="subject" class="form-control input-lg" type="text" value="{{data.title}}" placeholder="Email Subject"><br />
+			</div>
+		</div>
+		<textarea name="content" class='tinymce'>{{data.content}}</textarea>
+		<div class="row">
+			<div class="col-md-12 text-right">
+				<span class="yousure" style="opacity:0"><button type="submit" name="send_email" class="btn btn-sm btn-danger" value="live">Yes, I'm sure</button></span>
+				<a class="btn btn-sm btn-danger btn-show-send">Send Live</a>
+				<button type="submit" name="send_email" class="btn btn-lg btn-primary" value="test">Send Test Email</button>
+			</div>
+		</div>
+	</form>
+</div>
+{% endblock %}
+
+{% block contentclass %} content-pageedit{% endblock %}
+
+{% block srcpagejs %}
+{% include "ngap/uploads/main_jsInclude" %}<script src="{{path('homepage')}}assets/js/vendor/tiny_mce/jquery.tinymce.js"> </script>
+{% endblock %}
+
+
+{% block pagejs %}
+{% include "ngap/uploads/main_jsPage" %}
+<script>
+$(function () {
+	$(".btn-show-send").click(function() {
+		$('.yousure').animate({'opacity' : 1, 'margin-right' : '20px'});
+	})
+    {% include "ngap/_js_tinymce" %} {# TinyMCE settings/config #}
+});
+</script>
+{% endblock %}

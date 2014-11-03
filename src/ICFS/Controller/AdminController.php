@@ -302,6 +302,30 @@ class AdminController implements ControllerProviderInterface
         ** Mailer
         ** ****************************************************** */
 
+        
+        $this->controllers->get('mail/old-system', function (Application $app) {
+            return $app['twig']->render('ngap/old_email_page', array('title' => "Create new email"));
+        })->before($this->allowed($this->nav->permission('mail')))->before($this->nav->fetch());
+
+        $this->controllers->post('mail/old-system', function (Application $app) {
+            if (strlen($app['request']->get('subject')) < 3 || strlen($app['request']->get('content')) < 3) {
+                $error = "Subject and Content must be set and over 3 characters!";
+            } else {
+                $data = array(
+                    'subject' => $app['request']->get('subject'),
+                    'content' => $app['request']->get('content')
+                );
+                if ($app['request']->get('send_email') == "live") {
+                    return "insert";
+                } else {
+                    return "send to " . $app['icfs.user']->username . "@ic.ac.uk";
+                }
+                var_dump($data);
+            }
+            return $app['twig']->render('ngap/old_email_page', array('title' => "Create new email", 'error' => $error));
+        })->before($this->allowed($this->nav->permission('mail')))->before($this->nav->fetch());
+
+
         $this->controllers->get('mail/new', function (Application $app) {
             return $app['twig']->render('ngap/email_edit.twig', array('title' => "Create new email"));
         })->before($this->allowed($this->nav->permission('mail')))->before($this->nav->fetch());
