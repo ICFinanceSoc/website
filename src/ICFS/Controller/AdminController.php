@@ -337,18 +337,18 @@ class AdminController implements ControllerProviderInterface
                     $headers .= "Content-type: text/html\r\n";
                     if ($app['debug'] !== true) {
                         mail($to, $app['request']->get('subject'), $mail, $headers);
-                        $app['session']->getFlashBag()->add('mail-success', "Test Email Sent to <strong>" . $to . "</strong>");
+                        $sent[0] = "Test Email Sent to <strong>" . $to . "</strong>";
                     } else {
-                        $app['session']->getFlashBag()->add('mail-success', "No Test Emails in Debug mode!");
+                        $sent[0] = "No Test Emails in Debug mode!";
                     }
-                    return $app->redirect($app['url_generator']->generate('ngap', array(), true) . 'mail/old-system');
                 }
             }
             return $app['twig']->render('ngap/old_email_page', array(
                 'title' => "Create new email", 
-                'error' => $error,
+                'error' => @$error,
                 'subject' => $app['request']->get('subject'),
-                'content' => $app['request']->get('content')));
+                'content' => $app['request']->get('content'),
+                'sent' => $sent));
         })->before($this->allowed($this->nav->permission('mail')))->before($this->nav->fetch());
 
 
