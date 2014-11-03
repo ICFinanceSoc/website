@@ -319,9 +319,9 @@ class AdminController implements ControllerProviderInterface
                 );
                 if ($app['request']->get('send_email') == "live") {
                     $app['db']->insert("2011_Mail", array('body' => $app['request']->get('content'),
-                        'category' => "A",
-                        'department' => "A",
-                        'upcomingevents' => '',
+                        'category' => "",
+                        'department' => "",
+                        'upcomingevents' => "",
                         'subject' => $app['request']->get('subject')));
                     $app['session']->getFlashBag()->add('mail-success', "Email has been queued to send!");
                     return $app->redirect($app['url_generator']->generate('ngap', array(), true) . 'mail/old-system');
@@ -329,7 +329,7 @@ class AdminController implements ControllerProviderInterface
                     $to = $app['icfs.user']->username . "@imperial.ac.uk";
                     $mail = $app['twig']->render('emails/newsletter', array('to'=>$to, 'body'=>$app['request']->get('content')));
 
-                    $headers  = "From: ICFS <no-reply@financesociety.co.uk>\r\n";
+                    $headers  = "From: ICFS Developer <no-reply@financesociety.co.uk>\r\n";
                     $headers .= "Content-type: text/html\r\n";
                     if ($app['debug'] !== true) {
                         mail($to, $app['request']->get('subject'), $mail, $headers);
