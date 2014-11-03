@@ -318,10 +318,14 @@ class AdminController implements ControllerProviderInterface
                     'content' => $app['request']->get('content')
                 );
                 if ($app['request']->get('send_email') == "live") {
-                    $app['db']->insert("2011_Mail", array('body' => $app['request']->get('content'),
+                    $app['db']->insert("2011_Mail", array(
+                        'body' => $app['request']->get('content'),
                         'category' => "",
                         'department' => "",
                         'upcomingevents' => "",
+                        'subject' => $app['request']->get('subject')));
+                    $app['db']->insert("2011_Mail_Archive", array(
+                        'body' => $app['request']->get('content'),
                         'subject' => $app['request']->get('subject')));
                     $app['session']->getFlashBag()->add('mail-success', "Email has been queued to send!");
                     return $app->redirect($app['url_generator']->generate('ngap', array(), true) . 'mail/old-system');
