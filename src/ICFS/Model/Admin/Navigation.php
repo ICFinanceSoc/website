@@ -51,7 +51,7 @@ class Navigation
             'mail' => array(
                 'name' => 'Messaging System »',
                 'type' => 'holder',
-                'permission' => '2',
+                'permission' => '1',
                 'subpages' => array(
                     'old-system' =>array(
                         'name' => 'New E-mail (Old System)',
