@@ -1,5 +1,5 @@
 #Imperial College Finance Society
-This is the source code behind Imperial College Finance Societie's (ICFS) website (https://financesociety.co.uk).  
+This is the source code behind Imperial College Finance Societie's (ICFS) website (https://financesoc.com).  
   
 The project is currently in the proccess of being re-written. Old, crusty PHP is being moved into Silex. 
 

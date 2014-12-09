@@ -333,7 +333,7 @@ CREATE TABLE IF NOT EXISTS `members` (
 
 CREATE TABLE IF NOT EXISTS `mail` (
   `mid` int(11) NOT NULL AUTO_INCREMENT,
-  `from-address` varchar(100) NOT NULL DEFAULT 'no-reply@financesociety.co.uk',
+  `from-address` varchar(100) NOT NULL DEFAULT 'no-reply@financesoc.com',
   `from-name` varchar(50) NOT NULL DEFAULT 'ICFS',
   `subject` tinytext NOT NULL,
   `content` text NOT NULL,

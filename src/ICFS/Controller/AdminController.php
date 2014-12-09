@@ -333,7 +333,7 @@ class AdminController implements ControllerProviderInterface
                     $to = $app['icfs.user']->username . "@imperial.ac.uk";
                     $mail = $app['twig']->render('emails/newsletter', array('to'=>$to, 'body'=>$app['request']->get('content')));
 
-                    $headers  = "From: ICFS Developer <no-reply@financesociety.co.uk>\r\n";
+                    $headers  = "From: ICFS Developer <no-reply@financesoc.com>\r\n";
                     $headers .= "Content-type: text/html\r\n";
                     if ($app['debug'] !== true) {
                         mail($to, $app['request']->get('subject'), $mail, $headers);
