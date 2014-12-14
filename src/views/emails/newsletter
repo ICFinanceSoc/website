@@ -81,7 +81,7 @@ background-image: url('http://union.ic.ac.uk/scc/finance/email/bg_email.png');
 <tr>
 <td align="center" style="padding: 12; font-family: Helvetica, Verdana, sans-serif;">
 <p>
-<singleline label="Title"><br />Sent to {{to}} because you signed up at www.financesoc.com (<a href="https://www.financesoc.com/user">unsubscribe</a>)
+<singleline label="Title"><br />Sent to {{to}} because you signed up at financesoc.com (<a href="https://financesoc.com/user">unsubscribe</a>)
 </singleline></p>
 </td>
 </tr>
