@@ -199,6 +199,18 @@ $app->get('/register', function() use ($app) {
 });
 
 
+
+$app->get('/careers', function() use ($app) {
+    // if (!$app['icfs.user']->checkLogin())
+    //     return $app->redirect($app['url_generator']->generate('userlogin'));
+    return $app['twig']->render('pages/careers', array());
+});
+$app->get('/careers/test', function() use ($app) {
+    // if (!$app['icfs.user']->checkLogin())
+    //     return $app->redirect($app['url_generator']->generate('userlogin'));
+    return $app['twig']->render('pages/careers_test', array());
+});
+
 $app->get('/{page_name}', function($page_name) use ($app) {
 	$page = new Page($app, $page_name);
 

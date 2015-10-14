@@ -1,0 +1,6 @@
+{% extends "skeleton" %}
+
+{% block content %}
+	<iframe style="border: 1px black solid;" src="https://getthatrole.com/surrey-test/" name="iframe_name" frameborder="0" scrolling="yes" align="top" width="100%" height="800px">
+	</iframe>
+{% endblock %}

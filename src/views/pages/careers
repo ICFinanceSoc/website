@@ -1,0 +1,28 @@
+{% extends "skeleton" %}
+
+{% block content %}
+
+	<img src="https://fbcdn-sphotos-a-a.akamaihd.net/hphotos-ak-xpt1/v/t34.0-12/12167280_10206749633126707_1389193061_n.jpg?oh=507d353956e2d663bdfdfdb4ec32f7aa&oe=56210117&__gda__=1444958095_dd7fc11d86266dea69d45a0c22e4a341" style="margin-top: 30px;" />
+
+	<h2>Careers Section</h2>
+	<p>We are pleased to announce a new relationship with GetThatRole, who are providing mock competency based telephone interviews to help you achieve your Spring Week, Summer Internship or Graduate job.</p>
+
+	<div class="row">
+	<div class="col-md-6">
+		<h4>Mock Phone Interviews</h4>
+		<p>Book online and one of their trained callers will conduct a 30 minute telephone interview tailored to the level, position and firm to which you are applying. Getthatrole.com makes every effort to ensure that they have the most recent questions that can be expected from each firm, and you will receive a call from a current or incoming graduate at that firm or one similar. After the interview, you will receive written feedback, an example of which can be found here.</p>
+	 	<p>We have secured a year-long mock telephone interview discount deal for our members, reducing the price by £5. Simply input Imperial Collece London and the following code when ordering.</p>
+	 	<div style="font-size:20px; padding: 10px 20px; ">ICFS070605</div>
+	</div>
+	<div class="col-md-6">
+		<h4>Online Tests</h4>
+		<p> <b>Some words here please</b> </p>
+	 	<div style="font-size:20px; padding: 10px 20px; "><a href="{{url('homepage')}}careers/test">Mock Tests</a></div>
+	</div>
+	</div>
+
+
+
+
+
+{% endblock %}
