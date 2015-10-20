@@ -50,6 +50,7 @@
               </ul>
             </li>
             <li><a href="{{url('homepage')}}events">Events</a></li>
+            <li><a href="{{url('homepage')}}careers">Careers</a></li>
             <li><a href="{{url('homepage')}}media">Media</a></li>
             <li><a href="{{url('homepage')}}sponsors">Sponsors</a></li>
             <li><a href="{{url('homepage')}}tec">TEC</a></li>
