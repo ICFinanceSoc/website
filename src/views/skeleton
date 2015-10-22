@@ -46,12 +46,12 @@
               <ul class="dropdown-menu" role="menu">
                 <li><a href="{{url('homepage')}}about">About ICFS</a></li>
                 <li><a href="{{url('homepage')}}icic">About ICIC</a></li>
+                <li><a href="{{url('homepage')}}media">Media</a></li>
                 <li><a href="{{url('homepage')}}team">The Team</a></li>
               </ul>
             </li>
             <li><a href="{{url('homepage')}}events">Events</a></li>
             <li><a href="{{url('homepage')}}careers">Careers</a></li>
-            <li><a href="{{url('homepage')}}media">Media</a></li>
             <li><a href="{{url('homepage')}}sponsors">Sponsors</a></li>
             <li><a href="{{url('homepage')}}tec">TEC</a></li>
             <li><a href="/forums">Forums</a></li>
